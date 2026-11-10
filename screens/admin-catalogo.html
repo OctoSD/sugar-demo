@@ -1,0 +1,141 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link active"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Catálogo del día</div>
+        <div class="d-page-sub">Lun 11 nov · 5 cepas publicadas · editá precios y stock en línea</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost">+ Nueva cepa</button>
+        <button class="p-btn small gold">✅ Publicar cambios</button>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi">
+        <div class="kpi-label">Cepas activas</div>
+        <div class="kpi-value">5</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Stock total</div>
+        <div class="kpi-value">38g</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Precio promedio</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 21/g</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Tokens en circulación</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 879</div>
+      </div>
+    </div>
+
+    <!-- Tabla editable -->
+    <div class="d-section">
+      <div class="d-section-h">
+        <div class="d-section-title">Cepas de hoy</div>
+        <span style="font-size:12px;color:var(--text-muted)">Editá directo en la tabla → Publicar cambios</span>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Cepa</th>
+              <th>Tipo</th>
+              <th>Stock (g)</th>
+              <th>Precio (tok/g)</th>
+              <th>Equiv. ARS/g</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🌿</span><strong>OG Kush</strong></div></td>
+              <td><span class="p-chip green">Indica</span></td>
+              <td><input type="number" value="8" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="20" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$20.000</td>
+              <td><span class="p-chip ok">● Publicado</span></td>
+              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🌟</span><strong>Super Lemon Haze</strong></div></td>
+              <td><span class="p-chip gold">Sativa</span></td>
+              <td><input type="number" value="12" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="18" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$18.000</td>
+              <td><span class="p-chip ok">● Publicado</span></td>
+              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🦍</span><strong>Gorilla Glue #4</strong></div></td>
+              <td><span class="p-chip blue">Híbrida</span></td>
+              <td><input type="number" value="5" style="width:60px;padding:5px 8px;border:1.5px solid var(--danger);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="22" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$22.000</td>
+              <td><span class="p-chip ok">● Publicado</span></td>
+              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">💙</span><strong>Blue Dream</strong></div></td>
+              <td><span class="p-chip blue">Híbrida</span></td>
+              <td><input type="number" value="10" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="20" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$20.000</td>
+              <td><span class="p-chip ok">● Publicado</span></td>
+              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🎂</span><strong>Wedding Cake</strong></div></td>
+              <td><span class="p-chip green">Indica</span></td>
+              <td><input type="number" value="3" style="width:60px;padding:5px 8px;border:1.5px solid var(--danger);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="25" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$25.000</td>
+              <td><span class="p-chip warn">⚠️ Stock bajo</span></td>
+              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:16px;display:flex;justify-content:flex-end">
+        <button class="p-btn gold" onclick="this.textContent='✅ Cambios publicados';this.disabled=true">✅ Publicar cambios</button>
+      </div>
+    </div>
+  </main>
+</div>

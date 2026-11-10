@@ -1,0 +1,222 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link active"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Dashboard · hoy</div>
+        <div class="d-page-sub">Lunes 11 nov 2026 · <span class="live-pulse">En vivo</span></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="p-btn small ghost">📅 Semana</button>
+        <button class="p-btn small primary">📥 Exportar</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid cols5" style="margin-bottom:16px">
+      <div class="kpi">
+        <div class="kpi-label">Pedidos activos</div>
+        <div class="kpi-value">12</div>
+        <div class="kpi-sub">3 en curso · 9 entregados</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Tokens hoy</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 487</div>
+        <div class="kpi-sub">≈ $487.000 ARS</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Socios activos</div>
+        <div class="kpi-value" style="color:var(--accent)">38</div>
+        <div class="kpi-sub">de 42 inscriptos</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">En admisión</div>
+        <div class="kpi-value" style="color:var(--warning)">4</div>
+        <div class="kpi-sub">2 con acción pendiente</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Eventos próximos</div>
+        <div class="kpi-value" style="color:var(--purple)">2</div>
+        <div class="kpi-sub">El Patio · La Grande</div>
+      </div>
+    </div>
+
+    <!-- Pedidos + Stock -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+      <div class="d-section" style="margin-bottom:0">
+        <div class="d-section-h">
+          <div class="d-section-title">Pedidos en curso</div>
+          <span class="p-btn small ghost" data-goto="admin-pedidos" style="cursor:pointer;font-size:12px">Ver todos →</span>
+        </div>
+        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer">
+          <div class="p-avatar mint sm">VR</div>
+          <div class="list-item-main">
+            <div class="list-item-title">#P-243 · Valentina R.</div>
+            <div class="list-item-sub">OG Kush 2g · GG4 1g · 🪙 62</div>
+          </div>
+          <span class="p-chip warn">Armando</span>
+        </div>
+        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer">
+          <div class="p-avatar green sm">MS</div>
+          <div class="list-item-main">
+            <div class="list-item-title">#P-244 · Matías S.</div>
+            <div class="list-item-sub">Wedding Cake 2g · 🪙 50</div>
+          </div>
+          <span class="p-chip info">Nuevo</span>
+        </div>
+        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer;border-bottom:none">
+          <div class="p-avatar gold sm">DF</div>
+          <div class="list-item-main">
+            <div class="list-item-title">#P-245 · Diego F.</div>
+            <div class="list-item-sub">SLH 3g · 🪙 54</div>
+          </div>
+          <span class="p-chip ok">Listo ✓</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">⚠️ Stock crítico</div>
+            <span class="p-btn small ghost" data-goto="admin-catalogo" style="cursor:pointer;font-size:12px">Gestionar →</span>
+          </div>
+          <div class="list-item">
+            <div style="font-size:24px">🎂</div>
+            <div class="list-item-main">
+              <div class="list-item-title">Wedding Cake</div>
+              <div class="list-item-sub">Indica · 25 tok/g</div>
+            </div>
+            <span class="p-chip danger">3g</span>
+          </div>
+          <div class="list-item" style="border-bottom:none">
+            <div style="font-size:24px">🌿</div>
+            <div class="list-item-main">
+              <div class="list-item-title">OG Kush</div>
+              <div class="list-item-sub">Indica · 20 tok/g</div>
+            </div>
+            <span class="p-chip warn">8g</span>
+          </div>
+        </div>
+
+        <!-- Evento próximo -->
+        <div class="d-section" style="margin-bottom:0;cursor:pointer" data-goto="admin-eventos">
+          <div class="d-section-h" style="margin-bottom:8px">
+            <div class="d-section-title">Próximo evento</div>
+            <span class="p-btn small ghost" style="font-size:12px">Ver todos →</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="font-size:28px">🎵</div>
+            <div>
+              <div style="font-weight:700;font-size:14px">El Patio Sounds</div>
+              <div style="font-size:12px;color:var(--text-muted)">Sáb 16 Nov · 20hs · En el club</div>
+              <div style="margin-top:6px"><span class="p-chip ok">23 asistentes confirmados</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Distribución membresías -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Distribución de membresías</div>
+        <span class="p-btn small ghost" data-goto="admin-membresias" style="cursor:pointer;font-size:12px">Ver detalle →</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">🌱 Semilla</div>
+          <div class="pbar"><div class="pbar-fill" style="width:32%;background:var(--accent)"></div></div>
+          <div style="font-size:13px;font-weight:700;margin-top:4px">12 socios</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">⭐ Brote</div>
+          <div class="pbar"><div class="pbar-fill gold" style="width:47%"></div></div>
+          <div style="font-size:13px;font-weight:700;margin-top:4px">18 socios</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">🌿 Planta Full</div>
+          <div class="pbar"><div class="pbar-fill primary" style="width:21%"></div></div>
+          <div style="font-size:13px;font-weight:700;margin-top:4px">8 socios</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actividad -->
+    <div class="d-section">
+      <div class="d-section-h">
+        <div class="d-section-title">Actividad reciente</div>
+        <span class="live-pulse" style="font-size:11px">En vivo</span>
+      </div>
+      <div class="activity-feed">
+        <div class="activity-item">
+          <div class="activity-dot green"></div>
+          <div class="activity-main">
+            <div class="activity-text"><strong>Valentina Rodríguez</strong> confirmó pedido #P-243 — OG Kush 2g + GG#4 1g</div>
+            <div class="activity-time">hace 4 min</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot ok"></div>
+          <div class="activity-main">
+            <div class="activity-text">Pedido <strong>#P-245</strong> (Diego F.) marcado como Listo para retiro</div>
+            <div class="activity-time">hace 12 min</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot gold"></div>
+          <div class="activity-main">
+            <div class="activity-text"><strong>Lucía Torres</strong> compró 50 tokens · $50.000 ARS en efectivo</div>
+            <div class="activity-time">hace 23 min</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot info"></div>
+          <div class="activity-main">
+            <div class="activity-text"><strong>Nadia Herrera</strong> aprobada para habilitación como socia</div>
+            <div class="activity-time">hace 1h 15min</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot warn"></div>
+          <div class="activity-main">
+            <div class="activity-text">Wedding Cake quedó con <strong>3g</strong> disponibles (stock crítico)</div>
+            <div class="activity-time">hace 2h</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

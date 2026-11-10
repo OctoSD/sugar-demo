@@ -1,0 +1,91 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="p-header compact">
+  <div class="p-header-row">
+    <div class="p-back" data-goto="socio-catalogo">←</div>
+    <h1>Tu pedido</h1>
+    <div style="width:36px"></div>
+  </div>
+</div>
+
+<div class="p-body">
+
+  <div class="p-card">
+    <div class="p-card-title" style="margin-bottom:12px">Ítems</div>
+
+    <div class="order-summary-row">
+      <div>
+        <div style="font-weight:600">OG Kush</div>
+        <div style="font-size:12px;color:var(--text-muted)">🪙 20 tok/g</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:13px;color:var(--gold-dark);font-weight:700">🪙 40</span>
+        <div class="qty-counter">
+          <button>−</button>
+          <span class="qty-val">2</span>
+          <button>+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-summary-row">
+      <div>
+        <div style="font-weight:600">Gorilla Glue #4</div>
+        <div style="font-size:12px;color:var(--text-muted)">🪙 22 tok/g</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:13px;color:var(--gold-dark);font-weight:700">🪙 22</span>
+        <div class="qty-counter">
+          <button>−</button>
+          <span class="qty-val">1</span>
+          <button>+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-summary-total">
+      <span>Total</span>
+      <span style="color:var(--gold-dark)">🪙 62 tokens</span>
+    </div>
+  </div>
+
+  <!-- Saldo -->
+  <div class="p-card" style="margin-top:10px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--text-muted)">Tu saldo actual</div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-dark)">🪙 23 tokens</div>
+      </div>
+      <div>
+        <div style="font-size:13px;color:var(--text-muted)">Total pedido</div>
+        <div style="font-size:18px;font-weight:800;color:var(--text)">🪙 62 tokens</div>
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="p-chip danger">⚠️ Saldo insuficiente · Te faltan 39 tokens</span>
+    </div>
+  </div>
+
+  <div class="p-alert warn" style="margin-top:12px">
+    <span>💰</span>
+    <div>Los tokens se pagan en efectivo al retirar el pedido. Coordinar con el equipo del club.</div>
+  </div>
+
+  <!-- Nota -->
+  <div style="margin-top:14px">
+    <label class="p-input-label">Nota para el equipo (opcional)</label>
+    <textarea class="p-input" rows="3" placeholder="Ej: retiro entre 17 y 19hs, llamo antes de ir…" style="resize:none"></textarea>
+  </div>
+
+  <button class="p-btn gold block" style="margin-top:14px" data-goto="socio-confirmacion">Confirmar pedido</button>
+  <button class="p-btn block" style="margin-top:8px" data-goto="socio-membresia">Cargar más tokens →</button>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="socio-home"><div class="p-nav-tab-icon">🏠</div>Inicio</div>
+  <div class="p-nav-tab active"><div class="p-nav-tab-icon">🌿</div>Catálogo</div>
+  <div class="p-nav-tab" data-goto="socio-historial"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab" data-goto="socio-eventos"><div class="p-nav-tab-icon">🎵</div>Eventos</div>
+  <div class="p-nav-tab" data-goto="socio-perfil"><div class="p-nav-tab-icon">👤</div>Perfil</div>
+</div>

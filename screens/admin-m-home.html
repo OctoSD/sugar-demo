@@ -1,0 +1,121 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="p-header">
+  <div class="p-header-row">
+    <div>
+      <h1>🛡️ Panel Admin</h1>
+      <div class="p-subtitle">Club Rainbow</div>
+    </div>
+    <div class="p-avatar gold lg">TG</div>
+  </div>
+  <div style="margin-top:8px;font-size:12px;opacity:0.8">Tomás García · <span class="live-pulse" style="font-size:11px">En vivo</span></div>
+</div>
+
+<div class="p-body tight">
+
+  <!-- KPI cards -->
+  <div class="p-section-h" style="margin-top:4px">
+    <h2>Resumen del día</h2>
+  </div>
+
+  <div class="p-card" data-goto="admin-m-pedidos" style="cursor:pointer;margin-bottom:10px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="font-size:36px">📦</div>
+      <div style="flex:1">
+        <div style="font-size:22px;font-weight:800;color:var(--text);letter-spacing:-0.5px">12 pedidos activos</div>
+        <div style="font-size:13px;color:var(--warning);font-weight:600;margin-top:2px">3 nuevos sin atender</div>
+      </div>
+      <div style="color:var(--text-muted);font-size:18px">›</div>
+    </div>
+  </div>
+
+  <div class="p-card" data-goto="admin-m-socios" style="cursor:pointer;margin-bottom:10px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="font-size:36px">👥</div>
+      <div style="flex:1">
+        <div style="font-size:22px;font-weight:800;color:var(--text);letter-spacing:-0.5px">38 socios</div>
+        <div style="font-size:13px;color:var(--text-muted);font-weight:600;margin-top:2px">2 vencimientos este mes</div>
+      </div>
+      <div style="color:var(--text-muted);font-size:18px">›</div>
+    </div>
+  </div>
+
+  <div class="p-card" data-goto="admin-m-tokens" style="cursor:pointer;margin-bottom:10px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="font-size:36px">🪙</div>
+      <div style="flex:1">
+        <div style="font-size:22px;font-weight:800;color:var(--gold-dark);letter-spacing:-0.5px">487 tokens</div>
+        <div style="font-size:13px;color:var(--text-muted);font-weight:600;margin-top:2px">circulación hoy</div>
+      </div>
+      <div style="color:var(--text-muted);font-size:18px">›</div>
+    </div>
+  </div>
+
+  <!-- Pedidos urgentes -->
+  <div class="p-section-h">
+    <h2>Pedidos urgentes</h2>
+    <span class="p-see-all" data-goto="admin-m-pedidos">Ver todos</span>
+  </div>
+
+  <div class="p-card">
+    <div class="list-item">
+      <div class="p-avatar gold sm">VR</div>
+      <div class="list-item-main">
+        <div class="list-item-title">P-243 · Valentina R.</div>
+        <div class="list-item-sub">Esperando armado</div>
+      </div>
+      <span class="p-chip gold">Pendiente</span>
+    </div>
+    <div class="list-item">
+      <div class="p-avatar mint sm">DF</div>
+      <div class="list-item-main">
+        <div class="list-item-title">P-244 · Diego F.</div>
+        <div class="list-item-sub">Armando...</div>
+      </div>
+      <span class="p-chip warn">Armando</span>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <div class="p-avatar green sm">MS</div>
+      <div class="list-item-main">
+        <div class="list-item-title">P-245 · Matías S.</div>
+        <div class="list-item-sub">Listo · esperando retiro</div>
+      </div>
+      <span class="p-chip ok">Listo ✓</span>
+    </div>
+  </div>
+
+  <!-- Stock alert -->
+  <div class="p-alert warn" style="margin-top:10px">
+    <span style="font-size:18px">⚠️</span>
+    <div>
+      <strong>Stock bajo</strong>
+      OG Kush — solo 8g · Wedding Cake — solo 3g
+    </div>
+  </div>
+
+  <!-- Gestión del club -->
+  <div class="p-section-h" style="margin-top:16px">
+    <h2>Gestión</h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div class="p-card" style="cursor:pointer;text-align:center;padding:16px" data-goto="admin-reportes">
+      <div style="font-size:28px;margin-bottom:6px">📈</div>
+      <div style="font-size:13px;font-weight:700">Reportes</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Resumen mensual</div>
+    </div>
+    <div class="p-card" style="cursor:pointer;text-align:center;padding:16px" data-goto="admin-config">
+      <div style="font-size:28px;margin-bottom:6px">⚙️</div>
+      <div style="font-size:13px;font-weight:700">Configuración</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Club y membresías</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab active" data-goto="admin-m-home"><div class="p-nav-tab-icon">📊</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="admin-m-pedidos"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab" data-goto="admin-m-socios"><div class="p-nav-tab-icon">👥</div>Socios</div>
+  <div class="p-nav-tab" data-goto="admin-m-tokens"><div class="p-nav-tab-icon">🪙</div>Tokens</div>
+</div>

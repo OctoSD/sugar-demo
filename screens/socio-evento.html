@@ -1,0 +1,80 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div style="background:linear-gradient(160deg,var(--primary-dark) 0%,var(--primary) 100%);padding:52px 20px 32px;color:white;position:relative">
+  <div class="p-back" data-goto="socio-eventos" style="position:absolute;top:50px;left:16px">←</div>
+  <div style="text-align:center">
+    <div style="font-size:48px;margin-bottom:12px">🎵</div>
+    <div style="font-size:24px;font-weight:900;letter-spacing:-0.5px;font-family:'Space Grotesk',sans-serif">El Patio Sounds</div>
+    <div style="font-size:13px;opacity:0.75;margin-top:6px">Evento del club · entrada libre para socios</div>
+    <div style="margin-top:12px"><span class="p-chip ok">Del club</span></div>
+  </div>
+</div>
+
+<div class="p-body">
+
+  <!-- Info -->
+  <div class="p-card">
+    <div class="list-item">
+      <span style="font-size:18px">📅</span>
+      <div class="list-item-main">
+        <div class="list-item-title">Sábado 16 de noviembre</div>
+        <div class="list-item-sub">Doors: 20:00hs · Show: 21:00hs</div>
+      </div>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <span style="font-size:18px">📍</span>
+      <div class="list-item-main">
+        <div class="list-item-title">En el club</div>
+        <div class="list-item-sub">Palermo, CABA · ver dirección en app</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Descripción -->
+  <div class="p-card" style="margin-top:10px">
+    <div class="p-card-title" style="margin-bottom:8px">Sobre el evento</div>
+    <div style="font-size:13px;line-height:1.6;color:var(--text)">
+      Una noche de música en vivo para los socios del club. Tres artistas locales de la escena underground porteña se presentan en el espacio del club. Entrada completamente libre para todos los socios activos del club. Traé a tu acompañante — el evento es abierto para socios.
+    </div>
+  </div>
+
+  <!-- Lineup -->
+  <div class="p-section-h">
+    <h2>Lineup</h2>
+  </div>
+  <div class="p-card">
+    <div class="list-item">
+      <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1B4332,#52B788);display:flex;align-items:center;justify-content:center;font-size:20px">🎸</div>
+      <div class="list-item-main">
+        <div class="list-item-title">Los Cipreses</div>
+        <div class="list-item-sub">Folk electrónico · 21:00hs</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7D5F0B,#C9A227);display:flex;align-items:center;justify-content:center;font-size:20px">🎹</div>
+      <div class="list-item-main">
+        <div class="list-item-title">Mara & La Banda</div>
+        <div class="list-item-sub">Jazz tropical · 22:00hs</div>
+      </div>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1E3A5F,#2563EB);display:flex;align-items:center;justify-content:center;font-size:20px">🎷</div>
+      <div class="list-item-main">
+        <div class="list-item-title">DJ Pampero</div>
+        <div class="list-item-sub">Cierre electrónico · 23:00hs</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="p-btn accent block" style="margin-top:14px" id="rsvp-btn" onclick="document.getElementById('rsvp-btn').innerHTML='✅ ¡Anotado! Te vemos el sábado';document.getElementById('rsvp-btn').disabled=true;document.getElementById('rsvp-btn').className='p-btn block'">✅ Confirmar asistencia</button>
+  <button class="p-btn block" style="margin-top:8px" data-goto="socio-eventos">← Volver a Eventos</button>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="socio-home"><div class="p-nav-tab-icon">🏠</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="socio-catalogo"><div class="p-nav-tab-icon">🌿</div>Catálogo</div>
+  <div class="p-nav-tab" data-goto="socio-historial"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab active"><div class="p-nav-tab-icon">🎵</div>Eventos</div>
+  <div class="p-nav-tab" data-goto="socio-perfil"><div class="p-nav-tab-icon">👤</div>Perfil</div>
+</div>

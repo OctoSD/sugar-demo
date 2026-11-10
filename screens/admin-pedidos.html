@@ -1,0 +1,154 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link active"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Pedidos</div>
+        <div class="d-page-sub">Lun 11 nov · gestión en tiempo real</div>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Nuevos</div>
+        <div class="kpi-value" style="color:var(--info)">3</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--warning)">
+        <div class="kpi-label">Armando</div>
+        <div class="kpi-value" style="color:var(--warning)">2</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Listos</div>
+        <div class="kpi-value" style="color:var(--success)">1</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--text-muted)">
+        <div class="kpi-label">Retirados hoy</div>
+        <div class="kpi-value">6</div>
+      </div>
+    </div>
+
+    <!-- Kanban -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+
+      <!-- Nuevo -->
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
+        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--info);border-top:3px solid var(--info)">
+          Nuevo <span style="background:rgba(14,165,233,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">3</span>
+        </div>
+        <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
+          <div style="border:1px solid var(--info-light);background:var(--info-light);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">#P-244 · Matías S.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Wedding Cake 2g · 🪙 50</div>
+            <div style="font-size:11px;color:var(--text-muted)">hace 5 min</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="this.closest('.d-shell').querySelectorAll('[data-goto]')[0]">Iniciar armado →</button>
+          </div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">#P-246 · Ana B.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Blue Dream 3g · 🪙 60</div>
+            <div style="font-size:11px;color:var(--text-muted)">hace 18 min</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Iniciar armado →</button>
+          </div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">#P-247 · Federico Á.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">OG Kush 1g · 🪙 20</div>
+            <div style="font-size:11px;color:var(--text-muted)">hace 32 min</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Iniciar armado →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Armando -->
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
+        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--warning);border-top:3px solid var(--warning)">
+          Armando <span style="background:rgba(245,158,11,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
+        </div>
+        <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
+          <div style="border:1px solid var(--warning-light);background:var(--warning-light);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">#P-243 · Valentina R.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">OG Kush 2g + GG#4 1g · 🪙 62</div>
+            <div style="font-size:11px;color:var(--text-muted)">Tomás · 8 min armando</div>
+            <button class="p-btn small gold" style="margin-top:8px;font-size:11px;width:100%">Marcar listo ✓</button>
+          </div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">#P-245 · Diego F.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">SLH 3g · 🪙 54</div>
+            <div style="font-size:11px;color:var(--text-muted)">Rodrigo · 3 min armando</div>
+            <button class="p-btn small gold" style="margin-top:8px;font-size:11px;width:100%">Marcar listo ✓</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listo -->
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
+        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--success);border-top:3px solid var(--success)">
+          Listo para retiro <span style="background:rgba(34,197,94,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
+        </div>
+        <div style="padding:8px">
+          <div style="border:1px solid var(--success-light);background:var(--success-light);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">#P-241 · Laura G.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Wedding Cake 1g · 🪙 25</div>
+            <div style="font-size:11px;color:var(--text-muted)">Esperando al socio · 15 min</div>
+            <button class="p-btn small accent" style="margin-top:8px;font-size:11px;width:100%">Marcar retirado ✅</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retirado -->
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
+        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);border-top:3px solid var(--text-muted)">
+          Retirado hoy <span style="background:var(--bg-tint);padding:2px 7px;border-radius:100px;margin-left:4px">6</span>
+        </div>
+        <div style="padding:8px;display:flex;flex-direction:column;gap:6px">
+          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7">
+            <div style="font-size:13px;font-weight:700">#P-240 · Valentina R.</div>
+            <div style="font-size:11px;color:var(--text-muted)">OG Kush 3g · 🪙 60 · 09:45</div>
+          </div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7">
+            <div style="font-size:13px;font-weight:700">#P-239 · Matías S.</div>
+            <div style="font-size:11px;color:var(--text-muted)">Blue Dream 2g · 🪙 40 · 10:12</div>
+          </div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7">
+            <div style="font-size:13px;font-weight:700">#P-238 · Diego F.</div>
+            <div style="font-size:11px;color:var(--text-muted)">Wedding Cake + GG#4 · 🪙 72 · 10:33</div>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted);text-align:center;padding:4px">+3 más →</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

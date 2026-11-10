@@ -1,0 +1,106 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="p-header compact">
+  <h1>🪙 Cargar tokens</h1>
+</div>
+
+<div class="p-body tight">
+
+  <!-- Quick load form -->
+  <div class="p-card" style="margin-top:4px">
+
+    <div class="p-card-title" style="margin-bottom:12px">Recarga rápida</div>
+
+    <!-- Socio selector -->
+    <label class="p-input-label">Socio</label>
+    <select class="p-input" style="margin-bottom:14px">
+      <option>Valentina Rodríguez · #1042</option>
+      <option>Matías S. · #1051</option>
+      <option>Diego F. · #1023</option>
+    </select>
+
+    <!-- Preset amounts -->
+    <label class="p-input-label" style="margin-bottom:8px;display:block">Monto</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+      <button class="p-btn block small">25 tok</button>
+      <button class="p-btn block small">50 tok</button>
+      <button class="p-btn gold block small" style="outline:2px solid var(--gold);outline-offset:2px">100 tok</button>
+      <button class="p-btn block small">200 tok</button>
+    </div>
+
+    <!-- Custom amount -->
+    <label class="p-input-label">Monto personalizado</label>
+    <input class="p-input" type="number" placeholder="Ej: 75" style="margin-bottom:14px" />
+
+    <!-- Preview -->
+    <div style="background:var(--gold-light);border:1px solid rgba(201,162,39,0.3);border-radius:12px;padding:12px 14px;margin-bottom:14px;text-align:center">
+      <span class="token-badge">🪙 100 tokens · $100.000 ARS · saldo nuevo: 123 tok</span>
+    </div>
+
+    <!-- Confirm button -->
+    <button class="p-btn gold block" style="font-size:15px;padding:14px">Confirmar recarga</button>
+
+  </div>
+
+  <!-- Últimas recargas -->
+  <div class="p-section-h">
+    <h2>Últimas recargas</h2>
+  </div>
+
+  <div class="p-card">
+
+    <div class="list-item">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--success);flex-shrink:0">+</div>
+      <div class="list-item-main">
+        <div class="list-item-title">+ 100 tok · Valentina R. #1042</div>
+        <div class="list-item-sub">Lun 10 Nov · Tomás</div>
+      </div>
+      <span class="token-badge" style="font-size:11px">🪙 100</span>
+    </div>
+
+    <div class="list-item">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--success);flex-shrink:0">+</div>
+      <div class="list-item-main">
+        <div class="list-item-title">+ 60 tok · Matías S. #1051</div>
+        <div class="list-item-sub">Lun 10 Nov · Tomás</div>
+      </div>
+      <span class="token-badge" style="font-size:11px">🪙 60</span>
+    </div>
+
+    <div class="list-item">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--danger-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--danger);flex-shrink:0">−</div>
+      <div class="list-item-main">
+        <div class="list-item-title">− 62 tok · Pedido #P-242</div>
+        <div class="list-item-sub">Dom 9 Nov · automático</div>
+      </div>
+      <span class="p-chip muted">Auto</span>
+    </div>
+
+    <div class="list-item">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--success);flex-shrink:0">+</div>
+      <div class="list-item-main">
+        <div class="list-item-title">+ 50 tok · Diego F. #1023</div>
+        <div class="list-item-sub">Sáb 8 Nov · Tomás</div>
+      </div>
+      <span class="token-badge" style="font-size:11px">🪙 50</span>
+    </div>
+
+    <div class="list-item" style="border-bottom:none">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--danger-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--danger);flex-shrink:0">−</div>
+      <div class="list-item-main">
+        <div class="list-item-title">− 44 tok · Pedido #P-241</div>
+        <div class="list-item-sub">Vie 7 Nov · automático</div>
+      </div>
+      <span class="p-chip muted">Auto</span>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="admin-m-home"><div class="p-nav-tab-icon">📊</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="admin-m-pedidos"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab" data-goto="admin-m-socios"><div class="p-nav-tab-icon">👥</div>Socios</div>
+  <div class="p-nav-tab active" data-goto="admin-m-tokens"><div class="p-nav-tab-icon">🪙</div>Tokens</div>
+</div>

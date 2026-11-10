@@ -1,0 +1,129 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link active"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Socios</div>
+        <div class="d-page-sub">38 socios habilitados · 42 inscriptos</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="text" placeholder="Buscar socio…" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;width:220px">
+        <button class="p-btn small ghost">Todos</button>
+        <button class="p-btn small ghost">Activos</button>
+        <button class="p-btn small ghost">Con REPROCANN</button>
+      </div>
+    </div>
+
+    <div class="d-table">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Socio</th>
+            <th>REPROCANN</th>
+            <th>Consulta médica</th>
+            <th class="right">Tokens</th>
+            <th>Membresía</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">1042</td>
+            <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">VR</div><div><strong>Valentina Rodríguez</strong><div style="font-size:11px;color:var(--text-muted)">valentina.r@gmail.com</div></div></div></td>
+            <td><span class="p-chip ok">✓ R-2024-00478</span></td>
+            <td style="font-size:12px;color:var(--text-muted)">Dra. Pérez · Sep 2024</td>
+            <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 23</td>
+            <td><span class="p-chip gold">⭐ Brote</span></td>
+            <td><span class="p-chip ok">Activo</span></td>
+            <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver →</button></td>
+          </tr>
+          <tr>
+            <td class="num">1051</td>
+            <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar green sm">MS</div><div><strong>Matías Suárez</strong><div style="font-size:11px;color:var(--text-muted)">matias.s@hotmail.com</div></div></div></td>
+            <td><span class="p-chip ok">✓ R-2024-00512</span></td>
+            <td style="font-size:12px;color:var(--text-muted)">Dr. Molina · Oct 2024</td>
+            <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 70</td>
+            <td><span class="p-chip ok" style="background:var(--primary-light)">🌿 Planta Full</span></td>
+            <td><span class="p-chip ok">Activo</span></td>
+            <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver →</button></td>
+          </tr>
+          <tr>
+            <td class="num">1023</td>
+            <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">DF</div><div><strong>Diego Fernández</strong><div style="font-size:11px;color:var(--text-muted)">diego.f@gmail.com</div></div></div></td>
+            <td><span class="p-chip ok">✓ R-2023-00291</span></td>
+            <td style="font-size:12px;color:var(--text-muted)">Dra. Pérez · Mar 2024</td>
+            <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 45</td>
+            <td><span class="p-chip gold">⭐ Brote</span></td>
+            <td><span class="p-chip ok">Activo</span></td>
+            <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver →</button></td>
+          </tr>
+          <tr>
+            <td class="num">1035</td>
+            <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">AB</div><div><strong>Ana Benítez</strong><div style="font-size:11px;color:var(--text-muted)">ana.b@gmail.com</div></div></div></td>
+            <td><span class="p-chip ok">✓ R-2024-00398</span></td>
+            <td style="font-size:12px;color:var(--text-muted)">Dr. Molina · Jul 2024</td>
+            <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 15</td>
+            <td><span class="p-chip muted">🌱 Semilla</span></td>
+            <td><span class="p-chip ok">Activo</span></td>
+            <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver →</button></td>
+          </tr>
+          <tr>
+            <td class="num">1067</td>
+            <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">LG</div><div><strong>Laura Gómez</strong><div style="font-size:11px;color:var(--text-muted)">laura.g@gmail.com</div></div></div></td>
+            <td><span class="p-chip ok">✓ R-2024-00441</span></td>
+            <td style="font-size:12px;color:var(--warning)">⚠️ Pendiente</td>
+            <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+            <td><span class="p-chip muted">🌱 Semilla</span></td>
+            <td><span class="p-chip warn">Pendiente</span></td>
+            <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver →</button></td>
+          </tr>
+          <tr>
+            <td class="num">1078</td>
+            <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar success sm">FÁ</div><div><strong>Federico Álvarez</strong><div style="font-size:11px;color:var(--text-muted)">fede.a@gmail.com</div></div></div></td>
+            <td><span class="p-chip ok">✓ R-2024-00489</span></td>
+            <td style="font-size:12px;color:var(--text-muted)">Dr. Molina · Nov 2024</td>
+            <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+            <td><span class="p-chip muted">🌱 Semilla</span></td>
+            <td><span class="p-chip info">Habilitado hoy</span></td>
+            <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver →</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>

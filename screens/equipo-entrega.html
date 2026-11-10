@@ -1,0 +1,64 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="equipo-header">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div data-goto="equipo-hub" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;cursor:pointer">←</div>
+    <div>
+      <h1 style="font-size:20px;font-weight:800;margin:0">Retiros del día</h1>
+      <div style="font-size:12px;opacity:0.75">Lun 11 Nov · 2 pedidos listos</div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:16px;flex:1;background:#060E0A">
+
+  <!-- Nota pago -->
+  <div style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.3);border-radius:12px;padding:12px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start">
+    <span style="font-size:18px">💰</span>
+    <div style="font-size:13px;color:#C9A227;font-weight:600">El pago es en efectivo al momento del retiro</div>
+  </div>
+
+  <!-- Pedido 1 — listo -->
+  <div style="background:#0D1E14;border:1.5px solid rgba(34,197,94,0.4);border-radius:14px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:11px;color:#22C55E;font-weight:700;margin-bottom:4px">LISTO · P-241</div>
+        <div style="font-size:16px;font-weight:800;color:white">Diego Fernández</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Socio #1023</div>
+      </div>
+      <div class="p-avatar gold sm">DF</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:12px;margin-bottom:12px">
+      <div style="font-size:13px;color:rgba(255,255,255,0.8)">💙 Blue Dream · 2g</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.8)">🌿 OG Kush · 1g</div>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:14px;font-weight:800;color:#C9A227">💵 $60.000 ARS en efectivo</div>
+      </div>
+    </div>
+    <button class="p-btn gold block" onclick="this.closest('[style]').style.opacity='0.5';this.textContent='✅ Retirado';this.disabled=true;document.getElementById('summary').innerHTML='2 retiros completados · $107.000 ARS cobrados'">Marcar retirado ✅</button>
+  </div>
+
+  <!-- Pedido 2 — retirado -->
+  <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:16px;opacity:0.55;margin-bottom:16px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:11px;color:#22C55E;font-weight:700;margin-bottom:4px">✅ RETIRADO · P-240</div>
+        <div style="font-size:16px;font-weight:800;color:white">Matías Suárez</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Socio #1051 · retirado hace 20 min</div>
+      </div>
+      <div class="p-avatar green sm">MS</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:10px">
+      <div style="font-size:13px;color:rgba(255,255,255,0.7)">🎂 Wedding Cake · 1g</div>
+      <div style="font-size:12px;color:rgba(201,162,39,0.7);font-weight:700;margin-top:4px">$47.000 ARS · cobrado ✓</div>
+    </div>
+  </div>
+
+  <!-- Resumen del día -->
+  <div style="background:rgba(82,183,136,0.08);border:1px solid rgba(82,183,136,0.2);border-radius:14px;padding:14px;text-align:center">
+    <div style="font-size:12px;color:rgba(82,183,136,0.7);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:4px">Resumen del día</div>
+    <div id="summary" style="font-size:15px;font-weight:800;color:white">1 retiro completado · $47.000 ARS cobrados</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">1 pedido listo esperando retiro</div>
+  </div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div style="background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 60px 24px 40px; text-align:center; color:white;">
+  <div style="width:72px;height:72px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px;box-shadow:0 0 0 0 rgba(34,197,94,0.5);animation:confirmPulse 1.5s ease-out forwards">✓</div>
+  <h1 style="font-size:26px;font-weight:900;letter-spacing:-0.5px;margin:0 0 6px">¡Pedido confirmado!</h1>
+  <div style="font-size:14px;opacity:0.75">Te avisamos cuando esté listo para retirar</div>
+</div>
+<style>
+@keyframes confirmPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  70%  { box-shadow: 0 0 0 20px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+</style>
+
+<div class="p-body">
+
+  <div class="p-card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div style="font-weight:800;font-size:16px">Pedido #P-243</div>
+      <span class="p-chip ok">✓ Confirmado</span>
+    </div>
+    <div style="font-size:13px;color:var(--text-muted)">OG Kush 2g + Gorilla Glue #4 1g</div>
+    <div style="font-size:13px;color:var(--gold-dark);font-weight:700;margin-top:4px">🪙 62 tokens</div>
+    <div class="p-divider"></div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px">
+      <span>🏠</span>
+      <span>Retiro en club · Palermo, CABA</span>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="p-card" style="margin-top:10px">
+    <div class="p-card-title" style="margin-bottom:14px">Estado del pedido</div>
+    <ul class="timeline">
+      <li class="done">Recibido</li>
+      <li class="active">Armando</li>
+      <li>Listo</li>
+      <li>Retirado</li>
+    </ul>
+  </div>
+
+  <div class="p-alert gold" style="margin-top:12px">
+    <span>💰</span>
+    <div>
+      <strong>Saldo pendiente de cobro al retirar</strong>
+      $62.000 ARS en efectivo · coordiná con el equipo
+    </div>
+  </div>
+
+  <button class="p-btn gold block" style="margin-top:14px" data-goto="socio-qr">📱 Ver QR de retiro</button>
+  <button class="p-btn primary block" style="margin-top:8px" data-goto="socio-historial">📡 Seguir mi pedido</button>
+  <button class="p-btn block" style="margin-top:8px" data-goto="socio-home">Volver al inicio</button>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="socio-home"><div class="p-nav-tab-icon">🏠</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="socio-catalogo"><div class="p-nav-tab-icon">🌿</div>Catálogo</div>
+  <div class="p-nav-tab active"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab" data-goto="socio-eventos"><div class="p-nav-tab-icon">🎵</div>Eventos</div>
+  <div class="p-nav-tab" data-goto="socio-perfil"><div class="p-nav-tab-icon">👤</div>Perfil</div>
+</div>

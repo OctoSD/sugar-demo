@@ -1,0 +1,173 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link active"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Eventos del club</div>
+        <div class="d-page-sub">3 eventos en noviembre</div>
+      </div>
+      <button class="p-btn small gold" onclick="document.getElementById('create-event-form').style.display=document.getElementById('create-event-form').style.display==='none'?'block':'none'">+ Crear evento</button>
+    </div>
+
+    <!-- Event cards -->
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:16px">
+
+      <!-- El Patio Sounds -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:36px">🎵</div>
+            <div>
+              <div style="font-size:17px;font-weight:800">El Patio Sounds</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Sáb 16 Nov · 20:00hs · 🏠 En el club</div>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                <span class="p-chip ok">Del club</span>
+                <span class="p-chip mint">🧑 23 asistentes confirmados</span>
+                <span class="p-chip muted">Entrada libre</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0">
+            <button class="p-btn small ghost">✏️ Editar</button>
+            <button class="p-btn small primary">👥 Ver RSVPs</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="font-size:13px;color:var(--text-muted)">Músicos: Los Cipreses · Mara &amp; La Banda · DJ Pampero</div>
+        </div>
+      </div>
+
+      <!-- La Grande -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:36px">🎶</div>
+            <div>
+              <div style="font-size:17px;font-weight:800">La Grande</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Vie 22 Nov · 📍 Dumont 40</div>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                <span class="p-chip blue">Partner</span>
+                <span class="p-chip gold">20 pases totales</span>
+                <span class="p-chip ok">8 usados</span>
+                <span class="p-chip muted">12 disponibles</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0">
+            <button class="p-btn small ghost">✏️ Editar</button>
+            <button class="p-btn small primary">🎟️ Gestionar pases</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="font-size:13px;color:var(--text-muted)">Pases gratuitos para socios activos · Usados por: Valentina R., Diego F., y 6 más</div>
+        </div>
+      </div>
+
+      <!-- Bomba de Tiempo -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:36px">🥁</div>
+            <div>
+              <div style="font-size:17px;font-weight:800">Bomba de Tiempo</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Dom 30 Nov · 17:00hs · 📍 C.C. Konex</div>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                <span class="p-chip blue">Partner</span>
+                <span class="p-chip gold">30 pases 2×1</span>
+                <span class="p-chip ok">5 usados</span>
+                <span class="p-chip muted">25 disponibles</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0">
+            <button class="p-btn small ghost">✏️ Editar</button>
+            <button class="p-btn small primary">🎟️ Gestionar pases</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Create form (collapsed) -->
+    <div id="create-event-form" style="display:none">
+      <div class="d-section">
+        <div class="d-section-h">
+          <div class="d-section-title">Crear nuevo evento</div>
+          <button class="p-btn small ghost" onclick="document.getElementById('create-event-form').style.display='none'">✕ Cerrar</button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Nombre del evento</label>
+            <input type="text" placeholder="Ej: Noche de Jazz" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Tipo</label>
+            <select style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;background:white">
+              <option>Del club</option>
+              <option>Partner</option>
+              <option>Exclusivo socios</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Fecha y hora</label>
+            <input type="datetime-local" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Lugar</label>
+            <input type="text" placeholder="Ej: En el club / Dumont 40" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+          </div>
+          <div style="grid-column:1/-1">
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Descripción</label>
+            <textarea style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;resize:vertical;min-height:80px" placeholder="Describí el evento para los socios…"></textarea>
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Límite de pases (0 = libre)</label>
+            <input type="number" value="0" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding-top:20px">
+            <input type="checkbox" id="pub-toggle" checked style="width:16px;height:16px;cursor:pointer">
+            <label for="pub-toggle" style="font-size:13px;font-weight:600;cursor:pointer">Publicar inmediatamente</label>
+          </div>
+        </div>
+        <div style="margin-top:16px;display:flex;justify-content:flex-end;gap:10px">
+          <button class="p-btn ghost">Cancelar</button>
+          <button class="p-btn gold" onclick="this.textContent='✅ Evento creado';this.disabled=true">Guardar evento</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

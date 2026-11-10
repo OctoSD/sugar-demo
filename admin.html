@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Admin · Sugar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { margin: 0; padding: 0; background: #060E0A; height: 100vh; overflow: hidden; position: relative; }
+    #screen-root { height: 100vh; overflow: hidden; }
+    .back-to-portals {
+      position: fixed; top: 14px; right: 20px;
+      background: rgba(0,0,0,0.5); color: #52B788;
+      border: 1px solid rgba(82,183,136,0.3); border-radius: 20px;
+      padding: 6px 14px; font-size: 12px; text-decoration: none;
+      z-index: 9999; backdrop-filter: blur(8px); font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+    .back-to-portals:hover { background: rgba(82,183,136,0.1); }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-to-portals">← Portales</a>
+  <div id="screen-root"></div>
+  <script src="js/admin.js"></script>
+</body>
+</html>

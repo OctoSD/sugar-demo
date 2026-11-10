@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Admin Móvil · Sugar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: #0A100A; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; }
+    .phone-wrap { width:390px; height:844px; border-radius:44px; overflow:hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 2px #1f2937; position:relative; background:#060E0A; }
+    #screen-root { height:100%; overflow-y:auto; overflow-x:hidden; display:flex; flex-direction:column; }
+    #screen-root::-webkit-scrollbar { width:4px; }
+    #screen-root::-webkit-scrollbar-thumb { background:rgba(82,183,136,0.3); border-radius:100px; }
+    @media (max-width: 430px) { body { align-items:flex-start; background:#060E0A; } .phone-wrap { width:100vw; height:100dvh; border-radius:0; box-shadow:none; } }
+    .back-to-portals { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.5); color:#52B788; border:1px solid rgba(82,183,136,0.3); border-radius:20px; padding:8px 20px; font-size:12px; text-decoration:none; z-index:999; backdrop-filter:blur(8px); font-weight:600; font-family:'Inter',sans-serif; }
+    @media (max-width:430px) { .back-to-portals { display:none; } }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-to-portals">← Portales</a>
+  <div class="phone-wrap">
+    <div id="screen-root"></div>
+  </div>
+  <script src="js/admin-m.js"></script>
+</body>
+</html>

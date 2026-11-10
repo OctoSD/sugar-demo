@@ -1,0 +1,226 @@
+<style>
+.arm-wrap { display:flex; flex-direction:column; height:100%; background:#060E0A; }
+
+/* HEADER */
+.arm-topbar { background:#0D1E14; padding:14px 16px; display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(82,183,136,0.12); }
+.arm-back-btn { width:36px; height:36px; border-radius:10px; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:white; font-size:16px; cursor:pointer; flex-shrink:0; border:none; }
+.arm-title { font-size:17px; font-weight:800; color:white; margin:0; }
+.arm-sub { font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px; }
+
+/* QUEUE CHIPS */
+.arm-chips { display:flex; gap:8px; padding:12px 16px; overflow-x:auto; }
+.arm-chip { flex-shrink:0; padding:5px 12px; border-radius:100px; font-size:11px; font-weight:700; }
+.arm-chip.pending { background:rgba(14,165,233,0.15); color:#38BDF8; }
+.arm-chip.working { background:rgba(245,158,11,0.15); color:#F59E0B; }
+.arm-chip.done { background:rgba(34,197,94,0.15); color:#22C55E; }
+
+/* ───── STATE: IDLE ───── */
+.arm-idle { flex:1; display:flex; flex-direction:column; padding:20px 16px 24px; }
+.arm-order-card { background:#0D1E14; border:1.5px solid rgba(82,183,136,0.25); border-radius:18px; padding:20px; margin-bottom:20px; flex:1; display:flex; flex-direction:column; gap:12px; }
+.arm-order-id { font-size:12px; font-weight:700; color:#52B788; letter-spacing:0.06em; text-transform:uppercase; }
+.arm-order-member { font-size:20px; font-weight:900; color:white; margin-top:2px; }
+.arm-order-num { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+.arm-items-box { background:rgba(255,255,255,0.05); border-radius:12px; padding:14px; }
+.arm-item-row { font-size:14px; color:rgba(255,255,255,0.75); padding:3px 0; display:flex; justify-content:space-between; }
+.arm-tokens-row { font-size:13px; color:#C9A227; font-weight:800; margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08); }
+.arm-queue-info { text-align:center; font-size:12px; color:rgba(255,255,255,0.3); margin-top:4px; }
+
+/* ───── STATE: WORKING ───── */
+.arm-working { flex:1; display:flex; flex-direction:column; padding:16px; }
+.arm-timer-block { text-align:center; padding:24px 16px 20px; }
+.arm-timer-num { font-size:64px; font-weight:900; color:#52B788; letter-spacing:-2px; font-variant-numeric:tabular-nums; line-height:1; font-family:'Space Grotesk', sans-serif; }
+.arm-timer-label { font-size:12px; color:rgba(82,183,136,0.6); font-weight:600; margin-top:6px; letter-spacing:0.06em; text-transform:uppercase; }
+.arm-working-card { background:#0D1E14; border:1.5px solid rgba(245,158,11,0.3); border-radius:16px; padding:16px; margin-bottom:16px; }
+.arm-working-id { font-size:11px; font-weight:700; color:#F59E0B; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:4px; }
+.arm-working-member { font-size:17px; font-weight:800; color:white; }
+.arm-checklist { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+.arm-check-row { display:flex; align-items:center; gap:10px; font-size:14px; color:rgba(255,255,255,0.75); }
+.arm-check-box { width:22px; height:22px; border:2px solid rgba(255,255,255,0.2); border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#22C55E; font-size:14px; cursor:pointer; transition:.15s; }
+.arm-check-box.checked { background:rgba(34,197,94,0.15); border-color:#22C55E; }
+.arm-pause-link { text-align:center; margin-top:12px; font-size:13px; color:rgba(255,255,255,0.3); cursor:pointer; padding:8px; }
+.arm-pause-link:hover { color:rgba(255,255,255,0.5); }
+
+/* ───── STATE: DONE ───── */
+.arm-done { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; text-align:center; }
+.arm-done-icon { font-size:72px; margin-bottom:16px; animation: pop .4s cubic-bezier(.34,1.56,.64,1); }
+@keyframes pop { from { transform:scale(0.5); opacity:0; } to { transform:scale(1); opacity:1; } }
+.arm-done-title { font-size:28px; font-weight:900; color:white; margin-bottom:6px; }
+.arm-done-detail { font-size:14px; color:rgba(255,255,255,0.5); margin-bottom:28px; }
+.arm-countdown { font-size:16px; color:rgba(82,183,136,0.7); font-weight:700; }
+.arm-countdown span { font-size:28px; color:#52B788; display:block; margin-top:4px; }
+
+/* ───── STATE: EMPTY ───── */
+.arm-empty { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; text-align:center; }
+.arm-empty-icon { font-size:56px; margin-bottom:16px; }
+.arm-empty-title { font-size:22px; font-weight:800; color:white; margin-bottom:8px; }
+.arm-empty-sub { font-size:14px; color:rgba(255,255,255,0.4); }
+</style>
+
+<script>
+(function() {
+  const ORDERS = [
+    { id:'P-243', member:'Valentina Rodríguez', num:'#1042', items:[{name:'OG Kush', g:'2g'},{name:'Gorilla Glue #4', g:'1g'}], tokens:62 },
+    { id:'P-244', member:'Diego Fernández',     num:'#1023', items:[{name:'Blue Dream', g:'3g'}], tokens:60 },
+    { id:'P-245', member:'Matías Suárez',       num:'#1051', items:[{name:'Wedding Cake', g:'1g'}], tokens:25 }
+  ];
+
+  let queueIdx   = 0;   // which order is next
+  let doneCount  = 0;   // how many finished this session
+  let timerSec   = 0;
+  let timerInt   = null;
+  let paused     = false;
+  let lastDoneTime = 0;
+
+  function fmt(s) {
+    return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0');
+  }
+
+  function pending() { return Math.max(0, ORDERS.length - queueIdx); }
+
+  function chips() {
+    return `<div class="arm-chips">
+      <span class="arm-chip pending">${pending()} pendiente${pending()!==1?'s':''}</span>
+      ${timerInt ? '<span class="arm-chip working">1 armando</span>' : ''}
+      <span class="arm-chip done">${doneCount} listo${doneCount!==1?'s':''} hoy</span>
+    </div>`;
+  }
+
+  function renderIdle() {
+    const o = ORDERS[queueIdx];
+    const itemsHtml = o.items.map(i=>`
+      <div class="arm-item-row"><span>🌿 ${i.name}</span><span>${i.g}</span></div>`).join('');
+    const wrap = document.getElementById('arm-wrap');
+    wrap.innerHTML = `
+      <div class="status-bar"><span id="arm-clock">9:41</span><span>📶 🔋</span></div>
+      <div class="arm-topbar">
+        <button class="arm-back-btn" id="arm-back">←</button>
+        <div><div class="arm-title">📦 Próximo pedido</div><div class="arm-sub">${pending()} en cola</div></div>
+      </div>
+      ${chips()}
+      <div class="arm-idle">
+        <div class="arm-order-card">
+          <div>
+            <div class="arm-order-id">${o.id}</div>
+            <div class="arm-order-member">${o.member}</div>
+            <div class="arm-order-num">Socio ${o.num}</div>
+          </div>
+          <div class="arm-items-box">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.35);font-weight:700;margin-bottom:8px">Items del pedido</div>
+            ${itemsHtml}
+            <div class="arm-tokens-row">🪙 ${o.tokens} tokens · cobrar $${(o.tokens*1000).toLocaleString('es-AR')} en efectivo</div>
+          </div>
+        </div>
+        <button class="p-btn accent jumbo block" id="btn-iniciar" style="font-size:20px;padding:22px 24px;letter-spacing:.02em">▶ INICIAR</button>
+        <div class="arm-queue-info" style="margin-top:14px">${queueIdx+1 < ORDERS.length ? `${ORDERS.length - queueIdx - 1} pedido${ORDERS.length-queueIdx-1!==1?'s':''} más en cola` : 'Último pedido del momento'}</div>
+      </div>`;
+    document.getElementById('arm-back').addEventListener('click', () => {
+      if(window.__sugarGoTo) window.__sugarGoTo('equipo-hub');
+    });
+    document.getElementById('btn-iniciar').addEventListener('click', () => {
+      timerSec = 0; paused = false;
+      timerInt = setInterval(() => { if(!paused){ timerSec++; const el=document.getElementById('arm-timer'); if(el) el.textContent=fmt(timerSec); } }, 1000);
+      renderWorking();
+    });
+    startClock();
+  }
+
+  function renderWorking() {
+    const o = ORDERS[queueIdx];
+    const checksHtml = o.items.map((i,idx)=>`
+      <div class="arm-check-row">
+        <div class="arm-check-box" data-ci="${idx}"></div>
+        <span>${i.name} · ${i.g}</span>
+      </div>`).join('');
+    const wrap = document.getElementById('arm-wrap');
+    wrap.innerHTML = `
+      <div class="status-bar"><span id="arm-clock">9:41</span><span>📶 🔋</span></div>
+      <div class="arm-topbar">
+        <div style="width:36px"></div>
+        <div><div class="arm-title">Armando ${o.id}</div><div class="arm-sub">${o.member}</div></div>
+        <div style="width:36px"></div>
+      </div>
+      <div class="arm-working">
+        <div class="arm-timer-block">
+          <div class="arm-timer-num" id="arm-timer">${fmt(timerSec)}</div>
+          <div class="arm-timer-label" id="arm-pause-status">armando…</div>
+        </div>
+        <div class="arm-working-card">
+          <div class="arm-working-id">${o.id} · Socio ${o.num}</div>
+          <div class="arm-working-member">${o.member}</div>
+          <div class="arm-checklist">${checksHtml}</div>
+        </div>
+        <button class="p-btn gold jumbo block" id="btn-listo" style="font-size:22px;padding:24px;letter-spacing:.02em">✅  LISTO</button>
+        <div class="arm-pause-link" id="btn-pause">Pausar</div>
+      </div>`;
+    // checkboxes
+    wrap.querySelectorAll('.arm-check-box').forEach(box => {
+      box.addEventListener('click', () => box.classList.toggle('checked'));
+    });
+    document.getElementById('btn-listo').addEventListener('click', () => {
+      clearInterval(timerInt); timerInt = null;
+      lastDoneTime = timerSec;
+      doneCount++;
+      queueIdx++;
+      renderDone();
+    });
+    document.getElementById('btn-pause').addEventListener('click', () => {
+      paused = !paused;
+      document.getElementById('btn-pause').textContent = paused ? 'Reanudar' : 'Pausar';
+      const lbl = document.getElementById('arm-pause-status');
+      if(lbl) lbl.textContent = paused ? 'pausado ⏸' : 'armando…';
+    });
+    startClock();
+  }
+
+  function renderDone() {
+    const o = ORDERS[queueIdx-1]; // just finished
+    const wrap = document.getElementById('arm-wrap');
+    let countdown = 3;
+    const hasNext = queueIdx < ORDERS.length;
+    wrap.innerHTML = `
+      <div class="status-bar"><span id="arm-clock">9:41</span><span>📶 🔋</span></div>
+      <div class="arm-working" style="flex:1;display:flex;flex-direction:column">
+        <div class="arm-done">
+          <div class="arm-done-icon">✅</div>
+          <div class="arm-done-title">¡Pedido listo!</div>
+          <div class="arm-done-detail">${o.id} · ${fmt(lastDoneTime)}</div>
+          ${hasNext
+            ? `<div class="arm-countdown">Próximo pedido en<span id="arm-cd">${countdown}</span></div>`
+            : `<div class="arm-countdown" style="color:rgba(82,183,136,.5)">No hay más pedidos por ahora</div>`
+          }
+        </div>
+      </div>`;
+    if (hasNext) {
+      const cdInt = setInterval(() => {
+        countdown--;
+        const el = document.getElementById('arm-cd');
+        if(el) el.textContent = countdown;
+        if(countdown <= 0) { clearInterval(cdInt); renderIdle(); }
+      }, 1000);
+    }
+    startClock();
+  }
+
+  function startClock() {
+    // keep the status bar clock alive (ticks every 10s just to show it updates)
+    clearInterval(window.__armClockInt);
+    let h = 9, m = 41;
+    window.__armClockInt = setInterval(() => {
+      m++; if(m>=60){m=0;h=(h+1)%24;}
+      const el = document.getElementById('arm-clock');
+      if(el) el.textContent = `${h}:${String(m).padStart(2,'0')}`;
+    }, 10000);
+  }
+
+  // expose goTo bridge so back button works
+  window.__sugarGoTo = function(id) {
+    clearInterval(timerInt); timerInt = null;
+    clearInterval(window.__armClockInt);
+    if(window.__portalGoTo) window.__portalGoTo(id);
+  };
+
+  renderIdle();
+})();
+</script>
+
+<div class="arm-wrap" id="arm-wrap"></div>

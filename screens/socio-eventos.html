@@ -1,0 +1,92 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="p-header compact">
+  <h1>Eventos</h1>
+  <div class="p-subtitle">Club Rainbow · noviembre 2026</div>
+</div>
+
+<div class="p-body">
+
+  <div class="p-tabs">
+    <div class="p-tab active-tab" data-tab-group="eventos" data-tab-target="proximos">Próximos</div>
+    <div class="p-tab" data-tab-group="eventos" data-tab-target="pases">Mis pases</div>
+  </div>
+
+  <!-- Tab Próximos -->
+  <div data-tab-pane="eventos" data-tab-id="proximos">
+
+    <div class="event-card" data-goto="socio-evento">
+      <div class="event-card-top">
+        <div>
+          <div class="event-card-name">🎵 El Patio Sounds</div>
+          <div class="event-card-meta">🏠 En el club · Sáb 16 Nov · 20:00hs</div>
+        </div>
+        <span class="p-chip ok" style="flex-shrink:0">Del club</span>
+      </div>
+      <div class="event-card-desc">Una noche de música en vivo para los socios. Tres artistas locales.</div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span class="p-chip mint">🎟️ Entrada libre para socios</span>
+        <button class="p-btn small primary" data-goto="socio-evento">Ver más →</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-top">
+        <div>
+          <div class="event-card-name">🎶 La Grande</div>
+          <div class="event-card-meta">📍 Dumont 40 · Vie 22 Nov</div>
+        </div>
+        <span class="p-chip blue" style="flex-shrink:0">Partner</span>
+      </div>
+      <div class="event-card-desc">Noche de cumbia y cuarteto. Pases gratuitos para socios activos.</div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span class="p-chip muted">🎟️ 20 pases · 12 disponibles</span>
+        <button class="p-btn small accent" onclick="this.textContent='¡Pase reservado! ✅';this.disabled=true">Quiero mi pase</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-top">
+        <div>
+          <div class="event-card-name">🥁 Bomba de Tiempo</div>
+          <div class="event-card-meta">📍 C.C. Konex · Dom 30 Nov · 17:00hs</div>
+        </div>
+        <span class="p-chip blue" style="flex-shrink:0">Partner</span>
+      </div>
+      <div class="event-card-desc">La percusión más famosa de Buenos Aires. 2×1 en entradas para socios.</div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span class="p-chip muted">🎟️ 2×1 · 30 pases</span>
+        <button class="p-btn small accent" onclick="this.textContent='¡Reservado! ✅';this.disabled=true">Quiero 2×1</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tab Mis pases -->
+  <div data-tab-pane="eventos" data-tab-id="pases" style="display:none">
+    <div class="p-card" style="text-align:center">
+      <div style="font-size:14px;font-weight:700;margin-bottom:4px">🎶 La Grande</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px">Vie 22 Nov · Dumont 40</div>
+      <span class="p-chip ok" style="margin-bottom:16px">Pase confirmado</span>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Código: SGR-1042-X</div>
+      <div class="qr-box">
+        <div style="font-size:28px">▦</div>
+        <div>Código QR</div>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:12px">Mostrar en la puerta para ingresar</div>
+    </div>
+    <div class="p-alert info" style="margin-top:14px">
+      <span>ℹ️</span>
+      <div>Presentá este código en la puerta del evento. Aplica para vos y acompañante (en caso de 2×1).</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="socio-home"><div class="p-nav-tab-icon">🏠</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="socio-catalogo"><div class="p-nav-tab-icon">🌿</div>Catálogo</div>
+  <div class="p-nav-tab" data-goto="socio-historial"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab active"><div class="p-nav-tab-icon">🎵</div>Eventos</div>
+  <div class="p-nav-tab" data-goto="socio-perfil"><div class="p-nav-tab-icon">👤</div>Perfil</div>
+</div>

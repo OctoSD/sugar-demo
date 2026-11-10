@@ -1,0 +1,229 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link active"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Gestión de Tokens</div>
+        <div class="d-page-sub">1 token = $1.000 ARS · Pago siempre en efectivo</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost">📥 Exportar movimientos</button>
+        <button class="p-btn small gold">+ Cargar tokens</button>
+      </div>
+    </div>
+
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">En circulación</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 892</div>
+        <div class="kpi-sub">saldo total de socios</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Cargados hoy</div>
+        <div class="kpi-value" style="color:var(--success)">🪙 150</div>
+        <div class="kpi-sub">≈ $150.000 ARS cobrados</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Consumidos hoy</div>
+        <div class="kpi-value" style="color:var(--accent-dark)">🪙 487</div>
+        <div class="kpi-sub">en 12 pedidos</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Cargados este mes</div>
+        <div class="kpi-value" style="color:var(--info)">🪙 3.420</div>
+        <div class="kpi-sub">≈ $3.420.000 ARS</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:16px">
+
+      <!-- Tabla saldos -->
+      <div class="d-section" style="margin-bottom:0">
+        <div class="d-section-h">
+          <div class="d-section-title">Saldo por socio</div>
+          <input type="text" placeholder="Buscar socio…" style="padding:6px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;width:200px">
+        </div>
+        <div class="d-table">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Socio</th>
+                <th class="right">Saldo</th>
+                <th>Última recarga</th>
+                <th class="right">Total cargado</th>
+                <th class="right">Total consumido</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">1042</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">VR</div><strong>Valentina R.</strong></div></td>
+                <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 23</td>
+                <td style="font-size:12px;color:var(--text-muted)">Hoy · +100</td>
+                <td class="right num">🪙 950</td>
+                <td class="right num" style="color:var(--accent-dark)">🪙 927</td>
+                <td><button class="p-btn small gold" style="font-size:11px">+ Tokens</button></td>
+              </tr>
+              <tr>
+                <td class="num">1051</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar green sm">MS</div><strong>Matías S.</strong></div></td>
+                <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 70</td>
+                <td style="font-size:12px;color:var(--text-muted)">Jue 7 nov · +50</td>
+                <td class="right num">🪙 620</td>
+                <td class="right num" style="color:var(--accent-dark)">🪙 550</td>
+                <td><button class="p-btn small gold" style="font-size:11px">+ Tokens</button></td>
+              </tr>
+              <tr>
+                <td class="num">1023</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">DF</div><strong>Diego F.</strong></div></td>
+                <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 45</td>
+                <td style="font-size:12px;color:var(--text-muted)">Mar 4 nov · +100</td>
+                <td class="right num">🪙 1.240</td>
+                <td class="right num" style="color:var(--accent-dark)">🪙 1.195</td>
+                <td><button class="p-btn small gold" style="font-size:11px">+ Tokens</button></td>
+              </tr>
+              <tr>
+                <td class="num">1035</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">AB</div><strong>Ana B.</strong></div></td>
+                <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 15</td>
+                <td style="font-size:12px;color:var(--text-muted)">Vie 1 nov · +50</td>
+                <td class="right num">🪙 480</td>
+                <td class="right num" style="color:var(--accent-dark)">🪙 465</td>
+                <td><button class="p-btn small gold" style="font-size:11px">+ Tokens</button></td>
+              </tr>
+              <tr>
+                <td class="num">1067</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">LG</div><strong>Laura G.</strong></div></td>
+                <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+                <td style="font-size:12px;color:var(--text-muted)">— sin recargas</td>
+                <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+                <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+                <td><button class="p-btn small ghost" style="font-size:11px;color:var(--warning);border-color:var(--warning)">Pendiente</button></td>
+              </tr>
+              <tr>
+                <td class="num">1078</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar success sm">FÁ</div><strong>Federico Á.</strong></div></td>
+                <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+                <td style="font-size:12px;color:var(--text-muted)">— habilitado hoy</td>
+                <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+                <td class="right num" style="color:var(--text-muted)">🪙 0</td>
+                <td><button class="p-btn small gold" style="font-size:11px">+ Bienvenida</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel lateral -->
+      <div>
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h" style="margin-bottom:12px">
+            <div class="d-section-title">🪙 Cargar tokens</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:block;margin-bottom:4px">Socio</label>
+            <select style="width:100%;padding:9px 10px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;background:white">
+              <option selected>Valentina Rodríguez · #1042</option>
+              <option>Matías Suárez · #1051</option>
+              <option>Diego Fernández · #1023</option>
+              <option>Ana Benítez · #1035</option>
+              <option>Federico Álvarez · #1078</option>
+            </select>
+          </div>
+          <div style="margin-bottom:12px">
+            <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:block;margin-bottom:6px">Cantidad</label>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px">
+              <button class="p-btn small ghost" style="font-weight:800;color:var(--gold-dark)">25</button>
+              <button class="p-btn small ghost" style="font-weight:800;color:var(--gold-dark);border-color:var(--gold)">50</button>
+              <button class="p-btn small ghost" style="font-weight:800;color:var(--gold-dark)">100</button>
+            </div>
+            <input type="number" value="50" style="width:100%;padding:9px 10px;border:1.5px solid var(--gold);border-radius:10px;font-size:16px;font-weight:800;text-align:center;color:var(--gold-dark)">
+            <div style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:4px">= $50.000 ARS a cobrar en efectivo</div>
+          </div>
+          <div style="background:var(--gold-light);border:1px solid rgba(201,162,39,0.3);border-radius:10px;padding:10px;margin-bottom:12px;font-size:12px;color:var(--gold-dark)">
+            <strong>Resumen:</strong> Valentina R. · +50 tokens · saldo nuevo: 🪙 73
+          </div>
+          <button class="p-btn gold block" onclick="this.textContent='✅ Recarga registrada';this.disabled=true">✅ Confirmar recarga · cobré $50.000</button>
+        </div>
+
+        <div class="d-section">
+          <div class="d-section-h" style="margin-bottom:10px">
+            <div class="d-section-title">Historial reciente</div>
+          </div>
+          <div style="max-height:280px;overflow-y:auto">
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>+100 tok</strong> → Valentina R. (#1042)</div>
+                <div class="activity-time">Hoy 09:15 · por Tomás · $100.000 ✓</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>+50 tok</strong> → Diego F. (#1023)</div>
+                <div class="activity-time">Hoy 08:50 · por Tomás · $50.000 ✓</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>−62 tok</strong> → Valentina R. (Pedido #P-243)</div>
+                <div class="activity-time">Hoy 10:51 · automático</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>+50 tok</strong> → Matías S. (#1051)</div>
+                <div class="activity-time">Jue 7 nov 11:30 · por Tomás · $50.000 ✓</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>−78 tok</strong> → Matías S. (Pedido #P-238)</div>
+                <div class="activity-time">Jue 7 nov 14:22 · automático</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,235 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link active"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Configuración del club</div>
+        <div class="d-page-sub">Club Rainbow · ajustes generales del sistema</div>
+      </div>
+      <button class="p-btn small primary">💾 Guardar cambios</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+
+      <!-- Columna izquierda -->
+      <div>
+
+        <!-- Datos del club -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h" style="margin-bottom:16px">
+            <div class="d-section-title">🏠 Datos del club</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div>
+              <label class="p-input-label">Nombre del club</label>
+              <input class="p-input" value="Club Rainbow" />
+            </div>
+            <div>
+              <label class="p-input-label">Domicilio</label>
+              <input class="p-input" value="Thames 1234, Palermo, CABA" />
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div>
+                <label class="p-input-label">Teléfono</label>
+                <input class="p-input" value="+54 11 4455-6677" />
+              </div>
+              <div>
+                <label class="p-input-label">WhatsApp</label>
+                <input class="p-input" value="+54 9 11 4455-6677" />
+              </div>
+            </div>
+            <div>
+              <label class="p-input-label">Número REPROCANN del club</label>
+              <input class="p-input" value="CLUB-AR-2024-00142" />
+            </div>
+            <div>
+              <label class="p-input-label">Email de contacto</label>
+              <input class="p-input" value="hola@clubrainbow.ar" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Horarios de operación -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h" style="margin-bottom:16px">
+            <div class="d-section-title">🕐 Horarios de operación</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:10px;align-items:center;font-size:13px">
+              <div style="font-weight:600">Lun – Vie</div>
+              <input class="p-input" value="10:00" style="padding:8px 12px;font-size:13px" />
+              <input class="p-input" value="20:00" style="padding:8px 12px;font-size:13px" />
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:10px;align-items:center;font-size:13px">
+              <div style="font-weight:600">Sáb</div>
+              <input class="p-input" value="11:00" style="padding:8px 12px;font-size:13px" />
+              <input class="p-input" value="19:00" style="padding:8px 12px;font-size:13px" />
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:10px;align-items:center;font-size:13px">
+              <div style="font-weight:600;color:var(--text-muted)">Dom</div>
+              <div style="padding:8px 12px;font-size:13px;color:var(--text-muted);font-style:italic">Cerrado</div>
+              <div></div>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <label class="p-input-label">Días que se publica catálogo</label>
+            <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+              <span class="p-chip ok" style="cursor:pointer">Lun</span>
+              <span class="p-chip ok" style="cursor:pointer">Mar</span>
+              <span class="p-chip ok" style="cursor:pointer">Mié</span>
+              <span class="p-chip ok" style="cursor:pointer">Jue</span>
+              <span class="p-chip ok" style="cursor:pointer">Vie</span>
+              <span class="p-chip ok" style="cursor:pointer">Sáb</span>
+              <span class="p-chip muted" style="cursor:pointer">Dom</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna derecha -->
+      <div>
+
+        <!-- Tokens y precios -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h" style="margin-bottom:16px">
+            <div class="d-section-title">🪙 Tokens y precios</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div>
+              <label class="p-input-label">Valor de 1 token (ARS)</label>
+              <div style="display:flex;align-items:center;gap:10px">
+                <input class="p-input" value="1000" style="font-size:18px;font-weight:800;color:var(--gold-dark)" />
+                <span style="font-size:14px;color:var(--text-muted);white-space:nowrap">$1.000 por token</span>
+              </div>
+            </div>
+            <div class="p-alert info">
+              <span>ℹ️</span>
+              <div>Cambiar este valor afecta todos los cálculos futuros. Los pedidos históricos mantienen el valor de cuando se hicieron.</div>
+            </div>
+            <div>
+              <label class="p-input-label">Tokens mínimos por pedido</label>
+              <input class="p-input" value="10" />
+            </div>
+            <div>
+              <label class="p-input-label">Límite diario de pedidos por socio</label>
+              <input class="p-input" value="1" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Membresías config -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h" style="margin-bottom:16px">
+            <div class="d-section-title">⭐ Membresías</div>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Plan</th>
+                  <th class="right">Tokens/mes</th>
+                  <th class="right">Precio</th>
+                  <th class="right">Cap socios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>🌱 Semilla</td>
+                  <td class="right num">20</td>
+                  <td class="right num">$20.000</td>
+                  <td class="right num">20</td>
+                </tr>
+                <tr>
+                  <td>⭐ Brote</td>
+                  <td class="right num">60</td>
+                  <td class="right num">$60.000</td>
+                  <td class="right num">25</td>
+                </tr>
+                <tr>
+                  <td>🌿 Planta Full</td>
+                  <td class="right num">120</td>
+                  <td class="right num">$120.000</td>
+                  <td class="right num">10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="d-section" style="margin-bottom:0">
+          <div class="d-section-h" style="margin-bottom:16px">
+            <div class="d-section-title">🔔 Notificaciones</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-size:13px;font-weight:600">Telegram al admin</div>
+                <div style="font-size:11px;color:var(--text-muted)">Nuevos pedidos, admisiones, stock bajo</div>
+              </div>
+              <div style="width:44px;height:24px;background:var(--accent);border-radius:100px;position:relative;cursor:pointer">
+                <div style="position:absolute;right:2px;top:2px;width:20px;height:20px;background:white;border-radius:50%"></div>
+              </div>
+            </div>
+            <div class="p-divider" style="margin:4px 0"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-size:13px;font-weight:600">WhatsApp al socio</div>
+                <div style="font-size:11px;color:var(--text-muted)">Cuando el pedido está listo</div>
+              </div>
+              <div style="width:44px;height:24px;background:var(--accent);border-radius:100px;position:relative;cursor:pointer">
+                <div style="position:absolute;right:2px;top:2px;width:20px;height:20px;background:white;border-radius:50%"></div>
+              </div>
+            </div>
+            <div class="p-divider" style="margin:4px 0"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-size:13px;font-weight:600">Alerta stock crítico</div>
+                <div style="font-size:11px;color:var(--text-muted)">Cuando queda menos de 5g de una cepa</div>
+              </div>
+              <div style="width:44px;height:24px;background:var(--accent);border-radius:100px;position:relative;cursor:pointer">
+                <div style="position:absolute;right:2px;top:2px;width:20px;height:20px;background:white;border-radius:50%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>

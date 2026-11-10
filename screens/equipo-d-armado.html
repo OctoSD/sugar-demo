@@ -1,0 +1,219 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #152B1E;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo">👷</div>
+      <div>
+        <div class="d-sidebar-brand-text">Equipo</div>
+        <div class="d-sidebar-brand-sub">Club Rainbow</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación diaria</div>
+    <div class="d-sidebar-link" data-goto="equipo-d-hub"><span>🏠</span><span>Panel del día</span></div>
+    <div class="d-sidebar-link active" data-goto="equipo-d-armado"><span>📦</span><span>Armado de pedidos</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-entrega"><span>🤝</span><span>Entregas y retiros</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Rainbow · Lun 11 Nov</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Supervisor</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <!-- Top bar -->
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">📦 Armado de pedidos · Lunes 11 Nov</div>
+        <div class="d-page-sub">Vista supervisor · actualización en tiempo real</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="p-btn small ghost">🔄 Actualizar</button>
+        <span class="p-chip gold">Total hoy: 147 tokens</span>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Pendientes</div>
+        <div class="kpi-value" style="color:var(--info)">3</div>
+        <div class="kpi-sub">esperando asignación</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--warning)">
+        <div class="kpi-label">Armando</div>
+        <div class="kpi-value" style="color:var(--warning)">1</div>
+        <div class="kpi-sub">en preparación ahora</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Listo</div>
+        <div class="kpi-value" style="color:var(--success)">1</div>
+        <div class="kpi-sub">esperando al socio</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--text-muted)">
+        <div class="kpi-label">Retirados hoy</div>
+        <div class="kpi-value">2</div>
+        <div class="kpi-sub">completados</div>
+      </div>
+    </div>
+
+    <!-- Orders table -->
+    <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div class="d-section-title" style="margin:0">Pedidos activos</div>
+        <span class="live-pulse" style="font-size:11px">En vivo</span>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Socio</th>
+              <th>Items</th>
+              <th>Tokens</th>
+              <th>Estado</th>
+              <th>Tiempo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">P-243</td>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar mint sm">VR</div>
+                  <div>
+                    <div style="font-weight:600">Valentina R.</div>
+                    <div style="font-size:11px;color:var(--text-muted)">#1042</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px">OG Kush 2g · GG#4 1g</td>
+              <td class="num">🪙 62</td>
+              <td><span class="p-chip warn">⏱ ARMANDO</span></td>
+              <td class="num" style="color:var(--warning);font-weight:700">03:45</td>
+              <td style="color:var(--text-muted);font-size:12px">—</td>
+            </tr>
+            <tr>
+              <td class="num">P-244</td>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar gold sm">DF</div>
+                  <div>
+                    <div style="font-weight:600">Diego F.</div>
+                    <div style="font-size:11px;color:var(--text-muted)">#1023</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px">Blue Dream 3g</td>
+              <td class="num">🪙 60</td>
+              <td><span class="p-chip info">PENDIENTE</span></td>
+              <td style="color:var(--text-muted);font-size:12px">—</td>
+              <td><button class="p-btn small primary" style="font-size:11px">Asignar</button></td>
+            </tr>
+            <tr>
+              <td class="num">P-245</td>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar sm" style="background:var(--purple)">MS</div>
+                  <div>
+                    <div style="font-weight:600">Matías S.</div>
+                    <div style="font-size:11px;color:var(--text-muted)">#1051</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px">Wedding Cake 1g</td>
+              <td class="num">🪙 25</td>
+              <td><span class="p-chip ok">✅ LISTO</span></td>
+              <td class="num" style="color:var(--success);font-weight:700">1:22</td>
+              <td><button class="p-btn small ghost" style="font-size:11px">Ver</button></td>
+            </tr>
+            <tr>
+              <td class="num">P-246</td>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar sm" style="background:var(--danger)">LG</div>
+                  <div>
+                    <div style="font-weight:600">Laura G.</div>
+                    <div style="font-size:11px;color:var(--text-muted)">#1067</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px">SLH 2g</td>
+              <td class="num">🪙 36</td>
+              <td><span class="p-chip info">PENDIENTE</span></td>
+              <td style="color:var(--text-muted);font-size:12px">—</td>
+              <td><button class="p-btn small primary" style="font-size:11px">Asignar</button></td>
+            </tr>
+            <tr>
+              <td class="num">P-247</td>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar sm" style="background:var(--info)">AB</div>
+                  <div>
+                    <div style="font-weight:600">Ana B.</div>
+                    <div style="font-size:11px;color:var(--text-muted)">#1035</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px">Blue Dream 1g</td>
+              <td class="num">🪙 20</td>
+              <td><span class="p-chip info">PENDIENTE</span></td>
+              <td style="color:var(--text-muted);font-size:12px">—</td>
+              <td><button class="p-btn small primary" style="font-size:11px">Asignar</button></td>
+            </tr>
+            <!-- Summary row -->
+            <tr style="background:var(--bg-tint)">
+              <td colspan="7" style="font-size:12px;font-weight:700;color:var(--text-muted);text-align:center;padding:10px 14px">
+                5 pedidos · 203 tokens · <strong style="color:var(--success)">$203.000 ARS a cobrar hoy</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Completed today -->
+    <div class="d-section">
+      <div class="d-section-h">
+        <div class="d-section-title">✅ Completados hoy</div>
+        <span class="p-chip muted">2 pedidos</span>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Socio</th>
+              <th>Items</th>
+              <th>Tokens</th>
+              <th>Retirado</th>
+              <th>Tiempo armado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="opacity:0.65">
+              <td class="num">P-240</td>
+              <td style="font-size:12px">Matías S. · #1051</td>
+              <td style="font-size:12px">Wedding Cake 1g</td>
+              <td class="num">🪙 25</td>
+              <td style="font-size:12px">Retirado 10:30</td>
+              <td style="font-size:12px;color:var(--success);font-weight:600">2:15</td>
+            </tr>
+            <tr style="opacity:0.65">
+              <td class="num">P-241</td>
+              <td style="font-size:12px">Diego F. · #1023</td>
+              <td style="font-size:12px">Blue Dream 2g + OG Kush 1g</td>
+              <td class="num">🪙 60</td>
+              <td style="font-size:12px">Retirado 11:45</td>
+              <td style="font-size:12px;color:var(--success);font-weight:600">3:02</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
