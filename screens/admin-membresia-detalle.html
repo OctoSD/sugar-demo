@@ -1,0 +1,348 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link active"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="p-btn small ghost" data-goto="admin-membresias">← Membresías</button>
+        <div>
+          <div class="d-page-title">⭐ Plan Brote</div>
+          <div class="d-page-sub">18 socios activos · $60.000/mes · 60 tokens incluidos</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">✏️ Editar plan</button>
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📧 Comunicar cambio</button>
+        <button class="p-btn small ghost" style="color:var(--danger);border-color:rgba(239,68,68,0.3)" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">🚫 Desactivar plan</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Socios activos</div>
+        <div class="kpi-value">18</div>
+        <div class="kpi-sub">en este plan</div>
+        <div class="kpi-delta up">↑ 3 este mes</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--primary)">
+        <div class="kpi-label">Ingreso mensual</div>
+        <div class="kpi-value">$1.080.000</div>
+        <div class="kpi-sub">renovación 1 dic</div>
+        <div class="kpi-delta up">↑ 12% vs oct</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Tokens/mes</div>
+        <div class="kpi-value">🪙 60</div>
+        <div class="kpi-sub">por socio incluidos</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Tok extra prom</div>
+        <div class="kpi-value">🪙 +48</div>
+        <div class="kpi-sub">compra adicional promedio</div>
+      </div>
+    </div>
+
+    <!-- 2-column layout -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
+
+      <!-- Left column -->
+      <div>
+
+        <!-- Configuración del plan -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Configuración del plan</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Nombre del plan</div>
+              <input type="text" value="Brote" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Emoji / Ícono</div>
+              <input type="text" value="⭐" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Precio mensual</div>
+              <input type="text" value="$60.000" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tokens incluidos/mes</div>
+              <input type="text" value="60" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tokens adicionales disponibles</div>
+              <select style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+                <option selected>Sí</option>
+                <option>No</option>
+              </select>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Precio token extra</div>
+              <input type="text" value="$1.000 / token" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+            </div>
+            <div style="grid-column:1/-1">
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Descripción visible para socios</div>
+              <textarea style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text);resize:vertical;min-height:60px">Plan intermedio con 60 tokens mensuales incluidos. Ideal para un consumo moderado y constante. Tokens extra disponibles a $1.000 c/u.</textarea>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Acceso a catálogo</div>
+              <select style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+                <option selected>Completo</option>
+                <option>Básico</option>
+              </select>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Acceso a eventos</div>
+              <select style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+                <option selected>Libre + prioritario</option>
+                <option>Solo libre</option>
+                <option>Sin acceso</option>
+              </select>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Badge visible</div>
+              <input type="text" value="⭐ Brote" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding-top:20px">
+              <input type="checkbox" id="destacado" checked style="width:16px;height:16px;cursor:pointer">
+              <label for="destacado" style="font-size:13px;color:var(--text);cursor:pointer">Destacado como recomendado</label>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Color de badge</div>
+              <select style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-input,var(--bg-panel));color:var(--text)">
+                <option selected>Dorado</option>
+                <option>Verde</option>
+                <option>Azul</option>
+                <option>Neutro</option>
+              </select>
+            </div>
+          </div>
+          <div style="text-align:right;margin-top:16px">
+            <button class="p-btn small gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Guardando…';setTimeout(function(){b.textContent='✓ Guardado';b.style.opacity='0.7';},900)">Guardar cambios</button>
+          </div>
+        </div>
+
+        <!-- Socios en este plan -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Socios en este plan (18)</div>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Socio</th>
+                  <th>Desde</th>
+                  <th>Próxima renovación</th>
+                  <th>Estado pago</th>
+                  <th>Tok usados/mes</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">VR</div><strong>Valentina Rodríguez</strong></div></td>
+                  <td style="font-size:12px;color:var(--text-muted)">ago 2024</td>
+                  <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
+                  <td><span class="p-chip ok">✓ Pagado</span></td>
+                  <td class="num"><span style="color:var(--gold-dark);font-weight:700">143 / 60</span> <span style="color:var(--warning)">⚠️</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresias">Cambiar plan</button></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">DF</div><strong>Diego Fernández</strong></div></td>
+                  <td style="font-size:12px;color:var(--text-muted)">sep 2024</td>
+                  <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
+                  <td><span class="p-chip ok">✓ Pagado</span></td>
+                  <td class="num"><span style="color:var(--gold-dark);font-weight:700">161 / 60</span> <span style="color:var(--warning)">⚠️</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresias">Cambiar plan</button></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">LT</div><strong>Lucía Torres</strong></div></td>
+                  <td style="font-size:12px;color:var(--text-muted)">oct 2024</td>
+                  <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
+                  <td><span class="p-chip ok">✓ Pagado</span></td>
+                  <td class="num"><span style="color:var(--gold-dark);font-weight:700">128 / 60</span> <span style="color:var(--warning)">⚠️</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresias">Cambiar plan</button></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">SC</div><strong>Sofía C.</strong></div></td>
+                  <td style="font-size:12px;color:var(--text-muted)">mar 2026</td>
+                  <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
+                  <td><span class="p-chip ok">✓ Pagado</span></td>
+                  <td class="num"><span style="color:var(--gold-dark);font-weight:700">88 / 60</span> <span style="color:var(--warning)">⚠️</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresias">Cambiar plan</button></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar green sm">NH</div><strong>Nadia H.</strong></div></td>
+                  <td style="font-size:12px;color:var(--text-muted)">nov 2026</td>
+                  <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
+                  <td><span class="p-chip ok">✓ Pagado</span></td>
+                  <td class="num"><span style="color:var(--gold-dark);font-weight:700">94 / 60</span> <span style="color:var(--warning)">⚠️</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresias">Cambiar plan</button></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="text-align:center;color:var(--text-muted);font-size:12px;padding:12px">+ 13 más</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div>
+
+        <!-- Resumen financiero -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Resumen financiero</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Socios activos</span>
+              <span style="font-weight:700">18</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Precio mensual</span>
+              <span style="font-weight:700">$60.000</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Ingreso base</span>
+              <span style="font-weight:700">$1.080.000</span>
+            </div>
+            <div class="p-divider" style="margin:4px 0"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Tokens extra vendidos (nov)</span>
+              <span style="font-weight:700;color:var(--gold-dark)">🪙 +286 tok</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Ingresos por tokens extra</span>
+              <span style="font-weight:700">$286.000</span>
+            </div>
+            <div class="p-divider" style="margin:4px 0"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;margin-top:4px">
+              <span style="color:var(--text-muted)">Total estimado nov</span>
+              <span style="font-weight:900;font-size:16px;color:var(--primary)">$1.366.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparación con otros planes -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Comparación con otros planes</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="background:var(--bg-panel);border-radius:10px;padding:10px 12px;border:1px solid var(--border);margin-bottom:8px;cursor:pointer" data-goto="admin-membresia-detalle">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-weight:700;font-size:13px">🌱 Semilla</span>
+                <span class="p-chip muted">Básico</span>
+              </div>
+              <div style="font-size:11px;color:var(--text-muted)">12 socios · $20.000/mes · $240.000 total</div>
+            </div>
+            <div style="background:var(--bg-panel);border-radius:10px;padding:10px 12px;border:1px solid var(--border);margin-bottom:8px;cursor:pointer" data-goto="admin-membresia-detalle">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-weight:700;font-size:13px">⭐ Brote</span>
+                <span class="p-chip gold">Actual</span>
+              </div>
+              <div style="font-size:11px;color:var(--text-muted)">18 socios · $60.000/mes · $1.080.000 total</div>
+            </div>
+            <div style="background:var(--bg-panel);border-radius:10px;padding:10px 12px;border:1px solid var(--border);margin-bottom:8px;cursor:pointer" data-goto="admin-membresia-detalle">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-weight:700;font-size:13px">🌿 Planta Full</span>
+                <span class="p-chip ok">Premium</span>
+              </div>
+              <div style="font-size:11px;color:var(--text-muted)">8 socios · $120.000/mes · $960.000 total</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actividad reciente -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad reciente</div>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>Nadia Herrera</strong> asignada al plan Brote</div>
+                <div class="activity-time">hoy · 09:30hs</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text">18 renovaciones procesadas automáticamente</div>
+                <div class="activity-time">1 nov 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>Valentina R.</strong> compró 100 tokens extra · $100.000</div>
+                <div class="activity-time">hoy · 09:15hs</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot info"></div>
+              <div class="activity-main">
+                <div class="activity-text">Plan Brote fue el más solicitado en admisión (3/7)</div>
+                <div class="activity-time">oct 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">Precio actualizado de $55.000 → $60.000</div>
+                <div class="activity-time">ago 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>

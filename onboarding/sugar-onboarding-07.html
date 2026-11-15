@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar · Configurar club — Paso 7 de 8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:#1B4332; --primary-dark:#0D2318;
+      --accent:#52B788; --accent-dark:#2D6A4F;
+      --gold:#C9A227; --gold-dark:#7D5F0B;
+      --info:#0EA5E9; --info-dark:#0369A1;
+      --surface:#111C15; --surface-2:#182519;
+      --border:#1E3328; --border-light:#2A4535;
+      --text:#F0FAF4; --text-muted:#7A9E8A; --text-micro:#4A7A5B;
+      --bg:#060E0A; --input-bg:#0E1A12; --input-border:#223A2C;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:32px 16px 60px; -webkit-font-smoothing:antialiased; }
+    .stepper { display:flex; align-items:center; gap:0; margin-bottom:40px; width:100%; max-width:600px; }
+    .step-node { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+    .step-node.done   { background:var(--accent); color:white; }
+    .step-node.active { background:var(--accent); color:white; box-shadow:0 0 0 4px rgba(82,183,136,0.2); }
+    .step-node.todo   { background:var(--surface-2); color:var(--text-micro); border:1.5px solid var(--border-light); }
+    .step-line { flex:1; height:2px; background:var(--border-light); }
+    .step-line.done { background:var(--accent); }
+    .wizard-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:40px 40px 36px; width:100%; max-width:600px; box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+    .step-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:10px; }
+    .step-title { font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:800; color:var(--text); line-height:1.15; letter-spacing:-0.5px; margin-bottom:8px; }
+    .step-sub { font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:24px; }
+    .schedule-layout { display:grid; grid-template-columns:160px 1fr; gap:20px; }
+    .days-col { display:flex; flex-direction:column; gap:8px; }
+    .day-btn {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1.5px solid var(--border-light);
+      background:var(--surface-2);
+      cursor:pointer;
+      font-size:13px; font-weight:600;
+      color:var(--text-muted);
+      transition:all 0.12s;
+    }
+    .day-btn:hover { border-color:var(--accent); color:var(--text); }
+    .day-btn.active { border-color:var(--accent); background:rgba(82,183,136,0.1); color:var(--accent); }
+    .day-btn.selected { border-color:var(--accent); background:rgba(82,183,136,0.1); color:var(--accent); }
+    .day-toggle { width:14px; height:14px; border-radius:50%; border:2px solid currentColor; }
+    .day-btn.selected .day-toggle { background:var(--accent); border-color:var(--accent); }
+    .hours-col { display:flex; flex-direction:column; gap:12px; }
+    .hours-day-panel {
+      background:var(--surface-2);
+      border:1px solid var(--border-light);
+      border-radius:12px;
+      padding:16px;
+    }
+    .hdp-day { font-size:13px; font-weight:700; color:var(--text); margin-bottom:12px; }
+    .hdp-row { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+    .hdp-sep { font-size:12px; color:var(--text-micro); flex-shrink:0; }
+    .time-input {
+      flex:1; padding:10px 12px; border:1.5px solid var(--input-border);
+      border-radius:9px; font-size:13px; font-weight:500;
+      background:var(--input-bg); color:var(--text); outline:none;
+      font-family:'Inter',sans-serif; transition:border-color 0.15s;
+      text-align:center;
+    }
+    .time-input:focus { border-color:var(--accent); }
+    .hdp-slot-add { font-size:12px; font-weight:600; color:var(--accent); cursor:pointer; background:none; border:none; font-family:'Inter',sans-serif; padding:4px 0; }
+    .slot-counter { font-size:12px; color:var(--text-micro); }
+    .slot-duration-row { display:flex; align-items:center; gap:10px; margin-top:8px; }
+    .slot-dur-label { font-size:12px; color:var(--text-muted); }
+    .slot-dur-select {
+      padding:8px 12px; border:1.5px solid var(--input-border);
+      border-radius:9px; font-size:13px; background:var(--input-bg);
+      color:var(--text); outline:none; font-family:'Inter',sans-serif;
+    }
+    .info-box { background:rgba(14,165,233,0.07); border:1px solid rgba(14,165,233,0.2); border-radius:10px; padding:12px 14px; font-size:13px; color:var(--text-muted); line-height:1.5; margin-bottom:20px; }
+    .info-box strong { color:#38BDF8; }
+    .wizard-actions { display:flex; align-items:center; justify-content:space-between; margin-top:28px; padding-top:22px; border-top:1px solid var(--border); }
+    .btn-back { font-size:13px; font-weight:600; color:var(--text-micro); background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; padding:0; text-decoration:none; }
+    .btn-back:hover { color:var(--text-muted); }
+    .btn-next { display:inline-flex; align-items:center; gap:8px; padding:0 24px; height:46px; border-radius:12px; background:var(--accent); color:white; font-size:15px; font-weight:700; border:none; cursor:pointer; font-family:'Inter',sans-serif; text-decoration:none; transition:background 0.12s; }
+    .btn-next:hover { background:var(--accent-dark); }
+    .btn-skip-step { font-size:13px; font-weight:600; color:var(--text-micro); background:none; border:1.5px solid var(--border-light); border-radius:10px; cursor:pointer; font-family:'Inter',sans-serif; padding:0 16px; height:46px; text-decoration:none; display:inline-flex; align-items:center; }
+    .btn-skip-step:hover { border-color:var(--border); color:var(--text-muted); }
+    .actions-right { display:flex; gap:10px; }
+    .progress-label { text-align:center; font-size:12px; color:var(--text-micro); margin-top:20px; }
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node active">7</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">8</div>
+  </div>
+
+  <div class="wizard-card">
+    <div class="step-label">Paso 7 de 8 · Agenda médica</div>
+    <h1 class="step-title">Configurá los horarios de atención</h1>
+    <p class="step-sub">Los socios ven estos horarios cuando buscan turno médico. Podés configurar varios bloques por día y la duración de cada turno.</p>
+
+    <div class="info-box">
+      <strong>¿Para qué se usa la agenda médica?</strong> Los socios piden turno para la consulta que valida su credencial REPROCANN. También puede usarse para renovaciones y seguimiento.
+    </div>
+
+    <div class="schedule-layout">
+      <!-- Days column -->
+      <div class="days-col">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-micro);margin-bottom:4px">Días habilitados</div>
+        <div class="day-btn selected">Lunes <div class="day-toggle"></div></div>
+        <div class="day-btn selected">Martes <div class="day-toggle"></div></div>
+        <div class="day-btn">Miércoles <div class="day-toggle"></div></div>
+        <div class="day-btn selected">Jueves <div class="day-toggle"></div></div>
+        <div class="day-btn">Viernes <div class="day-toggle"></div></div>
+        <div class="day-btn">Sábado <div class="day-toggle"></div></div>
+        <div class="day-btn">Domingo <div class="day-toggle"></div></div>
+      </div>
+
+      <!-- Hours column -->
+      <div class="hours-col">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-micro);margin-bottom:4px">Horarios</div>
+
+        <div class="hours-day-panel">
+          <div class="hdp-day">Lunes &amp; Martes</div>
+          <div class="hdp-row">
+            <input class="time-input" type="time" value="09:00" />
+            <span class="hdp-sep">a</span>
+            <input class="time-input" type="time" value="13:00" />
+          </div>
+          <div class="hdp-row">
+            <input class="time-input" type="time" value="15:00" />
+            <span class="hdp-sep">a</span>
+            <input class="time-input" type="time" value="18:00" />
+          </div>
+          <button class="hdp-slot-add">+ Agregar bloque</button>
+        </div>
+
+        <div class="hours-day-panel">
+          <div class="hdp-day">Jueves</div>
+          <div class="hdp-row">
+            <input class="time-input" type="time" value="10:00" />
+            <span class="hdp-sep">a</span>
+            <input class="time-input" type="time" value="14:00" />
+          </div>
+          <button class="hdp-slot-add">+ Agregar bloque</button>
+        </div>
+
+        <div class="slot-duration-row">
+          <span class="slot-dur-label">Duración de cada turno:</span>
+          <select class="slot-dur-select">
+            <option>20 minutos</option>
+            <option selected>30 minutos</option>
+            <option>45 minutos</option>
+            <option>60 minutos</option>
+          </select>
+        </div>
+
+        <div class="slot-counter">
+          Turnos disponibles por semana: <strong style="color:var(--accent)">~22 turnos</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="wizard-actions">
+      <a class="btn-back" href="sugar-onboarding-06.html">← Volver</a>
+      <div class="actions-right">
+        <a class="btn-skip-step" href="sugar-onboarding-08.html">Saltar</a>
+        <a class="btn-next" href="sugar-onboarding-08.html">Guardar agenda →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-label">Paso 7 de 8 — ¡Ya casi terminás!</div>
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link active"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="p-btn small ghost" data-goto="admin-staff">← Staff</button>
+        <div>
+          <div class="d-page-title">Tomás García</div>
+          <div class="d-page-sub">Admin · Socio activo · Sugar desde ago 2024</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">✏️ Editar perfil</button>
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">🔑 Gestionar permisos</button>
+        <button class="p-btn small ghost" style="color:var(--danger);border-color:rgba(239,68,68,0.3)" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">🚫 Dar de baja</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:20px">
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Horas este mes</div>
+        <div class="kpi-value" style="color:var(--success)">48h</div>
+        <div class="kpi-sub">Nov · 11 días</div>
+        <div class="kpi-delta up">↑ 6h vs oct</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Pedidos armados</div>
+        <div class="kpi-value">76</div>
+        <div class="kpi-sub">Nov (parcial)</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Entregas</div>
+        <div class="kpi-value">32</div>
+        <div class="kpi-sub">Nov (parcial)</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--border)">
+        <div class="kpi-label">Admisiones</div>
+        <div class="kpi-value" style="color:var(--text-muted)">—</div>
+        <div class="kpi-sub" style="color:var(--text-muted)">No aplica a su rol</div>
+      </div>
+    </div>
+
+    <!-- 2-column layout -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <div>
+
+        <!-- Perfil -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h">
+            <div class="d-section-title">Perfil</div>
+          </div>
+
+          <!-- Avatar centrado -->
+          <div style="display:flex;flex-direction:column;align-items:center;padding:16px 0 20px">
+            <div class="p-avatar gold lg">TG</div>
+            <div style="font-weight:700;font-size:15px;margin-top:10px">Tomás García</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:2px">tomas.g@sugar.club</div>
+          </div>
+
+          <!-- Formulario 2 columnas -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 4px">
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Nombre</div>
+              <input type="text" value="Tomás García" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Email</div>
+              <input type="email" value="tomas.g@sugar.club" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Teléfono</div>
+              <input type="text" value="+54 11 5544-3322" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Rol operativo</div>
+              <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+                <option>Admin · Armado</option>
+                <option>Admisión</option>
+                <option>Armado de pedidos</option>
+                <option>Entregas</option>
+                <option>Director Médico ★</option>
+                <option>Resp. Técnico Cultivo ★</option>
+                <option>Contador / Administrativo</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Rol formal</div>
+              <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+                <option>Administrador</option>
+                <option>Cultivador ★</option>
+                <option>Distribuidor ★</option>
+                <option>Tesorero</option>
+                <option>Fiscal</option>
+                <option>Encargado</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Modalidad</div>
+              <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+                <option>Socio activo</option>
+                <option>Monotributista</option>
+                <option>Rel. de dependencia (CCT UTEDYC)</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Fecha de alta</div>
+              <input type="date" value="2024-08-01" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Horario</div>
+              <input type="text" value="L–V 09:00–17:00" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            </div>
+
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Días</div>
+              <input type="text" value="Lun–Vie" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            </div>
+
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:14px">
+            <button class="p-btn small gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Guardando…';setTimeout(function(){b.textContent='✓ Guardado';b.style.opacity='0.7';},900)">Guardar cambios</button>
+          </div>
+        </div>
+
+        <!-- Permisos de portal -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h">
+            <div class="d-section-title">Permisos de portal</div>
+          </div>
+          <div style="color:var(--text-muted);font-size:12px;margin-bottom:12px">Accesos en el portal de equipo interno</div>
+          <div>
+            <span style="display:inline-block;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;cursor:default;margin:3px;background:rgba(82,183,136,0.15);color:var(--accent);border:1px solid rgba(82,183,136,0.4)">🚪 Admisión</span>
+            <span style="display:inline-block;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;cursor:default;margin:3px;background:rgba(82,183,136,0.15);color:var(--accent);border:1px solid rgba(82,183,136,0.4)">📦 Armado de pedidos</span>
+            <span style="display:inline-block;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;cursor:default;margin:3px;background:rgba(82,183,136,0.15);color:var(--accent);border:1px solid rgba(82,183,136,0.4)">🤝 Entregas</span>
+            <span style="display:inline-block;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;cursor:default;margin:3px;background:rgba(82,183,136,0.15);color:var(--accent);border:1px solid rgba(82,183,136,0.4)">🕐 Fichaje</span>
+            <span style="display:inline-block;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;cursor:default;margin:3px;background:rgba(82,183,136,0.15);color:var(--accent);border:1px solid rgba(82,183,136,0.4)">🔑 Admin panel</span>
+            <span style="display:inline-block;padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;cursor:default;margin:3px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.1)">🩺 Sesiones médicas</span>
+          </div>
+        </div>
+
+      </div><!-- /columna izquierda -->
+
+      <!-- COLUMNA DERECHA -->
+      <div>
+
+        <!-- Actividad hoy -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad hoy</div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">Fichaje de entrada</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font-size:13px;font-weight:600">09:03hs</span>
+              <span class="p-chip ok" style="font-size:10px">✓</span>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">Pedidos armados</div>
+            </div>
+            <div style="font-size:13px;font-weight:600">3</div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">Entregas realizadas</div>
+            </div>
+            <div style="font-size:13px;font-weight:600">1</div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">Admisiones atendidas</div>
+            </div>
+            <div style="font-size:13px;font-weight:600">3</div>
+          </div>
+
+          <div class="p-divider"></div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">Horas fichadas hoy</div>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--success)">2h 41m</div>
+          </div>
+        </div>
+
+        <!-- Stats del mes -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h">
+            <div class="d-section-title">Stats del mes — Noviembre</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+            <div style="background:var(--bg-panel);border-radius:8px;padding:10px 12px;border:1px solid var(--border)">
+              <div style="font-size:9px;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:4px">Horas fichadas</div>
+              <div style="font-size:18px;font-weight:800;color:var(--success)">48h</div>
+            </div>
+            <div style="background:var(--bg-panel);border-radius:8px;padding:10px 12px;border:1px solid var(--border)">
+              <div style="font-size:9px;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:4px">Pedidos armados</div>
+              <div style="font-size:18px;font-weight:800">76</div>
+            </div>
+            <div style="background:var(--bg-panel);border-radius:8px;padding:10px 12px;border:1px solid var(--border)">
+              <div style="font-size:9px;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:4px">Entregas</div>
+              <div style="font-size:18px;font-weight:800">32</div>
+            </div>
+            <div style="background:var(--bg-panel);border-radius:8px;padding:10px 12px;border:1px solid var(--border)">
+              <div style="font-size:9px;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:4px">Admisiones</div>
+              <div style="font-size:18px;font-weight:800;color:var(--text-muted)">0</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+              <div style="font-size:12px;font-weight:700">Horas fichadas noviembre</div>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px">48h de ~88h esperadas (22 días hábiles × 4h prom)</div>
+            <div class="pbar">
+              <div class="pbar-fill success" style="width:54%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documentación -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h">
+            <div class="d-section-title">Documentación</div>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">📋 DNI</div>
+              <div class="list-item-sub">DNI 32.541.890</div>
+            </div>
+            <span class="p-chip ok" style="font-size:10px">✓ OK</span>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">📄 Rol formal (Administrador)</div>
+              <div class="list-item-sub">Estatuto Club Sugar · ago 2024</div>
+            </div>
+            <span class="p-chip ok" style="font-size:10px">✓ OK</span>
+          </div>
+
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">🩺 Libreta sanitaria</div>
+              <div class="list-item-sub">vence jun 2027</div>
+            </div>
+            <span class="p-chip ok" style="font-size:10px">✓ OK</span>
+          </div>
+
+          <div style="margin-top:12px">
+            <button class="p-btn small ghost" style="width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Cargando…';setTimeout(function(){b.textContent='✓ Cargado';b.style.opacity='0.7';},800)">+ Agregar documento</button>
+          </div>
+        </div>
+
+        <!-- Actividad reciente -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad reciente</div>
+          </div>
+
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">Fichó entrada a las 09:03hs</div>
+                <div class="activity-time">Hoy</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-main">
+                <div class="activity-text">Marcó 3 pedidos como armados</div>
+                <div class="activity-time">Hoy · 10:15hs</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot info"></div>
+              <div class="activity-main">
+                <div class="activity-text">Aprobó admisión de <strong>Nadia Herrera</strong></div>
+                <div class="activity-time">ayer · 14:30hs</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text">Atendió <strong>3 admisiones</strong> en el turno</div>
+                <div class="activity-time">ayer</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">Fichó salida a las 17:02hs</div>
+                <div class="activity-time">ayer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /columna derecha -->
+
+    </div><!-- /2-column layout -->
+
+  </main>
+</div>

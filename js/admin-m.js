@@ -1,4 +1,4 @@
-const SCREENS = ['admin-m-home', 'admin-m-pedidos', 'admin-m-socios', 'admin-m-tokens', 'admin-reportes', 'admin-config'];
+const SCREENS = ['admin-m-home', 'admin-m-pedidos', 'admin-m-socios', 'admin-m-socio-perfil', 'admin-m-tokens', 'admin-reportes', 'admin-config'];
 
 const root = document.getElementById('screen-root');
 
@@ -9,6 +9,11 @@ async function goTo(id) {
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const html = await resp.text();
     root.innerHTML = html;
+    root.querySelectorAll('script').forEach(s => {
+      const ns = document.createElement('script');
+      if (s.src) { ns.src = s.src; } else { ns.textContent = s.textContent; }
+      s.parentNode.replaceChild(ns, s);
+    });
     root.scrollTop = 0;
     if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
     window.__portalGoTo = goTo;

@@ -1,4 +1,4 @@
-const SCREENS = ['equipo-hub', 'equipo-admision', 'equipo-armado', 'equipo-entrega', 'equipo-fin-turno'];
+const SCREENS = ['equipo-login', 'equipo-hub', 'equipo-admision', 'equipo-armado', 'equipo-entrega', 'equipo-fin-turno', 'equipo-medico', 'equipo-fichaje'];
 
 const root = document.getElementById('screen-root');
 
@@ -12,6 +12,13 @@ async function goTo(id) {
     root.scrollTop = 0;
     if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
     window.__portalGoTo = goTo;
+    // Execute scripts injected via innerHTML (browser doesn't run them automatically)
+    root.querySelectorAll('script').forEach(old => {
+      const s = document.createElement('script');
+      [...old.attributes].forEach(a => s.setAttribute(a.name, a.value));
+      s.textContent = old.textContent;
+      old.parentNode.replaceChild(s, old);
+    });
     attachBehaviors(root);
   } catch(err) {
     root.innerHTML = `<div class="screen-error">Error cargando ${id}: ${err.message}</div>`;
@@ -25,9 +32,9 @@ function attachBehaviors(container) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const hash = location.hash.replace('#','') || 'equipo-hub';
+  const hash = location.hash.replace('#','') || 'equipo-login';
   if (SCREENS.includes(hash)) goTo(hash);
-  else goTo('equipo-hub');
+  else goTo('equipo-login');
 });
 window.addEventListener('hashchange', () => {
   const id = location.hash.replace('#','');

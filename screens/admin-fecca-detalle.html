@@ -1,0 +1,436 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link active"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="p-btn small ghost" data-goto="admin-fecca">← FECCA</button>
+        <div>
+          <div class="d-page-title">⬡ Club Sugar · Perfil FECCA</div>
+          <div class="d-page-sub">#0047 · Red FECCA · Afiliado oct 2026 · CABA</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📧 Contactar a FECCA</button>
+        <button class="p-btn small gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Exportando…';setTimeout(function(){b.textContent='✓ Exportado';b.style.opacity='0.7';},1200)">📥 Descargar certificado</button>
+      </div>
+    </div>
+
+    <!-- Banner verificado hero -->
+    <div style="background:linear-gradient(135deg,rgba(217,119,6,0.12),rgba(245,158,11,0.06));border:2px solid rgba(245,158,11,0.3);border-radius:16px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:20px">
+      <div style="font-size:40px;line-height:1;color:#F59E0B">⬡</div>
+      <div style="flex:1">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+          <div style="font-size:20px;font-weight:800;color:#F59E0B">Club Verificado FECCA</div>
+          <span style="background:#F59E0B;color:#1a1a1a;font-size:10px;font-weight:800;padding:3px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em">✓ Activo</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">Sugar · CABA · <strong style="color:var(--text)">#0047</strong> · Afiliado oct 2026 · Cuota al día</div>
+        <div style="display:flex;gap:20px;font-size:13px">
+          <span style="color:var(--text-muted)">🏆 <strong style="color:var(--text)">#3 de 18 en CABA</strong></span>
+          <span style="color:var(--text-muted)">🌐 <strong style="color:var(--text)">47 clubes</strong> en la red</span>
+          <span style="color:var(--text-muted)">📅 Próx. renovación: <strong style="color:var(--text)">oct 2027</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid cols5" style="margin-bottom:20px">
+      <div class="kpi" style="border-top:3px solid #F59E0B">
+        <div class="kpi-label">Posición CABA</div>
+        <div class="kpi-value" style="color:#F59E0B">#3<span style="font-size:14px;font-weight:600;color:var(--text-muted)">/18</span></div>
+        <div class="kpi-sub">por socios activos</div>
+        <div class="kpi-delta up">↑ 2 puestos vs sep</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Posición total</div>
+        <div class="kpi-value">#8<span style="font-size:14px;font-weight:600;color:var(--text-muted)">/47</span></div>
+        <div class="kpi-sub">ranking nacional</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info,#60a5fa)">
+        <div class="kpi-label">Socios red</div>
+        <div class="kpi-value">143</div>
+        <div class="kpi-sub">aportados a la red</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Cuota anual</div>
+        <div class="kpi-value" style="font-size:22px">$120.000</div>
+        <div class="kpi-sub">pagada · vence oct 2027</div>
+        <div class="kpi-delta up">✓ Al día</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--primary,#6366f1)">
+        <div class="kpi-label">Score FECCA</div>
+        <div class="kpi-value">94<span style="font-size:14px;font-weight:600;color:var(--text-muted)">/100</span></div>
+        <div class="kpi-sub">cumplimiento y actividad</div>
+        <div class="kpi-delta up">↑ 3 pts</div>
+      </div>
+    </div>
+
+    <!-- 2-col layout -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
+
+      <!-- Columna izquierda -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <!-- Ranking CABA -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Ranking de clubes — CABA (Top 10)</div>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Clubes afiliados FECCA en CABA · por socios activos · nov 2026</div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Club</th>
+                  <th>Barrio</th>
+                  <th class="right num">Socios activos</th>
+                  <th class="right num">Tokens/mes</th>
+                  <th class="right num">Score</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>🌿 Club Verde</td>
+                  <td>Palermo</td>
+                  <td class="right num">180</td>
+                  <td class="right num">11.200</td>
+                  <td class="right num">98</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>🌱 La Raíz</td>
+                  <td>Almagro</td>
+                  <td class="right num">157</td>
+                  <td class="right num">9.800</td>
+                  <td class="right num">95</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr style="background:rgba(245,158,11,0.06)">
+                  <td><strong>3</strong></td>
+                  <td><strong>⬡ Club Sugar</strong></td>
+                  <td><strong>Palermo</strong></td>
+                  <td class="right num"><strong>143</strong></td>
+                  <td class="right num"><strong>8.740</strong></td>
+                  <td class="right num"><strong>94</strong></td>
+                  <td><span class="p-chip gold">Tú</span></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>🍃 Club Canela</td>
+                  <td>Villa Crespo</td>
+                  <td class="right num">128</td>
+                  <td class="right num">7.900</td>
+                  <td class="right num">91</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>🌿 El Roble</td>
+                  <td>San Telmo</td>
+                  <td class="right num">112</td>
+                  <td class="right num">6.800</td>
+                  <td class="right num">88</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>🌿 Club Sur</td>
+                  <td>Boedo</td>
+                  <td class="right num">98</td>
+                  <td class="right num">5.900</td>
+                  <td class="right num">85</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>🍀 Verde 420</td>
+                  <td>Flores</td>
+                  <td class="right num">87</td>
+                  <td class="right num">5.200</td>
+                  <td class="right num">82</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>🌱 Club Norte</td>
+                  <td>Coghlan</td>
+                  <td class="right num">74</td>
+                  <td class="right num">4.400</td>
+                  <td class="right num">79</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>🌿 El Patio</td>
+                  <td>Núñez</td>
+                  <td class="right num">61</td>
+                  <td class="right num">3.600</td>
+                  <td class="right num">74</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>🌱 Semilla Club</td>
+                  <td>Caballito</td>
+                  <td class="right num">55</td>
+                  <td class="right num">3.200</td>
+                  <td class="right num">71</td>
+                  <td><span class="p-chip ok">Activo</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:10px">+ 8 clubes más en CABA</div>
+        </div>
+
+        <!-- Eventos FECCA -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Eventos FECCA — calendario completo</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div class="list-item">
+              <div class="list-item-main">
+                <div class="list-item-title">🗓️ Jornada REPROCANN</div>
+                <div class="list-item-sub">Online · Jue 28 nov 2026 · 18:00hs</div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <span class="p-chip info">Próximo</span>
+                <span class="p-chip ok">Sugar confirmado</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-item-main">
+                <div class="list-item-title">🗓️ Encuentro de Clubes 2027</div>
+                <div class="list-item-sub">Sede FECCA · CABA · 14 feb 2027</div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <span class="p-chip muted">Pendiente</span>
+                <span class="p-chip muted">Sin confirmar</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-item-main">
+                <div class="list-item-title">🗓️ Expo Cannabis 2027</div>
+                <div class="list-item-sub">La Rural · CABA · 15-17 mar 2027</div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <span class="p-chip gold">Destacado</span>
+                <span class="p-chip ok">Sugar confirmado</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-item-main">
+                <div class="list-item-title">🗓️ Asamblea Anual FECCA</div>
+                <div class="list-item-sub">Online · Abr 2027</div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <span class="p-chip muted">Por confirmar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna derecha -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <!-- Estado de membresía -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Estado de membresía</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Número de club</span>
+              <span style="font-weight:700">#0047</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Fecha de afiliación</span>
+              <span style="font-weight:600">1 oct 2026</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Estado</span>
+              <span class="p-chip ok">✓ Activo y al día</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Cuota anual</span>
+              <span style="font-weight:600">$120.000 ARS</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Último pago</span>
+              <span style="font-weight:600">1 oct 2026</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Próxima renovación</span>
+              <span style="font-weight:600">1 oct 2027</span>
+            </div>
+            <div class="p-divider"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Certificado FECCA</span>
+              <div style="display:flex;gap:6px;align-items:center">
+                <span class="p-chip ok">✓ Vigente</span>
+                <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Exportando…';setTimeout(function(){b.textContent='✓ Exportado';b.style.opacity='0.7';},1200)">📥</button>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--text-muted)">Código QR club</span>
+              <span class="p-chip ok">✓ Activo para socios</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score de cumplimiento -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Score de cumplimiento · 94/100</div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-size:12px;font-weight:700;color:#F59E0B">Score total</span>
+              <span style="font-size:13px;font-weight:800;color:#F59E0B">94 / 100 pts</span>
+            </div>
+            <div class="pbar">
+              <div class="pbar-fill gold" style="width:94%"></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-size:12px">📋 Docs regulatorios</span>
+                <span style="font-size:12px;font-weight:700;color:var(--success)">100/100</span>
+              </div>
+              <div class="pbar">
+                <div class="pbar-fill success" style="width:100%"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-size:12px">👥 Socios activos</span>
+                <span style="font-size:12px;font-weight:700;color:var(--accent)">95/100</span>
+              </div>
+              <div class="pbar">
+                <div class="pbar-fill accent" style="width:95%"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-size:12px">📦 Actividad mensual</span>
+                <span style="font-size:12px;font-weight:700;color:var(--accent)">92/100</span>
+              </div>
+              <div class="pbar">
+                <div class="pbar-fill accent" style="width:92%"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-size:12px">🩺 Cumplimiento médico</span>
+                <span style="font-size:12px;font-weight:700;color:var(--info,#60a5fa)">90/100</span>
+              </div>
+              <div class="pbar">
+                <div class="pbar-fill info" style="width:90%"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <span style="font-size:12px">💡 Uso del portal</span>
+                <span style="font-size:12px;font-weight:700;color:#F59E0B">94/100</span>
+              </div>
+              <div class="pbar">
+                <div class="pbar-fill gold" style="width:94%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comunicaciones FECCA -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Comunicaciones FECCA</div>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text">Certificado FECCA 2026-2027 emitido</div>
+                <div class="activity-time">1 oct 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">Sugar confirmó asistencia a Jornada REPROCANN</div>
+                <div class="activity-time">5 nov 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot info"></div>
+              <div class="activity-main">
+                <div class="activity-text">Score actualizado: 91 → 94 pts (↑3)</div>
+                <div class="activity-time">oct 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">Cuota anual $120.000 procesada</div>
+                <div class="activity-time">1 oct 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-main">
+                <div class="activity-text">Sugar afiliado a la red FECCA</div>
+                <div class="activity-time">1 oct 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>

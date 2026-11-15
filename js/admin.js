@@ -1,7 +1,8 @@
 const SCREENS = [
   'admin-dashboard', 'admin-catalogo', 'admin-pedidos', 'admin-socios',
-  'admin-admision', 'admin-tokens', 'admin-eventos', 'admin-membresias', 'admin-equipo',
-  'admin-reportes', 'admin-config', 'admin-socio-perfil'
+  'admin-admision', 'admin-tokens', 'admin-eventos', 'admin-membresias',
+  'admin-beneficios', 'admin-fecca', 'admin-staff', 'admin-rrhh', 'admin-cultivo',
+  'admin-reportes', 'admin-config', 'admin-socio-perfil', 'admin-qr-scanner'
 ];
 
 const root = document.getElementById('screen-root');
@@ -13,6 +14,11 @@ async function goTo(id) {
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const html = await resp.text();
     root.innerHTML = html;
+    root.querySelectorAll('script').forEach(s => {
+      const ns = document.createElement('script');
+      if (s.src) { ns.src = s.src; } else { ns.textContent = s.textContent; }
+      s.parentNode.replaceChild(ns, s);
+    });
     if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
     attachBehaviors(root);
   } catch(err) {

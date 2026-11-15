@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar · ¡Tu club está listo!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:#1B4332; --primary-dark:#0D2318;
+      --accent:#52B788; --accent-dark:#2D6A4F; --accent-light:#B7E4C7;
+      --gold:#C9A227; --gold-dark:#7D5F0B; --gold-light:#FEF9C3;
+      --surface:#111C15; --surface-2:#182519;
+      --border:#1E3328; --border-light:#2A4535;
+      --text:#F0FAF4; --text-muted:#7A9E8A; --text-micro:#4A7A5B;
+      --bg:#060E0A; --input-bg:#0E1A12;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'Inter',system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:32px 16px;
+      -webkit-font-smoothing:antialiased;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Ambient glow */
+    body::before {
+      content:'';
+      position:fixed;
+      top:50%; left:50%;
+      transform:translate(-50%, -50%);
+      width:600px; height:600px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(82,183,136,0.08) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    /* Stepper — all done */
+    .stepper { display:flex; align-items:center; gap:0; margin-bottom:40px; width:100%; max-width:560px; }
+    .step-node { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; background:var(--accent); color:white; }
+    .step-line { flex:1; height:2px; background:var(--accent); }
+
+    /* Success card */
+    .wizard-card {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:48px 40px 40px;
+      width:100%;
+      max-width:560px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.4);
+      text-align:center;
+      position:relative;
+    }
+
+    /* Big check */
+    .success-ring {
+      width:88px; height:88px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
+      border:3px solid var(--accent);
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 24px;
+      font-size:40px;
+      box-shadow:0 0 0 8px rgba(82,183,136,0.1), 0 0 32px rgba(82,183,136,0.15);
+    }
+
+    .success-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:10px; }
+    .success-title {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:32px; font-weight:900;
+      color:var(--text);
+      letter-spacing:-0.5px;
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+    .club-name { color:var(--accent); }
+    .success-sub { font-size:15px; color:var(--text-muted); line-height:1.6; max-width:400px; margin:0 auto 32px; }
+
+    /* Checklist summary */
+    .setup-summary {
+      background:var(--surface-2);
+      border:1px solid var(--border-light);
+      border-radius:14px;
+      padding:20px;
+      text-align:left;
+      margin-bottom:28px;
+    }
+    .ss-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-micro); margin-bottom:14px; }
+    .ss-row {
+      display:flex; align-items:center; gap:12px;
+      padding:9px 0;
+      border-bottom:1px solid var(--border);
+      font-size:13px;
+    }
+    .ss-row:last-child { border-bottom:none; }
+    .ss-icon { font-size:16px; flex-shrink:0; width:20px; text-align:center; }
+    .ss-label { flex:1; color:var(--text-muted); }
+    .ss-status { font-size:11px; font-weight:700; }
+    .ss-status.done { color:var(--accent); }
+    .ss-status.skip { color:var(--text-micro); }
+
+    /* CTAs */
+    .cta-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+    .cta-btn {
+      display:flex; flex-direction:column; align-items:center;
+      gap:8px;
+      padding:18px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      cursor:pointer;
+      transition:all 0.15s;
+      border:1.5px solid transparent;
+    }
+    .cta-btn.primary {
+      background:linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
+      border-color:var(--accent);
+      color:white;
+      box-shadow:0 4px 16px rgba(82,183,136,0.2);
+    }
+    .cta-btn.primary:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(82,183,136,0.3); }
+    .cta-btn.secondary {
+      background:var(--surface-2);
+      border-color:var(--border-light);
+      color:var(--text);
+    }
+    .cta-btn.secondary:hover { border-color:var(--accent); background:rgba(82,183,136,0.05); }
+    .cta-icon { font-size:24px; }
+    .cta-label { font-size:14px; font-weight:700; }
+    .cta-sub { font-size:11px; opacity:0.7; }
+
+    .cta-full {
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      width:100%; padding:14px;
+      border-radius:12px;
+      background:rgba(201,162,39,0.08);
+      border:1px solid rgba(201,162,39,0.25);
+      color:var(--gold);
+      font-size:14px; font-weight:600;
+      text-decoration:none;
+      cursor:pointer;
+      transition:all 0.12s;
+    }
+    .cta-full:hover { background:rgba(201,162,39,0.14); }
+
+    .footer-note { font-size:12px; color:var(--text-micro); margin-top:20px; line-height:1.5; }
+    .footer-note a { color:var(--accent); text-decoration:none; }
+  </style>
+</head>
+<body>
+
+  <!-- All done stepper -->
+  <div class="stepper">
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node">✓</div>
+    <div class="step-line"></div>
+    <div class="step-node" style="background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,39,0.25)">🌿</div>
+  </div>
+
+  <div class="wizard-card">
+
+    <div class="success-ring">🎉</div>
+
+    <div class="success-eyebrow">Configuración completada</div>
+    <h1 class="success-title">¡<span class="club-name">Club Raíces</span><br>ya está listo!</h1>
+    <p class="success-sub">Tu club quedó configurado y operativo. Podés empezar a cargar socios, armar el catálogo del día y gestionar todo desde el dashboard.</p>
+
+    <!-- Setup checklist -->
+    <div class="setup-summary">
+      <div class="ss-title">Resumen de configuración</div>
+      <div class="ss-row">
+        <div class="ss-icon">🌿</div>
+        <div class="ss-label">Nombre del club</div>
+        <div class="ss-status done">✓ Club Raíces</div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-icon">⬡</div>
+        <div class="ss-label">Datos REPROCANN</div>
+        <div class="ss-status done">✓ REP-2024-00147</div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-icon">⭐</div>
+        <div class="ss-label">Tiers de membresía</div>
+        <div class="ss-status done">✓ Semilla / Brote / Planta</div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-icon">🪙</div>
+        <div class="ss-label">Valor del token</div>
+        <div class="ss-status done">✓ $1.000 ARS / token</div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-icon">🩺</div>
+        <div class="ss-label">Médico del club</div>
+        <div class="ss-status done">✓ Dra. Villalba (invitación enviada)</div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-icon">👤</div>
+        <div class="ss-label">Primer socio</div>
+        <div class="ss-status done">✓ Lucas Méndez (invitación enviada)</div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-icon">📅</div>
+        <div class="ss-label">Agenda médica</div>
+        <div class="ss-status done">✓ Lun, Mar, Jue · 22 turnos/semana</div>
+      </div>
+    </div>
+
+    <!-- Main CTAs -->
+    <div class="cta-grid">
+      <a class="cta-btn primary" href="../admin.html">
+        <div class="cta-icon">📊</div>
+        <div class="cta-label">Ir al Dashboard</div>
+        <div class="cta-sub">Empezá a operar</div>
+      </a>
+      <a class="cta-btn secondary" href="../admin.html#admin-catalogo">
+        <div class="cta-icon">🌿</div>
+        <div class="cta-label">Cargar catálogo</div>
+        <div class="cta-sub">Agregar strains</div>
+      </a>
+      <a class="cta-btn secondary" href="../admin.html#admin-socios">
+        <div class="cta-icon">👥</div>
+        <div class="cta-label">Gestionar socios</div>
+        <div class="cta-sub">Ver admisiones</div>
+      </a>
+      <a class="cta-btn secondary" href="../admin.html#admin-config">
+        <div class="cta-icon">⚙️</div>
+        <div class="cta-label">Configuración</div>
+        <div class="cta-sub">Ajustar detalles</div>
+      </a>
+    </div>
+
+    <a class="cta-full" href="../admin.html#admin-tokens">
+      🪙 Ver tutorial: cómo funciona el sistema de tokens
+    </a>
+
+  </div>
+
+  <div class="footer-note">
+    ¿Necesitás ayuda? <a href="mailto:hola@octo.studio">Escribinos al soporte</a> · Configuración guardada automáticamente
+  </div>
+
+</body>
+</html>

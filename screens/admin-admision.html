@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -39,7 +44,15 @@
         <div class="d-page-title">Pipeline de Admisión</div>
         <div class="d-page-sub">7 candidatos activos · 4 con acción pendiente hoy</div>
       </div>
-      <button class="p-btn small primary">+ Nuevo candidato</button>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div style="position:relative">
+          <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;pointer-events:none">🔍</span>
+          <input id="adm-search" type="text" placeholder="Buscar candidato…"
+            style="background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 12px 7px 30px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:200px">
+        </div>
+        <button class="p-btn small ghost" data-goto="admin-socios" style="font-size:12px">👥 Ver socios →</button>
+        <button class="p-btn small primary" data-goto="admin-admision">+ Nuevo candidato</button>
+      </div>
     </div>
 
     <!-- Kanban 5 etapas -->
@@ -59,7 +72,8 @@
               <div style="font-size:11px;color:var(--accent-dark)">👉 Ayudar con REPROCANN</div>
               <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Asignado: Camila T.</div>
             </div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Avanzar →</button>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Avanzar →</button>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
         </div>
       </div>
@@ -75,18 +89,20 @@
             <div style="font-size:11px;color:var(--text-muted)">📧 camila.lop@gmail.com</div>
             <div style="font-size:11px;color:var(--text-muted)">12 días esperando</div>
             <div style="display:flex;gap:6px;margin-top:8px">
-              <button class="p-btn small ghost" style="font-size:11px;flex:1">WhatsApp</button>
-              <button class="p-btn small primary" style="font-size:11px;flex:1">Mover →</button>
+              <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-admision-detalle">WhatsApp</button>
+              <button class="p-btn small primary" style="font-size:11px;flex:1" data-goto="admin-admision-detalle">Mover →</button>
             </div>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
           <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
             <div style="font-size:14px;font-weight:700">Jorge Villena</div>
             <div style="font-size:11px;color:var(--text-muted)">📱 11 7788-9900</div>
             <div style="font-size:11px;color:var(--text-muted)">8 días esperando</div>
             <div style="display:flex;gap:6px;margin-top:8px">
-              <button class="p-btn small ghost" style="font-size:11px;flex:1">WhatsApp</button>
-              <button class="p-btn small primary" style="font-size:11px;flex:1">Mover →</button>
+              <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-admision-detalle">WhatsApp</button>
+              <button class="p-btn small primary" style="font-size:11px;flex:1" data-goto="admin-admision-detalle">Mover →</button>
             </div>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
         </div>
       </div>
@@ -101,13 +117,15 @@
             <div style="font-size:14px;font-weight:700">Laura Gómez</div>
             <div style="font-size:11px;color:var(--text-muted)">📅 Jue 14 nov · 15hs</div>
             <div style="font-size:11px;color:var(--text-muted)">Dra. Pérez</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Consulta realizada →</button>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Consulta realizada →</button>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
           <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
             <div style="font-size:14px;font-weight:700">Sebastián Ríos</div>
             <div style="font-size:11px;color:var(--text-muted)">📅 Vie 15 nov · 11hs</div>
             <div style="font-size:11px;color:var(--text-muted)">Dr. Molina</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Consulta realizada →</button>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Consulta realizada →</button>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
         </div>
       </div>
@@ -125,7 +143,8 @@
             <div style="font-size:11px;color:var(--text-muted)">Asignar staff: <select style="font-size:11px;border:none;color:var(--accent-dark);font-weight:700">
               <option>Sofía M.</option><option>Camila T.</option>
             </select></div>
-            <button class="p-btn gold block" style="margin-top:8px;font-size:11px">🎉 Habilitar como socia</button>
+            <button class="p-btn gold block" style="margin-top:8px;font-size:11px" data-goto="admin-socios">🎉 Habilitar como socia</button>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
         </div>
       </div>
@@ -141,6 +160,7 @@
             <div style="font-size:11px;color:var(--text-muted)">Hoy 09:00 · #1078</div>
             <div style="font-size:11px;color:var(--success);font-weight:700;margin-top:4px">✓ Habilitado para comprar</div>
             <button class="p-btn small ghost" data-goto="admin-socios" style="margin-top:8px;font-size:11px;width:100%">Ver perfil →</button>
+            <button class="p-btn small ghost" style="margin-top:4px;font-size:11px;width:100%" data-goto="admin-admision-detalle">Ver detalle →</button>
           </div>
         </div>
       </div>

@@ -1,0 +1,176 @@
+<style>
+.d-shell { background: #070C07; }
+.d-sidebar { background: #0A1208; border-right: 1px solid #1A2E1A; }
+.d-sidebar-brand-text { color: white; }
+.d-sidebar-brand-sub { color: #3A6B4A; font-size: 11px; }
+.d-sidebar-link { color: #7AAE8F; }
+.d-sidebar-link:hover { background: #152B1E; color: #A8D5B8; }
+.d-sidebar-link.active { background: #1B4332; color: white; }
+.d-sidebar-sec { color: #3A6B4A; }
+.d-sidebar-user { border-top-color: #1A2E1A; }
+.d-main { background: #F3F7F4; }
+.c-form-card { background: white; border: 1px solid #E2E8E2; border-radius: 14px; padding: 22px 24px; margin-bottom: 16px; }
+.c-form-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: #64748B; margin-bottom: 16px; }
+.c-field { margin-bottom: 16px; }
+.c-field:last-child { margin-bottom: 0; }
+.c-label { display: block; font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 5px; }
+.c-label span { font-weight: 400; color: #94A3B8; }
+.c-input { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1.5px solid #D1D5DB; border-radius: 8px; font-size: 14px; color: #0A0F0A; background: white; font-family: Inter, sans-serif; outline: none; transition: border-color .15s; }
+.c-input:focus { border-color: #52B788; }
+select.c-input { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+.c-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.c-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.c-cepa-preview { display: none; background: rgba(82,183,136,0.07); border: 1.5px solid rgba(82,183,136,0.25); border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+.c-cepa-preview.visible { display: block; }
+</style>
+
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #1A2E1A;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo" style="font-size:18px;background:linear-gradient(135deg,#1B4332,#2D6A4F)">🌱</div>
+      <div>
+        <div class="d-sidebar-brand-text">Cultivo</div>
+        <div class="d-sidebar-brand-sub">Portal de cultivo</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Producción</div>
+    <div class="d-sidebar-link" data-goto="cultivo-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-cultivos"><span>🌱</span><span>Cultivos</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-plantas"><span>🌿</span><span>Plantas & Cepas</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-solicitudes"><span>📦</span><span>Despachos</span></div>
+    <div class="d-sidebar-sec">Sistema</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">RM</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Rodrigo M.</div>
+        <div style="font-size:11px;color:#3A6B4A">Cultivador</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Nuevo cultivo</div>
+        <div class="d-page-sub">Iniciar un nuevo ciclo de siembra</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="p-btn small ghost" data-goto="cultivo-cultivos">← Cancelar</button>
+      </div>
+    </div>
+
+    <!-- Selección de cepa -->
+    <div class="c-form-card">
+      <div class="c-form-title">Cepa</div>
+
+      <div class="c-field">
+        <label class="c-label">Seleccioná la cepa a plantar</label>
+        <select class="c-input" id="nc-cepa" onchange="
+          var previews = {
+            'OG Kush':       { tipo:'Indica', gen:'ChemDawg × Hindu Kush', thc:'22%', cbd:'0.3%', semVeg:6, semFlor:8 },
+            'Gorilla Glue #4': { tipo:'Híbrida', gen:'Chem Sister × Chocolate Diesel', thc:'26%', cbd:'0.1%', semVeg:5, semFlor:9 },
+            'Blue Dream':    { tipo:'Sativa',  gen:'Blueberry × Haze', thc:'20%', cbd:'0.5%', semVeg:5, semFlor:9 },
+            'Wedding Cake':  { tipo:'Híbrida', gen:'GSC × Cherry Pie', thc:'24%', cbd:'0.2%', semVeg:6, semFlor:8 }
+          };
+          var v = this.value, p = previews[v], el = document.getElementById('nc-preview');
+          if (p) {
+            document.getElementById('nc-p-tipo').textContent = p.tipo;
+            document.getElementById('nc-p-gen').textContent = p.gen;
+            document.getElementById('nc-p-thc').textContent = p.thc;
+            document.getElementById('nc-p-cbd').textContent = p.cbd;
+            document.getElementById('nc-sem-veg').value = p.semVeg;
+            document.getElementById('nc-sem-flor').value = p.semFlor;
+            el.classList.add('visible');
+          } else { el.classList.remove('visible'); }
+        ">
+          <option value="">Seleccionar cepa existente…</option>
+          <option>OG Kush</option>
+          <option>Gorilla Glue #4</option>
+          <option>Blue Dream</option>
+          <option>Wedding Cake</option>
+        </select>
+
+        <div id="nc-preview" class="c-cepa-preview">
+          <div style="display:flex;gap:24px;flex-wrap:wrap">
+            <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#52B788">Tipo</div><div id="nc-p-tipo" style="font-size:13px;font-weight:700;color:#0A0F0A;margin-top:2px"></div></div>
+            <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#52B788">Genética</div><div id="nc-p-gen" style="font-size:13px;font-weight:700;color:#0A0F0A;margin-top:2px"></div></div>
+            <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#52B788">THC est.</div><div id="nc-p-thc" style="font-size:13px;font-weight:700;color:#0A0F0A;margin-top:2px"></div></div>
+            <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#52B788">CBD est.</div><div id="nc-p-cbd" style="font-size:13px;font-weight:700;color:#0A0F0A;margin-top:2px"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:#64748B">¿La cepa no está en la lista?
+        <span style="color:#52B788;font-weight:700;cursor:pointer" data-goto="cultivo-cepa-nueva">Registrar nueva cepa →</span>
+      </div>
+    </div>
+
+    <!-- Datos del cultivo -->
+    <div class="c-form-card">
+      <div class="c-form-title">Datos del cultivo</div>
+
+      <div class="c-row-3">
+        <div class="c-field">
+          <label class="c-label">Cantidad de plantas</label>
+          <input class="c-input" type="number" id="nc-plantas" placeholder="ej. 10" min="1">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Fecha de inicio</label>
+          <input class="c-input" type="date" id="nc-inicio">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Etapa inicial</label>
+          <select class="c-input" id="nc-etapa">
+            <option value="">Seleccionar…</option>
+            <option>🌱 Seedling</option>
+            <option>🌿 Vegetativo</option>
+            <option>🌸 Floración</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="c-row-3">
+        <div class="c-field">
+          <label class="c-label">Semanas veg.</label>
+          <input class="c-input" type="number" id="nc-sem-veg" placeholder="ej. 6" min="1">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Semanas floración</label>
+          <input class="c-input" type="number" id="nc-sem-flor" placeholder="ej. 8" min="1">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Sala / espacio <span>(opcional)</span></label>
+          <input class="c-input" type="text" id="nc-sala" placeholder="ej. Sala A">
+        </div>
+      </div>
+
+      <div class="c-field" style="margin-bottom:0">
+        <label class="c-label">Notas <span>(opcional)</span></label>
+        <textarea class="c-input" id="nc-notas" rows="2" placeholder="Observaciones del ciclo, condiciones especiales…" style="resize:vertical"></textarea>
+      </div>
+    </div>
+
+    <!-- Acciones -->
+    <div style="display:flex;justify-content:flex-end;gap:10px;padding-bottom:24px">
+      <button class="p-btn ghost" data-goto="cultivo-cultivos">Cancelar</button>
+      <button class="p-btn primary" onclick="
+        var cepa = document.getElementById('nc-cepa').value;
+        var plantas = document.getElementById('nc-plantas').value;
+        if (!cepa) { alert('Seleccioná una cepa'); return; }
+        if (!plantas) { alert('Ingresá la cantidad de plantas'); return; }
+        var b = this;
+        b.disabled = true;
+        b.textContent = '⏳ Guardando…';
+        setTimeout(function() {
+          b.textContent = '✓ Cultivo iniciado';
+          b.style.background = '#22C55E';
+          b.style.border = 'none';
+          setTimeout(function() {
+            document.querySelectorAll('[data-goto=cultivo-cultivos]')[0].click();
+          }, 1200);
+        }, 900);
+      ">🌱 Iniciar cultivo</button>
+    </div>
+
+  </main>
+</div>

@@ -2,7 +2,7 @@
 
 <div class="p-header compact">
   <h1>Mis pedidos</h1>
-  <div class="p-subtitle">Historial completo · Club Rainbow</div>
+  <div class="p-subtitle">Historial completo · Club Sugar</div>
 </div>
 
 <div class="p-body">
@@ -13,24 +13,24 @@
     <span class="live-pulse" style="font-size:10px">En curso</span>
   </div>
 
-  <div class="p-card" style="border-color:var(--accent)">
+  <div class="p-card" style="border-color:var(--accent);cursor:pointer" data-goto="socio-pedido-detalle">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
       <div style="font-weight:800">Pedido #P-243</div>
-      <span class="p-chip warn">Armando</span>
+      <span class="p-chip ok">Listo ✓</span>
     </div>
     <button class="p-btn small gold" style="margin-bottom:10px" data-goto="socio-qr">📱 Ver QR de retiro</button>
     <div style="font-size:13px;color:var(--text-muted)">OG Kush 2g + Gorilla Glue #4 1g · 🪙 62 tok</div>
     <div style="margin-top:12px">
       <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:6px">
-        <span>Preparación en curso...</span>
-        <span>~15 min</span>
+        <span>Listo para retiro · esperando al socio</span>
+        <span style="color:var(--success)">✓</span>
       </div>
-      <div class="pbar"><div class="pbar-fill" style="width:50%;background:var(--warning)"></div></div>
+      <div class="pbar"><div class="pbar-fill" style="width:75%;background:var(--success)"></div></div>
     </div>
     <ul class="timeline" style="margin-top:14px">
       <li class="done">Recibido</li>
-      <li class="active">Armando</li>
-      <li>Listo</li>
+      <li class="done">Armando</li>
+      <li class="active">Listo</li>
       <li>Retirado</li>
     </ul>
   </div>
@@ -41,7 +41,7 @@
   </div>
 
   <div class="p-card">
-    <div class="list-item">
+    <div class="list-item" style="cursor:pointer" data-goto="socio-pedido-detalle">
       <div class="p-avatar mint sm">📦</div>
       <div class="list-item-main">
         <div class="list-item-title">#P-242 · Lun 10 Nov</div>
@@ -49,7 +49,7 @@
       </div>
       <span class="p-chip ok">Retirado ✅</span>
     </div>
-    <div class="list-item">
+    <div class="list-item" style="cursor:pointer" data-goto="socio-pedido-detalle">
       <div class="p-avatar mint sm">📦</div>
       <div class="list-item-main">
         <div class="list-item-title">#P-241 · Mié 5 Nov</div>
@@ -57,13 +57,29 @@
       </div>
       <span class="p-chip ok">Retirado ✅</span>
     </div>
-    <div class="list-item" style="border-bottom:none">
+    <div class="list-item" style="cursor:pointer" data-goto="socio-pedido-detalle">
       <div class="p-avatar mint sm">📦</div>
       <div class="list-item-main">
         <div class="list-item-title">#P-240 · Vie 1 Nov</div>
         <div class="list-item-sub">Wedding Cake 1g + SLH 2g · 🪙 61 tok</div>
       </div>
       <span class="p-chip ok">Retirado ✅</span>
+    </div>
+    <div class="list-item" style="cursor:pointer" data-goto="socio-pedido-detalle">
+      <div class="p-avatar mint sm">📦</div>
+      <div class="list-item-main">
+        <div class="list-item-title">#P-237 · Dom 27 Oct</div>
+        <div class="list-item-sub">Blue Dream 2g · 🪙 40 tok</div>
+      </div>
+      <span class="p-chip muted">Retirado</span>
+    </div>
+    <div class="list-item" style="border-bottom:none;cursor:pointer" data-goto="socio-pedido-detalle">
+      <div class="p-avatar mint sm">📦</div>
+      <div class="list-item-main">
+        <div class="list-item-title">#P-234 · Lun 20 Oct</div>
+        <div class="list-item-sub">GG#4 1g + OG Kush 1g · 🪙 42 tok</div>
+      </div>
+      <span class="p-chip muted">Retirado</span>
     </div>
   </div>
 

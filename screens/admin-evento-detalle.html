@@ -1,0 +1,338 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link active"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="p-btn small ghost" data-goto="admin-eventos">← Eventos</button>
+        <div>
+          <div class="d-page-title">El Patio Sounds</div>
+          <div class="d-page-sub">Sáb 16 Nov 2026 · 20:00hs · Del club</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📢 Notificar socios</button>
+        <button class="p-btn small ghost" data-goto="admin-evento-detalle">✏️ Editar</button>
+        <button class="p-btn small ghost" style="color:var(--danger);border-color:var(--danger)" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">❌ Cancelar evento</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--ok)">
+        <div class="kpi-label">RSVPs confirmados</div>
+        <div class="kpi-value" style="color:var(--ok)">23 <span style="font-size:14px;font-weight:400;color:var(--text-muted)">de 80 cupos</span></div>
+        <div class="kpi-sub">57 cupos libres</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Días para el evento</div>
+        <div class="kpi-value" style="color:var(--info)">4</div>
+        <div class="kpi-sub">Sáb 16 Nov</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Músicos en lineup</div>
+        <div class="kpi-value" style="color:var(--accent)">3</div>
+        <div class="kpi-sub">Los Cipreses · DJ Pampero · +</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Tokens estimados</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 920</div>
+        <div class="kpi-sub">≈ consumo promedio</div>
+      </div>
+    </div>
+
+    <!-- 2-column layout -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start">
+
+      <!-- Left column -->
+      <div>
+
+        <!-- Información del evento -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Información del evento</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Nombre del evento</label>
+              <input type="text" value="El Patio Sounds" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Tipo</label>
+              <select style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;background:white;box-sizing:border-box">
+                <option selected>Del club</option>
+                <option>Partner</option>
+                <option>Exclusivo socios</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Fecha y hora</label>
+              <input type="datetime-local" value="2026-11-16T20:00" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Lugar</label>
+              <input type="text" value="En el club · Patio principal" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div style="grid-column:1/-1">
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Descripción</label>
+              <textarea style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;resize:vertical;min-height:80px;box-sizing:border-box">Noche de música en vivo en el patio del club. Tres artistas en escena: Los Cipreses, Mara &amp; La Banda, y el cierre del DJ Pampero. Entrada libre para socios activos. Capacidad: 80 personas.</textarea>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Capacidad máxima</label>
+              <input type="number" value="80" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding-top:20px">
+              <input type="checkbox" id="pub-toggle-detalle" checked style="width:16px;height:16px;cursor:pointer">
+              <label for="pub-toggle-detalle" style="font-size:13px;font-weight:600;cursor:pointer">Publicado</label>
+            </div>
+          </div>
+          <div style="margin-top:16px;display:flex;justify-content:flex-end">
+            <button class="p-btn gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Guardando…';setTimeout(function(){b.textContent='✓ Guardado';b.style.opacity='0.7';},900)">Guardar cambios</button>
+          </div>
+        </div>
+
+        <!-- Lineup -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Lineup</div>
+          </div>
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">🎸 Los Cipreses</div>
+              <div class="list-item-sub">Apertura · 20:00–21:00hs</div>
+            </div>
+            <span class="p-chip ok">Confirmado</span>
+          </div>
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">🎤 Mara &amp; La Banda</div>
+              <div class="list-item-sub">Segundo acto · 21:00–22:30hs</div>
+            </div>
+            <span class="p-chip ok">Confirmado</span>
+          </div>
+          <div class="list-item">
+            <div class="list-item-main">
+              <div class="list-item-title">🎧 DJ Pampero</div>
+              <div class="list-item-sub">Cierre · 22:30–00:00hs</div>
+            </div>
+            <span class="p-chip ok">Confirmado</span>
+          </div>
+          <div style="margin-top:12px">
+            <button class="p-btn small ghost" style="width:100%" data-goto="admin-evento-detalle">+ Agregar artista</button>
+          </div>
+        </div>
+
+        <!-- RSVPs -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">RSVPs confirmados (23)</div>
+          </div>
+          <!-- Progress bar -->
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:6px">
+              <span>23 confirmados</span>
+              <span>80 cupos totales</span>
+            </div>
+            <div style="height:8px;background:var(--border);border-radius:4px;overflow:hidden">
+              <div style="height:100%;width:29%;background:var(--ok);border-radius:4px"></div>
+            </div>
+          </div>
+          <!-- Table -->
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead>
+              <tr style="border-bottom:2px solid var(--border)">
+                <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Socio</th>
+                <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Plan</th>
+                <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Confirmó</th>
+                <th style="text-align:center;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Pases</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px">Valentina R. <span style="color:var(--text-muted)">#1042</span></td>
+                <td style="padding:8px"><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></td>
+                <td style="padding:8px;color:var(--text-muted);font-size:12px">Lun 11 Nov 09:30</td>
+                <td style="padding:8px;text-align:center">1</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px">Diego F. <span style="color:var(--text-muted)">#1023</span></td>
+                <td style="padding:8px"><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></td>
+                <td style="padding:8px;color:var(--text-muted);font-size:12px">Lun 11 Nov 10:15</td>
+                <td style="padding:8px;text-align:center">2</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px">Sofía C. <span style="color:var(--text-muted)">#1089</span></td>
+                <td style="padding:8px"><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></td>
+                <td style="padding:8px;color:var(--text-muted);font-size:12px">Lun 11 Nov 11:00</td>
+                <td style="padding:8px;text-align:center">1</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px">Laura G. <span style="color:var(--text-muted)">#1067</span></td>
+                <td style="padding:8px"><span class="p-chip ok" style="font-size:11px">🌱 Semilla</span></td>
+                <td style="padding:8px;color:var(--text-muted);font-size:12px">Lun 11 Nov 12:30</td>
+                <td style="padding:8px;text-align:center">1</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px">Matías S. <span style="color:var(--text-muted)">#1051</span></td>
+                <td style="padding:8px"><span class="p-chip mint" style="font-size:11px">🌿 Planta</span></td>
+                <td style="padding:8px;color:var(--text-muted);font-size:12px">Sáb 9 Nov 18:45</td>
+                <td style="padding:8px;text-align:center">1</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px">Nadia H. <span style="color:var(--text-muted)">#1083</span></td>
+                <td style="padding:8px"><span class="p-chip mint" style="font-size:11px">🌿 Planta</span></td>
+                <td style="padding:8px;color:var(--text-muted);font-size:12px">Dom 10 Nov 15:20</td>
+                <td style="padding:8px;text-align:center">2</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="font-size:12px;color:var(--text-muted);text-align:center;padding:8px 0">+ 17 más</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:12px;display:flex;justify-content:flex-end">
+            <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Exportando…';setTimeout(function(){b.textContent='✓ Exportado';b.style.opacity='0.7';},1200)">📋 Exportar lista</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div>
+
+        <!-- Gestión rápida -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Gestión rápida</div>
+          </div>
+          <button class="p-btn gold" style="width:100%;display:block" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">
+            📢 Recordatorio a confirmados
+            <div style="font-size:12px;font-weight:400;margin-top:2px">Enviar WhatsApp a los 23 RSVPs</div>
+          </button>
+          <div style="height:10px"></div>
+          <button class="p-btn ghost" style="width:100%;display:block" onclick="var b=this;b.disabled=true;b.textContent='⏳ Registrando…';setTimeout(function(){b.textContent='✓ Registrado';b.style.opacity='0.7';},900)">➕ Agregar RSVP manual</button>
+          <div style="height:10px"></div>
+          <div style="border:1.5px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px">
+            <input type="text" placeholder="Socio (nombre o #)" readonly style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg-soft);box-sizing:border-box">
+            <input type="number" value="1" placeholder="Cantidad de pases" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;box-sizing:border-box">
+            <button class="p-btn small primary" style="width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Registrando…';setTimeout(function(){b.textContent='✓ Registrado';b.style.opacity='0.7';},900)">Confirmar RSVP</button>
+          </div>
+        </div>
+
+        <!-- Estado del evento -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Estado del evento</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Estado</span>
+            <span class="p-chip ok">✓ Publicado</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Visibilidad</span>
+            <span style="font-size:13px">Socios activos únicamente</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Entrada</span>
+            <span style="font-size:13px">Libre · Sin costo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0">
+            <span style="font-size:13px;color:var(--text-muted)">Cupos libres</span>
+            <span style="font-size:13px;font-weight:700">57 / 80</span>
+          </div>
+          <div class="p-divider"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Creado por</span>
+            <span style="font-size:13px">Tomás García · Lun 11 Nov</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0">
+            <span style="font-size:13px;color:var(--text-muted)">Última edición</span>
+            <span style="font-size:13px">Lun 11 Nov · 09:00hs</span>
+          </div>
+        </div>
+
+        <!-- Actividad -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad</div>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">23 RSVPs confirmados en las últimas 48hs</div>
+                <div class="activity-time">hace 30 min</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>Nadia H.</strong> confirmó 2 pases</div>
+                <div class="activity-time">hace 2h</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>Matías S.</strong> confirmó 1 pase</div>
+                <div class="activity-time">Sáb 9 Nov</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot info"></div>
+              <div class="activity-main">
+                <div class="activity-text">Evento publicado para los socios</div>
+                <div class="activity-time">Vie 8 Nov</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text">Evento creado por Tomás García</div>
+                <div class="activity-time">Jue 7 Nov</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>

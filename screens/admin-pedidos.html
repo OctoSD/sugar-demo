@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -39,6 +44,10 @@
         <div class="d-page-title">Pedidos</div>
         <div class="d-page-sub">Lun 11 nov · gestión en tiempo real</div>
       </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" style="border-color:rgba(82,183,136,0.4);color:var(--accent)" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ CSV listo';b.style.opacity='0.7';},900)">📄 CSV del día</button>
+        <button class="p-btn small ghost" style="border-color:rgba(82,183,136,0.4);color:var(--accent)" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ XLSX listo';b.style.opacity='0.7';},1000)">📊 XLSX del mes</button>
+      </div>
     </div>
 
     <!-- KPI strip -->
@@ -46,109 +55,212 @@
       <div class="kpi" style="border-top:3px solid var(--info)">
         <div class="kpi-label">Nuevos</div>
         <div class="kpi-value" style="color:var(--info)">3</div>
+        <div class="kpi-sub">sin atender</div>
       </div>
       <div class="kpi" style="border-top:3px solid var(--warning)">
         <div class="kpi-label">Armando</div>
         <div class="kpi-value" style="color:var(--warning)">2</div>
+        <div class="kpi-sub">en preparación</div>
       </div>
       <div class="kpi" style="border-top:3px solid var(--success)">
         <div class="kpi-label">Listos</div>
-        <div class="kpi-value" style="color:var(--success)">1</div>
+        <div class="kpi-value" style="color:var(--success)">2</div>
+        <div class="kpi-sub">esperando retiro</div>
       </div>
       <div class="kpi" style="border-top:3px solid var(--text-muted)">
         <div class="kpi-label">Retirados hoy</div>
         <div class="kpi-value">6</div>
+        <div class="kpi-sub">completados</div>
       </div>
     </div>
 
     <!-- Kanban -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
 
-      <!-- Nuevo -->
+      <!-- Nuevo (3) -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--info);border-top:3px solid var(--info)">
           Nuevo <span style="background:rgba(14,165,233,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">3</span>
         </div>
         <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
-          <div style="border:1px solid var(--info-light);background:var(--info-light);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">#P-244 · Matías S.</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Wedding Cake 2g · 🪙 50</div>
-            <div style="font-size:11px;color:var(--text-muted)">hace 5 min</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="this.closest('.d-shell').querySelectorAll('[data-goto]')[0]">Iniciar armado →</button>
+          <div style="border:1px solid var(--info-light);background:var(--info-light);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-247 · Lucía Torres</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">GG#4 2g · 🪙 44 · Brote</div>
+            <div style="font-size:11px;color:var(--text-muted)">hace 8 min</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Iniciando…';setTimeout(function(){b.textContent='✓ En armado';b.style.opacity='0.7';},700)">Iniciar armado →</button>
           </div>
-          <div style="border:1px solid var(--border);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">#P-246 · Ana B.</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Blue Dream 3g · 🪙 60</div>
-            <div style="font-size:11px;color:var(--text-muted)">hace 18 min</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Iniciar armado →</button>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-248 · Martín Ramos</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Blue Dream 1g + OG Kush 1g · 🪙 38 · Semilla</div>
+            <div style="font-size:11px;color:var(--text-muted)">hace 15 min</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Iniciando…';setTimeout(function(){b.textContent='✓ En armado';b.style.opacity='0.7';},700)">Iniciar armado →</button>
           </div>
-          <div style="border:1px solid var(--border);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">#P-247 · Federico Á.</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">OG Kush 1g · 🪙 20</div>
-            <div style="font-size:11px;color:var(--text-muted)">hace 32 min</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Iniciar armado →</button>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-249 · Sofía Cabrera</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">OG Kush 3g · 🪙 60 · Brote</div>
+            <div style="font-size:11px;color:var(--text-muted)">hace 22 min</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Iniciando…';setTimeout(function(){b.textContent='✓ En armado';b.style.opacity='0.7';},700)">Iniciar armado →</button>
           </div>
         </div>
       </div>
 
-      <!-- Armando -->
+      <!-- Armando (2) -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--warning);border-top:3px solid var(--warning)">
           Armando <span style="background:rgba(245,158,11,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
         </div>
         <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
-          <div style="border:1px solid var(--warning-light);background:var(--warning-light);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">#P-243 · Valentina R.</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">OG Kush 2g + GG#4 1g · 🪙 62</div>
-            <div style="font-size:11px;color:var(--text-muted)">Tomás · 8 min armando</div>
-            <button class="p-btn small gold" style="margin-top:8px;font-size:11px;width:100%">Marcar listo ✓</button>
+          <div style="border:1px solid var(--warning-light);background:var(--warning-light);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-244 · Diego Fernández</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Blue Dream 3g · 🪙 60 · Brote</div>
+            <div style="font-size:11px;color:var(--text-muted)">Tomás · 11 min ⏱</div>
+            <button class="p-btn small gold" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Marcando…';setTimeout(function(){b.textContent='✓ Marcado listo';b.style.opacity='0.7';},700)">Marcar listo ✓</button>
           </div>
-          <div style="border:1px solid var(--border);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">#P-245 · Diego F.</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">SLH 3g · 🪙 54</div>
-            <div style="font-size:11px;color:var(--text-muted)">Rodrigo · 3 min armando</div>
-            <button class="p-btn small gold" style="margin-top:8px;font-size:11px;width:100%">Marcar listo ✓</button>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-246 · Ana Bello</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">SLH 2g · 🪙 36 · Semilla</div>
+            <div style="font-size:11px;color:var(--text-muted)">Marcos · 5 min ⏱</div>
+            <button class="p-btn small gold" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Marcando…';setTimeout(function(){b.textContent='✓ Marcado listo';b.style.opacity='0.7';},700)">Marcar listo ✓</button>
           </div>
         </div>
       </div>
 
-      <!-- Listo -->
+      <!-- Listo (2) -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--success);border-top:3px solid var(--success)">
-          Listo para retiro <span style="background:rgba(34,197,94,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
+          Listo para retiro <span style="background:rgba(34,197,94,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
         </div>
-        <div style="padding:8px">
-          <div style="border:1px solid var(--success-light);background:var(--success-light);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">#P-241 · Laura G.</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Wedding Cake 1g · 🪙 25</div>
-            <div style="font-size:11px;color:var(--text-muted)">Esperando al socio · 15 min</div>
-            <button class="p-btn small accent" style="margin-top:8px;font-size:11px;width:100%">Marcar retirado ✅</button>
+        <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
+          <div style="border:1px solid var(--success-light);background:var(--success-light);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-243 · Valentina R.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">OG Kush 2g + GG#4 1g · 🪙 62 · Brote</div>
+            <div style="font-size:11px;color:var(--text-muted)">Esperando al socio · 26 min</div>
+            <button class="p-btn small accent" style="margin-top:8px;font-size:11px;width:100%" data-goto="admin-qr-scanner">📷 Escanear QR ✅</button>
+          </div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:14px;font-weight:700">#P-245 · Matías Suárez</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Wedding Cake 1g · 🪙 25 · Planta Full</div>
+            <div style="font-size:11px;color:var(--text-muted)">Esperando al socio · 10 min</div>
+            <button class="p-btn small accent" style="margin-top:8px;font-size:11px;width:100%" data-goto="admin-qr-scanner">📷 Escanear QR ✅</button>
           </div>
         </div>
       </div>
 
-      <!-- Retirado -->
+      <!-- Retirado hoy (6) -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);border-top:3px solid var(--text-muted)">
           Retirado hoy <span style="background:var(--bg-tint);padding:2px 7px;border-radius:100px;margin-left:4px">6</span>
         </div>
         <div style="padding:8px;display:flex;flex-direction:column;gap:6px">
-          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7">
-            <div style="font-size:13px;font-weight:700">#P-240 · Valentina R.</div>
-            <div style="font-size:11px;color:var(--text-muted)">OG Kush 3g · 🪙 60 · 09:45</div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:13px;font-weight:700">#P-242 · Laura G.</div>
+            <div style="font-size:11px;color:var(--text-muted)">SLH 2g · 🪙 36 · 09:30</div>
           </div>
-          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7">
-            <div style="font-size:13px;font-weight:700">#P-239 · Matías S.</div>
-            <div style="font-size:11px;color:var(--text-muted)">Blue Dream 2g · 🪙 40 · 10:12</div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:13px;font-weight:700">#P-241 · Diego F.</div>
+            <div style="font-size:11px;color:var(--text-muted)">Blue Dream 2g + OG Kush 1g · 🪙 60 · 10:12</div>
           </div>
-          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7">
-            <div style="font-size:13px;font-weight:700">#P-238 · Diego F.</div>
-            <div style="font-size:11px;color:var(--text-muted)">Wedding Cake + GG#4 · 🪙 72 · 10:33</div>
+          <div style="border:1px solid var(--border);border-radius:10px;padding:10px;opacity:0.7;cursor:pointer" data-goto="admin-pedido-detalle">
+            <div style="font-size:13px;font-weight:700">#P-240 · Matías S.</div>
+            <div style="font-size:11px;color:var(--text-muted)">Wedding Cake 1g · 🪙 25 · 10:45</div>
           </div>
-          <div style="font-size:12px;color:var(--text-muted);text-align:center;padding:4px">+3 más →</div>
+          <div style="font-size:12px;color:var(--text-muted);text-align:center;padding:4px;cursor:pointer" data-goto="admin-pedido-detalle">+3 más →</div>
         </div>
       </div>
 
+    </div>
+
+    <!-- Tabla resumen del día -->
+    <div class="d-section" style="margin-top:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Resumen de pedidos · hoy</div>
+        <span style="font-size:12px;color:var(--text-muted)">7 pedidos activos</span>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Socio</th>
+              <th>Membresía</th>
+              <th>Productos</th>
+              <th class="right">Tokens</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num" style="font-weight:700">P-243</td>
+              <td><strong>Valentina R.</strong></td>
+              <td><span class="p-chip gold" style="font-size:11px">Brote</span></td>
+              <td style="font-size:12px">OG Kush 2g + GG#4 1g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 62</td>
+              <td><span class="p-chip ok" style="font-size:11px">✅ LISTO</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+            <tr>
+              <td class="num" style="font-weight:700">P-244</td>
+              <td><strong>Diego Fernández</strong></td>
+              <td><span class="p-chip gold" style="font-size:11px">Brote</span></td>
+              <td style="font-size:12px">Blue Dream 3g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 60</td>
+              <td><span class="p-chip warn" style="font-size:11px">⏱ ARMANDO</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+            <tr>
+              <td class="num" style="font-weight:700">P-245</td>
+              <td><strong>Matías Suárez</strong></td>
+              <td><span class="p-chip ok" style="font-size:11px">Planta Full</span></td>
+              <td style="font-size:12px">Wedding Cake 1g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 25</td>
+              <td><span class="p-chip ok" style="font-size:11px">✅ LISTO</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+            <tr>
+              <td class="num" style="font-weight:700">P-246</td>
+              <td><strong>Ana Bello</strong></td>
+              <td><span class="p-chip muted" style="font-size:11px">Semilla</span></td>
+              <td style="font-size:12px">SLH 2g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 36</td>
+              <td><span class="p-chip warn" style="font-size:11px">⏱ ARMANDO</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+            <tr>
+              <td class="num" style="font-weight:700">P-247</td>
+              <td><strong>Lucía Torres</strong></td>
+              <td><span class="p-chip gold" style="font-size:11px">Brote</span></td>
+              <td style="font-size:12px">GG#4 2g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 44</td>
+              <td><span class="p-chip muted" style="font-size:11px">PENDIENTE</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+            <tr>
+              <td class="num" style="font-weight:700">P-248</td>
+              <td><strong>Martín Ramos</strong></td>
+              <td><span class="p-chip muted" style="font-size:11px">Semilla</span></td>
+              <td style="font-size:12px">Blue Dream 1g + OG Kush 1g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 38</td>
+              <td><span class="p-chip muted" style="font-size:11px">PENDIENTE</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+            <tr>
+              <td class="num" style="font-weight:700">P-249</td>
+              <td><strong>Sofía Cabrera</strong></td>
+              <td><span class="p-chip gold" style="font-size:11px">Brote</span></td>
+              <td style="font-size:12px">OG Kush 3g</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 60</td>
+              <td><span class="p-chip muted" style="font-size:11px">PENDIENTE</span></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px;padding:12px 16px;background:var(--bg-tint);border-radius:10px;display:flex;gap:24px;align-items:center;font-size:13px">
+        <span style="font-weight:700">7 pedidos activos</span>
+        <span style="color:var(--gold-dark);font-weight:700">🪙 325 tokens</span>
+        <span style="color:var(--text-muted)">≈ $325.000 ARS</span>
+      </div>
     </div>
   </main>
 </div>

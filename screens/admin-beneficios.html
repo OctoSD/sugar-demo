@@ -1,0 +1,298 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+        <div style="margin-top:5px"><span style="font-size:9px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:800">⬡ FECCA #0047</span></div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link active"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Beneficios del club</div>
+        <div class="d-page-sub">Club Sugar · beneficios propios + alianzas Red FECCA</div>
+      </div>
+      <button class="p-btn small primary" onclick="document.getElementById('modal-nuevo').style.display='flex'">+ Nuevo beneficio</button>
+    </div>
+
+    <!-- Tabs -->
+    <div style="border-bottom:1px solid var(--border);display:flex;gap:0;margin-bottom:0">
+      <div id="tab-btn-club" onclick="switchTab('club')" style="padding:12px 20px;font-size:13px;font-weight:700;color:var(--accent);border-bottom:2px solid var(--accent);cursor:pointer">Mi club <span style="font-size:11px;background:rgba(82,183,136,0.15);color:var(--accent);padding:1px 6px;border-radius:100px;margin-left:4px">2</span></div>
+      <div id="tab-btn-fecca" onclick="switchTab('fecca')" style="padding:12px 20px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.4);border-bottom:2px solid transparent;cursor:pointer;display:flex;align-items:center;gap:6px">Red FECCA <span style="font-size:11px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:1px 6px;border-radius:100px;font-weight:800">19</span></div>
+    </div>
+
+    <!-- Tab Mi club -->
+    <div id="tab-club" style="padding:20px 0">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--text-muted)">Beneficios exclusivos configurados por tu club para los socios.</div>
+      </div>
+
+      <div class="d-section" style="margin-bottom:16px">
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border)">
+              <th style="padding:10px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left">Aliado</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left">Beneficio</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:center">Descuento</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:center">Código</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:center">Estado</th>
+              <th style="padding:10px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);cursor:pointer">
+              <td style="padding:14px 18px" data-goto="admin-beneficio-detalle">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(34,197,94,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#22c55e;flex-shrink:0">GG</div>
+                  <div>
+                    <div style="font-size:13px;font-weight:600;color:white">GreenGrow Hidroponía</div>
+                    <div style="font-size:11px;color:var(--text-muted)">Insumos de cultivo</div>
+                  </div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:var(--text-muted)">15% en toda la tienda</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:var(--accent)">15%</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(82,183,136,0.1);padding:3px 8px;border-radius:6px;color:var(--accent)">SUGAR15</code></td>
+              <td style="padding:14px 12px;text-align:center"><span class="p-chip ok">Activo</span></td>
+              <td style="padding:14px 18px;text-align:right">
+                <div style="display:flex;gap:6px;justify-content:flex-end">
+                  <button class="p-btn small ghost" data-goto="admin-beneficio-detalle">Editar</button>
+                  <button class="p-btn small ghost" data-goto="admin-beneficio-detalle" style="color:var(--danger);border-color:rgba(239,68,68,0.3)">Desactivar</button>
+                </div>
+              </td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);cursor:pointer">
+              <td style="padding:14px 18px" data-goto="admin-beneficio-detalle">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#818cf8;flex-shrink:0">C4</div>
+                  <div>
+                    <div style="font-size:13px;font-weight:600;color:white">Consultorio 420</div>
+                    <div style="font-size:11px;color:var(--text-muted)">Cannabis medicinal</div>
+                  </div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:var(--text-muted)">1ª consulta médica gratis</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:var(--accent)">gratis</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(82,183,136,0.1);padding:3px 8px;border-radius:6px;color:var(--accent)">FECCAMED</code></td>
+              <td style="padding:14px 12px;text-align:center"><span class="p-chip ok">Activo</span></td>
+              <td style="padding:14px 18px;text-align:right">
+                <div style="display:flex;gap:6px;justify-content:flex-end">
+                  <button class="p-btn small ghost" data-goto="admin-beneficio-detalle">Editar</button>
+                  <button class="p-btn small ghost" data-goto="admin-beneficio-detalle" style="color:var(--danger);border-color:rgba(239,68,68,0.3)">Desactivar</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background:rgba(82,183,136,0.05);border:1px dashed rgba(82,183,136,0.2);border-radius:12px;padding:20px;text-align:center;cursor:pointer" onclick="document.getElementById('modal-nuevo').style.display='flex'">
+        <div style="font-size:28px;margin-bottom:8px">🎁</div>
+        <div style="font-size:13px;font-weight:600;color:var(--text-muted)">Agregar nuevo beneficio para los socios</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px">Tiendas, servicios, descuentos u otros beneficios exclusivos de tu club</div>
+      </div>
+
+    </div>
+
+    <!-- Tab Red FECCA -->
+    <div id="tab-fecca" style="display:none;padding:20px 0">
+
+      <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:22px">⬡</span>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700;color:#F59E0B">19 alianzas comerciales activas · Red FECCA</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Beneficios negociados por FECCA para todos los socios de los 47 clubes afiliados. Solo lectura — gestionados desde el <button onclick="goTo('fecca-beneficios')" style="background:none;border:none;color:#F59E0B;font-size:12px;cursor:pointer;padding:0;font-weight:600">panel FECCA →</button></div>
+        </div>
+      </div>
+
+      <!-- Filter chips -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+        <span class="filter-chip active" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(245,158,11,0.15);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);cursor:pointer;font-weight:600">Todas (19)</span>
+        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Suministros</span>
+        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Salud</span>
+        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Legal</span>
+        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Educación</span>
+        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Otros</span>
+      </div>
+
+      <div class="d-section">
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(245,158,11,0.1)">
+              <th style="padding:10px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Aliado</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Beneficio</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:center">Descuento</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:center">Código</th>
+              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Categoría</th>
+              <th style="padding:10px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Vencimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
+              <td style="padding:14px 18px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(34,197,94,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#22c55e;flex-shrink:0">GG</div>
+                  <div style="font-size:13px;font-weight:600;color:white">GreenGrow Hidroponía</div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">15% en insumos de cultivo</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">15%</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA15</code></td>
+              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Suministros</span></td>
+              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">31 dic 2026</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
+              <td style="padding:14px 18px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#818cf8;flex-shrink:0">C4</div>
+                  <div style="font-size:13px;font-weight:600;color:white">Consultorio 420</div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">1ª consulta médica gratis</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:#F59E0B">gratis</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA-MED</code></td>
+              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Salud</span></td>
+              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">28 feb 2027</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
+              <td style="padding:14px 18px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(168,85,247,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#c084fc;flex-shrink:0">TM</div>
+                  <div style="font-size:13px;font-weight:600;color:white">TuMerch Cannabis</div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">20% en ropa y accesorios</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">20%</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA20</code></td>
+              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Otros</span></td>
+              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">28 feb 2027</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
+              <td style="padding:14px 18px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(245,158,11,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#F59E0B;flex-shrink:0">VC</div>
+                  <div style="font-size:13px;font-weight:600;color:white">Verde Cannabis Legal</div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">Consulta legal gratuita</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:#F59E0B">gratis</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA-LEG</code></td>
+              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Legal</span></td>
+              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">30 jun 2027</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
+              <td style="padding:14px 18px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#86efac;flex-shrink:0">BH</div>
+                  <div style="font-size:13px;font-weight:600;color:white">BioHerbs Suplementos</div>
+                </div>
+              </td>
+              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">10% en suplementos naturales</td>
+              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">10%</span></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA10</code></td>
+              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Salud</span></td>
+              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">31 mar 2027</td>
+            </tr>
+            <tr>
+              <td colspan="6" style="padding:14px 18px;text-align:center;font-size:12px;color:rgba(255,255,255,0.3)">
+                + 14 alianzas más disponibles · <a onclick="goTo('fecca-beneficios')" style="color:#F59E0B;cursor:pointer;text-decoration:none;font-weight:600">Ver todas en el panel FECCA →</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- Modal nuevo beneficio -->
+<div id="modal-nuevo" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#1a1f1a;border-radius:16px;padding:24px;width:100%;max-width:480px;border:1px solid rgba(82,183,136,0.2)">
+    <div style="font-size:16px;font-weight:700;margin-bottom:20px;color:white">🎁 Nuevo beneficio del club</div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div>
+        <label class="p-input-label">Nombre del aliado / comercio</label>
+        <input class="p-input" placeholder="Ej: Ferretería El Jardín" />
+      </div>
+      <div>
+        <label class="p-input-label">Descripción del beneficio</label>
+        <input class="p-input" placeholder="Ej: 20% de descuento en herramientas" />
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <label class="p-input-label">Código de descuento</label>
+          <input class="p-input" placeholder="Ej: SUGAR20" />
+        </div>
+        <div>
+          <label class="p-input-label">% descuento (si aplica)</label>
+          <input class="p-input" placeholder="Ej: 20" type="number" />
+        </div>
+      </div>
+      <div>
+        <label class="p-input-label">Fecha de vencimiento</label>
+        <input class="p-input" type="date" value="2027-12-31" />
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:20px">
+      <button onclick="document.getElementById('modal-nuevo').style.display='none'" class="p-btn ghost" style="flex:1">Cancelar</button>
+      <button onclick="document.getElementById('modal-nuevo').style.display='none'" class="p-btn primary" style="flex:1">Guardar beneficio</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(tab) {
+  const isClub = tab === 'club';
+  document.getElementById('tab-club').style.display = isClub ? '' : 'none';
+  document.getElementById('tab-fecca').style.display = isClub ? 'none' : '';
+  const btnClub = document.getElementById('tab-btn-club');
+  const btnFecca = document.getElementById('tab-btn-fecca');
+  if (isClub) {
+    btnClub.style.color = 'var(--accent)';
+    btnClub.style.borderBottomColor = 'var(--accent)';
+    btnFecca.style.color = 'rgba(255,255,255,0.4)';
+    btnFecca.style.borderBottomColor = 'transparent';
+  } else {
+    btnFecca.style.color = '#F59E0B';
+    btnFecca.style.borderBottomColor = '#F59E0B';
+    btnClub.style.color = 'rgba(255,255,255,0.4)';
+    btnClub.style.borderBottomColor = 'transparent';
+  }
+}
+</script>

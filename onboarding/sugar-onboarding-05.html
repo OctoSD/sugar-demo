@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar · Configurar club — Paso 5 de 8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:#1B4332; --primary-dark:#0D2318;
+      --accent:#52B788; --accent-dark:#2D6A4F; --accent-light:#B7E4C7;
+      --gold:#C9A227; --gold-dark:#7D5F0B;
+      --info:#0EA5E9; --info-dark:#0369A1; --info-light:#E0F2FE;
+      --surface:#111C15; --surface-2:#182519;
+      --border:#1E3328; --border-light:#2A4535;
+      --text:#F0FAF4; --text-muted:#7A9E8A; --text-micro:#4A7A5B;
+      --bg:#060E0A; --input-bg:#0E1A12; --input-border:#223A2C;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 16px; -webkit-font-smoothing:antialiased; }
+    .stepper { display:flex; align-items:center; gap:0; margin-bottom:40px; width:100%; max-width:560px; }
+    .step-node { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+    .step-node.done   { background:var(--accent); color:white; }
+    .step-node.active { background:var(--accent); color:white; box-shadow:0 0 0 4px rgba(82,183,136,0.2); }
+    .step-node.todo   { background:var(--surface-2); color:var(--text-micro); border:1.5px solid var(--border-light); }
+    .step-line { flex:1; height:2px; background:var(--border-light); }
+    .step-line.done { background:var(--accent); }
+    .wizard-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:40px 40px 36px; width:100%; max-width:560px; box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+    .step-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:10px; }
+    .step-title { font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:800; color:var(--text); line-height:1.15; letter-spacing:-0.5px; margin-bottom:8px; }
+    .step-sub { font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:28px; }
+    .role-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(14,165,233,0.12);
+      border:1px solid rgba(14,165,233,0.3);
+      border-radius:100px;
+      padding:4px 12px;
+      font-size:12px; font-weight:700;
+      color:#38BDF8;
+      margin-bottom:20px;
+    }
+    .field { margin-bottom:18px; }
+    .field-label { display:block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:6px; }
+    .field-input { width:100%; padding:14px 16px; border:1.5px solid var(--input-border); border-radius:12px; font-size:15px; font-weight:500; background:var(--input-bg); color:var(--text); outline:none; transition:border-color 0.15s; font-family:'Inter',sans-serif; }
+    .field-input:focus { border-color:var(--accent); }
+    .field-input::placeholder { color:var(--text-micro); }
+    .field-hint { font-size:12px; color:var(--text-micro); margin-top:5px; line-height:1.5; }
+    .field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .specialties-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:4px; }
+    .specialty-chip {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:7px 14px;
+      border-radius:100px;
+      font-size:13px; font-weight:600;
+      background:var(--surface-2);
+      border:1.5px solid var(--border-light);
+      color:var(--text-muted);
+      cursor:pointer; transition:all 0.12s;
+    }
+    .specialty-chip:hover { border-color:var(--accent); color:var(--text); }
+    .specialty-chip.selected { background:rgba(82,183,136,0.1); border-color:var(--accent); color:var(--accent); }
+    .info-box { background:rgba(14,165,233,0.07); border:1px solid rgba(14,165,233,0.2); border-radius:10px; padding:12px 14px; font-size:13px; color:var(--text-muted); line-height:1.5; margin-bottom:20px; }
+    .info-box strong { color:#38BDF8; }
+    .wizard-actions { display:flex; align-items:center; justify-content:space-between; margin-top:28px; padding-top:22px; border-top:1px solid var(--border); }
+    .btn-back { font-size:13px; font-weight:600; color:var(--text-micro); background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; padding:0; text-decoration:none; }
+    .btn-back:hover { color:var(--text-muted); }
+    .btn-next { display:inline-flex; align-items:center; gap:8px; padding:0 24px; height:46px; border-radius:12px; background:var(--accent); color:white; font-size:15px; font-weight:700; border:none; cursor:pointer; font-family:'Inter',sans-serif; text-decoration:none; transition:background 0.12s; }
+    .btn-next:hover { background:var(--accent-dark); }
+    .btn-skip-step { font-size:13px; font-weight:600; color:var(--text-micro); background:none; border:1.5px solid var(--border-light); border-radius:10px; cursor:pointer; font-family:'Inter',sans-serif; padding:0 16px; height:46px; text-decoration:none; }
+    .btn-skip-step:hover { border-color:var(--border); color:var(--text-muted); }
+    .actions-right { display:flex; gap:10px; }
+    .progress-label { text-align:center; font-size:12px; color:var(--text-micro); margin-top:20px; }
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node active">5</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">6</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">7</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">8</div>
+  </div>
+
+  <div class="wizard-card">
+    <div class="step-label">Paso 5 de 8 · Equipo médico</div>
+    <div class="role-badge">🩺 Rol: Médico</div>
+    <h1 class="step-title">Agregá tu primer médico</h1>
+    <p class="step-sub">Los médicos del club gestionan las autorizaciones de los socios, validan recetas y tienen acceso a las fichas médicas. Podés invitar más después.</p>
+
+    <div class="info-box">
+      <strong>¿Para qué sirve el médico en Sugar?</strong> Revisa y aprueba las credenciales REPROCANN de los socios antes de que puedan acceder al catálogo. También puede registrar observaciones médicas en el perfil de cada socio.
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">Nombre</label>
+        <input class="field-input" type="text" placeholder="Ej: Fernanda" value="Fernanda" />
+      </div>
+      <div class="field">
+        <label class="field-label">Apellido</label>
+        <input class="field-input" type="text" placeholder="Ej: Villalba" value="Villalba" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Email (recibirá la invitación aquí)</label>
+      <input class="field-input" type="email" placeholder="dra.villalba@clinica.com" value="f.villalba@clubraices.com.ar" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">Matrícula médica nacional</label>
+      <input class="field-input" type="text" placeholder="Ej: M.N. 184.221" value="M.N. 184.221" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">Especialidades</label>
+      <div class="specialties-grid">
+        <div class="specialty-chip selected">Cannabis medicinal</div>
+        <div class="specialty-chip selected">Clínica médica</div>
+        <div class="specialty-chip">Neurología</div>
+        <div class="specialty-chip">Dolor crónico</div>
+        <div class="specialty-chip">Oncología</div>
+        <div class="specialty-chip">Psiquiatría</div>
+      </div>
+    </div>
+
+    <div class="wizard-actions">
+      <a class="btn-back" href="sugar-onboarding-04.html">← Volver</a>
+      <div class="actions-right">
+        <a class="btn-skip-step" href="sugar-onboarding-06.html">Saltar</a>
+        <a class="btn-next" href="sugar-onboarding-06.html">Enviar invitación →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-label">Paso 5 de 8</div>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -40,13 +45,13 @@
         <button class="p-btn small ghost" data-goto="admin-socios">← Socios</button>
         <div>
           <div class="d-page-title">Valentina Rodríguez · #1042</div>
-          <div class="d-page-sub">Socio activo · Brote · Club Rainbow</div>
+          <div class="d-page-sub">Socio activo · Brote · Club Sugar</div>
         </div>
       </div>
       <div style="display:flex;gap:8px">
-        <button class="p-btn small ghost">📧 Email</button>
-        <button class="p-btn small ghost">💬 WhatsApp</button>
-        <button class="p-btn small primary">✏️ Editar</button>
+        <button class="p-btn small ghost" data-goto="admin-socio-perfil">📧 Email</button>
+        <button class="p-btn small ghost" data-goto="admin-socio-perfil">💬 WhatsApp</button>
+        <button class="p-btn small primary" data-goto="admin-socio-perfil">✏️ Editar</button>
       </div>
     </div>
 
@@ -111,12 +116,66 @@
         <div class="d-section" style="margin-bottom:12px">
           <div class="d-section-h">
             <div class="d-section-title">Consulta médica</div>
-            <span class="p-chip ok" style="font-size:11px">OK</span>
+            <span class="p-chip ok" style="font-size:11px">Aprobada ✓</span>
           </div>
           <div style="padding:0 16px 14px">
             <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Dra. Andrea Pérez</div>
-            <div style="font-size:12px;color:var(--text-muted)">Septiembre 2024 · anual</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:4px">Próxima consulta: Sep 2025</div>
+            <div style="font-size:12px;color:var(--text-muted)">Septiembre 2026 · anual</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Próxima consulta: Sep 2027</div>
+            <div style="margin-top:10px;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:4px">📝 Nota del médico</div>
+              <div style="font-size:12px;color:var(--text);font-style:italic;line-height:1.5">"Paciente apta, REPROCANN en regla. Sin contraindicaciones. Autorizo incorporación. Recomiendo variedad Indica para manejo nocturno del dolor."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documentos -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Documentos</div>
+            <button class="p-btn small ghost" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Cargando…';setTimeout(function(){b.textContent='✓ Cargado';b.style.opacity='0.7';},800)">+ Adjuntar</button>
+          </div>
+          <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--bg-tint);border-radius:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:16px">🪪</span>
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:var(--text)">DNI</div>
+                  <div style="font-size:11px;color:var(--text-muted)">Frente y dorso</div>
+                </div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">✓ Cargado</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--bg-tint);border-radius:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:16px">📋</span>
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:var(--text)">REPROCANN</div>
+                  <div style="font-size:11px;color:var(--text-muted)">R-2024-00478 · PDF oficial</div>
+                </div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">✓ Cargado</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--bg-tint);border-radius:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:16px">💊</span>
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:var(--text)">Prescripción médica</div>
+                  <div style="font-size:11px;color:var(--text-muted)">Dra. Pérez · Sep 2026</div>
+                </div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">✓ Cargado</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--warning-light);border:1px solid rgba(245,158,11,0.3);border-radius:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:16px">📄</span>
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:var(--text)">Contrato de membresía</div>
+                  <div style="font-size:11px;color:var(--warning)">Pendiente de firma</div>
+                </div>
+              </div>
+              <button class="p-btn small warn" style="font-size:10px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Cargando…';setTimeout(function(){b.textContent='✓ Cargado';b.style.opacity='0.7';},800)">Cargar</button>
+            </div>
           </div>
         </div>
 
@@ -126,10 +185,10 @@
             <div class="d-section-title">Acciones</div>
           </div>
           <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:6px">
-            <button class="p-btn ghost block" style="font-size:12px;text-align:left">🪙 Cargar tokens manualmente</button>
-            <button class="p-btn ghost block" style="font-size:12px;text-align:left">⭐ Cambiar membresía</button>
-            <button class="p-btn ghost block" style="font-size:12px;text-align:left">📋 Ver historial REPROCANN</button>
-            <button class="p-btn ghost block" style="font-size:12px;text-align:left;color:var(--warning)">⏸ Suspender cuenta</button>
+            <button class="p-btn ghost block" style="font-size:12px;text-align:left" data-goto="admin-tokens">🪙 Cargar tokens manualmente</button>
+            <button class="p-btn ghost block" style="font-size:12px;text-align:left" data-goto="admin-membresia-detalle">⭐ Cambiar membresía</button>
+            <button class="p-btn ghost block" style="font-size:12px;text-align:left" data-goto="admin-socio-perfil">📋 Ver historial REPROCANN</button>
+            <button class="p-btn ghost block" style="font-size:12px;text-align:left;color:var(--warning)" data-goto="admin-socio-perfil">⏸ Suspender cuenta</button>
           </div>
         </div>
 
@@ -178,6 +237,61 @@
           </div>
         </div>
 
+        <!-- Membresía -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Membresía</div>
+            <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresia-detalle">Ver plan →</button>
+          </div>
+          <div style="padding:0 16px 16px">
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px">
+              <div class="kpi" style="border-top:3px solid var(--gold)">
+                <div class="kpi-label">Plan actual</div>
+                <div class="kpi-value" style="font-size:16px">⭐ Brote</div>
+                <div class="kpi-sub">desde sep 2024</div>
+              </div>
+              <div class="kpi" style="border-top:3px solid var(--success)">
+                <div class="kpi-label">Próx. renovación</div>
+                <div class="kpi-value" style="font-size:16px">1 dic</div>
+                <div class="kpi-sub">$60.000</div>
+              </div>
+              <div class="kpi" style="border-top:3px solid var(--accent)">
+                <div class="kpi-label">Meses activo</div>
+                <div class="kpi-value">27</div>
+                <div class="kpi-sub">consecutivos</div>
+              </div>
+              <div class="kpi" style="border-top:3px solid var(--text-muted)">
+                <div class="kpi-label">Total abonado</div>
+                <div class="kpi-value" style="font-size:16px">$1.6M</div>
+                <div class="kpi-sub">ARS histórico</div>
+              </div>
+            </div>
+            <div class="p-divider" style="margin-bottom:12px"></div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Últimos pagos</div>
+            <div class="list-item" style="padding:7px 0">
+              <div class="activity-dot gold" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-sub">Nov 2026 · Plan Brote · $60.000</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">✓</span>
+            </div>
+            <div class="list-item" style="padding:7px 0">
+              <div class="activity-dot gold" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-sub">Oct 2026 · Plan Brote · $60.000</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">✓</span>
+            </div>
+            <div class="list-item" style="padding:7px 0;border-bottom:none">
+              <div class="activity-dot gold" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-sub">Sep 2026 · Plan Brote · $60.000</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">✓</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Order history -->
         <div class="d-section" style="margin-bottom:12px;padding:0;overflow:hidden">
           <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
@@ -196,39 +310,39 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr style="cursor:pointer" data-goto="admin-pedido-detalle">
                   <td class="num">P-243</td>
-                  <td style="font-size:12px">Hoy · 12:30</td>
+                  <td style="font-size:12px">Hoy · 10:32</td>
                   <td style="font-size:12px">OG Kush 2g · GG#4 1g</td>
                   <td class="right num">🪙 62</td>
-                  <td><span class="p-chip warn">Armando</span></td>
+                  <td><span class="p-chip ok">Listo ✓</span></td>
                 </tr>
                 <tr style="opacity:0.75">
-                  <td class="num">P-238</td>
-                  <td style="font-size:12px">06 nov</td>
+                  <td class="num">P-242</td>
+                  <td style="font-size:12px">10 nov</td>
+                  <td style="font-size:12px">OG Kush 3g</td>
+                  <td class="right num">🪙 60</td>
+                  <td><span class="p-chip ok">Retirado</span></td>
+                </tr>
+                <tr style="opacity:0.75">
+                  <td class="num">P-241</td>
+                  <td style="font-size:12px">05 nov</td>
                   <td style="font-size:12px">Blue Dream 2g</td>
                   <td class="right num">🪙 40</td>
                   <td><span class="p-chip ok">Retirado</span></td>
                 </tr>
                 <tr style="opacity:0.75">
-                  <td class="num">P-231</td>
-                  <td style="font-size:12px">29 oct</td>
-                  <td style="font-size:12px">OG Kush 1g · SLH 1g</td>
-                  <td class="right num">🪙 38</td>
-                  <td><span class="p-chip ok">Retirado</span></td>
-                </tr>
-                <tr style="opacity:0.75">
-                  <td class="num">P-224</td>
-                  <td style="font-size:12px">22 oct</td>
-                  <td style="font-size:12px">Wedding Cake 2g</td>
-                  <td class="right num">🪙 50</td>
+                  <td class="num">P-240</td>
+                  <td style="font-size:12px">01 nov</td>
+                  <td style="font-size:12px">Wedding Cake 1g · SLH 2g</td>
+                  <td class="right num">🪙 61</td>
                   <td><span class="p-chip ok">Retirado</span></td>
                 </tr>
                 <tr style="opacity:0.65">
-                  <td class="num">P-217</td>
-                  <td style="font-size:12px">15 oct</td>
-                  <td style="font-size:12px">Blue Dream 1g</td>
-                  <td class="right num">🪙 20</td>
+                  <td class="num">P-237</td>
+                  <td style="font-size:12px">27 oct</td>
+                  <td style="font-size:12px">Blue Dream 2g</td>
+                  <td class="right num">🪙 40</td>
                   <td><span class="p-chip ok">Retirado</span></td>
                 </tr>
               </tbody>
@@ -240,7 +354,7 @@
         <div class="d-section">
           <div class="d-section-h">
             <div class="d-section-title">Notas internas</div>
-            <button class="p-btn small ghost" style="font-size:11px">+ Agregar</button>
+            <button class="p-btn small ghost" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳…';setTimeout(function(){b.textContent='✓ Nota agregada';b.style.opacity='0.7';},700)">+ Agregar</button>
           </div>
           <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:8px">
             <div style="background:var(--bg-tint);border-radius:10px;padding:10px 12px">
@@ -250,6 +364,50 @@
             <div style="background:var(--bg-tint);border-radius:10px;padding:10px 12px">
               <div style="font-size:11px;color:var(--text-muted);margin-bottom:3px">Admin · 12 ago</div>
               <div style="font-size:13px;color:var(--text)">Alta OK. REPROCANN verificado por Dra. Pérez. Membresía inicial Semilla, upgrade a Brote en Sep.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actividad reciente -->
+        <div class="d-section" style="margin-top:0">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad reciente</div>
+          </div>
+          <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:0">
+            <div class="list-item" style="padding:9px 0">
+              <div class="activity-dot ok" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-title" style="font-size:12px">Pedido #P-243 listo para retiro</div>
+                <div class="list-item-sub">Hoy · 10:58hs</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:9px 0">
+              <div class="activity-dot gold" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-title" style="font-size:12px">Recarga manual +100 tokens · $100.000</div>
+                <div class="list-item-sub">Hoy · 09:15hs · por Tomás G.</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:9px 0">
+              <div class="activity-dot ok" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-title" style="font-size:12px">Pedido #P-242 retirado · 🪙 60 tok</div>
+                <div class="list-item-sub">Lun 10 Nov · 09:30hs</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:9px 0">
+              <div class="activity-dot gold" style="margin-top:0"></div>
+              <div class="list-item-main">
+                <div class="list-item-title" style="font-size:12px">Pago membresía nov · $60.000</div>
+                <div class="list-item-sub">Vie 1 Nov · 11:00hs</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:9px 0;border-bottom:none">
+              <div class="activity-dot" style="margin-top:0;background:var(--text-muted)"></div>
+              <div class="list-item-main">
+                <div class="list-item-title" style="font-size:12px">Acreditación plan nov · +60 tokens</div>
+                <div class="list-item-sub">Vie 1 Nov · 00:01hs · automático</div>
+              </div>
             </div>
           </div>
         </div>

@@ -22,10 +22,10 @@
     <!-- Preset amounts -->
     <label class="p-input-label" style="margin-bottom:8px;display:block">Monto</label>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-      <button class="p-btn block small">25 tok</button>
-      <button class="p-btn block small">50 tok</button>
-      <button class="p-btn gold block small" style="outline:2px solid var(--gold);outline-offset:2px">100 tok</button>
-      <button class="p-btn block small">200 tok</button>
+      <button class="p-btn block small" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">25 tok</button>
+      <button class="p-btn block small" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">50 tok</button>
+      <button class="p-btn gold block small" style="outline:2px solid var(--gold);outline-offset:2px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">100 tok</button>
+      <button class="p-btn block small" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">200 tok</button>
     </div>
 
     <!-- Custom amount -->
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Confirm button -->
-    <button class="p-btn gold block" style="font-size:15px;padding:14px">Confirmar recarga</button>
+    <button class="p-btn gold block" style="font-size:15px;padding:14px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Acreditando…';setTimeout(function(){b.textContent='✓ Tokens acreditados';b.style.opacity='0.7';},900)">Confirmar recarga</button>
 
   </div>
 

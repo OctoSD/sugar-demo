@@ -6,60 +6,123 @@
   <title>Sugar · Gestión de club de cannabis medicinal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div class="portal-page">
     <div class="portal-logo">Sugar</div>
-    <div class="portal-tagline">Sistema de gestión para tu club de cannabis medicinal</div>
+    <div class="portal-tagline">Sistema de gestión para clubes de cannabis medicinal (REPROCANN)</div>
 
-    <!-- Fila 1: acceso principal -->
-    <div class="portal-cards">
+    <!-- Pitch -->
+    <div style="max-width:620px;text-align:center;margin:-4px 0 32px;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <p style="font-size:15px;color:rgba(255,255,255,0.72);line-height:1.6;margin:0">
+        Sugar organiza todo lo que pasa en tu club — socios, pedidos de retiro, tokens, admisión REPROCANN, eventos y tu posición en la red FECCA. <strong style="color:rgba(82,183,136,0.9)">Entrá al panel Admin para ver el sistema completo.</strong>
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <span style="font-size:12px;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);color:rgba(82,183,136,0.85);padding:5px 14px;border-radius:100px;font-weight:700">✓ Tokens y retiros</span>
+        <span style="font-size:12px;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);color:rgba(82,183,136,0.85);padding:5px 14px;border-radius:100px;font-weight:700">✓ Admisión y REPROCANN</span>
+        <span style="font-size:12px;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);color:rgba(82,183,136,0.85);padding:5px 14px;border-radius:100px;font-weight:700">✓ App del socio</span>
+        <span style="font-size:12px;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);color:rgba(82,183,136,0.85);padding:5px 14px;border-radius:100px;font-weight:700">✓ Red FECCA</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center">
+        <span style="font-size:12px;color:rgba(255,255,255,0.35)">47 clubes en la red FECCA</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.2)">·</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.35)">+1.200 socios activos</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.2)">·</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.35)">🪙 4.800 tokens este mes</span>
+      </div>
+    </div>
+
+    <!-- Fila 1: acceso principal — Admin destacado -->
+    <div class="portal-cards" style="grid-template-columns:1fr 1.3fr 1fr;max-width:860px">
       <a href="socio.html" class="portal-card">
         <div class="portal-card-icon">🧑</div>
         <div class="portal-card-title">Socio</div>
-        <div class="portal-card-sub">Perfil, tokens, catálogo, pedidos y eventos. La app del miembro del club.</div>
+        <div class="portal-card-sub">Perfil, tokens, catálogo, retiros, eventos y educación. La app del miembro del club.</div>
         <div class="portal-card-badge">📱 Móvil</div>
       </a>
-      <a href="admin.html" class="portal-card">
+      <a href="admin.html" class="portal-card" style="border-color:rgba(82,183,136,0.5);background:rgba(82,183,136,0.07);position:relative">
+        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;background:#52B788;color:#0A1A10;padding:3px 12px;border-radius:100px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap">Panel principal</div>
         <div class="portal-card-icon">🛡️</div>
         <div class="portal-card-title">Admin</div>
-        <div class="portal-card-sub">Panel completo del club. Pedidos, socios, membresías, tokens, eventos y equipo.</div>
-        <div class="portal-card-badge">🖥️ Desktop</div>
+        <div class="portal-card-sub">Control completo del club: pedidos en vivo, socios, tokens, admisión, equipo, reportes y posición FECCA.</div>
+        <div class="portal-card-badge" style="border-color:rgba(82,183,136,0.4);color:#52B788">🖥️ Desktop · Comenzá aquí</div>
       </a>
       <a href="admin-mobile.html" class="portal-card">
         <div class="portal-card-icon">📊</div>
         <div class="portal-card-title">Admin Móvil</div>
-        <div class="portal-card-sub">Vista resumida para el admin desde el celular. Pedidos, socios y tokens rápido.</div>
+        <div class="portal-card-sub">Vista rápida para el admin desde el celular. Pedidos, socios y tokens al instante.</div>
         <div class="portal-card-badge">📱 Móvil</div>
       </a>
     </div>
 
-    <!-- Separador -->
-    <div style="display:flex;align-items:center;gap:14px;width:100%;max-width:820px;margin:-16px 0 20px">
+    <!-- Separador Equipo -->
+    <div style="display:flex;align-items:center;gap:14px;width:100%;max-width:860px;margin:4px 0 20px">
       <div style="flex:1;height:1px;background:rgba(82,183,136,0.12)"></div>
       <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(82,183,136,0.4)">Portal del Equipo</div>
       <div style="flex:1;height:1px;background:rgba(82,183,136,0.12)"></div>
     </div>
 
     <!-- Fila 2: portales del equipo -->
-    <div class="portal-cards" style="grid-template-columns:1fr 1fr;max-width:560px;margin-bottom:40px">
+    <div class="portal-cards" style="grid-template-columns:1fr 1fr;max-width:580px;margin-bottom:40px">
       <a href="equipo.html" class="portal-card">
         <div class="portal-card-icon">👷</div>
         <div class="portal-card-title">Equipo Móvil</div>
-        <div class="portal-card-sub">Armado de pedidos con timer, admisión y entregas. Para trabajar con el celular en el club.</div>
+        <div class="portal-card-sub">Armado de pedidos con timer, admisión de socios y entregas. Pensado para usar con el celular en el club.</div>
         <div class="portal-card-badge">📱 Móvil</div>
       </a>
       <a href="equipo-desk.html" class="portal-card">
         <div class="portal-card-icon">🖥️</div>
         <div class="portal-card-title">Equipo Escritorio</div>
-        <div class="portal-card-sub">Vista de supervisor. Lista completa de pedidos, pipeline de admisión y retiros del día.</div>
+        <div class="portal-card-sub">Centro de operaciones del día: pipeline de pedidos, admisión en curso, retiros, fichaje del turno y sesiones médicas REPROCANN.</div>
         <div class="portal-card-badge">🖥️ Desktop</div>
       </a>
     </div>
 
-    <div class="portal-footer">Demo navegable · datos ficticios · Octo Soluciones Digitales</div>
+    <!-- Separador Redes externas -->
+    <div style="display:flex;align-items:center;gap:14px;width:100%;max-width:860px;margin:-10px 0 20px">
+      <div style="flex:1;height:1px;background:rgba(245,158,11,0.15)"></div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,158,11,0.5)">Redes externas</div>
+      <div style="flex:1;height:1px;background:rgba(245,158,11,0.15)"></div>
+    </div>
+
+    <!-- Fila 3: FECCA + Cultivo -->
+    <div class="portal-cards" style="grid-template-columns:1fr 1fr;max-width:580px;margin-bottom:36px">
+      <a href="fecca.html" class="portal-card" style="border-color:rgba(245,158,11,0.25);background:rgba(245,158,11,0.04)">
+        <div class="portal-card-icon">⬡</div>
+        <div class="portal-card-title" style="color:#F59E0B">FECCA</div>
+        <div class="portal-card-sub">Panel de la Federación Argentina de Clubes Cannábicos. Stats de la red, beneficios compartidos y eventos de los 47 clubes afiliados.</div>
+        <div class="portal-card-badge" style="border-color:rgba(245,158,11,0.3);color:#F59E0B">🖥️ Desktop · 🔒 Clave: <code style="font-family:monospace;background:rgba(245,158,11,0.15);padding:1px 5px;border-radius:4px">feccaclub26</code></div>
+      </a>
+      <a href="cultivo.html" class="portal-card" style="border-color:rgba(82,183,136,0.2);background:rgba(82,183,136,0.03)">
+        <div class="portal-card-icon">🌱</div>
+        <div class="portal-card-title">Cultivo</div>
+        <div class="portal-card-sub">Panel del cultivador. Ciclo de plantas, lotes, cosechas y despachos al club.</div>
+        <div class="portal-card-badge">🖥️ Desktop</div>
+      </a>
+    </div>
+
+    <!-- Onboarding CTA -->
+    <div style="max-width:860px;width:100%;background:rgba(82,183,136,0.05);border:1px solid rgba(82,183,136,0.2);border-radius:16px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">¿Sos un club nuevo?</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5)">Configurá tu club en 8 pasos: nombre, datos REPROCANN, membresías, tokens, médico, primer socio y agenda.</div>
+      </div>
+      <a href="onboarding/sugar-onboarding-01.html" style="flex-shrink:0;display:inline-block;padding:10px 24px;background:#52B788;color:#0A1A10;font-weight:800;font-size:14px;border-radius:10px;text-decoration:none;white-space:nowrap">Crear mi club →</a>
+    </div>
+
+    <!-- CTA -->
+    <div style="max-width:580px;width:100%;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.2);border-radius:14px;padding:18px 24px;text-align:center;margin-bottom:24px">
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">¿Querés Sugar para tu club?</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.55)">Planes desde <strong style="color:rgba(82,183,136,0.85)">ARS 0/mes</strong> (Plan Semilla, hasta 20 socios) · <strong style="color:rgba(82,183,136,0.85)">hola@octo.studio</strong></div>
+      <div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="pricing.html" style="display:inline-block;padding:8px 22px;background:#52B788;color:#0A1A10;font-weight:800;font-size:13px;border-radius:8px;text-decoration:none;letter-spacing:0.02em">Ver planes →</a>
+        <a href="mailto:hola@octo.studio" style="display:inline-block;padding:8px 18px;border:1px solid rgba(82,183,136,0.35);color:rgba(82,183,136,0.8);font-size:13px;border-radius:8px;text-decoration:none;font-weight:600">Escribinos →</a>
+      </div>
+    </div>
+
+    <div class="portal-footer">Demo navegable · datos ficticios · Octo Studio</div>
   </div>
 </body>
 </html>

@@ -1,0 +1,313 @@
+<style>
+/* FECCA portal amber overrides on top of main style.css */
+.f-shell { display:flex; height:100vh; overflow:hidden; background:#060A06; }
+.f-sidebar { width:220px; min-width:220px; background:#0C1008; border-right:1px solid rgba(245,158,11,0.15); display:flex; flex-direction:column; overflow-y:auto; }
+.f-sidebar-brand { padding:20px 16px 16px; border-bottom:1px solid rgba(245,158,11,0.12); }
+.f-sidebar-logo { font-size:28px; margin-bottom:6px; }
+.f-sidebar-title { font-size:16px; font-weight:800; color:#F59E0B; letter-spacing:-0.01em; }
+.f-sidebar-sub { font-size:11px; color:rgba(245,158,11,0.5); margin-top:1px; }
+.f-sidebar-sec { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(245,158,11,0.35); padding:14px 16px 4px; }
+.f-sidebar-link { display:flex; align-items:center; gap:10px; padding:9px 16px; font-size:13px; font-weight:500; color:rgba(245,158,11,0.6); cursor:pointer; transition:.15s; border-left:3px solid transparent; }
+.f-sidebar-link:hover { background:rgba(245,158,11,0.06); color:#F59E0B; }
+.f-sidebar-link.active { background:rgba(245,158,11,0.1); color:#F59E0B; border-left-color:#F59E0B; font-weight:700; }
+.f-sidebar-link span:first-child { font-size:16px; }
+.f-main { flex:1; overflow-y:auto; padding:0; display:flex; flex-direction:column; }
+.f-topbar { display:flex; justify-content:space-between; align-items:center; padding:18px 28px; border-bottom:1px solid rgba(245,158,11,0.1); background:#0C1008; position:sticky; top:0; z-index:10; }
+.f-page-title { font-size:20px; font-weight:800; color:white; letter-spacing:-0.02em; }
+.f-page-sub { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+.f-content { padding:24px 28px; flex:1; }
+.f-kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px; }
+.f-kpi { background:#0F1A0C; border:1px solid rgba(245,158,11,0.15); border-radius:12px; padding:16px 18px; }
+.f-kpi-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:6px; }
+.f-kpi-value { font-size:28px; font-weight:800; color:#F59E0B; letter-spacing:-0.02em; line-height:1; }
+.f-kpi-sub { font-size:11px; color:rgba(255,255,255,0.3); margin-top:4px; }
+.f-section { background:#0F1A0C; border:1px solid rgba(245,158,11,0.12); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.f-section-title { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin-bottom:14px; }
+.f-table { overflow-x:auto; }
+.f-table table { width:100%; border-collapse:collapse; font-size:13px; color:rgba(255,255,255,0.75); }
+.f-table th { text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,0.3); padding:8px 12px; border-bottom:1px solid rgba(245,158,11,0.1); }
+.f-table td { padding:10px 12px; border-bottom:1px solid rgba(245,158,11,0.06); vertical-align:middle; }
+.f-table tr:last-child td { border-bottom:none; }
+.f-table tr:hover td { background:rgba(245,158,11,0.04); }
+.f-chip { display:inline-flex; align-items:center; gap:4px; padding:3px 8px; border-radius:100px; font-size:10px; font-weight:700; }
+.f-chip-gold { background:rgba(245,158,11,0.15); color:#F59E0B; }
+.f-chip-green { background:rgba(82,183,136,0.15); color:#52B788; }
+.f-chip-muted { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4); }
+.f-chip-red { background:rgba(239,68,68,0.15); color:#ef4444; }
+.f-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:none; font-family:'Inter',sans-serif; transition:.15s; }
+.f-btn-primary { background:#F59E0B; color:#0C1008; }
+.f-btn-primary:hover { background:#FCD34D; }
+.f-btn-ghost { background:transparent; color:rgba(245,158,11,0.7); border:1px solid rgba(245,158,11,0.25); }
+.f-btn-ghost:hover { background:rgba(245,158,11,0.08); color:#F59E0B; }
+.f-sidebar-footer { margin-top:auto; padding:16px; border-top:1px solid rgba(245,158,11,0.1); font-size:11px; color:rgba(245,158,11,0.3); }
+</style>
+
+<div class="f-shell">
+  <aside class="f-sidebar">
+    <div class="f-sidebar-brand">
+      <div class="f-sidebar-logo">⬡</div>
+      <div class="f-sidebar-title">FECCA</div>
+      <div class="f-sidebar-sub">Panel de la federación</div>
+    </div>
+    <div class="f-sidebar-sec">Red</div>
+    <div class="f-sidebar-link active" data-goto="fecca-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="f-sidebar-link" data-goto="fecca-clubes"><span>🌐</span><span>Clubes</span></div>
+    <div class="f-sidebar-sec">Gestión</div>
+    <div class="f-sidebar-link" data-goto="fecca-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="f-sidebar-link" data-goto="fecca-eventos"><span>🎪</span><span>Eventos</span></div>
+    <div class="f-sidebar-footer">Federación de Clubes Cannábicos de Argentina · fecca.com.ar</div>
+  </aside>
+
+  <main class="f-main">
+    <div class="f-topbar">
+      <div>
+        <div class="f-page-title">⬡ Panel FECCA — Red de Clubes</div>
+        <div class="f-page-sub">Métricas de noviembre 2026 · 47 clubes afiliados</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <span style="font-size:11px;color:rgba(245,158,11,0.5)">Actualizado: hace 3 min</span>
+        <button class="f-btn f-btn-primary">📧 Convocar a toda la red</button>
+      </div>
+    </div>
+
+    <div class="f-content">
+
+      <!-- KPIs red -->
+      <div class="f-kpi-grid">
+        <div class="f-kpi">
+          <div class="f-kpi-label">Clubes nucleados</div>
+          <div class="f-kpi-value">47</div>
+          <div class="f-kpi-sub">+3 este mes</div>
+        </div>
+        <div class="f-kpi">
+          <div class="f-kpi-label">Socios activos</div>
+          <div class="f-kpi-value">2.847</div>
+          <div class="f-kpi-sub">+12% vs oct</div>
+        </div>
+        <div class="f-kpi">
+          <div class="f-kpi-label">Tokens distribuidos</div>
+          <div class="f-kpi-value">183k</div>
+          <div class="f-kpi-sub">este mes</div>
+        </div>
+        <div class="f-kpi">
+          <div class="f-kpi-label">Clubes con Sugar</div>
+          <div class="f-kpi-value" style="color:#52B788">34</div>
+          <div class="f-kpi-sub">72% de la red</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px">
+
+        <!-- Actividad top clubes -->
+        <div class="f-section" style="margin-bottom:0">
+          <div class="f-section-title">🏆 Top 5 clubes por actividad — noviembre</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+
+            <div onclick="verClub('verde')" style="cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-size:12px;font-weight:800;color:#F59E0B">#1</span>
+                  <span style="font-size:13px;font-weight:700;color:white">Club Verde</span>
+                  <span class="f-chip f-chip-green" style="font-size:9px">Sugar ✓</span>
+                </div>
+                <span style="font-size:12px;font-weight:700;color:#F59E0B">198 socios</span>
+              </div>
+              <div style="height:7px;background:rgba(245,158,11,0.1);border-radius:100px;overflow:hidden">
+                <div style="height:100%;width:100%;background:linear-gradient(to right,#F59E0B,#FCD34D);border-radius:100px"></div>
+              </div>
+            </div>
+
+            <div onclick="verClub('sugar')" style="cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-size:12px;font-weight:800;color:rgba(245,158,11,0.6)">#2</span>
+                  <span style="font-size:13px;font-weight:700;color:white">Club Sugar</span>
+                  <span class="f-chip f-chip-green" style="font-size:9px">Sugar ✓</span>
+                </div>
+                <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">143 socios</span>
+              </div>
+              <div style="height:7px;background:rgba(245,158,11,0.1);border-radius:100px;overflow:hidden">
+                <div style="height:100%;width:72%;background:linear-gradient(to right,#F59E0B,#FCD34D);border-radius:100px"></div>
+              </div>
+            </div>
+
+            <div onclick="verClub('palermo')" style="cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-size:12px;font-weight:800;color:rgba(245,158,11,0.6)">#3</span>
+                  <span style="font-size:13px;font-weight:700;color:white">Palermo Roots</span>
+                  <span class="f-chip f-chip-green" style="font-size:9px">Sugar ✓</span>
+                </div>
+                <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">112 socios</span>
+              </div>
+              <div style="height:7px;background:rgba(245,158,11,0.1);border-radius:100px;overflow:hidden">
+                <div style="height:100%;width:57%;background:linear-gradient(to right,#F59E0B,#FCD34D);border-radius:100px"></div>
+              </div>
+            </div>
+
+            <div onclick="verClub('rosario')" style="cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-size:12px;font-weight:800;color:rgba(245,158,11,0.6)">#4</span>
+                  <span style="font-size:13px;font-weight:700;color:white">Rosario Centro</span>
+                  <span class="f-chip f-chip-green" style="font-size:9px">Sugar ✓</span>
+                </div>
+                <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">95 socios</span>
+              </div>
+              <div style="height:7px;background:rgba(245,158,11,0.1);border-radius:100px;overflow:hidden">
+                <div style="height:100%;width:48%;background:linear-gradient(to right,#F59E0B,#FCD34D);border-radius:100px"></div>
+              </div>
+            </div>
+
+            <div onclick="verClub('cordoba')" style="cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-size:12px;font-weight:800;color:rgba(245,158,11,0.6)">#5</span>
+                  <span style="font-size:13px;font-weight:700;color:white">Club Córdoba Sur</span>
+                  <span class="f-chip f-chip-green" style="font-size:9px">Sugar ✓</span>
+                </div>
+                <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">87 socios</span>
+              </div>
+              <div style="height:7px;background:rgba(245,158,11,0.1);border-radius:100px;overflow:hidden">
+                <div style="height:100%;width:44%;background:linear-gradient(to right,#F59E0B,#FCD34D);border-radius:100px"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Panel derecho -->
+        <div style="display:flex;flex-direction:column;gap:12px">
+
+          <!-- Crecimiento mensual -->
+          <div class="f-section" style="margin-bottom:0">
+            <div class="f-section-title">📈 Socios activos — últimos 6 meses</div>
+            <div style="display:flex;align-items:flex-end;gap:8px;height:80px">
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+                <div style="background:rgba(245,158,11,0.3);border-radius:4px 4px 0 0;width:100%;height:38%"></div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.3)">jun</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+                <div style="background:rgba(245,158,11,0.4);border-radius:4px 4px 0 0;width:100%;height:48%"></div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.3)">jul</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+                <div style="background:rgba(245,158,11,0.5);border-radius:4px 4px 0 0;width:100%;height:60%"></div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.3)">ago</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+                <div style="background:rgba(245,158,11,0.6);border-radius:4px 4px 0 0;width:100%;height:72%"></div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.3)">sep</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+                <div style="background:rgba(245,158,11,0.75);border-radius:4px 4px 0 0;width:100%;height:85%"></div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.3)">oct</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+                <div style="background:#F59E0B;border-radius:4px 4px 0 0;width:100%;height:100%"></div>
+                <div style="font-size:9px;color:#F59E0B;font-weight:700">nov</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+              <div style="text-align:center"><div style="font-size:18px;font-weight:800;color:#F59E0B">+12%</div><div style="font-size:10px;color:rgba(255,255,255,0.3)">crecimiento MoM</div></div>
+              <div style="text-align:center"><div style="font-size:18px;font-weight:800;color:#52B788">2.847</div><div style="font-size:10px;color:rgba(255,255,255,0.3)">socios activos</div></div>
+            </div>
+          </div>
+
+          <!-- Acceso rápido -->
+          <div class="f-section" style="margin-bottom:0;padding:14px 16px">
+            <div class="f-section-title" style="margin-bottom:10px">Gestión rápida</div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="fecca-clubes">🌐 Ver todos los clubes</div>
+              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="fecca-beneficios">🎁 Gestionar alianzas</div>
+              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="fecca-eventos">🎪 Crear evento federado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distribución por provincia -->
+      <div class="f-section">
+        <div class="f-section-title">📍 Distribución geográfica</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+          <div style="text-align:center;padding:12px;background:rgba(245,158,11,0.06);border-radius:10px;border:1px solid rgba(245,158,11,0.12)">
+            <div style="font-size:22px;font-weight:800;color:#F59E0B">18</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px">CABA</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(245,158,11,0.06);border-radius:10px;border:1px solid rgba(245,158,11,0.12)">
+            <div style="font-size:22px;font-weight:800;color:#F59E0B">14</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px">Pcia. Bs. As.</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(245,158,11,0.06);border-radius:10px;border:1px solid rgba(245,158,11,0.12)">
+            <div style="font-size:22px;font-weight:800;color:#F59E0B">7</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px">Córdoba</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(245,158,11,0.06);border-radius:10px;border:1px solid rgba(245,158,11,0.12)">
+            <div style="font-size:22px;font-weight:800;color:#F59E0B">5</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px">Mendoza</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(245,158,11,0.06);border-radius:10px;border:1px solid rgba(245,158,11,0.12)">
+            <div style="font-size:22px;font-weight:800;color:rgba(245,158,11,0.5)">3</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px">Otras</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="f-section" style="margin-bottom:16px">
+  <div class="f-section-title" style="padding:14px 18px;border-bottom:1px solid rgba(245,158,11,0.1)">🔔 Alertas de la red</div>
+  <div style="display:flex;flex-direction:column">
+
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid rgba(245,158,11,0.06)">
+      <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0"></div>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:600;color:white">Club Mendoza Norte — cuota vencida</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Membresía anual venció hace 12 días · 84 socios afectados</div>
+      </div>
+      <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Contactar</button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid rgba(245,158,11,0.06)">
+      <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;flex-shrink:0"></div>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:600;color:white">3 clubes sin actividad en los últimos 30 días</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">La Plata Cannábica, Quilmes Verde, Tucumán Sur</div>
+      </div>
+      <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Ver detalle</button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid rgba(245,158,11,0.06)">
+      <div style="width:8px;height:8px;border-radius:50%;background:#52B788;flex-shrink:0"></div>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:600;color:white">Nuevo club candidato: Cannabis Libre Neuquén</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Solicitud recibida 10 nov 2026 · 42 socios fundadores · Documentación completa</div>
+      </div>
+      <button class="f-btn f-btn-primary" style="font-size:11px;padding:5px 10px;flex-shrink:0">Revisar</button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 18px">
+      <div style="width:8px;height:8px;border-radius:50%;background:#52B788;flex-shrink:0"></div>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:600;color:white">Jornada REPROCANN — 1.145 inscriptos (28 nov)</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Faltan 16 días · Recordatorio automático programado para el 25 nov</div>
+      </div>
+      <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Ver evento</button>
+    </div>
+
+  </div>
+</div>
+
+      <!-- Footer -->
+      <div style="text-align:center;padding:16px;font-size:11px;color:rgba(255,255,255,0.2)">
+        Powered by <strong style="color:rgba(245,158,11,0.5)">Sugar × FECCA</strong> · Datos de la red en tiempo real
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+function verClub(id) {
+  window.FECCA_CLUB = id;
+  goTo('fecca-club-detalle');
+}
+</script>

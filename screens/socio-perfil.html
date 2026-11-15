@@ -4,12 +4,50 @@
   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:8px">
     <div class="p-avatar mint xl" style="margin-bottom:12px">VR</div>
     <h1 style="margin-bottom:4px">Valentina Rodríguez</h1>
-    <div class="p-subtitle">Socio #1042 · Club Rainbow</div>
-    <div style="margin-top:10px"><span class="p-chip ok">✓ Membresía activa</span></div>
+    <div class="p-subtitle">Socio #1042 · Club Sugar</div>
+    <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+      <span class="p-chip ok">✓ Membresía activa</span>
+      <span class="p-chip gold">⭐ Brote</span>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:14px">
+      <div style="text-align:center">
+        <div style="font-size:18px;font-weight:800;color:var(--gold-dark)">🪙 23</div>
+        <div style="font-size:11px;color:var(--text-muted)">tokens</div>
+      </div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div style="text-align:center">
+        <div style="font-size:18px;font-weight:800;color:var(--accent)">8</div>
+        <div style="font-size:11px;color:var(--text-muted)">pedidos</div>
+      </div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div style="text-align:center">
+        <div style="font-size:18px;font-weight:800;color:var(--text)">2 años</div>
+        <div style="font-size:11px;color:var(--text-muted)">socia</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="p-body">
+
+  <!-- Pedido activo -->
+  <div class="p-section-h" style="margin-top:0">
+    <h2>Pedido activo</h2>
+    <span class="p-chip ok" style="font-size:11px">Listo ✓</span>
+  </div>
+  <div class="p-card" style="margin-bottom:12px;cursor:pointer" data-goto="socio-historial">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <div style="font-weight:700">📦 Pedido #P-243</div>
+      <span class="p-chip ok">Listo ✓</span>
+    </div>
+    <div style="font-size:13px;color:var(--text-muted)">OG Kush 2g + GG#4 1g · 🪙 62 tok</div>
+    <ul class="timeline" style="margin-top:12px">
+      <li class="done">Recibido</li>
+      <li class="done">Armando</li>
+      <li class="active">Listo</li>
+      <li>Retirado</li>
+    </ul>
+  </div>
 
   <!-- Membresía -->
   <div class="p-card gold-card" style="cursor:pointer" data-goto="socio-membresia">
@@ -29,6 +67,15 @@
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
       <div class="p-card-title">Saldo de tokens</div>
       <span style="font-size:22px;font-weight:900;color:var(--gold-dark)">🪙 23</span>
+    </div>
+    <div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:5px">
+        <span>Uso noviembre</span>
+        <span style="font-weight:700;color:var(--gold-dark)">37 / 60 tok del plan</span>
+      </div>
+      <div class="pbar">
+        <div class="pbar-fill gold" style="width:62%"></div>
+      </div>
     </div>
     <div class="p-divider"></div>
     <div style="font-size:12px;color:var(--text-muted);margin-top:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Últimas recargas</div>
@@ -50,6 +97,7 @@
         <div class="list-item-sub">+100 tok · Mar 4 Nov · $100.000</div>
       </div>
     </div>
+    <div style="margin-top:10px;font-size:12px;color:var(--text-muted);text-align:center">Próxima carga del plan: <strong>1 dic +60 tok</strong></div>
   </div>
 
   <!-- Docs -->
@@ -67,9 +115,38 @@
       <span style="font-size:18px">👩‍⚕️</span>
       <div class="list-item-main">
         <div class="list-item-title">Consulta médica</div>
-        <div class="list-item-sub">Dra. Pérez · Sep 2024</div>
+        <div class="list-item-sub">Dra. Pérez · Sep 2026</div>
       </div>
       <span class="p-chip ok">✓ OK</span>
+    </div>
+  </div>
+
+  <!-- Últimos pedidos -->
+  <div class="p-card" style="margin-top:10px">
+    <div class="p-card-title" style="margin-bottom:12px">Últimos pedidos</div>
+    <div class="list-item">
+      <div class="p-avatar mint sm">📦</div>
+      <div class="list-item-main">
+        <div class="list-item-title">#P-242 · Lun 10 Nov</div>
+        <div class="list-item-sub">OG Kush 3g · 🪙 60 tok</div>
+      </div>
+      <span class="p-chip ok">✅</span>
+    </div>
+    <div class="list-item">
+      <div class="p-avatar mint sm">📦</div>
+      <div class="list-item-main">
+        <div class="list-item-title">#P-241 · Mié 5 Nov</div>
+        <div class="list-item-sub">Blue Dream 2g · 🪙 40 tok</div>
+      </div>
+      <span class="p-chip ok">✅</span>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <div class="p-avatar mint sm">📦</div>
+      <div class="list-item-main">
+        <div class="list-item-title">#P-240 · Vie 1 Nov</div>
+        <div class="list-item-sub">Wedding Cake 1g + SLH 2g · 🪙 61 tok</div>
+      </div>
+      <span class="p-chip ok">✅</span>
     </div>
   </div>
 
@@ -96,7 +173,16 @@
     </div>
   </div>
 
-  <button class="p-btn accent block" style="margin-top:14px" data-goto="socio-educacion">📚 Ir a Educación</button>
+  <div class="p-section-h" style="margin-top:16px">
+    <h2>Accesos directos</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+    <button class="p-btn primary block" data-goto="socio-catalogo">🌿 Catálogo</button>
+    <button class="p-btn block" data-goto="socio-historial">📦 Pedidos</button>
+    <button class="p-btn block" data-goto="socio-eventos">🎵 Eventos</button>
+    <button class="p-btn block" data-goto="socio-beneficios">🎁 Beneficios</button>
+  </div>
+  <button class="p-btn accent block" data-goto="socio-educacion">📚 Ir a Educación</button>
   <button class="p-btn block" style="margin-top:8px;color:var(--danger);border-color:var(--danger)" data-goto="socio-home">Cerrar sesión</button>
 
 </div>

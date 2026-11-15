@@ -61,7 +61,11 @@
   const ORDERS = [
     { id:'P-243', member:'Valentina Rodríguez', num:'#1042', items:[{name:'OG Kush', g:'2g'},{name:'Gorilla Glue #4', g:'1g'}], tokens:62 },
     { id:'P-244', member:'Diego Fernández',     num:'#1023', items:[{name:'Blue Dream', g:'3g'}], tokens:60 },
-    { id:'P-245', member:'Matías Suárez',       num:'#1051', items:[{name:'Wedding Cake', g:'1g'}], tokens:25 }
+    { id:'P-246', member:'Laura Gómez',         num:'#1067', items:[{name:'Super Lemon Haze', g:'2g'}], tokens:36 },
+    { id:'P-247', member:'Ana Benítez',         num:'#1035', items:[{name:'Blue Dream', g:'1g'}], tokens:20 },
+    { id:'P-248', member:'Lucía Torres',        num:'#1091', items:[{name:'OG Kush', g:'2g'}], tokens:40 },
+    { id:'P-249', member:'Martín Ramos',        num:'#1096', items:[{name:'Gorilla Glue #4', g:'2g'},{name:'Wedding Cake', g:'1g'}], tokens:69 },
+    { id:'P-250', member:'Sofía Cabrera',       num:'#1101', items:[{name:'OG Kush', g:'1g'},{name:'Blue Dream', g:'1g'}], tokens:40 },
   ];
 
   let queueIdx   = 0;   // which order is next
@@ -85,6 +89,20 @@
     </div>`;
   }
 
+  function totalsPorCepa() {
+    const counts = {};
+    for(let i = queueIdx; i < ORDERS.length; i++) {
+      ORDERS[i].items.forEach(it => {
+        const key = it.name;
+        if(!counts[key]) counts[key] = 0;
+        counts[key] += parseFloat(it.g);
+      });
+    }
+    return Object.entries(counts).map(([name, g]) =>
+      `<span style="flex-shrink:0;background:rgba(82,183,136,0.12);border:1px solid rgba(82,183,136,0.25);border-radius:100px;padding:5px 12px;font-size:11px;font-weight:700;color:#52B788">🌿 ${name} · ${g}g total</span>`
+    ).join('');
+  }
+
   function renderIdle() {
     const o = ORDERS[queueIdx];
     const itemsHtml = o.items.map(i=>`
@@ -97,6 +115,10 @@
         <div><div class="arm-title">📦 Próximo pedido</div><div class="arm-sub">${pending()} en cola</div></div>
       </div>
       ${chips()}
+      <div style="padding:10px 16px 0">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.5);font-weight:700;margin-bottom:8px">🧮 Tener listo para los próximos pedidos</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">${totalsPorCepa()}</div>
+      </div>
       <div class="arm-idle">
         <div class="arm-order-card">
           <div>
@@ -110,8 +132,11 @@
             <div class="arm-tokens-row">🪙 ${o.tokens} tokens · cobrar $${(o.tokens*1000).toLocaleString('es-AR')} en efectivo</div>
           </div>
         </div>
-        <button class="p-btn accent jumbo block" id="btn-iniciar" style="font-size:20px;padding:22px 24px;letter-spacing:.02em">▶ INICIAR</button>
+        <button class="p-btn accent jumbo block" id="btn-iniciar" style="font-size:20px;padding:22px 24px;letter-spacing:.02em" onclick="var b=this;b.disabled=true;b.textContent='⏳ Confirmando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">▶ INICIAR</button>
         <div class="arm-queue-info" style="margin-top:14px">${queueIdx+1 < ORDERS.length ? `${ORDERS.length - queueIdx - 1} pedido${ORDERS.length-queueIdx-1!==1?'s':''} más en cola` : 'Último pedido del momento'}</div>
+      </div>
+      <div style="background:rgba(82,183,136,0.08);border-top:1px solid rgba(82,183,136,0.15);padding:12px 16px;text-align:center;font-size:12px;color:rgba(82,183,136,0.7);font-weight:700;letter-spacing:0.04em">
+        7 pedidos · 327 tokens · <span style="color:#C9A227">$327.000 ARS</span>
       </div>`;
     document.getElementById('arm-back').addEventListener('click', () => {
       if(window.__sugarGoTo) window.__sugarGoTo('equipo-hub');
@@ -149,12 +174,15 @@
           <div class="arm-working-member">${o.member}</div>
           <div class="arm-checklist">${checksHtml}</div>
         </div>
-        <button class="p-btn gold jumbo block" id="btn-listo" style="font-size:22px;padding:24px;letter-spacing:.02em">✅  LISTO</button>
+        <button class="p-btn gold jumbo block" id="btn-listo" style="font-size:22px;padding:24px;letter-spacing:.02em" onclick="var b=this;b.disabled=true;b.textContent='⏳ Confirmando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">✅  LISTO</button>
         <div class="arm-pause-link" id="btn-pause">Pausar</div>
       </div>`;
     // checkboxes
     wrap.querySelectorAll('.arm-check-box').forEach(box => {
-      box.addEventListener('click', () => box.classList.toggle('checked'));
+      box.addEventListener('click', () => {
+        box.classList.toggle('checked');
+        box.textContent = box.classList.contains('checked') ? '✓' : '';
+      });
     });
     document.getElementById('btn-listo').addEventListener('click', () => {
       clearInterval(timerInt); timerInt = null;

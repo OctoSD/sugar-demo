@@ -1,0 +1,405 @@
+<style>
+.f-shell { display:flex; height:100vh; overflow:hidden; background:#060A06; }
+.f-sidebar { width:220px; min-width:220px; background:#0C1008; border-right:1px solid rgba(245,158,11,0.15); display:flex; flex-direction:column; overflow-y:auto; }
+.f-sidebar-brand { padding:20px 16px 16px; border-bottom:1px solid rgba(245,158,11,0.12); }
+.f-sidebar-logo { font-size:28px; margin-bottom:6px; }
+.f-sidebar-title { font-size:16px; font-weight:800; color:#F59E0B; }
+.f-sidebar-sub { font-size:11px; color:rgba(245,158,11,0.5); margin-top:1px; }
+.f-sidebar-sec { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(245,158,11,0.35); padding:14px 16px 4px; }
+.f-sidebar-link { display:flex; align-items:center; gap:10px; padding:9px 16px; font-size:13px; font-weight:500; color:rgba(245,158,11,0.6); cursor:pointer; transition:.15s; border-left:3px solid transparent; }
+.f-sidebar-link:hover { background:rgba(245,158,11,0.06); color:#F59E0B; }
+.f-sidebar-link.active { background:rgba(245,158,11,0.1); color:#F59E0B; border-left-color:#F59E0B; font-weight:700; }
+.f-sidebar-link span:first-child { font-size:16px; }
+.f-main { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
+.f-topbar { display:flex; justify-content:space-between; align-items:center; padding:18px 28px; border-bottom:1px solid rgba(245,158,11,0.1); background:#0C1008; position:sticky; top:0; z-index:10; }
+.f-page-title { font-size:20px; font-weight:800; color:white; }
+.f-page-sub { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+.f-content { padding:24px 28px; flex:1; }
+.f-section { background:#0F1A0C; border:1px solid rgba(245,158,11,0.12); border-radius:12px; padding:0; margin-bottom:16px; overflow:hidden; }
+.f-section-header { padding:14px 18px; border-bottom:1px solid rgba(245,158,11,0.1); display:flex; justify-content:space-between; align-items:center; }
+.f-section-title { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin:0; }
+.f-chip-gold { display:inline-flex; align-items:center; padding:3px 8px; border-radius:100px; font-size:10px; font-weight:700; background:rgba(245,158,11,0.15); color:#F59E0B; }
+.f-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:none; font-family:'Inter',sans-serif; transition:.15s; }
+.f-btn-primary { background:#F59E0B; color:#0C1008; }
+.f-btn-ghost { background:transparent; color:rgba(245,158,11,0.7); border:1px solid rgba(245,158,11,0.25); }
+.f-btn-ghost:hover { background:rgba(245,158,11,0.08); color:#F59E0B; }
+.f-sidebar-footer { margin-top:auto; padding:16px; border-top:1px solid rgba(245,158,11,0.1); font-size:11px; color:rgba(245,158,11,0.3); }
+.benefit-row { display:flex; align-items:center; gap:14px; padding:12px 18px; border-bottom:1px solid rgba(245,158,11,0.06); transition:.15s; }
+.benefit-row:last-child { border-bottom:none; }
+.benefit-row:hover { background:rgba(245,158,11,0.04); }
+.b-logo { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+</style>
+
+<div class="f-shell">
+  <aside class="f-sidebar">
+    <div class="f-sidebar-brand">
+      <div class="f-sidebar-logo">⬡</div>
+      <div class="f-sidebar-title">FECCA</div>
+      <div class="f-sidebar-sub">Panel de la federación</div>
+    </div>
+    <div class="f-sidebar-sec">Red</div>
+    <div class="f-sidebar-link" data-goto="fecca-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="f-sidebar-link" data-goto="fecca-clubes"><span>🌐</span><span>Clubes</span></div>
+    <div class="f-sidebar-sec">Gestión</div>
+    <div class="f-sidebar-link active" data-goto="fecca-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="f-sidebar-link" data-goto="fecca-eventos"><span>🎪</span><span>Eventos</span></div>
+    <div class="f-sidebar-footer">fecca.com.ar</div>
+  </aside>
+
+  <main class="f-main">
+    <div class="f-topbar">
+      <div>
+        <div class="f-page-title">🎁 Alianzas de la Red FECCA</div>
+        <div class="f-page-sub">19 alianzas · 553 canjes este mes · Visibles para 2.847 socios</div>
+      </div>
+      <button class="f-btn f-btn-primary">+ Agregar alianza</button>
+    </div>
+
+    <div class="f-content">
+
+      <!-- Info banner -->
+      <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:rgba(255,255,255,0.7)">
+        ⬡ Las alianzas de la Red FECCA se activan automáticamente para <strong style="color:white">todos los socios activos</strong> de los 47 clubes afiliados. Los socios las ven en su portal bajo "Beneficios → Red FECCA".
+      </div>
+
+      <!-- Categorías -->
+      <div style="display:flex;gap:8px;margin-bottom:20px">
+        <button class="f-btn" style="background:rgba(245,158,11,0.15);color:#F59E0B;padding:6px 14px;font-size:11px" onclick="feccaFilterCat(this, 'all')">Todas (19)</button>
+        <button class="f-btn f-btn-ghost" style="padding:6px 14px;font-size:11px" onclick="feccaFilterCat(this, 'salud')">Salud y bienestar</button>
+        <button class="f-btn f-btn-ghost" style="padding:6px 14px;font-size:11px" onclick="feccaFilterCat(this, 'suministros')">Suministros</button>
+        <button class="f-btn f-btn-ghost" style="padding:6px 14px;font-size:11px" onclick="feccaFilterCat(this, 'legal')">Legal</button>
+        <button class="f-btn f-btn-ghost" style="padding:6px 14px;font-size:11px" onclick="feccaFilterCat(this, 'educacion')">Educación</button>
+        <button class="f-btn f-btn-ghost" style="padding:6px 14px;font-size:11px" onclick="feccaFilterCat(this, 'otros')">Otros</button>
+      </div>
+
+      <!-- Lista alianzas -->
+      <div class="f-section">
+        <div class="f-section-header">
+          <div class="f-section-title">19 alianzas activas</div>
+          <span style="font-size:12px;color:rgba(255,255,255,0.3)">Mostrando todas — 553 canjes este mes</span>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(34,197,94,0.15);color:#22c55e">GG</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">GreenGrow Hidroponía</span>
+              <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 6px;border-radius:100px;font-weight:700">Suministros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">15% off en toda la tienda · Código: FECCA15 · Válido hasta 31 dic 2026</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">15% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">67 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(99,102,241,0.15);color:#818cf8">C4</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Consultorio 420</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">1ª consulta médica cannábica sin costo · Código: FECCA-MED · Sin vencimiento</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">1ª gratis</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">42 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(168,85,247,0.15);color:#c084fc">TM</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">TuMerch Cannabis</span>
+              <span style="font-size:10px;background:rgba(245,158,11,0.15);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:700">Otros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">20% off en ropa y accesorios · Código: FECCA20 · Válido hasta 28 feb 2027</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">20% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">28 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(20,184,166,0.15);color:#2dd4bf">VC</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Verde Cannabis Club (Seguros)</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Legal</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Asesoramiento legal gratuito primer mes · Código: FECCA-LEY</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">1 mes gratis</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">19 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(245,158,11,0.15);color:#F59E0B">BH</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">BioHerbs Suplementos</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">10% off en suplementos naturales · Código: FECCABIO</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">10% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">15 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(99,102,241,0.15);color:#818cf8">CV</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">CannabisVida Seguros</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Legal</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Cobertura legal ante inspecciones · 2 meses gratis · Código: FECCA-SEG</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">2 meses gratis</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">31 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(234,179,8,0.15);color:#eab308">PM</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">PlantaMad Insumos</span>
+              <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 6px;border-radius:100px;font-weight:700">Suministros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">25% off en sustratos y macetas · Código: FECCA-MAD</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">25% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">58 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(20,184,166,0.15);color:#2dd4bf">ME</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">MedExpress Laboratorio</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Análisis de terpenos y cannabinoides con 30% off · Código: FECCA-LAB</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">30% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">12 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(245,158,11,0.15);color:#F59E0B">CF</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">CannabisFlow Academia</span>
+              <span style="font-size:10px;background:rgba(82,183,136,0.15);color:#52B788;padding:2px 6px;border-radius:100px;font-weight:700">Educación</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Acceso gratuito 3 meses a cursos de cultivo y medicinal · Código: FECCAFLOW</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">3 meses free</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">44 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(168,85,247,0.15);color:#c084fc">RP</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Raíces Profundas Nutrición</span>
+              <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 6px;border-radius:100px;font-weight:700">Suministros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Kit de fertilizantes orgánicos 20% off · Código: FECCA-NUT</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">20% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">37 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(239,68,68,0.15);color:#ef4444">PS</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Psicoterapia Integrativa</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">1ª sesión con psicólogos especializados en cannabis medicinal sin costo · Código: FECCAPSI</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">1ª gratis</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">9 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(20,184,166,0.15);color:#2dd4bf">LL</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">LuzLED Iluminación</span>
+              <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 6px;border-radius:100px;font-weight:700">Suministros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Paneles LED para cultivo indoor con 18% off · Código: FECCALED</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">18% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">22 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(82,183,136,0.15);color:#52B788">DC</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Derecho Cannabis Estudio</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Legal</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Consulta legal gratuita para socios con REPROCANN vencida · Código: FECCA-DR</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">Consulta gratis</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">7 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(245,158,11,0.15);color:#F59E0B">BC</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">BioControl Fitosanitarios</span>
+              <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 6px;border-radius:100px;font-weight:700">Suministros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Control biológico de plagas 15% off · Código: FECCABIO2</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">15% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">18 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(168,85,247,0.15);color:#c084fc">KN</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Kinesiología Natural</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Sesiones de kinesiología con enfoque en dolor crónico · 20% off · Código: FECCAKINE</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">20% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">14 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(234,179,8,0.15);color:#eab308">SE</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">Semillero Élite</span>
+              <span style="font-size:10px;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 6px;border-radius:100px;font-weight:700">Suministros</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Genética certificada con 10% off + envío gratis · Código: FECCASEED</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">10% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">53 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(20,184,166,0.15);color:#2dd4bf">EA</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">EduCanna Online</span>
+              <span style="font-size:10px;background:rgba(82,183,136,0.15);color:#52B788;padding:2px 6px;border-radius:100px;font-weight:700">Educación</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Certificación online en cannabis medicinal — 50% off · Código: FECCAEDU</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">50% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">26 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(245,158,11,0.15);color:#F59E0B">OC</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">OmicronCannabis Seguimiento</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">App de seguimiento de tratamiento cannábico — 1 año gratis · Código: FECCA-APP</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">1 año gratis</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">39 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+        <div class="benefit-row">
+          <div class="b-logo" style="background:rgba(82,183,136,0.15);color:#52B788">TP</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+              <span style="font-size:14px;font-weight:700;color:white">TerraPlena Aceites</span>
+              <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#ef4444;padding:2px 6px;border-radius:100px;font-weight:700">Salud</span>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Aceites CBD/CBN artesanales con 12% off · Código: FECCA-OIL</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:16px;font-weight:800;color:#F59E0B">12% off</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3)">33 canjes este mes</div>
+          </div>
+          <button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px;flex-shrink:0">Editar</button>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;padding:16px;font-size:11px;color:rgba(255,255,255,0.2)">
+        Powered by <strong style="color:rgba(245,158,11,0.5)">Sugar × FECCA</strong>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+function feccaFilterCat(btn, cat) {
+  document.querySelectorAll('.f-main .f-btn').forEach(b => {
+    b.style.background = 'transparent';
+    b.style.color = 'rgba(245,158,11,0.7)';
+  });
+  btn.style.background = 'rgba(245,158,11,0.15)';
+  btn.style.color = '#F59E0B';
+}
+</script>

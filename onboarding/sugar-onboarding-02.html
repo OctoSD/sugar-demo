@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar · Configurar club — Paso 2 de 8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:#1B4332; --primary-dark:#0D2318; --primary-light:#D1FAE5;
+      --accent:#52B788; --accent-dark:#2D6A4F; --accent-light:#B7E4C7;
+      --gold:#C9A227; --gold-dark:#7D5F0B; --gold-light:#FEF9C3;
+      --surface:#111C15; --surface-2:#182519;
+      --border:#1E3328; --border-light:#2A4535;
+      --text:#F0FAF4; --text-muted:#7A9E8A; --text-micro:#4A7A5B;
+      --bg:#060E0A; --input-bg:#0E1A12; --input-border:#223A2C;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 16px; -webkit-font-smoothing:antialiased; }
+    .stepper { display:flex; align-items:center; gap:0; margin-bottom:40px; width:100%; max-width:560px; }
+    .step-node { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+    .step-node.done   { background:var(--accent); color:white; }
+    .step-node.active { background:var(--accent); color:white; box-shadow:0 0 0 4px rgba(82,183,136,0.2); }
+    .step-node.todo   { background:var(--surface-2); color:var(--text-micro); border:1.5px solid var(--border-light); }
+    .step-line { flex:1; height:2px; background:var(--border-light); }
+    .step-line.done { background:var(--accent); }
+    .wizard-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:40px 40px 36px; width:100%; max-width:560px; box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+    .step-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:10px; }
+    .step-title { font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:800; color:var(--text); line-height:1.15; letter-spacing:-0.5px; margin-bottom:8px; }
+    .step-sub { font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:28px; }
+    .field { margin-bottom:18px; }
+    .field-label { display:block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:6px; }
+    .field-input { width:100%; padding:14px 16px; border:1.5px solid var(--input-border); border-radius:12px; font-size:15px; font-weight:500; background:var(--input-bg); color:var(--text); outline:none; transition:border-color 0.15s; font-family:'Inter',sans-serif; }
+    .field-input:focus { border-color:var(--accent); }
+    .field-input::placeholder { color:var(--text-micro); }
+    .field-hint { font-size:12px; color:var(--text-micro); margin-top:5px; line-height:1.5; }
+    .field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .reprocann-box {
+      background:rgba(201,162,39,0.07);
+      border:1.5px solid rgba(201,162,39,0.25);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-bottom:18px;
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .reprocann-icon { font-size:22px; flex-shrink:0; margin-top:1px; }
+    .reprocann-title { font-size:13px; font-weight:700; color:var(--gold); margin-bottom:2px; }
+    .reprocann-sub { font-size:12px; color:var(--text-muted); line-height:1.5; }
+    .wizard-actions { display:flex; align-items:center; justify-content:space-between; margin-top:28px; padding-top:22px; border-top:1px solid var(--border); }
+    .btn-back { font-size:13px; font-weight:600; color:var(--text-micro); background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; padding:0; text-decoration:none; }
+    .btn-back:hover { color:var(--text-muted); }
+    .btn-next { display:inline-flex; align-items:center; gap:8px; padding:0 24px; height:46px; border-radius:12px; background:var(--accent); color:white; font-size:15px; font-weight:700; border:none; cursor:pointer; font-family:'Inter',sans-serif; text-decoration:none; transition:background 0.12s; }
+    .btn-next:hover { background:var(--accent-dark); }
+    .progress-label { text-align:center; font-size:12px; color:var(--text-micro); margin-top:20px; }
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node active">2</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">3</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">4</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">5</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">6</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">7</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">8</div>
+  </div>
+
+  <div class="wizard-card">
+    <div class="step-label">Paso 2 de 8 · Datos del club</div>
+    <h1 class="step-title">Datos legales y ubicación</h1>
+    <p class="step-sub">Esta información es necesaria para los trámites REPROCANN y para que tus socios puedan encontrarte.</p>
+
+    <div class="reprocann-box">
+      <div class="reprocann-icon">⬡</div>
+      <div>
+        <div class="reprocann-title">Número REPROCANN</div>
+        <div class="reprocann-sub">El número de registro oficial que les asignó ANMAT. Podés completarlo ahora o más tarde desde Configuración.</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Número REPROCANN</label>
+      <input class="field-input" type="text" placeholder="Ej: REP-2024-00147-ANMAT" value="REP-2024-00147-ANMAT" />
+      <div class="field-hint">Si todavía está en trámite, dejalo vacío por ahora.</div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">Provincia</label>
+        <input class="field-input" type="text" placeholder="Ciudad Autónoma de BA" value="Ciudad Autónoma de BA" />
+      </div>
+      <div class="field">
+        <label class="field-label">Localidad</label>
+        <input class="field-input" type="text" placeholder="Palermo" value="Palermo" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Domicilio del club</label>
+      <input class="field-input" type="text" placeholder="Av. Santa Fe 3450, piso 2" value="Av. Santa Fe 3450, piso 2" />
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">Teléfono de contacto</label>
+        <input class="field-input" type="text" placeholder="+54 11 4xxx-xxxx" value="+54 11 4823-7714" />
+      </div>
+      <div class="field">
+        <label class="field-label">Email del club</label>
+        <input class="field-input" type="email" placeholder="admin@clubraices.com.ar" value="admin@clubraices.com.ar" />
+      </div>
+    </div>
+
+    <div class="wizard-actions">
+      <a class="btn-back" href="sugar-onboarding-01.html">← Volver</a>
+      <a class="btn-next" href="sugar-onboarding-03.html">Continuar →</a>
+    </div>
+  </div>
+
+  <div class="progress-label">Paso 2 de 8</div>
+
+</body>
+</html>

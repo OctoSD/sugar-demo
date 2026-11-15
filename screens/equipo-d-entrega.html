@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">👷</div>
       <div>
         <div class="d-sidebar-brand-text">Equipo</div>
-        <div class="d-sidebar-brand-sub">Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación diaria</div>
@@ -12,8 +12,10 @@
     <div class="d-sidebar-link" data-goto="equipo-d-armado"><span>📦</span><span>Armado de pedidos</span></div>
     <div class="d-sidebar-link" data-goto="equipo-d-admision"><span>🚪</span><span>Admisión</span></div>
     <div class="d-sidebar-link active" data-goto="equipo-d-entrega"><span>🤝</span><span>Entregas y retiros</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-medico"><span>🩺</span><span>Sesiones médicas</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-fichaje"><span>🕐</span><span>Fichaje</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Rainbow · Lun 11 Nov</div>
+    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Sugar · Lun 11 Nov</div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
@@ -30,7 +32,15 @@
         <div class="d-page-title">🤝 Entregas y retiros · Lunes 11 Nov</div>
         <div class="d-page-sub">Control de entregas y cobros del día</div>
       </div>
-      <span class="p-chip gold" style="font-size:13px;padding:6px 14px">💰 $107.000 cobrados hoy</span>
+      <div style="display:flex;gap:10px;align-items:center">
+        <!-- Buscador -->
+        <div style="position:relative">
+          <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none">🔍</span>
+          <input id="search-entrega-d" type="text" placeholder="Buscar por nombre o n° de socio…" oninput="filtrarEntregaD()"
+            style="background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 12px 7px 32px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:230px">
+        </div>
+        <span class="p-chip gold" style="font-size:13px;padding:6px 14px">💰 $107.000 cobrados hoy</span>
+      </div>
     </div>
 
     <!-- KPI strip -->
@@ -48,7 +58,7 @@
       <div class="kpi" style="border-top:3px solid var(--gold)">
         <div class="kpi-label">Total cobrado</div>
         <div class="kpi-value" style="color:var(--gold-dark);font-size:18px">$107.000</div>
-        <div class="kpi-sub">ARS en efectivo</div>
+        <div class="kpi-sub">ARS</div>
       </div>
       <div class="kpi" style="border-top:3px solid var(--warning)">
         <div class="kpi-label">En preparación</div>
@@ -57,7 +67,7 @@
       </div>
     </div>
 
-    <!-- Active pickups -->
+    <!-- Active pickups table -->
     <div class="d-section" style="margin-bottom:12px;padding:0;overflow:hidden">
       <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
         <div class="d-section-title" style="margin:0">Pedidos listos y en preparación</div>
@@ -73,11 +83,11 @@
               <th>Total a cobrar</th>
               <th>Estado</th>
               <th>Hora listo</th>
-              <th>Acciones</th>
+              <th style="min-width:260px">Acciones</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="tbody-entrega">
+            <tr id="erow-243" data-search="Valentina Rodríguez valentina 1042 p-243">
               <td class="num">P-243</td>
               <td>
                 <div style="display:flex;align-items:center;gap:8px">
@@ -92,9 +102,19 @@
               <td class="num" style="font-weight:700;color:var(--gold-dark)">$62.000</td>
               <td><span class="p-chip ok">✅ LISTO · Esperando</span></td>
               <td class="num">12:34</td>
-              <td><button class="p-btn small accent" style="font-size:11px">Marcar retirado</button></td>
+              <td>
+                <div id="action-243">
+                  <select id="pay-243" style="background:var(--bg-tint);border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:12px;color:var(--text);font-family:'Inter',sans-serif;margin-right:6px">
+                    <option value="">Forma de cobro…</option>
+                    <option value="efectivo">💵 Efectivo</option>
+                    <option value="membresia">⭐ Membresía</option>
+                    <option value="transferencia">📲 Transferencia</option>
+                  </select>
+                  <button class="p-btn small accent" style="font-size:11px" onclick="confirmarEntregaD('243','Valentina R.','$62.000')">Marcar retirado ✓</button>
+                </div>
+              </td>
             </tr>
-            <tr>
+            <tr id="erow-244" data-search="Diego Fernández diego 1023 p-244">
               <td class="num">P-244</td>
               <td>
                 <div style="display:flex;align-items:center;gap:8px">
@@ -109,16 +129,18 @@
               <td class="num" style="font-weight:700;color:var(--gold-dark)">$60.000</td>
               <td><span class="p-chip warn">⏱ ARMANDO</span></td>
               <td style="color:var(--text-muted);font-size:12px">—</td>
-              <td style="color:var(--text-muted);font-size:12px">—</td>
+              <td style="color:var(--text-muted);font-size:12px">Esperando armado</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <div id="entrega-empty" style="display:none;padding:24px;text-align:center;color:var(--text-muted);font-size:13px">
+        🔍 No hay pedidos que coincidan con la búsqueda
+      </div>
     </div>
 
-    <!-- Cash alert -->
     <div class="p-alert ok" style="margin-bottom:16px;border-radius:12px">
-      💰 <strong>Cobrar en efectivo al momento del retiro.</strong> Registrar en este panel al entregar.
+      💰 <strong>Registrar forma de cobro al marcar cada retiro.</strong> El registro queda en el historial del día.
     </div>
 
     <!-- Retirados hoy -->
@@ -129,20 +151,15 @@
       <div class="d-table">
         <table>
           <thead>
-            <tr>
-              <th>Pedido</th>
-              <th>Socio</th>
-              <th>Items</th>
-              <th>Total cobrado</th>
-              <th>Estado</th>
-            </tr>
+            <tr><th>Pedido</th><th>Socio</th><th>Items</th><th>Total cobrado</th><th>Forma de pago</th><th>Estado</th></tr>
           </thead>
-          <tbody>
+          <tbody id="tbody-retirados">
             <tr style="opacity:0.7">
               <td class="num">P-241</td>
               <td style="font-size:12px">Diego F. · #1023</td>
               <td style="font-size:12px">Blue Dream 2g + OG Kush 1g</td>
               <td class="num" style="color:var(--gold-dark);font-weight:700">$60.000</td>
+              <td style="font-size:12px">💵 Efectivo</td>
               <td><span class="p-chip muted">✅ Retirado 11:23</span></td>
             </tr>
             <tr style="opacity:0.7">
@@ -150,6 +167,7 @@
               <td style="font-size:12px">Matías S. · #1051</td>
               <td style="font-size:12px">Wedding Cake 1g</td>
               <td class="num" style="color:var(--gold-dark);font-weight:700">$25.000</td>
+              <td style="font-size:12px">⭐ Membresía</td>
               <td><span class="p-chip muted">✅ Retirado 10:45</span></td>
             </tr>
             <tr style="opacity:0.7">
@@ -157,21 +175,20 @@
               <td style="font-size:12px">Laura G. · #1067</td>
               <td style="font-size:12px">SLH 2g</td>
               <td class="num" style="color:var(--gold-dark);font-weight:700">$36.000</td>
+              <td style="font-size:12px">📲 Transferencia</td>
               <td><span class="p-chip muted">✅ Retirado 09:30</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-
-      <!-- Day summary -->
       <div style="padding:14px 18px;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
         <div>
           <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Total retiros</div>
-          <div style="font-size:18px;font-weight:800;color:var(--text);margin-top:2px">3 completados</div>
+          <div id="total-retiros" style="font-size:18px;font-weight:800;color:var(--text);margin-top:2px">3 completados</div>
         </div>
         <div>
           <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Total cobrado</div>
-          <div style="font-size:18px;font-weight:800;color:var(--gold-dark);margin-top:2px">$121.000 ARS</div>
+          <div id="total-cobrado" style="font-size:18px;font-weight:800;color:var(--gold-dark);margin-top:2px">$121.000 ARS</div>
         </div>
         <div>
           <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Próximos</div>
@@ -181,3 +198,44 @@
     </div>
   </main>
 </div>
+
+<script>
+function filtrarEntregaD() {
+  const q = document.getElementById('search-entrega-d').value.toLowerCase().trim();
+  let visible = 0;
+  document.querySelectorAll('#tbody-entrega tr').forEach(row => {
+    const match = !q || row.dataset.search.toLowerCase().includes(q);
+    row.style.display = match ? '' : 'none';
+    if(match) visible++;
+  });
+  document.getElementById('entrega-empty').style.display = (q && visible === 0) ? '' : 'none';
+}
+
+var totalRetiradosD = 3;
+var totalCobradoD = 121000;
+
+function confirmarEntregaD(id, nombre, monto) {
+  const sel = document.getElementById('pay-' + id);
+  const method = sel.value;
+  if(!method) {
+    sel.style.borderColor = 'var(--warning)';
+    setTimeout(() => sel.style.borderColor = 'var(--border)', 1500);
+    return;
+  }
+  const labels = { efectivo:'💵 Efectivo', membresia:'⭐ Membresía', transferencia:'📲 Transferencia' };
+  const row = document.getElementById('erow-' + id);
+  totalRetiradosD++;
+  totalCobradoD += parseInt(monto.replace(/\D/g,''));
+  const ahora = new Date();
+  const hora = ahora.getHours() + ':' + String(ahora.getMinutes()).padStart(2,'0');
+  document.getElementById('action-' + id).innerHTML = `<span class="p-chip ok">✅ Retirado ${hora}</span>`;
+  row.querySelectorAll('td')[4].innerHTML = '<span class="p-chip muted">✅ RETIRADO</span>';
+  const tbody = document.getElementById('tbody-retirados');
+  const newRow = document.createElement('tr');
+  newRow.style.opacity = '0.7';
+  newRow.innerHTML = `<td class="num">${id.replace('erow-','P-')}</td><td style="font-size:12px">${nombre}</td><td style="font-size:12px">—</td><td class="num" style="color:var(--gold-dark);font-weight:700">${monto}</td><td style="font-size:12px">${labels[method]}</td><td><span class="p-chip muted">✅ Retirado ${hora}</span></td>`;
+  tbody.insertBefore(newRow, tbody.firstChild);
+  document.getElementById('total-retiros').textContent = totalRetiradosD + ' completados';
+  document.getElementById('total-cobrado').textContent = '$' + totalCobradoD.toLocaleString('es-AR') + ' ARS';
+}
+</script>

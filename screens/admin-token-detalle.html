@@ -1,0 +1,277 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link active"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <!-- Topbar -->
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="p-btn small ghost" data-goto="admin-tokens">← Tokens</button>
+        <div>
+          <div class="d-page-title">Tokens · Valentina Rodríguez</div>
+          <div class="d-page-sub">#1042 · ⭐ Brote · saldo actual: 🪙 23</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" data-goto="admin-socio-perfil">Ver perfil →</button>
+        <button class="p-btn small gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Acreditando…';setTimeout(function(){b.textContent='✓ Tokens acreditados';b.style.opacity='0.7';},900)">+ Cargar tokens</button>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Saldo actual</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 23</div>
+        <div class="kpi-sub">disponibles</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Total cargado</div>
+        <div class="kpi-value" style="color:var(--success)">🪙 950</div>
+        <div class="kpi-sub">histórico total</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Total consumido</div>
+        <div class="kpi-value" style="color:var(--accent-dark)">🪙 927</div>
+        <div class="kpi-sub">en pedidos</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Próxima carga</div>
+        <div class="kpi-value" style="font-size:16px">1 dic</div>
+        <div class="kpi-sub">+60 tok (plan Brote)</div>
+      </div>
+    </div>
+
+    <!-- Layout 2 columnas -->
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start">
+
+      <!-- IZQUIERDA: ledger completo -->
+      <div>
+
+        <!-- Uso del mes -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Noviembre 2026</div>
+            <span class="p-chip gold">37 / 60 tok del plan</span>
+          </div>
+          <div style="padding:0 16px 16px">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:6px">
+              <span>Uso del plan mensual</span>
+              <span style="font-weight:700;color:var(--gold-dark)">37 / 60 tokens</span>
+            </div>
+            <div class="pbar" style="height:10px;border-radius:6px">
+              <div class="pbar-fill gold" style="width:62%;border-radius:6px"></div>
+            </div>
+            <div style="display:flex;gap:24px;margin-top:12px;font-size:13px">
+              <div><span style="color:var(--text-muted)">Recargas compradas: </span><strong>🪙 250</strong></div>
+              <div><span style="color:var(--text-muted)">Consumido nov: </span><strong>🪙 223</strong></div>
+              <div><span style="color:var(--text-muted)">Saldo al cierre: </span><strong>🪙 23</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla ledger -->
+        <div class="d-section" style="padding:0;overflow:hidden">
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div class="d-section-title" style="margin:0">Movimientos</div>
+            <div style="display:flex;gap:8px">
+              <button class="p-btn small ghost" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Todos</button>
+              <button class="p-btn small ghost" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Recargas</button>
+              <button class="p-btn small ghost" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Consumos</button>
+            </div>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Tipo</th>
+                  <th>Referencia</th>
+                  <th class="right">Movimiento</th>
+                  <th class="right">Saldo post</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-size:12px;color:var(--text-muted)">Hoy 09:15</td>
+                  <td><span class="p-chip ok" style="font-size:11px">Recarga</span></td>
+                  <td style="font-size:12px">Efectivo · por Tomás García</td>
+                  <td class="right num" style="color:var(--success);font-weight:700">+100</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 85</td>
+                </tr>
+                <tr style="background:rgba(239,68,68,0.03)">
+                  <td style="font-size:12px;color:var(--text-muted)">Hoy · pedido</td>
+                  <td><span class="p-chip muted" style="font-size:11px">Consumo</span></td>
+                  <td style="font-size:12px">Pedido #P-243 · OG Kush 2g + GG#4 1g</td>
+                  <td class="right num" style="color:var(--danger);font-weight:700">−62</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 23</td>
+                </tr>
+                <tr style="opacity:0.85">
+                  <td style="font-size:12px;color:var(--text-muted)">Lun 10 Nov</td>
+                  <td><span class="p-chip ok" style="font-size:11px">Recarga</span></td>
+                  <td style="font-size:12px">Efectivo · por Tomás García</td>
+                  <td class="right num" style="color:var(--success);font-weight:700">+100</td>
+                  <td class="right num" style="color:var(--gold-dark)">🪙 145</td>
+                </tr>
+                <tr style="opacity:0.85;background:rgba(239,68,68,0.03)">
+                  <td style="font-size:12px;color:var(--text-muted)">Lun 10 Nov</td>
+                  <td><span class="p-chip muted" style="font-size:11px">Consumo</span></td>
+                  <td style="font-size:12px">Pedido #P-242 · OG Kush 3g</td>
+                  <td class="right num" style="color:var(--danger);font-weight:700">−60</td>
+                  <td class="right num" style="color:var(--gold-dark)">🪙 85</td>
+                </tr>
+                <tr style="opacity:0.8;background:rgba(239,68,68,0.03)">
+                  <td style="font-size:12px;color:var(--text-muted)">Mié 5 Nov</td>
+                  <td><span class="p-chip muted" style="font-size:11px">Consumo</span></td>
+                  <td style="font-size:12px">Pedido #P-241 · Blue Dream 2g</td>
+                  <td class="right num" style="color:var(--danger);font-weight:700">−40</td>
+                  <td class="right num" style="color:var(--gold-dark)">🪙 185</td>
+                </tr>
+                <tr style="opacity:0.8">
+                  <td style="font-size:12px;color:var(--text-muted)">Jue 7 Nov</td>
+                  <td><span class="p-chip ok" style="font-size:11px">Recarga</span></td>
+                  <td style="font-size:12px">Efectivo · por Tomás García</td>
+                  <td class="right num" style="color:var(--success);font-weight:700">+50</td>
+                  <td class="right num" style="color:var(--gold-dark)">🪙 225</td>
+                </tr>
+                <tr style="opacity:0.75;background:rgba(239,68,68,0.03)">
+                  <td style="font-size:12px;color:var(--text-muted)">Vie 1 Nov</td>
+                  <td><span class="p-chip muted" style="font-size:11px">Consumo</span></td>
+                  <td style="font-size:12px">Pedido #P-240 · Wedding Cake 1g + SLH 2g</td>
+                  <td class="right num" style="color:var(--danger);font-weight:700">−61</td>
+                  <td class="right num" style="color:var(--gold-dark)">🪙 175</td>
+                </tr>
+                <tr style="opacity:0.75">
+                  <td style="font-size:12px;color:var(--text-muted)">1 Nov</td>
+                  <td><span class="p-chip info" style="font-size:11px">Plan</span></td>
+                  <td style="font-size:12px">Acreditación plan Brote · automático</td>
+                  <td class="right num" style="color:var(--success);font-weight:700">+60</td>
+                  <td class="right num" style="color:var(--gold-dark)">🪙 236</td>
+                </tr>
+                <tr style="opacity:0.65">
+                  <td style="font-size:12px;color:var(--text-muted)">1 Oct</td>
+                  <td><span class="p-chip info" style="font-size:11px">Plan</span></td>
+                  <td style="font-size:12px">Acreditación plan Brote · automático</td>
+                  <td class="right num" style="color:var(--success);font-weight:700">+60</td>
+                  <td class="right num" style="color:var(--text-muted)">oct</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DERECHA: recarga rápida + resumen -->
+      <div>
+
+        <!-- Recarga rápida -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h" style="margin-bottom:12px">
+            <div class="d-section-title">🪙 Cargar tokens</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div style="margin-bottom:12px">
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:block;margin-bottom:4px">Socio</label>
+              <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bg-tint);border-radius:10px">
+                <div class="p-avatar mint sm">VR</div>
+                <div>
+                  <div style="font-size:13px;font-weight:700">Valentina Rodríguez</div>
+                  <div style="font-size:11px;color:var(--text-muted)">#1042 · saldo: 🪙 23</div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom:12px">
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:block;margin-bottom:6px">Cantidad</label>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px">
+                <button class="p-btn small ghost" style="font-weight:800;color:var(--gold-dark)" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">25</button>
+                <button class="p-btn small ghost" style="font-weight:800;color:var(--gold-dark);border-color:var(--gold)" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">50</button>
+                <button class="p-btn small ghost" style="font-weight:800;color:var(--gold-dark)" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">100</button>
+              </div>
+              <input type="number" value="50" style="width:100%;padding:9px 10px;border:1.5px solid var(--gold);border-radius:10px;font-size:16px;font-weight:800;text-align:center;color:var(--gold-dark)">
+              <div style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:4px">= $50.000 ARS a cobrar en efectivo</div>
+            </div>
+            <div style="background:var(--gold-light);border:1px solid rgba(201,162,39,0.3);border-radius:10px;padding:10px;margin-bottom:12px;font-size:12px;color:var(--gold-dark)">
+              <strong>Resumen:</strong> Valentina R. · +50 tokens · saldo nuevo: 🪙 73
+            </div>
+            <button class="p-btn gold block" onclick="this.textContent='✅ Recarga registrada';this.disabled=true">✅ Confirmar · cobré $50.000</button>
+          </div>
+        </div>
+
+        <!-- Resumen del socio -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Resumen del socio</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div class="list-item" style="padding:6px 0">
+              <span style="font-size:14px">⭐</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Plan activo</div>
+                <div class="list-item-title" style="font-size:13px">Brote · $60.000/mes · 60 tok/mes</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:6px 0">
+              <span style="font-size:14px">📅</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Próxima acreditación</div>
+                <div class="list-item-title" style="font-size:13px">1 dic 2026 · +60 tok automático</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:6px 0">
+              <span style="font-size:14px">📦</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Pedidos este mes</div>
+                <div class="list-item-title" style="font-size:13px">4 pedidos · 🪙 223 tok consumidos</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:6px 0;border-bottom:none">
+              <span style="font-size:14px">📋</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">REPROCANN</div>
+                <div class="list-item-title" style="font-size:13px">R-2024-00478 · vigente ago 2027</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

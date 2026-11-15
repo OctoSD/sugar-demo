@@ -1,0 +1,245 @@
+<style>
+.f-shell { display:flex; height:100vh; overflow:hidden; background:#060A06; }
+.f-sidebar { width:220px; min-width:220px; background:#0C1008; border-right:1px solid rgba(245,158,11,0.15); display:flex; flex-direction:column; overflow-y:auto; }
+.f-sidebar-brand { padding:20px 16px 16px; border-bottom:1px solid rgba(245,158,11,0.12); }
+.f-sidebar-logo { font-size:28px; margin-bottom:6px; }
+.f-sidebar-title { font-size:16px; font-weight:800; color:#F59E0B; }
+.f-sidebar-sub { font-size:11px; color:rgba(245,158,11,0.5); margin-top:1px; }
+.f-sidebar-sec { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(245,158,11,0.35); padding:14px 16px 4px; }
+.f-sidebar-link { display:flex; align-items:center; gap:10px; padding:9px 16px; font-size:13px; font-weight:500; color:rgba(245,158,11,0.6); cursor:pointer; transition:.15s; border-left:3px solid transparent; }
+.f-sidebar-link:hover { background:rgba(245,158,11,0.06); color:#F59E0B; }
+.f-sidebar-link.active { background:rgba(245,158,11,0.1); color:#F59E0B; border-left-color:#F59E0B; font-weight:700; }
+.f-sidebar-link span:first-child { font-size:16px; }
+.f-main { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
+.f-topbar { display:flex; justify-content:space-between; align-items:center; padding:18px 28px; border-bottom:1px solid rgba(245,158,11,0.1); background:#0C1008; position:sticky; top:0; z-index:10; }
+.f-page-title { font-size:20px; font-weight:800; color:white; }
+.f-page-sub { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+.f-content { padding:24px 28px; flex:1; }
+.f-section { background:#0F1A0C; border:1px solid rgba(245,158,11,0.12); border-radius:12px; overflow:hidden; margin-bottom:16px; }
+.f-section-header { padding:14px 18px; border-bottom:1px solid rgba(245,158,11,0.1); display:flex; justify-content:space-between; align-items:center; }
+.f-section-title { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin:0; }
+.f-chip-gold { display:inline-flex; align-items:center; padding:3px 8px; border-radius:100px; font-size:10px; font-weight:700; background:rgba(245,158,11,0.15); color:#F59E0B; }
+.f-chip-green { display:inline-flex; align-items:center; padding:3px 8px; border-radius:100px; font-size:10px; font-weight:700; background:rgba(82,183,136,0.15); color:#52B788; }
+.f-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:none; font-family:'Inter',sans-serif; transition:.15s; }
+.f-btn-primary { background:#F59E0B; color:#0C1008; }
+.f-btn-ghost { background:transparent; color:rgba(245,158,11,0.7); border:1px solid rgba(245,158,11,0.25); }
+.f-btn-ghost:hover { background:rgba(245,158,11,0.08); color:#F59E0B; }
+.f-sidebar-footer { margin-top:auto; padding:16px; border-top:1px solid rgba(245,158,11,0.1); font-size:11px; color:rgba(245,158,11,0.3); }
+.event-card { padding:20px; border-bottom:1px solid rgba(245,158,11,0.08); display:flex;gap:18px;align-items:start; background:transparent; }
+.event-card:last-child { border-bottom:none; }
+.event-card:hover { background:rgba(245,158,11,0.03); }
+.event-date { background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:10px 14px; text-align:center; flex-shrink:0; min-width:52px; }
+</style>
+
+<div class="f-shell">
+  <aside class="f-sidebar">
+    <div class="f-sidebar-brand">
+      <div class="f-sidebar-logo">⬡</div>
+      <div class="f-sidebar-title">FECCA</div>
+      <div class="f-sidebar-sub">Panel de la federación</div>
+    </div>
+    <div class="f-sidebar-sec">Red</div>
+    <div class="f-sidebar-link" data-goto="fecca-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="f-sidebar-link" data-goto="fecca-clubes"><span>🌐</span><span>Clubes</span></div>
+    <div class="f-sidebar-sec">Gestión</div>
+    <div class="f-sidebar-link" data-goto="fecca-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="f-sidebar-link active" data-goto="fecca-eventos"><span>🎪</span><span>Eventos</span></div>
+    <div class="f-sidebar-footer">fecca.com.ar</div>
+  </aside>
+
+  <main class="f-main">
+    <div class="f-topbar">
+      <div>
+        <div class="f-page-title">🎪 Eventos de la Red</div>
+        <div class="f-page-sub">Eventos federados visibles para todos los socios de clubes afiliados</div>
+      </div>
+      <button class="f-btn f-btn-primary">+ Crear evento federado</button>
+    </div>
+
+    <div class="f-content">
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px">
+        <div class="f-kpi" style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:12px;padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,0.35);margin-bottom:6px">Próximos</div>
+          <div style="font-size:28px;font-weight:800;color:#F59E0B;line-height:1">3</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px">programados</div>
+        </div>
+        <div class="f-kpi" style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:12px;padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,0.35);margin-bottom:6px">Total RSVPs</div>
+          <div style="font-size:28px;font-weight:800;color:#F59E0B;line-height:1">2.030</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px">en los 3 próximos</div>
+        </div>
+        <div class="f-kpi" style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:12px;padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,0.35);margin-bottom:6px">Realizados</div>
+          <div style="font-size:28px;font-weight:800;color:#52B788;line-height:1">12</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px">en 2026</div>
+        </div>
+        <div class="f-kpi" style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:12px;padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,0.35);margin-bottom:6px">Próximo</div>
+          <div style="font-size:18px;font-weight:800;color:#F59E0B;line-height:1.2">28 nov</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px">Jornada REPROCANN</div>
+        </div>
+      </div>
+
+      <!-- Banner cómo funciona -->
+      <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:rgba(255,255,255,0.7)">
+        ⬡ Los eventos federados aparecen en el tab <strong style="color:white">"Red FECCA"</strong> del portal de cada socio. Los socios de los 47 clubes afiliados pueden hacer RSVP directamente desde Sugar.
+      </div>
+
+      <!-- Próximos -->
+      <div class="f-section" style="margin-bottom:16px">
+        <div class="f-section-header">
+          <div class="f-section-title">📅 Próximos</div>
+          <span style="font-size:12px;color:rgba(255,255,255,0.3)">3 eventos programados</span>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div style="font-size:22px;font-weight:800;color:#F59E0B;line-height:1">15</div>
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(245,158,11,0.6);margin-top:2px">mar</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.3)">2027</div>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+              <div style="font-size:17px;font-weight:800;color:white">🎪 Expo Cannabis 2027</div>
+              <span class="f-chip-gold">Presencial</span>
+            </div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px">La Rural, CABA · 15–17 marzo 2027 · Entrada libre para socios activos</div>
+            <div style="display:flex;gap:16px;font-size:12px">
+              <span style="color:rgba(255,255,255,0.5)">📢 <strong style="color:white">2.390</strong> socios notificados</span>
+              <span style="color:rgba(255,255,255,0.5)">✅ <strong style="color:#52B788">847</strong> RSVP confirmados</span>
+              <span style="color:rgba(255,255,255,0.5)">🏟️ Capacidad: 5.000</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;flex-shrink:0">
+            <button class="f-btn f-btn-ghost" style="font-size:11px;padding:6px 12px">Ver inscriptos</button>
+            <button class="f-btn f-btn-ghost" style="font-size:11px;padding:6px 12px">Editar</button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div style="font-size:22px;font-weight:800;color:#F59E0B;line-height:1">28</div>
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(245,158,11,0.6);margin-top:2px">nov</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.3)">2026</div>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+              <div style="font-size:17px;font-weight:800;color:white">📋 Jornada REPROCANN</div>
+              <span class="f-chip-green">Online</span>
+            </div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px">Zoom · Jueves 28 nov 2026 · 18:00hs · Compliance y novedades normativas</div>
+            <div style="display:flex;gap:16px;font-size:12px">
+              <span style="color:rgba(255,255,255,0.5)">📢 <strong style="color:white">2.390</strong> socios notificados</span>
+              <span style="color:rgba(255,255,255,0.5)">✅ <strong style="color:#52B788">1.145</strong> inscriptos</span>
+              <span style="color:rgba(255,255,255,0.5)">💻 Sin límite de cupo</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;flex-shrink:0">
+            <button class="f-btn f-btn-ghost" style="font-size:11px;padding:6px 12px">Ver inscriptos</button>
+            <button class="f-btn f-btn-ghost" style="font-size:11px;padding:6px 12px">Editar</button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div style="font-size:22px;font-weight:800;color:rgba(245,158,11,0.5);line-height:1">14</div>
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(245,158,11,0.3);margin-top:2px">feb</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.2)">2027</div>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+              <div style="font-size:17px;font-weight:800;color:white">🤝 Encuentro de Clubes 2027</div>
+              <span class="f-chip-gold">Presencial</span>
+            </div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px">Sede FECCA, CABA · 14 feb 2027 · Networking entre presidentes y admins de clubes</div>
+            <div style="display:flex;gap:16px;font-size:12px">
+              <span style="color:rgba(255,255,255,0.5)">📢 Solo para <strong style="color:white">admins de club</strong></span>
+              <span style="color:rgba(255,255,255,0.5)">✅ <strong style="color:#52B788">38</strong> confirmados</span>
+              <span style="color:rgba(255,255,255,0.5)">🏠 Capacidad: 80</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;flex-shrink:0">
+            <button class="f-btn f-btn-ghost" style="font-size:11px;padding:6px 12px">Ver inscriptos</button>
+            <button class="f-btn f-btn-ghost" style="font-size:11px;padding:6px 12px">Editar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pasados -->
+      <div class="f-section">
+        <div class="f-section-header">
+          <div class="f-section-title">📂 Eventos pasados</div>
+          <span style="font-size:12px;color:rgba(255,255,255,0.3)">12 realizados · mostrando los 6 últimos</span>
+        </div>
+        <div style="padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-weight:600">🎪 Expo Cannabis 2026</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:10px">La Rural, CABA · oct 2026</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="font-size:12px;color:rgba(255,255,255,0.5)"><strong style="color:#52B788">1.843</strong> asistentes</span>
+      <button class="f-btn f-btn-ghost" style="font-size:10px;padding:4px 8px">Ver reporte</button>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-weight:600">📋 Jornada Científica FECCA</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:10px">Online · sep 2026</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="font-size:12px;color:rgba(255,255,255,0.5)"><strong style="color:#52B788">924</strong> inscriptos</span>
+      <button class="f-btn f-btn-ghost" style="font-size:10px;padding:4px 8px">Ver reporte</button>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-weight:600">🤝 Encuentro de Clubes 2026</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:10px">Sede FECCA, CABA · ago 2026</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="font-size:12px;color:rgba(255,255,255,0.5)"><strong style="color:#52B788">63</strong> admins</span>
+      <button class="f-btn f-btn-ghost" style="font-size:10px;padding:4px 8px">Ver reporte</button>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-weight:600">🌱 Jornada de Cultivo Colectivo</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:10px">Club Verde, Palermo · jul 2026</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="font-size:12px;color:rgba(255,255,255,0.5)"><strong style="color:#52B788">287</strong> asistentes</span>
+      <button class="f-btn f-btn-ghost" style="font-size:10px;padding:4px 8px">Ver reporte</button>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-weight:600">🎵 Cannabis & Jazz Festival</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:10px">Palermo Roots · jun 2026</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="font-size:12px;color:rgba(255,255,255,0.5)"><strong style="color:#52B788">412</strong> asistentes</span>
+      <button class="f-btn f-btn-ghost" style="font-size:10px;padding:4px 8px">Ver reporte</button>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-weight:600">📊 Asamblea FECCA 2026</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:10px">Sede FECCA, CABA · may 2026</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="font-size:12px;color:rgba(255,255,255,0.5)"><strong style="color:#52B788">47</strong> delegados</span>
+      <button class="f-btn f-btn-ghost" style="font-size:10px;padding:4px 8px">Ver reporte</button>
+    </div>
+  </div>
+</div>
+      </div>
+
+      <div style="text-align:center;padding:16px;font-size:11px;color:rgba(255,255,255,0.2)">
+        Powered by <strong style="color:rgba(245,158,11,0.5)">Sugar × FECCA</strong>
+      </div>
+
+    </div>
+  </main>
+</div>

@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sugar · Planes y precios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #060E0A;
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .back-link {
+      align-self: flex-start;
+      font-size: 13px;
+      color: rgba(82,183,136,0.65);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: rgba(82,183,136,1); }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #52B788 0%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    .note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    /* Plan cards */
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      margin-bottom: 44px;
+    }
+    .plan-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(82,183,136,0.12);
+      border-radius: 18px;
+      padding: 28px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .plan-card.featured {
+      background: rgba(82,183,136,0.07);
+      border-color: rgba(82,183,136,0.45);
+      position: relative;
+    }
+    .featured-badge {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #52B788;
+      color: #0A1A10;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .plan-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .plan-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+    .plan-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .plan-price.contact {
+      font-size: 22px;
+      color: rgba(82,183,136,0.85);
+    }
+    .plan-price-unit {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 6px;
+    }
+    .plan-socios {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .plan-features li {
+      font-size: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+    .plan-features li .feat-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+    .plan-features li.ok { color: rgba(255,255,255,0.75); }
+    .plan-features li.no { color: rgba(255,255,255,0.22); }
+    .plan-features li.ok .feat-icon { color: #52B788; }
+    .plan-features li.no .feat-icon { color: rgba(255,255,255,0.15); }
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.15s;
+      letter-spacing: 0.02em;
+      margin-top: auto;
+    }
+    .plan-cta.primary {
+      background: #52B788;
+      color: #0A1A10;
+    }
+    .plan-cta.primary:hover { background: #3DA575; }
+    .plan-cta.outline {
+      background: transparent;
+      border: 1px solid rgba(82,183,136,0.3);
+      color: rgba(82,183,136,0.8);
+    }
+    .plan-cta.outline:hover { border-color: rgba(82,183,136,0.6); color: rgba(82,183,136,1); }
+    .plan-cta.contact-cta {
+      background: transparent;
+      border: 1px solid rgba(245,158,11,0.3);
+      color: rgba(245,158,11,0.8);
+    }
+    .plan-cta.contact-cta:hover { border-color: rgba(245,158,11,0.6); }
+
+    /* Comparison table */
+    .comparison-wrap {
+      width: 100%;
+      margin-bottom: 44px;
+    }
+    .comparison-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .comparison th {
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 10px 16px;
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .comparison th:first-child { text-align: left; }
+    .comparison th.featured-col { color: #52B788; }
+    .comparison td {
+      padding: 11px 16px;
+      font-size: 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.55);
+    }
+    .comparison td:first-child {
+      text-align: left;
+      color: rgba(255,255,255,0.65);
+      font-weight: 600;
+    }
+    .comparison td.check { color: #52B788; font-size: 14px; }
+    .comparison td.cross { color: rgba(255,255,255,0.15); font-size: 14px; }
+    .comparison td.featured-col { background: rgba(82,183,136,0.04); }
+    .comparison tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .comparison tbody tr:hover td.featured-col { background: rgba(82,183,136,0.07); }
+
+    /* FAQ / bottom */
+    .faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .faq-q {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,0.8);
+    }
+    .faq-a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(82,183,136,0.07);
+      border: 1px solid rgba(82,183,136,0.2);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .bottom-cta-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .bottom-cta-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+    .bottom-cta-btn {
+      display: inline-block;
+      padding: 10px 28px;
+      background: #52B788;
+      color: #0A1A10;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    .footer {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .plans { grid-template-columns: 1fr 1fr; }
+      .faq { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .plans { grid-template-columns: 1fr; }
+      .comparison { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a href="index.html" class="back-link">← Volver a la demo</a>
+
+    <div class="logo">Sugar</div>
+    <div class="subtitle">Planes para clubes de cannabis medicinal (REPROCANN)</div>
+    <div class="note">Precios en ARS · Sin comisión por retiro · Cancelás cuando querés</div>
+
+    <!-- Plan cards -->
+    <div class="plans">
+
+      <!-- Semilla -->
+      <div class="plan-card">
+        <span class="plan-emoji">🌱</span>
+        <div class="plan-name">Semilla</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-price-unit">/mes · para siempre</div>
+        <div class="plan-socios">Hasta 20 socios activos</div>
+        <ul class="plan-features">
+          <li class="ok"><span class="feat-icon">✓</span>Tokens y retiros</li>
+          <li class="ok"><span class="feat-icon">✓</span>App del socio</li>
+          <li class="ok"><span class="feat-icon">✓</span>Admisión REPROCANN</li>
+          <li class="ok"><span class="feat-icon">✓</span>Módulo de eventos</li>
+          <li class="no"><span class="feat-icon">—</span>Red FECCA</li>
+          <li class="no"><span class="feat-icon">—</span>Módulo cultivo</li>
+          <li class="no"><span class="feat-icon">—</span>Reportes avanzados</li>
+          <li class="ok"><span class="feat-icon">✓</span>Soporte por email</li>
+        </ul>
+        <a href="onboarding/sugar-onboarding-01.html" class="plan-cta outline">Empezar gratis →</a>
+      </div>
+
+      <!-- Brote -->
+      <div class="plan-card">
+        <span class="plan-emoji">🌿</span>
+        <div class="plan-name">Brote</div>
+        <div class="plan-price">$29.900</div>
+        <div class="plan-price-unit">/mes + IVA</div>
+        <div class="plan-socios">Hasta 50 socios activos</div>
+        <ul class="plan-features">
+          <li class="ok"><span class="feat-icon">✓</span>Tokens y retiros</li>
+          <li class="ok"><span class="feat-icon">✓</span>App del socio</li>
+          <li class="ok"><span class="feat-icon">✓</span>Admisión REPROCANN</li>
+          <li class="ok"><span class="feat-icon">✓</span>Módulo de eventos</li>
+          <li class="ok"><span class="feat-icon">✓</span>Red FECCA</li>
+          <li class="no"><span class="feat-icon">—</span>Módulo cultivo</li>
+          <li class="no"><span class="feat-icon">—</span>Reportes avanzados</li>
+          <li class="ok"><span class="feat-icon">✓</span>Soporte por email</li>
+        </ul>
+        <a href="onboarding/sugar-onboarding-01.html" class="plan-cta outline">Empezar →</a>
+      </div>
+
+      <!-- Planta (featured) -->
+      <div class="plan-card featured">
+        <div class="featured-badge">Más elegido</div>
+        <span class="plan-emoji">🌳</span>
+        <div class="plan-name" style="color:#52B788">Planta</div>
+        <div class="plan-price" style="color:#52B788">$59.900</div>
+        <div class="plan-price-unit">/mes + IVA</div>
+        <div class="plan-socios" style="border-color:rgba(82,183,136,0.15)">Hasta 150 socios activos</div>
+        <ul class="plan-features">
+          <li class="ok"><span class="feat-icon">✓</span>Tokens y retiros</li>
+          <li class="ok"><span class="feat-icon">✓</span>App del socio</li>
+          <li class="ok"><span class="feat-icon">✓</span>Admisión REPROCANN</li>
+          <li class="ok"><span class="feat-icon">✓</span>Módulo de eventos</li>
+          <li class="ok"><span class="feat-icon">✓</span>Red FECCA</li>
+          <li class="ok"><span class="feat-icon">✓</span>Módulo cultivo</li>
+          <li class="ok"><span class="feat-icon">✓</span>Reportes avanzados</li>
+          <li class="ok"><span class="feat-icon">✓</span>Soporte WhatsApp</li>
+        </ul>
+        <a href="onboarding/sugar-onboarding-01.html" class="plan-cta primary">Empezar →</a>
+      </div>
+
+      <!-- Planta Full -->
+      <div class="plan-card">
+        <span class="plan-emoji">🏭</span>
+        <div class="plan-name" style="color:#F59E0B">Planta Full</div>
+        <div class="plan-price contact">Contactanos</div>
+        <div class="plan-price-unit">&nbsp;</div>
+        <div class="plan-socios">Socios ilimitados · multi-sede</div>
+        <ul class="plan-features">
+          <li class="ok"><span class="feat-icon">✓</span>Todo Planta incluido</li>
+          <li class="ok"><span class="feat-icon">✓</span>Multi-sede</li>
+          <li class="ok"><span class="feat-icon">✓</span>Dominio propio (white label)</li>
+          <li class="ok"><span class="feat-icon">✓</span>Integración FECCA avanzada</li>
+          <li class="ok"><span class="feat-icon">✓</span>Exportaciones contables</li>
+          <li class="ok"><span class="feat-icon">✓</span>API + webhooks</li>
+          <li class="ok"><span class="feat-icon">✓</span>Onboarding personalizado</li>
+          <li class="ok" style="color:#F59E0B"><span class="feat-icon" style="color:#F59E0B">★</span>Soporte dedicado</li>
+        </ul>
+        <a href="mailto:hola@octo.studio?subject=Sugar Plan Planta Full" class="plan-cta contact-cta">Hablemos →</a>
+      </div>
+
+    </div>
+
+    <!-- Comparison table -->
+    <div class="comparison-wrap">
+      <div class="comparison-title">Comparación completa</div>
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Semilla</th>
+            <th>Brote</th>
+            <th class="featured-col">Planta</th>
+            <th>Planta Full</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Socios activos</td>
+            <td>hasta 20</td>
+            <td>hasta 50</td>
+            <td class="featured-col" style="color:rgba(82,183,136,0.9);font-weight:700">hasta 150</td>
+            <td>Ilimitados</td>
+          </tr>
+          <tr>
+            <td>Tokens y retiros</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>App del socio (mobile)</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Admisión REPROCANN</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Módulo de eventos</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Red FECCA</td>
+            <td class="cross">—</td>
+            <td class="check">✓</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Módulo cultivo / supply chain</td>
+            <td class="cross">—</td>
+            <td class="cross">—</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Reportes avanzados</td>
+            <td class="cross">—</td>
+            <td class="cross">—</td>
+            <td class="check featured-col">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Multi-sede</td>
+            <td class="cross">—</td>
+            <td class="cross">—</td>
+            <td class="cross featured-col">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>White label (dominio propio)</td>
+            <td class="cross">—</td>
+            <td class="cross">—</td>
+            <td class="cross featured-col">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>API + webhooks</td>
+            <td class="cross">—</td>
+            <td class="cross">—</td>
+            <td class="cross featured-col">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Soporte</td>
+            <td>Email</td>
+            <td>Email</td>
+            <td class="featured-col" style="color:rgba(82,183,136,0.85)">WhatsApp</td>
+            <td style="color:#F59E0B">Dedicado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">¿Qué pasa cuando supero el límite de socios?</div>
+        <div class="faq-a">Te avisamos por email cuando llegás al 80% del límite. Podés hacer upgrade en cualquier momento sin perder datos ni historial.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué es la red FECCA dentro de Sugar?</div>
+        <div class="faq-a">La Federación Argentina de Clubes Cannábicos nuclea clubes adherentes. Sugar conecta tu club a la red: beneficios compartidos, eventos conjuntos y estadísticas de la federación.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo migrar desde otro sistema?</div>
+        <div class="faq-a">Sí. Te ayudamos a importar tu padrón de socios y configurar el catálogo. El onboarding toma entre 1 y 3 días hábiles según el plan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Los datos del club son privados?</div>
+        <div class="faq-a">Cada club tiene su base de datos aislada (multi-tenancy). Ningún otro club puede ver tus socios, pedidos ni datos médicos. Cumplimiento REPROCANN incluido.</div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+      <div class="bottom-cta-title">¿Querés empezar con tu club?</div>
+      <div class="bottom-cta-sub">Escribinos y te armamos el onboarding. El plan Semilla es gratis para siempre.</div>
+      <a href="onboarding/sugar-onboarding-01.html" class="bottom-cta-btn">Crear mi club →</a>
+    </div>
+
+    <div class="footer">Demo navegable · precios de referencia en ARS · Octo Studio</div>
+  </div>
+</body>
+</html>

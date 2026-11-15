@@ -19,6 +19,59 @@
     </div>
   </div>
 
+  <!-- Consumo del mes -->
+  <div class="p-card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div class="p-card-title">Consumo · noviembre</div>
+      <span style="font-size:18px;font-weight:900;color:var(--gold-dark)">🪙 37 / 60</span>
+    </div>
+    <div class="pbar" style="margin-bottom:8px">
+      <div class="pbar-fill gold" style="width:62%"></div>
+    </div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">23 tokens restantes · se renuevan el 1 dic</div>
+    <div class="p-divider" style="margin-bottom:10px"></div>
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Uso por pedido</div>
+    <div class="list-item" style="padding:7px 0">
+      <div class="activity-dot gold" style="margin-top:0"></div>
+      <div class="list-item-main">
+        <div class="list-item-sub">#P-242 · OG Kush 3g · Lun 10 Nov</div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:var(--gold-dark)">🪙 60</span>
+    </div>
+    <div class="list-item" style="padding:7px 0">
+      <div class="activity-dot gold" style="margin-top:0"></div>
+      <div class="list-item-main">
+        <div class="list-item-sub">#P-241 · Blue Dream 2g · Mié 5 Nov</div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:var(--gold-dark)">🪙 40</span>
+    </div>
+    <div class="list-item" style="padding:7px 0;border-bottom:none">
+      <div class="activity-dot gold" style="margin-top:0"></div>
+      <div class="list-item-main">
+        <div class="list-item-sub">#P-240 · Wedding Cake 1g + SLH 2g · 1 Nov</div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:var(--gold-dark)">🪙 61</span>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px">Consumiste 161 tok este mes · <strong style="color:var(--gold-dark)">101 tok extra</strong> (comprados)</div>
+  </div>
+
+  <!-- Próxima renovación -->
+  <div class="p-card" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;margin-bottom:4px">Próxima renovación</div>
+        <div style="font-size:17px;font-weight:800">1 dic 2026</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:3px">$60.000 · +60 tokens</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">Pago en</div>
+        <div style="font-size:22px;font-weight:900;color:var(--gold-dark)">19 días</div>
+      </div>
+    </div>
+    <div class="p-divider" style="margin:10px 0"></div>
+    <div style="font-size:12px;color:var(--text-muted)">💳 El pago se coordina con el equipo del club. Se te avisará por WhatsApp con 3 días de anticipación.</div>
+  </div>
+
   <!-- Tiers -->
   <div class="p-section-h">
     <h2>Planes disponibles</h2>
@@ -44,6 +97,7 @@
   <!-- Brote — current -->
   <div class="tier-card current">
     <div class="tier-badge-current">TU PLAN</div>
+    <div style="position:absolute;top:10px;right:10px;background:rgba(245,158,11,0.9);color:#0C1008;font-size:9px;font-weight:900;padding:2px 7px;border-radius:100px">🚀 30% OFF</div>
     <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
       <div>
         <div style="font-size:17px;font-weight:800">⭐ Brote</div>
@@ -55,12 +109,15 @@
       ✦ 60 tokens garantizados por mes<br>
       ✦ ~3g cualquier cepa/mes<br>
       ✦ Acceso prioritario al catálogo<br>
-      ✦ Eventos del club
+      ✦ Eventos del club + 2 pases/mes<br>
+      ✦ Descuentos en la red de partners<br>
+      ✦ Acceso a cepas de temporada
     </div>
   </div>
 
   <!-- Planta Full -->
-  <div class="tier-card">
+  <div class="tier-card" style="position:relative">
+    <div style="position:absolute;top:10px;right:10px;background:rgba(82,183,136,0.9);color:#060A06;font-size:9px;font-weight:900;padding:2px 7px;border-radius:100px">🚀 30% OFF</div>
     <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
       <div>
         <div style="font-size:17px;font-weight:800">🌿 Planta Full</div>
@@ -74,7 +131,7 @@
       ✦ Eventos exclusivos para Planta Full<br>
       ✦ Acceso a cepas de lote limitado
     </div>
-    <button class="p-btn accent block" style="margin-top:12px;font-size:13px">Cambiar a este plan</button>
+    <button class="p-btn accent block" style="margin-top:12px;font-size:13px" data-goto="socio-membresia">Cambiar a este plan</button>
   </div>
 
   <div class="p-alert info" style="margin-top:14px">
@@ -82,16 +139,84 @@
     <div>Para cambiar tu plan, hablá con el equipo en el club. Los tokens de tu plan se acreditan el 1 de cada mes.</div>
   </div>
 
+  <!-- Beneficios incluidos en Brote -->
+  <div class="p-section-h" style="margin-top:20px">
+    <h2>Beneficios de tu plan</h2>
+    <span class="p-chip gold">⭐ Brote</span>
+  </div>
+  <div class="p-card" style="margin-bottom:4px">
+    <div class="list-item">
+      <span style="font-size:18px">🪙</span>
+      <div class="list-item-main">
+        <div class="list-item-title">60 tokens mensuales</div>
+        <div class="list-item-sub">Acreditados el 1 de cada mes. No expiran hasta fin de mes.</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <span style="font-size:18px">🌿</span>
+      <div class="list-item-main">
+        <div class="list-item-title">Catálogo completo</div>
+        <div class="list-item-sub">Acceso prioritario a todas las cepas, incluidas ediciones de temporada.</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <span style="font-size:18px">🎵</span>
+      <div class="list-item-main">
+        <div class="list-item-title">2 pases a eventos por mes</div>
+        <div class="list-item-sub">Válidos para eventos del club y red de partners (FECCA).</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <span style="font-size:18px">🎁</span>
+      <div class="list-item-main">
+        <div class="list-item-title">Descuentos en partners</div>
+        <div class="list-item-sub">GreenGrow, Consultorio 420, TuMerch y más de la red FECCA.</div>
+      </div>
+      <span class="p-chip mint">Activo</span>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <span style="font-size:18px">📋</span>
+      <div class="list-item-main">
+        <div class="list-item-title">Gestión de documentación</div>
+        <div class="list-item-sub">Recordatorios de vencimiento REPROCANN y consulta médica.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Historial -->
   <div class="p-section-h">
     <h2>Historial</h2>
   </div>
   <div class="p-card">
-    <div class="list-item" style="border-bottom:none">
+    <div class="list-item">
       <div class="activity-dot gold" style="margin-top:0"></div>
       <div class="list-item-main">
         <div class="list-item-title">Noviembre · plan Brote</div>
         <div class="list-item-sub">60 tokens acreditados el 1 nov</div>
+      </div>
+      <span class="p-chip ok">✓</span>
+    </div>
+    <div class="list-item">
+      <div class="activity-dot gold" style="margin-top:0"></div>
+      <div class="list-item-main">
+        <div class="list-item-title">Octubre · plan Brote</div>
+        <div class="list-item-sub">60 tokens acreditados el 1 oct</div>
+      </div>
+      <span class="p-chip ok">✓</span>
+    </div>
+    <div class="list-item">
+      <div class="activity-dot gold" style="margin-top:0"></div>
+      <div class="list-item-main">
+        <div class="list-item-title">Septiembre · plan Brote</div>
+        <div class="list-item-sub">60 tokens acreditados el 1 sep</div>
+      </div>
+      <span class="p-chip ok">✓</span>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <div class="activity-dot gold" style="margin-top:0"></div>
+      <div class="list-item-main">
+        <div class="list-item-title">Agosto · plan Brote</div>
+        <div class="list-item-sub">60 tokens acreditados el 1 ago</div>
       </div>
       <span class="p-chip ok">✓</span>
     </div>

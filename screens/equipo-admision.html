@@ -1,22 +1,133 @@
 <div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
 
 <div class="equipo-header">
-  <div style="display:flex;align-items:center;gap:12px">
-    <div data-goto="equipo-hub" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;cursor:pointer">←</div>
-    <div>
-      <h1 style="font-size:20px;font-weight:800;margin:0">Admisión</h1>
-      <div style="font-size:12px;opacity:0.75">4 candidatos activos</div>
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div data-goto="equipo-hub" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;cursor:pointer">←</div>
+      <div>
+        <h1 style="font-size:20px;font-weight:800;margin:0">Admisión</h1>
+        <div style="font-size:12px;opacity:0.75">7 candidatos activos</div>
+      </div>
     </div>
+    <button onclick="toggleNuevo()" id="btn-nuevo" style="background:rgba(82,183,136,0.15);border:1px solid rgba(82,183,136,0.3);border-radius:10px;color:#52B788;padding:8px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">+ Nuevo</button>
   </div>
 </div>
 
 <div style="padding:16px;flex:1;background:#060E0A">
 
-  <!-- Esperando REPROCANN -->
-  <div style="margin-bottom:16px">
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#0EA5E9;font-weight:700;margin-bottom:10px">📋 Esperando REPROCANN (2)</div>
+  <!-- Buscador -->
+  <div style="position:relative;margin-bottom:12px">
+    <div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;pointer-events:none">🔍</div>
+    <input id="search-admision" type="text" placeholder="Buscar por nombre o teléfono…" oninput="filtrarAdmision()"
+      style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(82,183,136,0.2);border-radius:12px;color:white;padding:11px 12px 11px 38px;font-size:13px;font-family:'Inter',sans-serif;outline:none">
+  </div>
 
-    <div style="background:#0D1E14;border:1px solid rgba(14,165,233,0.25);border-radius:14px;padding:14px;margin-bottom:10px">
+  <!-- Panel nuevo (oculto por defecto) -->
+  <div id="panel-nuevo" style="display:none;background:#0D1E14;border:1.5px solid rgba(82,183,136,0.35);border-radius:14px;padding:16px;margin-bottom:14px">
+
+    <!-- Tabs de flujo -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:14px;background:rgba(0,0,0,0.3);border-radius:10px;padding:3px">
+      <button id="tab-posible" onclick="setTab('posible')" style="border:none;border-radius:8px;padding:7px 4px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;background:rgba(82,183,136,0.2);color:#52B788">Posible socio</button>
+      <button id="tab-nuevo" onclick="setTab('nuevo')" style="border:none;border-radius:8px;padding:7px 4px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;background:transparent;color:rgba(255,255,255,0.4)">Nuevo socio</button>
+      <button id="tab-intake" onclick="setTab('intake')" style="border:none;border-radius:8px;padding:7px 4px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;background:transparent;color:rgba(255,255,255,0.4)">Enviar intake</button>
+    </div>
+
+    <!-- Tab: Posible socio -->
+    <div id="form-posible">
+      <div style="font-size:12px;color:rgba(82,183,136,0.7);margin-bottom:12px">📱 Solo consulta por WhatsApp o presencial — todavía no es socio</div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:11px;color:rgba(82,183,136,0.7);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">Teléfono (obligatorio)</div>
+        <input id="ps-tel" type="tel" placeholder="Ej: 11 5566-7788"
+          style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;outline:none"
+          oninput="checkForm()">
+      </div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">Nombre (opcional)</div>
+        <input id="ps-nombre" type="text" placeholder="Ej: Juan Pérez"
+          style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;outline:none">
+      </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Tipo de consulta (varios posibles)</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="tipo-chip" onclick="toggleTipo(this)" data-tipo="cannabis" style="cursor:pointer;padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.15);font-size:12px;color:rgba(255,255,255,0.6)">🌿 Cannabis medicinal</span>
+          <span class="tipo-chip" onclick="toggleTipo(this)" data-tipo="reprocann" style="cursor:pointer;padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.15);font-size:12px;color:rgba(255,255,255,0.6)">📋 REPROCANN</span>
+          <span class="tipo-chip" onclick="toggleTipo(this)" data-tipo="general" style="cursor:pointer;padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.15);font-size:12px;color:rgba(255,255,255,0.6)">❓ Consulta general</span>
+          <span class="tipo-chip" onclick="toggleTipo(this)" data-tipo="medico" style="cursor:pointer;padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.15);font-size:12px;color:rgba(255,255,255,0.6)">🩺 Consulta médica</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button onclick="toggleNuevo()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:rgba(255,255,255,0.5);padding:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+        <button id="btn-agregar" onclick="agregarPosibleSocio()" disabled style="background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.2);border-radius:10px;color:rgba(82,183,136,0.4);padding:12px;font-size:13px;font-weight:700;cursor:not-allowed;font-family:'Inter',sans-serif">Agregar →</button>
+      </div>
+    </div>
+
+    <!-- Tab: Nuevo socio (manual) -->
+    <div id="form-nuevo" style="display:none">
+      <div style="font-size:12px;color:rgba(201,162,39,0.8);margin-bottom:12px">📋 Alta manual — ya tiene REPROCANN y quiere incorporarse directamente</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+        <div>
+          <div style="font-size:11px;color:rgba(82,183,136,0.7);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">Nombre completo *</div>
+          <input id="ns-nombre" type="text" placeholder="Nombre y apellido"
+            style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:9px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none"
+            oninput="checkForm()">
+        </div>
+        <div>
+          <div style="font-size:11px;color:rgba(82,183,136,0.7);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">Teléfono *</div>
+          <input id="ns-tel" type="tel" placeholder="11 5566-7788"
+            style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:9px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none"
+            oninput="checkForm()">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+        <div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">N° REPROCANN</div>
+          <input id="ns-repro" type="text" placeholder="R-2024-XXXXX"
+            style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:9px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none">
+        </div>
+        <div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">DNI</div>
+          <input id="ns-dni" type="text" placeholder="XX.XXX.XXX"
+            style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:9px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button onclick="toggleNuevo()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:rgba(255,255,255,0.5);padding:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+        <button id="btn-agregar-ns" onclick="agregarNuevoSocio()" disabled style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.2);border-radius:10px;color:rgba(201,162,39,0.4);padding:12px;font-size:13px;font-weight:700;cursor:not-allowed;font-family:'Inter',sans-serif">Dar de alta →</button>
+      </div>
+    </div>
+
+    <!-- Tab: Enviar intake -->
+    <div id="form-intake" style="display:none">
+      <div style="font-size:12px;color:rgba(14,165,233,0.8);margin-bottom:12px">📲 Le enviamos un link para que complete sus datos y quede en la cola de admisión</div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:11px;color:rgba(82,183,136,0.7);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">Teléfono (obligatorio)</div>
+        <input id="int-tel" type="tel" placeholder="Ej: 11 5566-7788"
+          style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;outline:none"
+          oninput="checkForm()">
+      </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em">Nombre (opcional)</div>
+        <input id="int-nombre" type="text" placeholder="Ej: Juan Pérez"
+          style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;outline:none">
+      </div>
+      <div style="background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.2);border-radius:10px;padding:10px;margin-bottom:14px;font-size:12px;color:rgba(14,165,233,0.8)">
+        📲 Se enviará: <strong>sugar.app/intake/rainbow</strong> por WhatsApp
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button onclick="toggleNuevo()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:rgba(255,255,255,0.5);padding:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+        <button id="btn-enviar-intake" onclick="enviarIntake()" disabled style="background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);border-radius:10px;color:rgba(14,165,233,0.4);padding:12px;font-size:13px;font-weight:700;cursor:not-allowed;font-family:'Inter',sans-serif">Enviar link →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lista filtrable -->
+  <div id="admision-lista">
+
+    <!-- Revisión docs / Esperando REPROCANN -->
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#0EA5E9;font-weight:700;margin-bottom:10px">📋 Revisión docs / REPROCANN (4)</div>
+
+    <div class="adm-card" data-search="Camila López 11 5566-7788" style="background:#0D1E14;border:1px solid rgba(14,165,233,0.25);border-radius:14px;padding:14px;margin-bottom:10px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
         <div>
           <div style="font-size:15px;font-weight:700;color:white">Camila López</div>
@@ -25,58 +136,102 @@
         <span style="background:rgba(14,165,233,0.15);color:#0EA5E9;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">REPROCANN</span>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px">📱 WhatsApp</button>
-        <button class="p-btn small primary" style="font-size:12px">Mover etapa →</button>
+        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📱 WhatsApp</button>
+        <button class="p-btn small primary" onclick="this.textContent='✅ Movido';this.disabled=true" style="font-size:12px">Mover etapa →</button>
       </div>
     </div>
 
-    <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px">
+    <div class="adm-card" data-search="Jorge Villena 11 7799-0011" style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
         <div>
           <div style="font-size:15px;font-weight:700;color:white">Jorge Villena</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📱 11 7799-0011 · 8 días esperando</div>
         </div>
-        <span style="background:rgba(14,165,233,0.15);color:#0EA5E9;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">REPROCANN</span>
+        <span style="background:rgba(14,165,236,0.15);color:#0EA5E9;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">REPROCANN</span>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px">📱 WhatsApp</button>
-        <button class="p-btn small primary" style="font-size:12px">Mover etapa →</button>
+        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📱 WhatsApp</button>
+        <button class="p-btn small primary" onclick="this.textContent='✅ Movido';this.disabled=true" style="font-size:12px">Mover etapa →</button>
       </div>
     </div>
-  </div>
 
-  <!-- Consulta pendiente -->
-  <div style="margin-bottom:16px">
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#F59E0B;font-weight:700;margin-bottom:10px">📅 Consulta pendiente (2)</div>
+    <div class="adm-card" data-search="Carlos Vidal carlos vidal" style="background:#0D1E14;border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;margin-bottom:10px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:white">Carlos Vidal</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Ingresado hoy · sin documentación</div>
+        </div>
+        <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">NUEVO</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📱 WhatsApp</button>
+        <button class="p-btn small primary" onclick="this.textContent='📲 Link enviado';this.disabled=true" style="font-size:12px">Enviar intake →</button>
+      </div>
+    </div>
 
-    <div style="background:#0D1E14;border:1px solid rgba(245,158,11,0.25);border-radius:14px;padding:14px;margin-bottom:10px">
+    <div class="adm-card" data-search="Elena Ruiz elena ruiz" style="background:#0D1E14;border:1px solid rgba(14,165,233,0.2);border-radius:14px;padding:14px;margin-bottom:16px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:white">Elena Ruiz</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Docs en revisión · 3 días</div>
+        </div>
+        <span style="background:rgba(14,165,233,0.12);color:#0EA5E9;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">REVISIÓN</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📱 WhatsApp</button>
+        <button class="p-btn small primary" onclick="this.textContent='✅ Docs OK';this.disabled=true" style="font-size:12px">Validar docs →</button>
+      </div>
+    </div>
+
+    <!-- Consulta pendiente -->
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#F59E0B;font-weight:700;margin-bottom:10px">📅 Consulta con médico pendiente (3)</div>
+
+    <div class="adm-card" data-search="Laura Gómez laura" style="background:#0D1E14;border:1px solid rgba(245,158,11,0.25);border-radius:14px;padding:14px;margin-bottom:10px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
         <div>
           <div style="font-size:15px;font-weight:700;color:white">Laura Gómez</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📅 Jue 14 nov · 15hs · Dra. Pérez</div>
         </div>
-        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">CONSULTA AGENDADA</span>
+        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">CONSULTA</span>
       </div>
-      <button class="p-btn small warn" style="width:100%;font-size:12px">Agendar consulta</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button class="p-btn small warn" onclick="this.textContent='✅ Confirmado';this.disabled=true" style="font-size:12px">Confirmar Zoom</button>
+        <a href="https://zoom.us/j/83456789012" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.15);color:#A78BFA;border-color:rgba(139,92,246,0.3);font-size:12px;text-decoration:none;text-align:center">🎥 Zoom →</a>
+      </div>
     </div>
 
-    <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px">
+    <div class="adm-card" data-search="Sebastián Ríos sebastian" style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
         <div>
           <div style="font-size:15px;font-weight:700;color:white">Sebastián Ríos</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📅 Vie 15 nov · 11hs · Dr. Molina</div>
         </div>
-        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">CONSULTA AGENDADA</span>
+        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">CONSULTA</span>
       </div>
-      <button class="p-btn small warn" style="width:100%;font-size:12px">Agendar consulta</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button class="p-btn small warn" onclick="this.textContent='✅ Confirmado';this.disabled=true" style="font-size:12px">Confirmar Zoom</button>
+        <a href="https://zoom.us/j/84567890123" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.15);color:#A78BFA;border-color:rgba(139,92,246,0.3);font-size:12px;text-decoration:none;text-align:center">🎥 Zoom →</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Aprobado para habilitar -->
-  <div>
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#22C55E;font-weight:700;margin-bottom:10px">✅ Aprobados para habilitar (1)</div>
+    <div class="adm-card" data-search="Federico Álvarez federico alvarez" style="background:#0D1E14;border:1px solid rgba(245,158,11,0.2);border-radius:14px;padding:14px;margin-bottom:16px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:white">Federico Álvarez</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Docs OK · esperando turno médico</div>
+        </div>
+        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">CONSULTA</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📱 WhatsApp</button>
+        <button class="p-btn small warn" onclick="this.textContent='✅ Turno asignado';this.disabled=true" style="font-size:12px">Asignar turno →</button>
+      </div>
+    </div>
 
-    <div style="background:#0D1E14;border:1.5px solid rgba(34,197,94,0.4);border-radius:14px;padding:16px">
+    <!-- Aprobado / Listo para habilitar -->
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#22C55E;font-weight:700;margin-bottom:10px">✅ Listos para habilitar (1)</div>
+
+    <div class="adm-card" data-search="Nadia Herrera nadia" style="background:#0D1E14;border:1.5px solid rgba(34,197,94,0.4);border-radius:14px;padding:16px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px">
         <div>
           <div style="font-size:15px;font-weight:700;color:white">Nadia Herrera</div>
@@ -86,6 +241,153 @@
       </div>
       <button class="p-btn gold block" onclick="this.textContent='🎉 ¡Nadia habilitada como socia!';this.disabled=true">🎉 Habilitar como socia</button>
     </div>
+
+  </div>
+
+  <div id="adm-empty" style="display:none;text-align:center;padding:32px 16px;color:rgba(255,255,255,0.3)">
+    <div style="font-size:36px;margin-bottom:8px">🔍</div>
+    <div style="font-size:14px">No hay candidatos que coincidan</div>
   </div>
 
 </div>
+
+<script>
+var tabActual = 'posible';
+
+function setTab(tab) {
+  tabActual = tab;
+  ['posible','nuevo','intake'].forEach(t => {
+    const btn = document.getElementById('tab-' + t);
+    const form = document.getElementById('form-' + t);
+    const active = t === tab;
+    btn.style.background = active ? 'rgba(82,183,136,0.2)' : 'transparent';
+    btn.style.color = active ? '#52B788' : 'rgba(255,255,255,0.4)';
+    form.style.display = active ? '' : 'none';
+  });
+  checkForm();
+}
+
+function toggleNuevo() {
+  const panel = document.getElementById('panel-nuevo');
+  const visible = panel.style.display !== 'none';
+  panel.style.display = visible ? 'none' : '';
+  document.getElementById('btn-nuevo').textContent = visible ? '+ Nuevo' : '✕';
+  if(!visible) { setTab('posible'); setTimeout(() => document.getElementById('ps-tel').focus(), 50); }
+}
+
+function toggleTipo(chip) {
+  const active = chip.style.background !== '' && chip.style.background !== 'transparent';
+  if(active) {
+    chip.style.background = 'transparent';
+    chip.style.borderColor = 'rgba(255,255,255,0.15)';
+    chip.style.color = 'rgba(255,255,255,0.6)';
+  } else {
+    chip.style.background = 'rgba(82,183,136,0.15)';
+    chip.style.borderColor = 'rgba(82,183,136,0.4)';
+    chip.style.color = '#52B788';
+  }
+}
+
+function checkForm() {
+  if(tabActual === 'posible') {
+    const ok = document.getElementById('ps-tel').value.trim().length >= 8;
+    const btn = document.getElementById('btn-agregar');
+    btn.disabled = !ok;
+    btn.style.background = ok ? 'rgba(82,183,136,0.2)' : 'rgba(82,183,136,0.1)';
+    btn.style.borderColor = ok ? 'rgba(82,183,136,0.5)' : 'rgba(82,183,136,0.2)';
+    btn.style.color = ok ? '#52B788' : 'rgba(82,183,136,0.4)';
+    btn.style.cursor = ok ? 'pointer' : 'not-allowed';
+  } else if(tabActual === 'nuevo') {
+    const ok = document.getElementById('ns-nombre').value.trim().length > 2 && document.getElementById('ns-tel').value.trim().length >= 8;
+    const btn = document.getElementById('btn-agregar-ns');
+    btn.disabled = !ok;
+    btn.style.background = ok ? 'rgba(201,162,39,0.2)' : 'rgba(201,162,39,0.1)';
+    btn.style.borderColor = ok ? 'rgba(201,162,39,0.5)' : 'rgba(201,162,39,0.2)';
+    btn.style.color = ok ? '#C9A227' : 'rgba(201,162,39,0.4)';
+    btn.style.cursor = ok ? 'pointer' : 'not-allowed';
+  } else if(tabActual === 'intake') {
+    const ok = document.getElementById('int-tel').value.trim().length >= 8;
+    const btn = document.getElementById('btn-enviar-intake');
+    btn.disabled = !ok;
+    btn.style.background = ok ? 'rgba(14,165,233,0.2)' : 'rgba(14,165,233,0.1)';
+    btn.style.borderColor = ok ? 'rgba(14,165,233,0.5)' : 'rgba(14,165,233,0.2)';
+    btn.style.color = ok ? '#0EA5E9' : 'rgba(14,165,233,0.4)';
+    btn.style.cursor = ok ? 'pointer' : 'not-allowed';
+  }
+}
+
+function agregarPosibleSocio() {
+  const tel = document.getElementById('ps-tel').value.trim();
+  const nombre = document.getElementById('ps-nombre').value.trim() || tel;
+  const tiposEl = document.querySelectorAll('#form-posible .tipo-chip');
+  const tipos = [];
+  tiposEl.forEach(c => { if(c.style.color === '#52B788') tipos.push(c.textContent.trim()); });
+  _agregarCard(nombre, tel, tipos.join(', ') || '', 'POSIBLE SOCIO', 'rgba(255,255,255,0.08)', 'rgba(255,255,255,0.5)', 'Enviar link de intake →');
+}
+
+function agregarNuevoSocio() {
+  const nombre = document.getElementById('ns-nombre').value.trim();
+  const tel = document.getElementById('ns-tel').value.trim();
+  const repro = document.getElementById('ns-repro').value.trim();
+  _agregarCard(nombre, tel, repro ? '📋 ' + repro : '', 'NUEVO SOCIO', 'rgba(201,162,39,0.12)', 'rgba(201,162,39,0.6)', '🎉 Habilitar como socio');
+}
+
+function enviarIntake() {
+  const tel = document.getElementById('int-tel').value.trim();
+  const nombre = document.getElementById('int-nombre').value.trim() || tel;
+  _agregarCard(nombre, tel, '📲 Link de intake enviado', 'INTAKE', 'rgba(14,165,233,0.12)', '#0EA5E9', 'Aguardando formulario…');
+  const btn = document.getElementById('btn-enviar-intake');
+  btn.textContent = '✓ Link enviado por WhatsApp';
+  btn.disabled = true;
+  setTimeout(toggleNuevo, 800);
+  return;
+}
+
+function _agregarCard(nombre, tel, detalle, badge, bg, badgeColor, btnTxt) {
+  const lista = document.getElementById('admision-lista');
+  const newCard = document.createElement('div');
+  newCard.className = 'adm-card';
+  newCard.dataset.search = nombre.toLowerCase() + ' ' + tel;
+  newCard.style.cssText = 'background:#0D1E14;border:1.5px solid rgba(82,183,136,0.4);border-radius:14px;padding:14px;margin-bottom:10px';
+  newCard.innerHTML = `
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:white">${nombre}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📱 ${tel}${detalle ? ' · ' + detalle : ''}</div>
+        <div style="font-size:11px;color:rgba(82,183,136,0.6);margin-top:2px">Ingresó: hoy</div>
+      </div>
+      <span style="background:${bg};color:${badgeColor};font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">${badge}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="p-btn small" style="background:rgba(255,255,255,0.08);color:white;border-color:rgba(255,255,255,0.1);font-size:12px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📱 WhatsApp</button>
+      <button class="p-btn small primary" style="font-size:12px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">${btnTxt}</button>
+    </div>`;
+  lista.insertBefore(newCard, lista.firstChild);
+  document.getElementById('ps-tel').value = '';
+  document.getElementById('ps-nombre').value = '';
+  document.getElementById('ns-nombre').value = '';
+  document.getElementById('ns-tel').value = '';
+  document.getElementById('ns-repro').value = '';
+  document.getElementById('ns-dni').value = '';
+  document.getElementById('int-tel').value = '';
+  document.getElementById('int-nombre').value = '';
+  document.querySelectorAll('.tipo-chip').forEach(c => {
+    c.style.background = 'transparent';
+    c.style.borderColor = 'rgba(255,255,255,0.15)';
+    c.style.color = 'rgba(255,255,255,0.6)';
+  });
+  toggleNuevo();
+}
+
+function filtrarAdmision() {
+  const q = document.getElementById('search-admision').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.adm-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const match = !q || c.dataset.search.toLowerCase().includes(q);
+    c.style.display = match ? '' : 'none';
+    if(match) visible++;
+  });
+  document.getElementById('adm-empty').style.display = (q && visible === 0) ? '' : 'none';
+}
+</script>

@@ -1,0 +1,250 @@
+<style>
+.d-shell { background: #070C07; }
+.d-sidebar { background: #0A1208; border-right: 1px solid #1A2E1A; }
+.d-sidebar-brand-text { color: white; }
+.d-sidebar-brand-sub { color: #3A6B4A; font-size: 11px; }
+.d-sidebar-link { color: #7AAE8F; }
+.d-sidebar-link:hover { background: #152B1E; color: #A8D5B8; }
+.d-sidebar-link.active { background: #1B4332; color: white; }
+.d-sidebar-sec { color: #3A6B4A; }
+.d-sidebar-user { border-top-color: #1A2E1A; }
+.d-main { background: #F3F7F4; }
+.c-cycle-timeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 16px 0 0;
+}
+.c-cycle-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+.c-cycle-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: calc(50% + 11px);
+  width: calc(100% - 22px);
+  height: 2px;
+  background: #E2E8E2;
+}
+.c-cycle-step.done:not(:last-child)::after { background: #22C55E; }
+.c-cycle-step.active:not(:last-child)::after { background: #E2E8E2; }
+.c-cycle-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #E2E8E2; border: 2px solid #E2E8E2;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: white; flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.c-cycle-step.done .c-cycle-dot { background: #22C55E; border-color: #22C55E; }
+.c-cycle-step.active .c-cycle-dot { background: #1B4332; border-color: #1B4332; box-shadow: 0 0 0 4px rgba(27,67,50,0.15); }
+.c-cycle-label { font-size: 10px; font-weight: 600; color: #94A3B8; margin-top: 6px; text-align: center; }
+.c-cycle-step.done .c-cycle-label { color: #22C55E; }
+.c-cycle-step.active .c-cycle-label { color: #1B4332; font-weight: 800; }
+</style>
+
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #1A2E1A;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo" style="font-size:18px;background:linear-gradient(135deg,#1B4332,#2D6A4F)">🌱</div>
+      <div>
+        <div class="d-sidebar-brand-text">Cultivo</div>
+        <div class="d-sidebar-brand-sub">Portal de cultivo</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Producción</div>
+    <div class="d-sidebar-link" data-goto="cultivo-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-cultivos"><span>🌱</span><span>Cultivos</span></div>
+    <div class="d-sidebar-link active" data-goto="cultivo-plantas"><span>🌿</span><span>Plantas & Cepas</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-solicitudes"><span>📦</span><span>Despachos</span></div>
+    <div class="d-sidebar-sec">Sistema</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">RM</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Rodrigo M.</div>
+        <div style="font-size:11px;color:#3A6B4A">Cultivador</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="p-btn small ghost" data-goto="cultivo-plantas">← Plantas</button>
+        <div>
+          <div class="d-page-title">Lote OG Kush · nov 2026</div>
+          <div class="d-page-sub">Lote activo · floración semana 6</div>
+        </div>
+      </div>
+      <span class="p-chip gold">🌸 Floración · sem 6/8</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+      <!-- Columna izquierda -->
+      <div>
+
+        <!-- Perfil de cepa -->
+        <div class="d-section" style="margin-bottom:14px">
+          <div class="d-section-title" style="margin-bottom:12px">🌱 Perfil de la cepa</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+            <div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8">Genética</div>
+              <div style="font-size:13px;font-weight:600;margin-top:2px">ChemDawg × Hindu Kush</div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8">Tipo</div>
+              <div style="font-size:13px;font-weight:600;margin-top:2px">Indica</div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8">THC</div>
+              <div style="font-size:15px;font-weight:800;color:#1B4332;margin-top:2px">22%</div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8">CBD</div>
+              <div style="font-size:15px;font-weight:800;color:#1B4332;margin-top:2px">0.3%</div>
+            </div>
+          </div>
+          <div style="margin-bottom:10px">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8;margin-bottom:5px">Efectos</div>
+            <div style="display:flex;gap:5px;flex-wrap:wrap">
+              <span class="p-chip green">Relajante</span>
+              <span class="p-chip green">Analgésico</span>
+              <span class="p-chip muted">Sedante</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8;margin-bottom:5px">Terpenos</div>
+            <div style="display:flex;gap:5px;flex-wrap:wrap">
+              <span class="p-chip muted">Mirceno</span>
+              <span class="p-chip muted">Limoneno</span>
+              <span class="p-chip muted">Cariofileno</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline del ciclo -->
+        <div class="d-section" style="margin-bottom:14px">
+          <div class="d-section-title" style="margin-bottom:4px">📅 Ciclo de cultivo</div>
+          <div class="c-cycle-timeline">
+            <div class="c-cycle-step done">
+              <div class="c-cycle-dot">✓</div>
+              <div class="c-cycle-label">Seedling</div>
+            </div>
+            <div class="c-cycle-step done">
+              <div class="c-cycle-dot">✓</div>
+              <div class="c-cycle-label">Vegetativo</div>
+            </div>
+            <div class="c-cycle-step active">
+              <div class="c-cycle-dot" style="font-size:9px">6</div>
+              <div class="c-cycle-label">Floración</div>
+            </div>
+            <div class="c-cycle-step">
+              <div class="c-cycle-dot"></div>
+              <div class="c-cycle-label">Cosecha</div>
+            </div>
+            <div class="c-cycle-step">
+              <div class="c-cycle-dot"></div>
+              <div class="c-cycle-label">Curado</div>
+            </div>
+            <div class="c-cycle-step">
+              <div class="c-cycle-dot"></div>
+              <div class="c-cycle-label">Listo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notas del cultivador -->
+        <div class="d-section" style="margin-bottom:0">
+          <div class="d-section-title" style="margin-bottom:8px">📝 Notas del cultivador</div>
+          <div style="background:#F3F7F4;border-radius:10px;padding:12px 14px;font-size:13px;color:#374151;line-height:1.5;border-left:3px solid #52B788">
+            "Plantas en excelente estado. Riego ajustado esta semana. Se espera cosecha según cronograma."
+          </div>
+          <div style="font-size:11px;color:#94A3B8;margin-top:6px">Última actualización: 10 nov 2026 · Rodrigo M.</div>
+        </div>
+
+      </div>
+
+      <!-- Columna derecha -->
+      <div>
+
+        <!-- KPIs del lote -->
+        <div class="d-section" style="margin-bottom:14px">
+          <div class="d-section-title" style="margin-bottom:12px">📊 Estado del lote</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+            <div class="kpi" style="border-top:3px solid #1B4332">
+              <div class="kpi-label">Plantas</div>
+              <div class="kpi-value">12</div>
+            </div>
+            <div class="kpi" style="border-top:3px solid #C9A227">
+              <div class="kpi-label">Semana</div>
+              <div class="kpi-value">6 / 8</div>
+            </div>
+            <div class="kpi" style="border-top:3px solid #52B788">
+              <div class="kpi-label">Rend. estimado</div>
+              <div class="kpi-value" style="color:#1B4332">480g</div>
+            </div>
+            <div class="kpi" style="border-top:3px solid #64748B">
+              <div class="kpi-label">Merma estimada</div>
+              <div class="kpi-value">~10%</div>
+            </div>
+          </div>
+          <div style="background:linear-gradient(135deg,#0A1208,#1B4332);border-radius:12px;padding:14px 16px;color:white">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;opacity:.6;margin-bottom:4px">Proyección neta</div>
+            <div style="font-size:18px;font-weight:800;color:#A7DFC0">~432g neto para despacho</div>
+            <div style="font-size:12px;opacity:.6;margin-top:3px">Disponible aprox. 15 dic 2026</div>
+          </div>
+        </div>
+
+        <!-- Historial de lotes anteriores -->
+        <div class="d-section" style="margin-bottom:14px">
+          <div class="d-section-title" style="margin-bottom:12px">🗂 Lotes anteriores — OG Kush</div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Lote</th>
+                  <th>Cosecha</th>
+                  <th>Rend.</th>
+                  <th>Merma</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>OGK-04</td>
+                  <td>01 sep 2026</td>
+                  <td class="num">490g</td>
+                  <td class="num">9%</td>
+                </tr>
+                <tr>
+                  <td>OGK-03</td>
+                  <td>12 jun 2026</td>
+                  <td class="num">460g</td>
+                  <td class="num">11%</td>
+                </tr>
+                <tr>
+                  <td>OGK-02</td>
+                  <td>22 mar 2026</td>
+                  <td class="num">445g</td>
+                  <td class="num">13%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div class="d-section" style="margin-bottom:0">
+          <div class="d-section-title" style="margin-bottom:10px">Acciones</div>
+          <button class="p-btn small primary" data-goto="cultivo-solicitudes" style="width:100%;justify-content:center">📬 Ver solicitudes de este lote</button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>

@@ -1,0 +1,331 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link active"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <!-- Topbar -->
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="p-btn small ghost" data-goto="admin-admision">← Admisión</button>
+        <div>
+          <div class="d-page-title">Nadia Herrera · Admisión</div>
+          <div class="d-page-sub">Ingresó 03 nov · <span style="color:var(--success);font-weight:700">Etapa 4 — Aprobada</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" data-goto="admin-admision-detalle">💬 WhatsApp</button>
+        <button class="p-btn small gold" data-goto="admin-socios">🎉 Habilitar como socia</button>
+      </div>
+    </div>
+
+    <!-- Progress strip (5 etapas) -->
+    <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:0">
+      <div style="flex:1;text-align:center">
+        <div style="font-size:11px;font-weight:800;color:var(--success)">✓ E1</div>
+        <div style="font-size:12px;font-weight:600;color:var(--success)">Contacto</div>
+        <div style="font-size:11px;color:var(--text-muted)">03 nov</div>
+      </div>
+      <div style="flex:0;width:24px;height:2px;background:var(--success)"></div>
+      <div style="flex:1;text-align:center">
+        <div style="font-size:11px;font-weight:800;color:var(--success)">✓ E2</div>
+        <div style="font-size:12px;font-weight:600;color:var(--success)">REPROCANN</div>
+        <div style="font-size:11px;color:var(--text-muted)">05 nov</div>
+      </div>
+      <div style="flex:0;width:24px;height:2px;background:var(--success)"></div>
+      <div style="flex:1;text-align:center">
+        <div style="font-size:11px;font-weight:800;color:var(--success)">✓ E3</div>
+        <div style="font-size:12px;font-weight:600;color:var(--success)">Consulta</div>
+        <div style="font-size:11px;color:var(--text-muted)">10 nov</div>
+      </div>
+      <div style="flex:0;width:24px;height:2px;background:var(--success)"></div>
+      <div style="flex:1;text-align:center;background:rgba(82,183,136,0.08);border-radius:8px;padding:6px">
+        <div style="font-size:11px;font-weight:800;color:var(--accent)">▶ E4</div>
+        <div style="font-size:12px;font-weight:800;color:var(--accent)">Aprobada</div>
+        <div style="font-size:11px;color:var(--text-muted)">11 nov</div>
+      </div>
+      <div style="flex:0;width:24px;height:2px;background:var(--border)"></div>
+      <div style="flex:1;text-align:center;opacity:0.4">
+        <div style="font-size:11px;font-weight:800;color:var(--text-muted)">E5</div>
+        <div style="font-size:12px;font-weight:600;color:var(--text-muted)">Habilitada</div>
+        <div style="font-size:11px;color:var(--text-muted)">—</div>
+      </div>
+    </div>
+
+        <!-- KPIs de admisión -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px">
+          <div class="kpi" style="border-top:3px solid var(--success)">
+            <div class="kpi-label">Días en pipeline</div>
+            <div class="kpi-value">9</div>
+            <div class="kpi-sub">desde 03 nov</div>
+          </div>
+          <div class="kpi" style="border-top:3px solid var(--accent)">
+            <div class="kpi-label">Etapa actual</div>
+            <div class="kpi-value" style="font-size:16px">4 / 5</div>
+            <div class="kpi-sub">Aprobada</div>
+          </div>
+          <div class="kpi" style="border-top:3px solid var(--gold)">
+            <div class="kpi-label">Referida por</div>
+            <div class="kpi-value" style="font-size:14px">Federico A.</div>
+            <div class="kpi-sub">socio #1078</div>
+          </div>
+          <div class="kpi" style="border-top:3px solid var(--info)">
+            <div class="kpi-label">Staff asignado</div>
+            <div class="kpi-value" style="font-size:14px">Sofía M.</div>
+            <div class="kpi-sub">desde 03 nov</div>
+          </div>
+        </div>
+
+    <!-- Layout 2 columnas -->
+    <div style="display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start">
+
+      <!-- IZQUIERDA: identidad + acción -->
+      <div>
+
+        <!-- Perfil -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div style="text-align:center;padding:20px 16px 16px">
+            <div class="p-avatar sky" style="width:64px;height:64px;font-size:22px;font-weight:800;margin:0 auto 10px">NH</div>
+            <div style="font-size:18px;font-weight:800;color:var(--text)">Nadia Herrera</div>
+            <div style="font-size:13px;color:var(--text-muted);margin-top:2px">nadia.h@gmail.com</div>
+            <div style="font-size:13px;color:var(--text-muted)">📱 +54 11 6677-8899</div>
+            <div style="margin-top:10px;display:flex;justify-content:center;gap:6px">
+              <span class="p-chip ok">Aprobada</span>
+              <span class="p-chip muted">🌱 Semilla (futuro)</span>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding:14px 16px">
+            <div class="list-item" style="padding:5px 0">
+              <span style="font-size:14px">📍</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Ubicación</div>
+                <div class="list-item-title" style="font-size:13px">Palermo, CABA</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:5px 0">
+              <span style="font-size:14px">🎂</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Edad</div>
+                <div class="list-item-title" style="font-size:13px">29 años</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:5px 0;border-bottom:none">
+              <span style="font-size:14px">👤</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Staff asignado</div>
+                <div class="list-item-title" style="font-size:13px">Sofía Mendoza</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acción principal -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Próximo paso</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div class="p-alert ok" style="border-radius:10px;margin-bottom:12px;font-size:13px">
+              <span>✅</span>
+              <div>Todo aprobado — lista para habilitar como socia y asignar plan inicial.</div>
+            </div>
+            <div style="margin-bottom:10px">
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Plan inicial</div>
+              <select style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px">
+                <option selected>🌱 Semilla · $20.000/mes</option>
+                <option>⭐ Brote · $60.000/mes</option>
+                <option>🌿 Planta Full · $120.000/mes</option>
+              </select>
+            </div>
+            <button class="p-btn gold block" data-goto="admin-socios">🎉 Habilitar como socia</button>
+            <button class="p-btn ghost block" style="margin-top:6px;font-size:12px;color:var(--warning)" data-goto="admin-admision">⏸ Poner en espera</button>
+          </div>
+        </div>
+
+        <!-- Notas -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Notas</div>
+            <button class="p-btn small ghost" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳…';setTimeout(function(){b.textContent='✓ Nota agregada';b.style.opacity='0.7';},700)">+ Agregar</button>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div style="background:var(--bg-tint);border-radius:10px;padding:10px 12px">
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:3px">Tomás · 11 nov</div>
+              <div style="font-size:13px;color:var(--text)">Derivada por Federico Álvarez. Muy buena predisposición. Perfil crónico claro.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DERECHA: documentos + actividad -->
+      <div>
+
+        <!-- Documentos -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Documentación</div>
+            <span class="p-chip ok" style="font-size:11px">3/4 completos</span>
+          </div>
+          <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg-tint);border-radius:10px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="font-size:18px">📋</span>
+                <div>
+                  <div style="font-size:13px;font-weight:600">REPROCANN</div>
+                  <div style="font-size:11px;color:var(--text-muted)">R-2026-00521 · Vigente · vence nov 2027</div>
+                </div>
+              </div>
+              <span class="p-chip ok" style="font-size:11px">✓ Verificado</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg-tint);border-radius:10px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="font-size:18px">👩‍⚕️</span>
+                <div>
+                  <div style="font-size:13px;font-weight:600">Consulta médica</div>
+                  <div style="font-size:11px;color:var(--text-muted)">Dra. Andrea Pérez · 10 nov 2026 · Ansiedad · Insomnio</div>
+                </div>
+              </div>
+              <span class="p-chip ok" style="font-size:11px">✓ Realizada</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg-tint);border-radius:10px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="font-size:18px">🪪</span>
+                <div>
+                  <div style="font-size:13px;font-weight:600">DNI</div>
+                  <div style="font-size:11px;color:var(--text-muted)">Frente y dorso · cargado</div>
+                </div>
+              </div>
+              <span class="p-chip ok" style="font-size:11px">✓ Cargado</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--warning-light);border:1px solid rgba(245,158,11,0.3);border-radius:10px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="font-size:18px">📄</span>
+                <div>
+                  <div style="font-size:13px;font-weight:600">Contrato membresía</div>
+                  <div style="font-size:11px;color:var(--warning)">Pendiente de firma</div>
+                </div>
+              </div>
+              <button class="p-btn small warn" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Cargando…';setTimeout(function(){b.textContent='✓ Cargado';b.style.opacity='0.7';},800)">Cargar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contactos y seguimiento -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Contactos y seguimiento</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div class="list-item" style="padding:8px 0">
+              <span style="font-size:16px">📱</span>
+              <div class="list-item-main">
+                <div class="list-item-title">+54 11 6677-8899</div>
+                <div class="list-item-sub">WhatsApp principal</div>
+              </div>
+              <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-admision-detalle">Enviar msg</button>
+            </div>
+            <div class="list-item" style="padding:8px 0">
+              <span style="font-size:16px">📧</span>
+              <div class="list-item-main">
+                <div class="list-item-title">nadia.h@gmail.com</div>
+                <div class="list-item-sub">Email</div>
+              </div>
+              <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-admision-detalle">Email</button>
+            </div>
+            <div class="list-item" style="padding:8px 0;border-bottom:none">
+              <span style="font-size:16px">💬</span>
+              <div class="list-item-main">
+                <div class="list-item-title">Último contacto: 10 nov · 15:00hs</div>
+                <div class="list-item-sub">Consulta médica presencial con Dra. Pérez</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px">2 días</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Log de actividad -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Historial de admisión</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div class="activity-feed">
+              <div class="activity-item">
+                <div class="activity-dot ok"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Candidata <strong>aprobada</strong> — REPROCANN + consulta médica OK</div>
+                  <div class="activity-time">11 nov · 09:30 · por Tomás García</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot info"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>Consulta médica realizada</strong> — Dra. Pérez · Ansiedad crónica + Insomnio</div>
+                  <div class="activity-time">10 nov · 15:00 · presencial</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot gold"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Consulta médica agendada — Dra. Pérez · Lun 10 nov 15:00</div>
+                  <div class="activity-time">08 nov · por Sofía Mendoza</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot info"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>REPROCANN verificado</strong> — R-2026-00521 vigente</div>
+                  <div class="activity-time">05 nov · por Tomás García</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot green"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Candidata ingresada al pipeline — derivada por <strong>Federico Álvarez</strong></div>
+                  <div class="activity-time">03 nov · primer contacto</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

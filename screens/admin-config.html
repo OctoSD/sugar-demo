@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link active"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -37,9 +42,9 @@
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Configuración del club</div>
-        <div class="d-page-sub">Club Rainbow · ajustes generales del sistema</div>
+        <div class="d-page-sub">Club Sugar · ajustes generales del sistema</div>
       </div>
-      <button class="p-btn small primary">💾 Guardar cambios</button>
+      <button class="p-btn small primary" data-goto="admin-config-detalle">💾 Guardar cambios</button>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
@@ -51,11 +56,12 @@
         <div class="d-section" style="margin-bottom:16px">
           <div class="d-section-h" style="margin-bottom:16px">
             <div class="d-section-title">🏠 Datos del club</div>
+            <span class="p-btn small ghost" data-goto="admin-config-detalle" style="cursor:pointer;font-size:11px">Ver más →</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:12px">
             <div>
               <label class="p-input-label">Nombre del club</label>
-              <input class="p-input" value="Club Rainbow" />
+              <input class="p-input" value="Club Sugar" />
             </div>
             <div>
               <label class="p-input-label">Domicilio</label>
@@ -86,6 +92,7 @@
         <div class="d-section" style="margin-bottom:16px">
           <div class="d-section-h" style="margin-bottom:16px">
             <div class="d-section-title">🕐 Horarios de operación</div>
+            <span class="p-btn small ghost" data-goto="admin-config-detalle" style="cursor:pointer;font-size:11px">Ver más →</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:10px;align-items:center;font-size:13px">
@@ -127,6 +134,7 @@
         <div class="d-section" style="margin-bottom:16px">
           <div class="d-section-h" style="margin-bottom:16px">
             <div class="d-section-title">🪙 Tokens y precios</div>
+            <span class="p-btn small ghost" data-goto="admin-config-detalle" style="cursor:pointer;font-size:11px">Ver más →</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:12px">
             <div>
@@ -194,6 +202,7 @@
         <div class="d-section" style="margin-bottom:0">
           <div class="d-section-h" style="margin-bottom:16px">
             <div class="d-section-title">🔔 Notificaciones</div>
+            <span class="p-btn small ghost" data-goto="admin-config-detalle" style="cursor:pointer;font-size:11px">Ver más →</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:12px">
             <div style="display:flex;align-items:center;justify-content:space-between">
@@ -226,6 +235,38 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Integración FECCA -->
+        <div class="d-section" style="margin-top:16px">
+          <div class="d-section-h" style="margin-bottom:14px">
+            <div class="d-section-title">⬡ Integración FECCA</div>
+            <span style="font-size:10px;background:rgba(34,197,94,0.15);color:#22c55e;padding:2px 8px;border-radius:100px;font-weight:700">✓ Activa</span>
+          </div>
+          <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:12px 14px;margin-bottom:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:20px">⬡</span>
+              <div>
+                <div style="font-size:13px;font-weight:700;color:#F59E0B">Club Verificado FECCA</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.5)">Afiliado desde octubre 2026 · Club #0047</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+              <div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:8px 10px">
+                <div style="color:rgba(255,255,255,0.4);margin-bottom:2px">Posición en CABA</div>
+                <div style="font-weight:700;color:white">#3 de 18</div>
+              </div>
+              <div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:8px 10px">
+                <div style="color:rgba(255,255,255,0.4);margin-bottom:2px">Beneficios activos</div>
+                <div style="font-weight:700;color:white">19 alianzas</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <button class="p-btn small ghost" style="flex:1;border-color:rgba(245,158,11,0.3);color:#F59E0B" data-goto="admin-fecca">Ver Panel FECCA →</button>
+            <button class="p-btn small ghost" style="flex:1" data-goto="admin-beneficios">Gestionar beneficios →</button>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3)">Para modificar la afiliación o datos de la federación, contactar a FECCA directamente en fecca.com.ar</div>
         </div>
 
       </div>

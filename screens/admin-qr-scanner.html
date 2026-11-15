@@ -1,0 +1,270 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link active" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar sky sm">TG</div>
+      <div>
+        <div style="font-size:13px;font-weight:700">Tomás García</div>
+        <div style="font-size:11px;color:var(--text-muted)">Operaciones</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <!-- Topbar -->
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="d-back" data-goto="admin-pedido-detalle">←</div>
+        <div>
+          <div class="d-page-title">Escáner QR · Retiro</div>
+          <div class="d-page-sub">Verificá identidad y confirmá entrega del pedido</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn ghost" data-goto="admin-pedidos">📦 Volver a pedidos</button>
+      </div>
+    </div>
+
+    <div class="d-content" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
+
+      <!-- Col izquierda: Scanner -->
+      <div>
+
+        <!-- Visor del escáner -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">📷 Cámara · escaneando…</div>
+            <span class="live-pulse" style="font-size:10px">En vivo</span>
+          </div>
+          <div style="padding:0 16px 16px">
+            <div style="background:#0a0f0a;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center">
+              <!-- Visor simulado -->
+              <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(82,183,136,0.03) 3px,rgba(82,183,136,0.03) 4px)"></div>
+              <!-- Marco de escaneo -->
+              <div style="position:relative;width:200px;height:200px">
+                <!-- Esquinas del marco -->
+                <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:3px solid #52B788;border-left:3px solid #52B788;border-radius:4px 0 0 0"></div>
+                <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:3px solid #52B788;border-right:3px solid #52B788;border-radius:0 4px 0 0"></div>
+                <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:3px solid #52B788;border-left:3px solid #52B788;border-radius:0 0 0 4px"></div>
+                <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:3px solid #52B788;border-right:3px solid #52B788;border-radius:0 0 4px 0"></div>
+                <!-- QR simulado dentro del marco -->
+                <div style="position:absolute;inset:20px;display:flex;align-items:center;justify-content:center">
+                  <svg width="140" height="140" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.85">
+                    <rect x="10" y="10" width="50" height="50" rx="6" fill="#52B788"/>
+                    <rect x="20" y="20" width="30" height="30" rx="3" fill="#0a0f0a"/>
+                    <rect x="26" y="26" width="18" height="18" rx="2" fill="#52B788"/>
+                    <rect x="120" y="10" width="50" height="50" rx="6" fill="#52B788"/>
+                    <rect x="130" y="20" width="30" height="30" rx="3" fill="#0a0f0a"/>
+                    <rect x="136" y="26" width="18" height="18" rx="2" fill="#52B788"/>
+                    <rect x="10" y="120" width="50" height="50" rx="6" fill="#52B788"/>
+                    <rect x="20" y="130" width="30" height="30" rx="3" fill="#0a0f0a"/>
+                    <rect x="26" y="136" width="18" height="18" rx="2" fill="#52B788"/>
+                    <rect x="72" y="10" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="84" y="10" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="10" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="22" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="22" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="34" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="84" y="34" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="34" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="10" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="22" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="34" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="46" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="84" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="108" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="120" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="132" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="144" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="156" y="72" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="10" y="84" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="34" y="84" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="84" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="84" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="144" y="84" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="156" y="84" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="22" y="96" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="84" y="96" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="156" y="96" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="120" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="84" y="120" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="108" y="120" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="132" y="120" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="156" y="120" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="132" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="132" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="120" y="132" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="144" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="84" y="144" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="108" y="144" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="72" y="156" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="96" y="156" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="144" y="156" width="8" height="8" rx="1" fill="#52B788"/>
+                    <rect x="156" y="156" width="8" height="8" rx="1" fill="#52B788"/>
+                  </svg>
+                </div>
+                <!-- Línea de escaneo animada (simulada en posición media) -->
+                <div style="position:absolute;left:4px;right:4px;top:50%;height:2px;background:linear-gradient(90deg,transparent,#52B788,transparent);box-shadow:0 0 8px #52B788;border-radius:1px"></div>
+              </div>
+              <!-- Label código detectado -->
+              <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(82,183,136,0.15);border:1px solid rgba(82,183,136,0.4);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#52B788;letter-spacing:0.08em;white-space:nowrap">
+                ✓ SGR-1042-P243 detectado
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entrada manual -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Ingreso manual</div>
+          </div>
+          <div style="padding:0 16px 16px">
+            <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Si la cámara no funciona, ingresá el código del socio a mano:</div>
+            <div style="display:flex;gap:8px">
+              <input class="p-input" type="text" value="SGR-1042-P243" style="flex:1;font-family:monospace;font-size:14px;font-weight:700;letter-spacing:0.08em" readonly />
+              <button class="p-btn accent" style="padding:0 16px;font-size:13px" data-goto="admin-qr-scanner">Verificar</button>
+            </div>
+            <div style="font-size:11px;color:var(--success);margin-top:6px;font-weight:600">✓ Código válido · pedido encontrado</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Col derecha: Resultado del escaneo -->
+      <div>
+
+        <!-- Verificación de identidad -->
+        <div class="d-section" style="margin-bottom:12px;border-color:var(--accent)">
+          <div class="d-section-h" style="background:rgba(82,183,136,0.08)">
+            <div class="d-section-title" style="color:var(--success)">✅ Identidad verificada</div>
+            <span class="p-chip ok">Socio activo</span>
+          </div>
+          <div style="padding:16px">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+              <div class="p-avatar mint xl">VR</div>
+              <div>
+                <div style="font-size:18px;font-weight:800">Valentina Rodríguez</div>
+                <div style="font-size:13px;color:var(--text-muted)">Socio #1042 · Club Sugar · 2 años socia</div>
+                <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+                  <span class="p-chip ok">✓ Membresía activa</span>
+                  <span class="p-chip gold">⭐ Brote</span>
+                  <span class="p-chip ok">✓ REPROCANN</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-divider" style="margin-bottom:12px"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+              <div style="text-align:center;background:var(--bg-tint);padding:10px;border-radius:10px">
+                <div style="font-size:16px;font-weight:800;color:var(--gold-dark)">🪙 23</div>
+                <div style="font-size:10px;color:var(--text-muted)">tokens saldo</div>
+              </div>
+              <div style="text-align:center;background:var(--bg-tint);padding:10px;border-radius:10px">
+                <div style="font-size:16px;font-weight:800;color:var(--success)">✓ OK</div>
+                <div style="font-size:10px;color:var(--text-muted)">docs vigentes</div>
+              </div>
+              <div style="text-align:center;background:var(--bg-tint);padding:10px;border-radius:10px">
+                <div style="font-size:16px;font-weight:800;color:var(--text)">8</div>
+                <div style="font-size:10px;color:var(--text-muted)">pedidos hist.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pedido a entregar -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Pedido a entregar</div>
+            <span class="p-chip ok">✅ Listo</span>
+          </div>
+          <div style="padding:16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <div>
+                <div style="font-size:17px;font-weight:800">#P-243</div>
+                <div style="font-size:12px;color:var(--text-muted)">Generado hoy · 10:32hs · esperando desde 10:58hs</div>
+              </div>
+              <span class="p-chip blue">SGR-1042-P243</span>
+            </div>
+            <div class="list-item" style="padding:8px 0">
+              <div class="p-avatar mint sm">🌿</div>
+              <div class="list-item-main">
+                <div class="list-item-title">OG Kush</div>
+                <div class="list-item-sub">2g · indoor · lote nov-2026</div>
+              </div>
+              <span style="font-weight:800;color:var(--gold-dark)">🪙 40</span>
+            </div>
+            <div class="list-item" style="padding:8px 0;border-bottom:none">
+              <div class="p-avatar mint sm">🦍</div>
+              <div class="list-item-main">
+                <div class="list-item-title">Gorilla Glue #4</div>
+                <div class="list-item-sub">1g · indoor · lote nov-2026</div>
+              </div>
+              <span style="font-weight:800;color:var(--gold-dark)">🪙 22</span>
+            </div>
+            <div class="p-divider" style="margin:12px 0"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-size:14px;font-weight:700">Total</div>
+              <div style="text-align:right">
+                <div style="font-size:18px;font-weight:900;color:var(--gold-dark)">🪙 62 tokens</div>
+                <div style="font-size:13px;color:var(--text-muted)">$62.000 ARS · cobrar en efectivo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alertas de verificación -->
+        <div class="p-alert green" style="margin-bottom:10px;border-radius:12px">
+          <span>✅</span>
+          <div>
+            <strong>Todo en orden.</strong> REPROCANN vigente (ago 2027) · consulta médica vigente (sep 2026) · membresía activa hasta dic 2026.
+          </div>
+        </div>
+
+        <!-- Acción principal -->
+        <div class="d-section" style="border-color:var(--success)">
+          <div style="padding:16px;display:flex;flex-direction:column;gap:8px">
+            <button class="p-btn primary block" style="font-size:15px;padding:14px;font-weight:800" data-goto="admin-pedidos">
+              ✅ Confirmar entrega · descontar 🪙 62
+            </button>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <button class="p-btn ghost block" style="font-size:12px" data-goto="admin-pedido-detalle">📋 Ver detalle del pedido</button>
+              <button class="p-btn ghost block" style="font-size:12px" data-goto="admin-socio-perfil">👤 Ver perfil del socio</button>
+            </div>
+            <button class="p-btn ghost block" style="font-size:12px;color:var(--danger);border-color:var(--danger)" data-goto="admin-pedidos">✕ Cancelar · no entregar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

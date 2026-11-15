@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link active"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -37,13 +42,79 @@
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Reportes · Noviembre 2026</div>
-        <div class="d-page-sub">Club Rainbow · resumen mensual</div>
+        <div class="d-page-sub">Club Sugar · resumen mensual</div>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
-        <button class="p-btn small ghost">‹ Octubre</button>
-        <button class="p-btn small ghost" style="color:var(--text-muted);cursor:default">Noviembre ▾</button>
-        <button class="p-btn small primary">📥 Exportar PDF</button>
+        <button class="p-btn small ghost" data-goto="admin-reportes">‹ Octubre</button>
+        <button class="p-btn small ghost" style="color:var(--text-muted);cursor:default" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent=t;b.disabled=false;},400)">Noviembre ▾</button>
+        <button class="p-btn small primary" data-goto="admin-reporte-detalle">📥 Exportar PDF</button>
       </div>
+    </div>
+
+    <!-- Panel de exportación -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">📥 Exportar datos</div>
+        <span style="font-size:12px;color:var(--text-muted)">noviembre 2026</span>
+      </div>
+      <div style="padding:0 18px 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">👥 Socios</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px">Lista completa · estado, membresía, tokens</div>
+          <div style="display:flex;gap:6px">
+            <button class="p-btn small accent" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ CSV listo';b.style.opacity='0.7';},900)">📄 CSV</button>
+            <button class="p-btn small ghost" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ XLSX listo';b.style.opacity='0.7';},1000)">📊 XLSX</button>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">📦 Pedidos</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px">Historial del mes · socio, cepa, tokens, estado</div>
+          <div style="display:flex;gap:6px">
+            <button class="p-btn small accent" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ CSV listo';b.style.opacity='0.7';},900)">📄 CSV</button>
+            <button class="p-btn small ghost" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ XLSX listo';b.style.opacity='0.7';},1000)">📊 XLSX</button>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">🌿 Productos</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px">Catálogo · stock, consumo, ranking de demanda</div>
+          <div style="display:flex;gap:6px">
+            <button class="p-btn small accent" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ CSV listo';b.style.opacity='0.7';},900)">📄 CSV</button>
+            <button class="p-btn small ghost" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ XLSX listo';b.style.opacity='0.7';},1000)">📊 XLSX</button>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">🪙 Tokens & Estadísticas</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px">Movimientos por socio, por cepa, por mes</div>
+          <div style="display:flex;gap:6px">
+            <button class="p-btn small accent" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ CSV listo';b.style.opacity='0.7';},900)">📄 CSV</button>
+            <button class="p-btn small ghost" style="flex:1;font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ XLSX listo';b.style.opacity='0.7';},1000)">📊 XLSX</button>
+          </div>
+        </div>
+
+      </div>
+      <div style="padding:0 18px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:14px">
+        <div style="font-size:12px;color:var(--text-muted)">Reporte mensual completo · incluye todas las secciones</div>
+        <div style="display:flex;gap:8px">
+          <select style="padding:7px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;background:var(--surface);color:var(--text)">
+            <option>Noviembre 2026</option>
+            <option>Octubre 2026</option>
+            <option>Septiembre 2026</option>
+          </select>
+          <button class="p-btn small primary" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando PDF…';setTimeout(function(){b.textContent='✓ PDF listo';b.style.opacity='0.7';},1200)">📑 Exportar reporte PDF</button>
+          <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Generando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},1000)">📧 Enviar por email</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab selector período -->
+    <div style="display:flex;gap:0;background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:3px;margin-bottom:16px;width:fit-content">
+      <button id="rtab-dia" onclick="setReporteTab('dia')" class="p-btn small accent" style="border-radius:9px;font-size:12px">Hoy</button>
+      <button id="rtab-semana" onclick="setReporteTab('semana')" class="p-btn small ghost" style="border-radius:9px;font-size:12px">Esta semana</button>
+      <button id="rtab-mes" onclick="setReporteTab('mes')" class="p-btn small ghost" style="border-radius:9px;font-size:12px;background:transparent">Noviembre</button>
     </div>
 
     <!-- KPIs principales -->
@@ -85,6 +156,7 @@
       <div class="d-section" style="margin-bottom:0">
         <div class="d-section-h">
           <div class="d-section-title">Tokens por día · últimas 2 semanas</div>
+          <span class="p-btn small ghost" data-goto="admin-reporte-detalle" style="cursor:pointer;font-size:12px">Ver detalle →</span>
         </div>
         <div style="display:flex;align-items:flex-end;gap:6px;height:120px;padding-bottom:4px">
           <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
@@ -123,6 +195,7 @@
       <div class="d-section" style="margin-bottom:0">
         <div class="d-section-h">
           <div class="d-section-title">Cepas más pedidas · noviembre</div>
+          <span class="p-btn small ghost" data-goto="admin-reporte-detalle" style="cursor:pointer;font-size:12px">Ver detalle →</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div>
@@ -159,6 +232,101 @@
       </div>
     </div>
 
+    <!-- Gráfico cepas más pedidas + Evolución socios -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+
+      <!-- Cepas más pedidas -->
+      <div class="d-section" style="margin-bottom:0">
+        <div class="d-section-h">
+          <div class="d-section-title">📊 Gráfico de cepas más pedidas</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+              <span>🌿 OG Kush</span><span style="color:var(--text-muted)">87 pedidos</span>
+            </div>
+            <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden">
+              <div style="height:8px;background:#52B788;border-radius:100px;width:100%"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+              <span>💙 Blue Dream</span><span style="color:var(--text-muted)">64 pedidos</span>
+            </div>
+            <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden">
+              <div style="height:8px;background:#52B788;border-radius:100px;width:73%"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+              <span>🦍 GG#4</span><span style="color:var(--text-muted)">52 pedidos</span>
+            </div>
+            <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden">
+              <div style="height:8px;background:#52B788;border-radius:100px;width:60%"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+              <span>🎂 Wedding Cake</span><span style="color:var(--text-muted)">41 pedidos</span>
+            </div>
+            <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden">
+              <div style="height:8px;background:#52B788;border-radius:100px;width:47%"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+              <span>🌟 Super Lemon Haze</span><span style="color:var(--text-muted)">38 pedidos</span>
+            </div>
+            <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden">
+              <div style="height:8px;background:#52B788;border-radius:100px;width:44%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evolución mensual de socios -->
+      <div class="d-section" style="margin-bottom:0">
+        <div class="d-section-h">
+          <div class="d-section-title">📈 Evolución mensual de socios</div>
+        </div>
+        <div class="d-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Mes</th>
+                <th class="right">Socios activos</th>
+                <th class="right">Crecimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600">Agosto 2026</td>
+                <td class="right num" style="font-weight:700;color:var(--accent)">28</td>
+                <td class="right"><span class="p-chip muted" style="font-size:11px">base</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600">Septiembre 2026</td>
+                <td class="right num" style="font-weight:700;color:var(--accent)">32</td>
+                <td class="right"><span class="p-chip ok" style="font-size:11px">↑ +4</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600">Octubre 2026</td>
+                <td class="right num" style="font-weight:700;color:var(--accent)">36</td>
+                <td class="right"><span class="p-chip ok" style="font-size:11px">↑ +4</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600">Noviembre 2026 <span style="font-size:11px;color:var(--text-muted)">(parcial)</span></td>
+                <td class="right num" style="font-weight:700;color:var(--accent)">38</td>
+                <td class="right"><span class="p-chip gold" style="font-size:11px">↑ +2 (parcial)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text-muted)">📊 Crecimiento sostenido de <strong>+4 socios/mes</strong> en el trimestre anterior.</div>
+      </div>
+
+    </div>
+
     <!-- Top socios + Membresías -->
     <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px">
 
@@ -166,6 +334,7 @@
       <div class="d-section" style="margin-bottom:0">
         <div class="d-section-h">
           <div class="d-section-title">Top socios por consumo · noviembre</div>
+          <span class="p-btn small ghost" data-goto="admin-reporte-detalle" style="cursor:pointer;font-size:12px">Ver detalle →</span>
         </div>
         <div class="d-table">
           <table>
@@ -264,8 +433,90 @@
       </div>
     </div>
 
+    <!-- Productividad del equipo -->
+    <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div class="d-section-title" style="margin:0">👷 Productividad del equipo</div>
+        <span id="prod-periodo" class="p-chip muted" style="font-size:11px">Hoy · Lun 11 Nov</span>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Persona</th>
+              <th>Rol</th>
+              <th class="right">Pedidos armados</th>
+              <th class="right">Entregas</th>
+              <th class="right">Admisiones</th>
+              <th class="right">Sesiones médicas</th>
+              <th class="right">Horas fichadas</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="prod-tbody">
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">TG</div><strong>Tomás García</strong></div></td>
+              <td style="font-size:12px;color:var(--text-muted)">Admin · Supervisor</td>
+              <td class="right num">—</td>
+              <td class="right num">2</td>
+              <td class="right num">3</td>
+              <td class="right num">—</td>
+              <td class="right num" style="color:var(--success)">2h 41m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">RV</div><strong>Rodrigo Vega</strong></div></td>
+              <td style="font-size:12px;color:var(--text-muted)">Armado · Entregas</td>
+              <td class="right num" style="font-weight:700">3</td>
+              <td class="right num" style="font-weight:700">1</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num" style="color:var(--success)">2h 11m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">CT</div><strong>Camila Torres</strong></div></td>
+              <td style="font-size:12px;color:var(--text-muted)">Admisión</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num" style="font-weight:700">4</td>
+              <td class="right num">—</td>
+              <td class="right num" style="color:var(--success)">1h 41m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">AP</div><strong>Dra. Andrea Pérez</strong></div></td>
+              <td style="font-size:12px;color:var(--text-muted)">Médico</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num" style="font-weight:700">1</td>
+              <td class="right num" style="color:var(--text-muted)">— externa</td>
+              <td><span class="p-chip muted">Sesión virtual</span></td>
+            </tr>
+            <tr style="opacity:0.5">
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">SM</div><strong>Sofía Mendoza</strong></div></td>
+              <td style="font-size:12px;color:var(--text-muted)">Admisión</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num">—</td>
+              <td class="right num" style="color:var(--warning)">Sin fichar</td>
+              <td><span class="p-chip muted">⚫ Sin fichar</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:12px 18px;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        <div><div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Pedidos armados</div><div style="font-size:18px;font-weight:800;margin-top:2px">3</div></div>
+        <div><div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Entregas realizadas</div><div style="font-size:18px;font-weight:800;margin-top:2px">3</div></div>
+        <div><div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Admisiones</div><div style="font-size:18px;font-weight:800;margin-top:2px">7</div></div>
+        <div><div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em">Horas totales</div><div style="font-size:18px;font-weight:800;color:var(--success);margin-top:2px">6h 33m</div></div>
+      </div>
+    </div>
+
     <!-- Alertas y oportunidades -->
-    <div class="d-section">
+    <div class="d-section" style="margin-bottom:16px">
       <div class="d-section-h">
         <div class="d-section-title">Alertas y oportunidades del mes</div>
       </div>
@@ -285,5 +536,68 @@
       </div>
     </div>
 
+    <!-- Insights del mes -->
+    <div class="d-section">
+      <div class="d-section-h">
+        <div class="d-section-title">💡 Insights del mes</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div style="background:rgba(245,158,11,0.08);border:1.5px solid rgba(245,158,11,0.35);border-radius:12px;padding:16px">
+          <div style="font-size:22px;margin-bottom:6px">🟡</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:6px">Riesgo de churn detectado</div>
+          <div style="font-size:13px;color:var(--text-muted)">4 socios sin pedido en más de 15 días. Recomendamos enviar comunicación de retención esta semana.</div>
+        </div>
+        <div style="background:rgba(14,165,233,0.08);border:1.5px solid rgba(14,165,233,0.35);border-radius:12px;padding:16px">
+          <div style="font-size:22px;margin-bottom:6px">🔵</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:6px">Credenciales REPROCANN</div>
+          <div style="font-size:13px;color:var(--text-muted)">3 credenciales REPROCANN vencen en diciembre. Coordinar con Dra. Andrea Pérez para renovación anticipada.</div>
+        </div>
+        <div style="background:rgba(82,183,136,0.08);border:1.5px solid rgba(82,183,136,0.35);border-radius:12px;padding:16px">
+          <div style="font-size:22px;margin-bottom:6px">🟢</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:6px">Oportunidad de upgrade</div>
+          <div style="font-size:13px;color:var(--text-muted)">6 socios Brote candidatos a upgrade a Planta Full. Superaron 60 tok/mes por 2 meses consecutivos.</div>
+        </div>
+      </div>
+    </div>
+
   </main>
 </div>
+
+<script>
+var REPORTE_DATA = {
+  dia:    { label:'Hoy · Lun 11 Nov',   tokens:'107', pedidos:'5',  socios:'38', tok_avg:'21.4', kpiDelta:['', '', '', ''] },
+  semana: { label:'Sem 4–10 Nov',       tokens:'641', pedidos:'31', socios:'38', tok_avg:'20.7', kpiDelta:['', '', '', ''] },
+  mes:    { label:'Noviembre 2026',      tokens:'2.841','pedidos':'194',socios:'38', tok_avg:'14.6', kpiDelta:['', '', '', ''] }
+};
+var PROD_DATA = {
+  dia:    [[3,1,'—','—','2h41m'], ['—',2,3,'—','2h11m'], ['—','—',4,'—','1h41m'], ['—','—','—',1,'— ext'], ['—','—','—','—','—']],
+  semana: [[18,7,'—','—','12h'], ['—',12,16,'—','13h'], ['—','—',22,'—','8h'], ['—','—','—',4,'— ext'], ['—','—','—','—','2h']],
+  mes:    [[76,32,'—','—','48h'], ['—',52,68,'—','56h'], ['—','—',94,'—','34h'], ['—','—','—',14,'— ext'], ['—','—','—','—','8h']]
+};
+function setReporteTab(tab) {
+  ['dia','semana','mes'].forEach(t => {
+    const btn = document.getElementById('rtab-' + t);
+    btn.className = 'p-btn small ' + (t === tab ? 'accent' : 'ghost');
+    if(t !== tab) btn.style.background = 'transparent';
+  });
+  const d = REPORTE_DATA[tab];
+  const pp = PROD_DATA[tab];
+  document.getElementById('prod-periodo').textContent = d.label;
+  const rows = document.querySelectorAll('#prod-tbody tr');
+  rows.forEach((row, ri) => {
+    const cells = row.querySelectorAll('td');
+    // cells[2]=armados, [3]=entregas, [4]=admisiones, [5]=sesiones, [6]=horas
+    if(pp[ri]) {
+      cells[2].textContent = pp[ri][0];
+      cells[2].style.fontWeight = pp[ri][0] !== '—' ? '700' : '';
+      cells[3].textContent = pp[ri][1];
+      cells[3].style.fontWeight = pp[ri][1] !== '—' ? '700' : '';
+      cells[4].textContent = pp[ri][2];
+      cells[4].style.fontWeight = pp[ri][2] !== '—' ? '700' : '';
+      cells[5].textContent = pp[ri][3];
+      cells[5].style.fontWeight = pp[ri][3] !== '—' ? '700' : '';
+      cells[6].textContent = pp[ri][4];
+    }
+  });
+}
+</script>

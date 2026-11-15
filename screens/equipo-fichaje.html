@@ -1,0 +1,269 @@
+<style>
+.fich-shell { display:flex; flex-direction:column; height:100%; background:#060E0A; }
+.fich-tabs { display:flex; gap:0; background:#0D1E14; border-bottom:1px solid rgba(82,183,136,0.15); }
+.fich-tab { flex:1; padding:12px; text-align:center; font-size:12px; font-weight:700; color:rgba(255,255,255,0.4); cursor:pointer; border-bottom:2px solid transparent; transition:.15s; font-family:'Inter',sans-serif; background:none; border-top:none; border-left:none; border-right:none; }
+.fich-tab.active { color:#52B788; border-bottom-color:#52B788; }
+.fich-qr-panel { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 20px; }
+.fich-qr-box { background:#0D1E14; border:1.5px solid rgba(82,183,136,0.3); border-radius:20px; padding:20px; display:flex; flex-direction:column; align-items:center; gap:14px; width:100%; max-width:280px; }
+.fich-status-banner { display:flex; align-items:center; gap:8px; padding:8px 16px; border-radius:100px; font-size:12px; font-weight:700; }
+.fich-status-banner.on  { background:rgba(34,197,94,0.15);  color:#22C55E; }
+.fich-status-banner.off { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.5); }
+.fich-kiosko { flex:1; display:flex; flex-direction:column; }
+.fich-kiosko-header { padding:14px 16px; text-align:center; border-bottom:1px solid rgba(82,183,136,0.1); }
+.scan-stage { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:20px; cursor:pointer; }
+.scan-zone { position:relative; width:200px; height:200px; }
+.scan-corner { position:absolute; width:24px; height:24px; }
+.scan-corner.tl { top:0;    left:0;  border-top:3px solid #52B788; border-left:3px solid #52B788; border-radius:4px 0 0 0; }
+.scan-corner.tr { top:0;    right:0; border-top:3px solid #52B788; border-right:3px solid #52B788; border-radius:0 4px 0 0; }
+.scan-corner.bl { bottom:0; left:0;  border-bottom:3px solid #52B788; border-left:3px solid #52B788; border-radius:0 0 0 4px; }
+.scan-corner.br { bottom:0; right:0; border-bottom:3px solid #52B788; border-right:3px solid #52B788; border-radius:0 0 4px 0; }
+.scan-line { position:absolute; left:10px; right:10px; height:2px; background:rgba(82,183,136,0.7); top:50%; animation:scanMove 2s ease-in-out infinite; box-shadow:0 0 8px rgba(82,183,136,0.5); }
+@keyframes scanMove { 0%,100%{top:10%} 50%{top:88%} }
+.scan-inner { position:absolute; inset:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(82,183,136,0.1); border-radius:4px; }
+.scan-caption { text-align:center; color:rgba(255,255,255,0.7); font-size:14px; font-weight:600; }
+.scan-caption span { display:block; font-size:11px; color:rgba(82,183,136,0.6); margin-top:4px; }
+.fich-pin-panel { background:#0D1E14; border-top:1px solid rgba(82,183,136,0.15); padding:16px; }
+.pin-toggle-btn { width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:rgba(255,255,255,0.5); padding:11px; font-size:12px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+.pin-dots { display:flex; gap:10px; justify-content:center; margin:12px 0; }
+.pin-dot { width:14px; height:14px; border-radius:100px; border:2px solid rgba(82,183,136,0.4); background:transparent; transition:.15s; }
+.pin-dot.filled { background:#52B788; border-color:#52B788; }
+.pin-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.pin-key { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:14px; font-size:20px; font-weight:700; color:white; cursor:pointer; text-align:center; font-family:'Space Grotesk',sans-serif; border-top:none; transition:background .1s; }
+.pin-key:active { background:rgba(82,183,136,0.2); }
+</style>
+
+<div class="fich-shell">
+  <div class="status-bar" style="background:#0D1E14"><span id="fich-clock">9:41</span><span>📶 🔋</span></div>
+
+  <div class="fich-tabs">
+    <button class="fich-tab active" id="tab-qr" onclick="switchTab('qr')">🎫 Mi QR</button>
+    <button class="fich-tab" id="tab-kiosko" onclick="switchTab('kiosko')">📷 Kiosco entrada</button>
+  </div>
+
+  <!-- Mi QR -->
+  <div id="panel-qr" class="fich-qr-panel">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.6);font-weight:700;margin-bottom:16px">Mostrá este código en el lector de entrada</div>
+    <div class="fich-qr-box">
+      <div id="qr-status" class="fich-status-banner on">🟢 Turno activo desde 09:00</div>
+      <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:160px;background:#fff;border-radius:8px;padding:8px">
+        <rect x="8" y="8" width="44" height="44" rx="4" fill="#1B4332"/><rect x="16" y="16" width="28" height="28" rx="2" fill="white"/><rect x="22" y="22" width="16" height="16" rx="1" fill="#1B4332"/>
+        <rect x="108" y="8" width="44" height="44" rx="4" fill="#1B4332"/><rect x="116" y="16" width="28" height="28" rx="2" fill="white"/><rect x="122" y="22" width="16" height="16" rx="1" fill="#1B4332"/>
+        <rect x="8" y="108" width="44" height="44" rx="4" fill="#1B4332"/><rect x="16" y="116" width="28" height="28" rx="2" fill="white"/><rect x="22" y="122" width="16" height="16" rx="1" fill="#1B4332"/>
+        <rect x="62" y="8" width="8" height="8" fill="#1B4332"/><rect x="74" y="8" width="8" height="8" fill="#1B4332"/><rect x="86" y="8" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="20" width="8" height="8" fill="#1B4332"/><rect x="86" y="20" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="32" width="8" height="8" fill="#1B4332"/><rect x="74" y="32" width="8" height="8" fill="#1B4332"/>
+        <rect x="8" y="62" width="8" height="8" fill="#1B4332"/><rect x="20" y="62" width="8" height="8" fill="#1B4332"/><rect x="32" y="62" width="8" height="8" fill="#1B4332"/><rect x="44" y="62" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="62" width="8" height="8" fill="#1B4332"/><rect x="74" y="68" width="8" height="8" fill="#1B4332"/><rect x="86" y="62" width="8" height="8" fill="#1B4332"/>
+        <rect x="98" y="62" width="8" height="8" fill="#1B4332"/><rect x="110" y="62" width="8" height="8" fill="#1B4332"/><rect x="122" y="68" width="8" height="8" fill="#1B4332"/><rect x="134" y="62" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="80" width="8" height="8" fill="#1B4332"/><rect x="80" y="80" width="8" height="8" fill="#1B4332"/><rect x="98" y="80" width="8" height="8" fill="#1B4332"/>
+        <rect x="110" y="80" width="8" height="8" fill="#1B4332"/><rect x="130" y="80" width="8" height="8" fill="#1B4332"/><rect x="144" y="80" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="92" width="8" height="8" fill="#1B4332"/><rect x="74" y="92" width="8" height="8" fill="#1B4332"/><rect x="86" y="98" width="8" height="8" fill="#1B4332"/>
+        <rect x="98" y="92" width="8" height="8" fill="#1B4332"/><rect x="118" y="92" width="8" height="8" fill="#1B4332"/><rect x="134" y="98" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="108" width="8" height="8" fill="#1B4332"/><rect x="74" y="114" width="8" height="8" fill="#1B4332"/><rect x="86" y="108" width="8" height="8" fill="#1B4332"/>
+        <rect x="98" y="108" width="8" height="8" fill="#1B4332"/><rect x="110" y="114" width="8" height="8" fill="#1B4332"/><rect x="122" y="108" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="128" width="8" height="8" fill="#1B4332"/><rect x="80" y="122" width="8" height="8" fill="#1B4332"/>
+        <rect x="98" y="128" width="8" height="8" fill="#1B4332"/><rect x="110" y="122" width="8" height="8" fill="#1B4332"/>
+        <rect x="130" y="128" width="8" height="8" fill="#1B4332"/><rect x="144" y="122" width="8" height="8" fill="#1B4332"/>
+        <rect x="62" y="144" width="8" height="8" fill="#1B4332"/><rect x="74" y="140" width="8" height="8" fill="#1B4332"/>
+        <rect x="90" y="144" width="8" height="8" fill="#1B4332"/><rect x="104" y="140" width="8" height="8" fill="#1B4332"/>
+        <rect x="118" y="144" width="8" height="8" fill="#1B4332"/><rect x="134" y="140" width="8" height="8" fill="#1B4332"/>
+      </svg>
+      <div style="text-align:center">
+        <div id="qr-name" style="font-size:14px;font-weight:800;color:white">Tomás García</div>
+        <div id="qr-role" style="font-size:11px;color:rgba(82,183,136,0.7);margin-top:2px">Admin · Club Sugar</div>
+      </div>
+      <button onclick="simularFichaje()" style="width:100%;background:rgba(82,183,136,0.15);border:1px solid rgba(82,183,136,0.3);border-radius:10px;color:#52B788;padding:11px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Simular escaneo ↗</button>
+      <!-- PIN record -->
+      <div style="width:100%;background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.2);border-radius:12px;padding:12px;text-align:center">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(14,165,233,0.6);font-weight:700;margin-bottom:6px">Mi PIN de acceso</div>
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:4px">
+          <span style="width:32px;height:38px;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#38BDF8;font-family:'Space Grotesk',sans-serif">1</span>
+          <span style="width:32px;height:38px;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#38BDF8;font-family:'Space Grotesk',sans-serif">2</span>
+          <span style="width:32px;height:38px;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#38BDF8;font-family:'Space Grotesk',sans-serif">3</span>
+          <span style="width:32px;height:38px;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#38BDF8;font-family:'Space Grotesk',sans-serif">4</span>
+        </div>
+        <div style="font-size:10px;color:rgba(14,165,233,0.5)">Usalo en el kiosco si no tenés el QR</div>
+      </div>
+    </div>
+    <div id="qr-historial" style="margin-top:16px;width:100%;max-width:280px">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.5);font-weight:700;margin-bottom:8px">Historial de hoy</div>
+      <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:12px;padding:12px" id="hist-items">
+        <div style="font-size:13px;color:rgba(255,255,255,0.7)">🟢 Entrada registrada · 09:00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kiosco -->
+  <div id="panel-kiosko" class="fich-kiosko" style="display:none">
+    <div class="fich-kiosko-header">
+      <div style="font-size:14px;font-weight:700;color:white">🌿 Club Sugar · Fichaje</div>
+      <div style="font-size:11px;color:rgba(82,183,136,0.5);margin-top:2px">Acercá tu QR de empleado</div>
+    </div>
+    <div class="scan-stage" onclick="simularScanKiosko()">
+      <div class="scan-zone">
+        <div class="scan-inner"></div>
+        <div class="scan-corner tl"></div><div class="scan-corner tr"></div>
+        <div class="scan-corner bl"></div><div class="scan-corner br"></div>
+        <div class="scan-line" id="scan-line-anim"></div>
+      </div>
+      <div class="scan-caption" id="scan-caption">
+        Acercá tu QR de fichaje
+        <span>el lector lo detecta automáticamente · tocá para simular</span>
+      </div>
+      <div id="scan-ok" style="display:none;flex-direction:column;align-items:center;gap:10px;text-align:center">
+        <div style="font-size:48px">✅</div>
+        <div style="font-size:16px;font-weight:800;color:#22C55E" id="scan-ok-txt">Entrada registrada</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)" id="scan-ok-time"></div>
+      </div>
+    </div>
+    <!-- Registros de hoy -->
+    <div id="fich-log-today" style="padding:12px 16px;border-top:1px solid rgba(82,183,136,0.1)">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.5);font-weight:700;margin-bottom:10px">Registros de hoy</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:10px;background:rgba(201,162,39,0.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#C9A227;flex-shrink:0">TG</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:700;color:white">Tomás García</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4)">Entrada 09:03</div>
+          </div>
+          <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;white-space:nowrap">🟢 2h 41m</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:10px;background:rgba(56,189,248,0.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#38BDF8;flex-shrink:0">MR</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:700;color:white">Miguel Rodríguez</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4)">Entrada 09:15</div>
+          </div>
+          <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;white-space:nowrap">🟢 2h 11m</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:10px;background:rgba(94,234,212,0.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#5EEAD4;flex-shrink:0">CT</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:700;color:white">Camila Torres</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4)">Entrada 11:00</div>
+          </div>
+          <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;white-space:nowrap">🟢 1h 41m</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:10px;background:rgba(82,183,136,0.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#52B788;flex-shrink:0">SM</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.65)">Sofía Mendoza</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.35)">Entrada 10:30 · Salida 16:35</div>
+          </div>
+          <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;white-space:nowrap">✅ 6h 05m</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:rgba(201,162,39,0.6);flex-shrink:0">RV</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.4)">Rodrigo Vega</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.25)">Sin registro hoy</div>
+          </div>
+          <span style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.3);font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;white-space:nowrap">⚫ Ausente</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="fich-pin-panel">
+      <button class="pin-toggle-btn" id="btn-pin-toggle" onclick="togglePinKiosko()">¿Sin QR? → Ingresar con PIN</button>
+      <div id="pin-kiosko" style="display:none;margin-top:12px">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:8px">PIN de 4 dígitos · demo: 1234</div>
+        <div class="pin-dots"><div class="pin-dot" id="kd0"></div><div class="pin-dot" id="kd1"></div><div class="pin-dot" id="kd2"></div><div class="pin-dot" id="kd3"></div></div>
+        <div class="pin-grid">
+          <button class="pin-key" onclick="addKioskoPin(1)">1</button><button class="pin-key" onclick="addKioskoPin(2)">2</button><button class="pin-key" onclick="addKioskoPin(3)">3</button>
+          <button class="pin-key" onclick="addKioskoPin(4)">4</button><button class="pin-key" onclick="addKioskoPin(5)">5</button><button class="pin-key" onclick="addKioskoPin(6)">6</button>
+          <button class="pin-key" onclick="addKioskoPin(7)">7</button><button class="pin-key" onclick="addKioskoPin(8)">8</button><button class="pin-key" onclick="addKioskoPin(9)">9</button>
+          <button class="pin-key" onclick="clearKioskoPin()" style="font-size:14px;color:rgba(239,68,68,0.7)">✕</button>
+          <button class="pin-key" onclick="addKioskoPin(0)">0</button>
+          <button class="pin-key" onclick="backKioskoPin()" style="font-size:16px">⌫</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var fichTurnoActivo = true;
+var kioskoPin = '';
+
+function switchTab(t) {
+  ['qr','kiosko'].forEach(tab => {
+    document.getElementById('tab-' + tab).classList.toggle('active', tab === t);
+    document.getElementById('panel-' + tab).style.display = tab === t ? '' : 'none';
+  });
+}
+
+function simularFichaje() {
+  fichTurnoActivo = !fichTurnoActivo;
+  const st = document.getElementById('qr-status');
+  const ahora = new Date();
+  const hora = ahora.getHours() + ':' + String(ahora.getMinutes()).padStart(2,'0');
+  const hist = document.getElementById('hist-items');
+  if(fichTurnoActivo) {
+    st.className = 'fich-status-banner on';
+    st.textContent = '🟢 Turno activo desde ' + hora;
+    hist.innerHTML += `<div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:6px">🟢 Entrada · ${hora}</div>`;
+  } else {
+    st.className = 'fich-status-banner off';
+    st.textContent = '⚫ Turno cerrado · ' + hora;
+    hist.innerHTML += `<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px">⚫ Salida · ${hora}</div>`;
+  }
+}
+
+function simularScanKiosko() {
+  const caption = document.getElementById('scan-caption');
+  const ok = document.getElementById('scan-ok');
+  const line = document.getElementById('scan-line-anim');
+  const ahora = new Date();
+  const hora = ahora.getHours() + ':' + String(ahora.getMinutes()).padStart(2,'0');
+  if(ok.style.display === 'flex') return;
+  line.style.animationPlayState = 'paused';
+  caption.style.display = 'none';
+  ok.style.display = 'flex';
+  document.getElementById('scan-ok-txt').textContent = '✓ Tomás García — Entrada registrada';
+  document.getElementById('scan-ok-time').textContent = hora;
+  setTimeout(() => {
+    line.style.animationPlayState = 'running';
+    caption.style.display = '';
+    ok.style.display = 'none';
+  }, 2500);
+}
+
+function togglePinKiosko() {
+  const p = document.getElementById('pin-kiosko');
+  p.style.display = p.style.display === 'none' ? '' : 'none';
+  document.getElementById('btn-pin-toggle').textContent = p.style.display === 'none' ? '¿Sin QR? → Ingresar con PIN' : '← Cancelar PIN';
+  if(p.style.display !== 'none') clearKioskoPin();
+}
+
+function addKioskoPin(d) {
+  if(kioskoPin.length >= 4) return;
+  kioskoPin += d;
+  for(let i=0;i<4;i++) document.getElementById('kd'+i).className='pin-dot'+(i<kioskoPin.length?' filled':'');
+  if(kioskoPin.length === 4) setTimeout(checkKioskoPin, 200);
+}
+function backKioskoPin() { kioskoPin=kioskoPin.slice(0,-1); for(let i=0;i<4;i++) document.getElementById('kd'+i).className='pin-dot'+(i<kioskoPin.length?' filled':''); }
+function clearKioskoPin() { kioskoPin=''; for(let i=0;i<4;i++) document.getElementById('kd'+i).className='pin-dot'; }
+
+function checkKioskoPin() {
+  if(kioskoPin === '1234') {
+    document.getElementById('pin-kiosko').innerHTML = '<div style="text-align:center;padding:12px"><div style="font-size:28px">✅</div><div style="font-size:14px;font-weight:700;color:#22C55E;margin-top:4px">Entrada registrada · Tomás García</div></div>';
+    setTimeout(() => { document.getElementById('pin-kiosko').style.display='none'; document.getElementById('btn-pin-toggle').textContent='¿Sin QR? → Ingresar con PIN'; kioskoPin=''; }, 2000);
+  } else {
+    for(let i=0;i<4;i++){const d=document.getElementById('kd'+i);d.style.background='rgba(239,68,68,0.5)';d.style.borderColor='#EF4444';}
+    setTimeout(() => clearKioskoPin(), 800);
+  }
+}
+
+(function(){
+  const raw = sessionStorage.getItem('eq_user');
+  if(raw){ const u=JSON.parse(raw); document.getElementById('qr-name').textContent=u.name; document.getElementById('qr-role').textContent=u.role+' · Club Sugar'; }
+  const h=new Date().getHours(), m=new Date().getMinutes();
+  document.getElementById('fich-clock').textContent = h+':'+String(m).padStart(2,'0');
+})();
+</script>

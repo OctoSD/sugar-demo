@@ -1,0 +1,342 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link active"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">🌱 Abastecimiento</div>
+        <div class="d-page-sub">Supply chain · nov 2026</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="p-chip ok" style="font-size:12px">🟢 Cultivo activo</span>
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Sincronizando…';setTimeout(function(){b.textContent='✓ Actualizado';b.style.opacity='0.7';},900)">🔄 Sincronizar</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:20px">
+      <div class="kpi" style="border-top:3px solid var(--warning)">
+        <div class="kpi-label">⚠️ Stock bajo</div>
+        <div class="kpi-value" style="color:var(--warning)">2</div>
+        <div class="kpi-sub">cepas bajo umbral</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">📦 Listo para pedir</div>
+        <div class="kpi-value" style="color:var(--success)">240g</div>
+        <div class="kpi-sub">Blue Dream disponible</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">🌸 Próxima cosecha</div>
+        <div class="kpi-value" style="color:var(--info)">33 días</div>
+        <div class="kpi-sub">OG Kush · 15 dic 2026</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">🚚 Solicitudes activas</div>
+        <div class="kpi-value">1</div>
+        <div class="kpi-sub">en preparación</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start">
+
+      <!-- IZQUIERDA: estado por cepa -->
+      <div>
+
+        <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div class="d-section-title" style="margin:0">Estado del cultivo · por cepa</div>
+            <span style="font-size:12px;color:var(--text-muted)">Actualizado hoy 11:30</span>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cepa</th>
+                  <th>Plantas</th>
+                  <th>Etapa</th>
+                  <th>Cosecha est.</th>
+                  <th>Disponible</th>
+                  <th>Stock club</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>OG Kush</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">12 plantas</td>
+                  <td><span class="p-chip blue" style="font-size:11px">🌸 Floración sem 6/8</span></td>
+                  <td style="font-size:12px">15 dic 2026</td>
+                  <td style="font-size:12px;color:var(--text-muted)">~480g est.</td>
+                  <td><span class="p-chip warn" style="font-size:11px">⚠️ 8g</span></td>
+                  <td><button class="p-btn small primary" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Solicitado';b.style.opacity='0.7';},900)">Solicitar →</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Gorilla Glue #4</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">8 plantas</td>
+                  <td><span class="p-chip muted" style="font-size:11px">🌿 Vegetativo sem 4/6</span></td>
+                  <td style="font-size:12px">20 ene 2027</td>
+                  <td style="font-size:12px;color:var(--text-muted)">~320g est.</td>
+                  <td><span class="p-chip warn" style="font-size:11px">⚠️ 6g</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px;opacity:0.5" onclick="var b=this;var t=b.textContent;b.textContent='🔒 Aún en cultivo';setTimeout(function(){b.textContent=t;},1800)">No disponible</button></td>
+                </tr>
+                <tr style="background:rgba(82,183,136,0.04)">
+                  <td><strong>Blue Dream</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">6 plantas</td>
+                  <td><span class="p-chip ok" style="font-size:11px">✅ Cosecha lista</span></td>
+                  <td style="font-size:12px;color:var(--success);font-weight:600">Disponible ahora</td>
+                  <td style="font-size:13px;font-weight:800;color:var(--success)">240g</td>
+                  <td><span class="p-chip ok" style="font-size:11px">18g</span></td>
+                  <td><button class="p-btn small accent" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Solicitado';b.style.opacity='0.7';},900)">Pedir envío →</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Wedding Cake</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">4 plantas</td>
+                  <td><span class="p-chip muted" style="font-size:11px">🌱 Seedling sem 2/6</span></td>
+                  <td style="font-size:12px">10 feb 2027</td>
+                  <td style="font-size:12px;color:var(--text-muted)">~160g est.</td>
+                  <td><span class="p-chip ok" style="font-size:11px">12g</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px;opacity:0.5" onclick="var b=this;var t=b.textContent;b.textContent='🔒 Aún en cultivo';setTimeout(function(){b.textContent=t;},1800)">No disponible</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Solicitar envío — form -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-h">
+            <div class="d-section-title">Nueva solicitud de envío</div>
+            <span class="p-chip ok" style="font-size:11px">Blue Dream · 240g disponible</span>
+          </div>
+          <div style="padding:0 18px 18px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end">
+            <div>
+              <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px">Cepa</label>
+              <select style="width:100%;padding:9px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--surface);color:var(--text)">
+                <option>Blue Dream</option>
+                <option>OG Kush (cosecha dic)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px">Cantidad (g)</label>
+              <input type="number" value="30" style="width:100%;padding:9px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px">Urgencia</label>
+              <select style="width:100%;padding:9px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--surface);color:var(--text)">
+                <option>Normal (3–5 días)</option>
+                <option>Urgente (24–48hs)</option>
+              </select>
+            </div>
+            <button class="p-btn primary" style="font-size:13px;padding:9px 18px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Solicitado';b.style.opacity='0.7';},900)">📤 Solicitar</button>
+          </div>
+          <div style="padding:0 18px 14px">
+            <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px">Nota para el cultivador (opcional)</label>
+            <input type="text" placeholder="ej: stock bajo, necesitamos prioridad esta semana" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;box-sizing:border-box">
+          </div>
+        </div>
+
+        <!-- Historial recepción -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Recepciones recientes</div>
+            <span class="p-chip muted" style="font-size:11px">últimos 60 días</span>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Cepa</th>
+                  <th>Lote</th>
+                  <th>Recibido</th>
+                  <th>Merma</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-size:12px">01 nov 2026</td>
+                  <td><strong>OG Kush</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">LOT-OGK-oct26</td>
+                  <td style="font-weight:700">20g</td>
+                  <td style="font-size:12px;color:var(--text-muted)">8% (1.8g)</td>
+                  <td><span class="p-chip ok" style="font-size:11px">✅ Recibido</span></td>
+                </tr>
+                <tr>
+                  <td style="font-size:12px">15 oct 2026</td>
+                  <td><strong>Gorilla Glue #4</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">LOT-GG4-oct26</td>
+                  <td style="font-weight:700">15g</td>
+                  <td style="font-size:12px;color:var(--text-muted)">6% (0.9g)</td>
+                  <td><span class="p-chip ok" style="font-size:11px">✅ Recibido</span></td>
+                </tr>
+                <tr>
+                  <td style="font-size:12px">02 oct 2026</td>
+                  <td><strong>Blue Dream</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">LOT-BD-sep26</td>
+                  <td style="font-weight:700">25g</td>
+                  <td style="font-size:12px;color:var(--text-muted)">10% (2.8g)</td>
+                  <td><span class="p-chip ok" style="font-size:11px">✅ Recibido</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DERECHA: solicitudes activas + próximas cosechas -->
+      <div>
+
+        <!-- Solicitud en curso -->
+        <div class="d-section" style="margin-bottom:12px;border:1.5px solid rgba(82,183,136,0.3)" id="solicitud-activa">
+          <div class="d-section-h">
+            <div class="d-section-title">Solicitud activa · REQ-0241</div>
+            <span class="p-chip" style="font-size:11px;background:rgba(245,158,11,0.12);color:#B45309;border:1px solid rgba(245,158,11,0.3)" id="req-chip">🚚 En preparación</span>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div class="list-item" style="padding:6px 0">
+              <span style="font-size:18px">🌿</span>
+              <div class="list-item-main">
+                <div class="list-item-title">OG Kush · 20g</div>
+                <div class="list-item-sub">Solicitado 10 nov · Rodrigo M. confirmó el envío</div>
+              </div>
+            </div>
+
+            <!-- Estado de envío -->
+            <div id="estado-envio" style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:11px 14px;margin-top:10px">
+              <div style="font-size:12px;font-weight:700;color:#92400E">🚚 Rodrigo M. confirmó: material en preparación</div>
+              <div style="font-size:11px;color:#A16207;margin-top:3px">Despacho estimado: 17–18 nov · OG Kush 20g</div>
+            </div>
+
+            <!-- Confirmar recepción (aparece cuando llega el material) -->
+            <div id="box-confirmar" style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.25);border-radius:10px;padding:12px 14px;margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#15803D">¿Llegó el material?</div>
+                <div style="font-size:11px;color:#166534;margin-top:2px">Confirmá la recepción para actualizar el stock del club</div>
+              </div>
+              <button class="p-btn small accent" id="btn-confirmar-recep" onclick="
+                var b=this;
+                b.disabled=true;
+                b.textContent='⏳ Registrando…';
+                setTimeout(function(){
+                  document.getElementById('estado-envio').innerHTML='<div style=&quot;font-size:12px;font-weight:700;color:#15803D&quot;>✅ Recepción confirmada · stock actualizado</div><div style=&quot;font-size:11px;color:#166534;margin-top:3px&quot;>OG Kush +20g · 12 nov · Tomás García</div>';
+                  document.getElementById('estado-envio').style.background='rgba(34,197,94,0.07)';
+                  document.getElementById('estado-envio').style.borderColor='rgba(34,197,94,0.25)';
+                  document.getElementById('box-confirmar').style.display='none';
+                  document.getElementById('req-chip').textContent='✅ Recibido';
+                  document.getElementById('req-chip').style.background='rgba(34,197,94,0.12)';
+                  document.getElementById('req-chip').style.color='#15803D';
+                  document.getElementById('req-chip').style.borderColor='rgba(34,197,94,0.3)';
+                }, 1000);
+              ">✅ Confirmar recepción</button>
+            </div>
+
+            <div class="activity-feed" style="margin-top:14px">
+              <div class="activity-item">
+                <div class="activity-dot warn"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Rodrigo M. confirmó: material en preparación</div>
+                  <div class="activity-time">11 nov · 09:15</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot info"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Solicitud enviada al equipo de cultivo</div>
+                  <div class="activity-time">10 nov · 10:47</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Próximas cosechas -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Próximas cosechas</div>
+          </div>
+          <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg-tint);border-radius:10px">
+              <div>
+                <div style="font-size:13px;font-weight:700">OG Kush</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px">12 plantas · ~480g est.</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-size:12px;font-weight:700;color:var(--info)">15 dic 2026</div>
+                <div style="font-size:11px;color:var(--text-muted)">33 días</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg-tint);border-radius:10px">
+              <div>
+                <div style="font-size:13px;font-weight:700">Gorilla Glue #4</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px">8 plantas · ~320g est.</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-size:12px;font-weight:700;color:var(--text-muted)">20 ene 2027</div>
+                <div style="font-size:11px;color:var(--text-muted)">69 días</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg-tint);border-radius:10px">
+              <div>
+                <div style="font-size:13px;font-weight:700">Wedding Cake</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px">4 plantas · ~160g est.</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-size:12px;font-weight:700;color:var(--text-muted)">10 feb 2027</div>
+                <div style="font-size:11px;color:var(--text-muted)">90 días</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerta stock -->
+        <div class="p-alert warn" style="border-radius:10px;font-size:12px">
+          <span>⚠️</span>
+          <div>
+            <strong>2 cepas bajo umbral</strong><br>
+            OG Kush (8g · umbral 10g) y GG#4 (6g · umbral 10g). Considerá solicitar adelanto de cosecha o buscar stock externo.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

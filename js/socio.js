@@ -1,8 +1,9 @@
 const SCREENS = [
-  'socio-home', 'socio-catalogo', 'socio-strain', 'socio-pedido',
-  'socio-confirmacion', 'socio-historial', 'socio-educacion',
+  'socio-login', 'socio-home', 'socio-catalogo', 'socio-strain', 'socio-pedido',
+  'socio-confirmacion', 'socio-pedido-detalle', 'socio-historial', 'socio-educacion',
   'socio-edu-strain', 'socio-perfil', 'socio-membresia',
-  'socio-eventos', 'socio-evento', 'socio-qr', 'socio-edu-article'
+  'socio-eventos', 'socio-evento', 'socio-qr', 'socio-edu-article',
+  'socio-beneficios', 'socio-beneficio-detalle'
 ];
 
 const root = document.getElementById('screen-root');
@@ -54,9 +55,9 @@ function attachBehaviors(container) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const hash = location.hash.replace('#','') || 'socio-home';
+  const hash = location.hash.replace('#','') || 'socio-login';
   if (SCREENS.includes(hash)) goTo(hash);
-  else goTo('socio-home');
+  else goTo('socio-login');
 });
 window.addEventListener('hashchange', () => {
   const id = location.hash.replace('#','');

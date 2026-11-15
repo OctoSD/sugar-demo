@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar · Configurar club — Paso 1 de 8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:       #1B4332;
+      --primary-dark:  #0D2318;
+      --primary-light: #D1FAE5;
+      --accent:        #52B788;
+      --accent-dark:   #2D6A4F;
+      --accent-light:  #B7E4C7;
+      --gold:          #C9A227;
+      --gold-dark:     #7D5F0B;
+      --gold-light:    #FEF9C3;
+      --surface:       #111C15;
+      --surface-2:     #182519;
+      --border:        #1E3328;
+      --border-light:  #2A4535;
+      --text:          #F0FAF4;
+      --text-muted:    #7A9E8A;
+      --text-micro:    #4A7A5B;
+      --bg:            #060E0A;
+      --input-bg:      #0E1A12;
+      --input-border:  #223A2C;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Stepper */
+    .stepper {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 560px;
+    }
+    .step-node {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .step-node.done   { background: var(--accent); color: white; }
+    .step-node.active { background: var(--accent); color: white; box-shadow: 0 0 0 4px rgba(82,183,136,0.2); }
+    .step-node.todo   { background: var(--surface-2); color: var(--text-micro); border: 1.5px solid var(--border-light); }
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border-light);
+    }
+    .step-line.done { background: var(--accent); }
+
+    /* Card */
+    .wizard-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 40px 36px;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    .step-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .step-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    /* Welcome illustration */
+    .welcome-illo {
+      width: 80px; height: 80px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-light);
+    }
+
+    /* Form */
+    .field { margin-bottom: 20px; }
+    .field-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .field-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--input-border);
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      background: var(--input-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .field-input:focus { border-color: var(--accent); }
+    .field-input::placeholder { color: var(--text-micro); }
+    .field-hint {
+      font-size: 12px;
+      color: var(--text-micro);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    /* Actions */
+    .wizard-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-skip {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-micro);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      padding: 0;
+    }
+    .btn-skip:hover { color: var(--text-muted); }
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 24px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.12s;
+    }
+    .btn-next:hover { background: var(--accent-dark); }
+
+    /* Progress text */
+    .progress-label {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-micro);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Stepper -->
+  <div class="stepper">
+    <div class="step-node active">1</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">2</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">3</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">4</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">5</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">6</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">7</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">8</div>
+  </div>
+
+  <!-- Card -->
+  <div class="wizard-card">
+    <div class="welcome-illo">🌿</div>
+
+    <div class="step-label">Paso 1 de 8 · Bienvenida</div>
+    <h1 class="step-title">Bienvenido a Sugar.<br>Configuremos tu club.</h1>
+    <p class="step-sub">En 8 pasos rápidos vas a tener tu espacio listo para operar. Empezamos por lo más importante: el nombre de tu club.</p>
+
+    <div class="field">
+      <label class="field-label">Nombre del club</label>
+      <input class="field-input" type="text" placeholder="Ej: Club Verde Buenos Aires" value="Club Raíces" />
+      <div class="field-hint">Este nombre va a aparecer en el portal de tus socios y en las notificaciones.</div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">¿Cómo quieren que te llamen?</label>
+      <input class="field-input" type="text" placeholder="Ej: Raíces, Sugar Club, El Verde…" value="Raíces" />
+      <div class="field-hint">Nombre corto para usar en comunicaciones internas.</div>
+    </div>
+
+    <div class="wizard-actions">
+      <button class="btn-skip">Saltar por ahora</button>
+      <a class="btn-next" href="sugar-onboarding-02.html">
+        Continuar →
+      </a>
+    </div>
+  </div>
+
+  <div class="progress-label">Paso 1 de 8 · Podés volver en cualquier momento</div>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link active"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -37,32 +42,56 @@
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Eventos del club</div>
-        <div class="d-page-sub">3 eventos en noviembre</div>
+        <div class="d-page-sub">Nov–Dic 2026 · 4 eventos · 1 en planificación</div>
       </div>
       <button class="p-btn small gold" onclick="document.getElementById('create-event-form').style.display=document.getElementById('create-event-form').style.display==='none'?'block':'none'">+ Crear evento</button>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Eventos este mes</div>
+        <div class="kpi-value" style="color:var(--accent)">3</div>
+        <div class="kpi-sub">+ 1 en planificación</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Asistentes confirmados</div>
+        <div class="kpi-value" style="color:var(--info)">53</div>
+        <div class="kpi-sub">entre todos los eventos</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Pases de partner</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">50</div>
+        <div class="kpi-sub">20 usados · 30 disponibles</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--warning)">
+        <div class="kpi-label">Próximo evento</div>
+        <div class="kpi-value" style="font-size:16px;color:var(--warning)">Sáb 16 Nov</div>
+        <div class="kpi-sub">El Patio Sounds · 20hs</div>
+      </div>
     </div>
 
     <!-- Event cards -->
     <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:16px">
 
       <!-- El Patio Sounds -->
-      <div class="d-section" style="margin-bottom:0">
+      <div class="d-section" style="margin-bottom:0;cursor:pointer" data-goto="admin-evento-detalle">
         <div style="display:flex;align-items:flex-start;justify-content:space-between">
           <div style="display:flex;align-items:center;gap:14px">
             <div style="font-size:36px">🎵</div>
             <div>
               <div style="font-size:17px;font-weight:800">El Patio Sounds</div>
               <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Sáb 16 Nov · 20:00hs · 🏠 En el club</div>
-              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
                 <span class="p-chip ok">Del club</span>
-                <span class="p-chip mint">🧑 23 asistentes confirmados</span>
+                <span class="p-chip mint">🧑 23 RSVPs de 80 cupos</span>
                 <span class="p-chip muted">Entrada libre</span>
               </div>
             </div>
           </div>
           <div style="display:flex;gap:8px;flex-shrink:0">
-            <button class="p-btn small ghost">✏️ Editar</button>
-            <button class="p-btn small primary">👥 Ver RSVPs</button>
+            <button class="p-btn small ghost" data-goto="admin-evento-detalle">✏️ Editar</button>
+            <button class="p-btn small primary" data-goto="admin-evento-detalle">👥 Ver RSVPs</button>
           </div>
         </div>
         <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
@@ -71,51 +100,78 @@
       </div>
 
       <!-- La Grande -->
-      <div class="d-section" style="margin-bottom:0">
+      <div class="d-section" style="margin-bottom:0;cursor:pointer" data-goto="admin-evento-detalle">
         <div style="display:flex;align-items:flex-start;justify-content:space-between">
           <div style="display:flex;align-items:center;gap:14px">
             <div style="font-size:36px">🎶</div>
             <div>
               <div style="font-size:17px;font-weight:800">La Grande</div>
               <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Vie 22 Nov · 📍 Dumont 40</div>
-              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
                 <span class="p-chip blue">Partner</span>
                 <span class="p-chip gold">20 pases totales</span>
-                <span class="p-chip ok">8 usados</span>
-                <span class="p-chip muted">12 disponibles</span>
+                <span class="p-chip ok">12 reservados</span>
+                <span class="p-chip muted">8 disponibles</span>
               </div>
             </div>
           </div>
           <div style="display:flex;gap:8px;flex-shrink:0">
-            <button class="p-btn small ghost">✏️ Editar</button>
-            <button class="p-btn small primary">🎟️ Gestionar pases</button>
+            <button class="p-btn small ghost" data-goto="admin-evento-detalle">✏️ Editar</button>
+            <button class="p-btn small primary" data-goto="admin-evento-detalle">🎟️ Gestionar pases</button>
           </div>
         </div>
         <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
-          <div style="font-size:13px;color:var(--text-muted)">Pases gratuitos para socios activos · Usados por: Valentina R., Diego F., y 6 más</div>
+          <div style="font-size:13px;color:var(--text-muted)">Pases gratuitos para socios activos · Usados por: Valentina R., Diego F., y 10 más</div>
         </div>
       </div>
 
       <!-- Bomba de Tiempo -->
-      <div class="d-section" style="margin-bottom:0">
+      <div class="d-section" style="margin-bottom:0;cursor:pointer" data-goto="admin-evento-detalle">
         <div style="display:flex;align-items:flex-start;justify-content:space-between">
           <div style="display:flex;align-items:center;gap:14px">
             <div style="font-size:36px">🥁</div>
             <div>
               <div style="font-size:17px;font-weight:800">Bomba de Tiempo</div>
               <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Dom 30 Nov · 17:00hs · 📍 C.C. Konex</div>
-              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
                 <span class="p-chip blue">Partner</span>
                 <span class="p-chip gold">30 pases 2×1</span>
-                <span class="p-chip ok">5 usados</span>
-                <span class="p-chip muted">25 disponibles</span>
+                <span class="p-chip ok">18 reservados</span>
+                <span class="p-chip muted">12 disponibles</span>
               </div>
             </div>
           </div>
           <div style="display:flex;gap:8px;flex-shrink:0">
-            <button class="p-btn small ghost">✏️ Editar</button>
-            <button class="p-btn small primary">🎟️ Gestionar pases</button>
+            <button class="p-btn small ghost" data-goto="admin-evento-detalle">✏️ Editar</button>
+            <button class="p-btn small primary" data-goto="admin-evento-detalle">🎟️ Gestionar pases</button>
           </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="font-size:13px;color:var(--text-muted)">Entrada 2×1 con pase Sugar · C.C. Konex · Domingos desde las 17hs</div>
+        </div>
+      </div>
+
+      <!-- Cierre de año (NUEVO) -->
+      <div class="d-section" style="margin-bottom:0;border-left:3px solid var(--warning);opacity:0.85;cursor:pointer" data-goto="admin-evento-detalle">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:36px">🎄</div>
+            <div>
+              <div style="font-size:17px;font-weight:800">Cierre de año <span class="p-chip gold" style="font-size:11px;vertical-align:middle">En planificación</span></div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:2px">📅 Sáb 20 Dic · 🏠 En el club</div>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <span class="p-chip ok">Del club</span>
+                <span class="p-chip muted">🧑 0 RSVPs · aún no publicado</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0">
+            <button class="p-btn small ghost" data-goto="admin-evento-detalle">✏️ Editar</button>
+            <button class="p-btn small gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">📢 Publicar</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="font-size:13px;color:var(--text-muted)">Fiesta de fin de año del club · en planificación · fecha tentativa Sáb 20 Dic</div>
         </div>
       </div>
 
@@ -131,7 +187,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
           <div>
             <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Nombre del evento</label>
-            <input type="text" placeholder="Ej: Noche de Jazz" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+            <input type="text" value="Noche de Jazz en el Patio" placeholder="Ej: Noche de Jazz" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
           </div>
           <div>
             <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Tipo</label>
@@ -143,19 +199,19 @@
           </div>
           <div>
             <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Fecha y hora</label>
-            <input type="datetime-local" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+            <input type="datetime-local" value="2026-12-20T21:00" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
           </div>
           <div>
             <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Lugar</label>
-            <input type="text" placeholder="Ej: En el club / Dumont 40" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+            <input type="text" value="En el club · Patio principal" placeholder="Ej: En el club / Dumont 40" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
           </div>
           <div style="grid-column:1/-1">
             <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Descripción</label>
-            <textarea style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;resize:vertical;min-height:80px" placeholder="Describí el evento para los socios…"></textarea>
+            <textarea style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;resize:vertical;min-height:80px" placeholder="Describí el evento para los socios…">Noche de jazz en vivo en el patio del club. Entrada libre para socios. Consumiciones desde la barra. Capacidad limitada a 60 personas.</textarea>
           </div>
           <div>
             <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Límite de pases (0 = libre)</label>
-            <input type="number" value="0" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
+            <input type="number" value="60" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px">
           </div>
           <div style="display:flex;align-items:center;gap:10px;padding-top:20px">
             <input type="checkbox" id="pub-toggle" checked style="width:16px;height:16px;cursor:pointer">
@@ -163,7 +219,7 @@
           </div>
         </div>
         <div style="margin-top:16px;display:flex;justify-content:flex-end;gap:10px">
-          <button class="p-btn ghost">Cancelar</button>
+          <button class="p-btn ghost" onclick="document.getElementById('create-event-form').style.display='none'">Cancelar</button>
           <button class="p-btn gold" onclick="this.textContent='✅ Evento creado';this.disabled=true">Guardar evento</button>
         </div>
       </div>

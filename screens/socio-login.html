@@ -1,0 +1,85 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div style="flex:1;display:flex;flex-direction:column;padding:24px 20px 32px;overflow-y:auto">
+
+  <!-- Branding -->
+  <div style="text-align:center;padding:28px 0 20px">
+    <div style="font-size:48px;margin-bottom:10px">🌿</div>
+    <div style="font-size:26px;font-weight:900;letter-spacing:-0.5px;color:white;font-family:'Space Grotesk',sans-serif">Sugar</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px">Club de Cannabis Medicinal</div>
+  </div>
+
+  <!-- Greeting + saldo — estado pre-rellenado de Valentina -->
+  <div style="background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);border-radius:16px;padding:14px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
+    <div class="p-avatar mint" style="width:44px;height:44px;font-size:16px;font-weight:800;flex-shrink:0">VR</div>
+    <div style="flex:1">
+      <div style="font-size:16px;font-weight:800;color:white">Hola Valentina 👋</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:1px">Socio #1042 · Plan ⭐ Brote</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:18px;font-weight:900;color:var(--gold-dark)">🪙 23</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.4)">tokens</div>
+    </div>
+  </div>
+
+  <!-- Login form -->
+  <div>
+    <div style="font-size:17px;font-weight:800;color:white;margin-bottom:4px">Ingresá a tu cuenta</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px">Portal de socios · Club Sugar</div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div>
+        <label class="p-input-label">Email</label>
+        <input class="p-input" type="email" value="valentina.r@gmail.com" style="font-size:14px" readonly />
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <label class="p-input-label" style="margin:0">Contraseña</label>
+          <span style="font-size:12px;color:var(--accent);cursor:pointer">¿Olvidaste tu PIN?</span>
+        </div>
+        <input class="p-input" type="password" value="sugar2026" style="font-size:18px;letter-spacing:.2em" readonly />
+      </div>
+    </div>
+
+    <button class="p-btn primary block" style="margin-top:22px;padding:15px;font-size:15px;font-weight:800" data-goto="socio-home">
+      Ingresar →
+    </button>
+
+    <div style="display:flex;align-items:center;gap:10px;margin:18px 0">
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.1)"></div>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3)">¿Primera vez?</span>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.1)"></div>
+    </div>
+
+    <button class="p-btn block" style="border:1.5px solid rgba(82,183,136,0.3);color:var(--accent);background:rgba(82,183,136,0.07);font-weight:600" data-goto="socio-login">
+      Quiero ser socio del club →
+    </button>
+
+    <div style="margin-top:18px;text-align:center;font-size:12px;color:rgba(255,255,255,0.3)">
+      ¿Problemas para ingresar? Contactá al club por WhatsApp
+    </div>
+  </div>
+
+  <!-- Estado del club -->
+  <div style="margin-top:28px;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.3)">Estado del club hoy</div>
+      <span style="font-size:11px;font-weight:700;color:var(--success)">🟢 Abierto</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:10px 6px">
+        <div style="font-size:14px;font-weight:800;color:var(--accent)">OG Kush</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px">disponible hoy</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:10px 6px">
+        <div style="font-size:14px;font-weight:800;color:white">11–20hs</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px">horario mar</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:10px 6px">
+        <div style="font-size:14px;font-weight:800;color:var(--gold-dark)">🌿 4</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px">cepas hoy</div>
+      </div>
+    </div>
+  </div>
+
+</div>

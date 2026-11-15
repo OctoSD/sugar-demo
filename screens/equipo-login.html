@@ -1,0 +1,50 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div style="flex:1;background:#060E0A;display:flex;flex-direction:column;padding:28px 20px 24px">
+
+  <!-- Brand -->
+  <div style="text-align:center;margin-bottom:36px">
+    <div style="font-size:52px;line-height:1;margin-bottom:14px">🌿</div>
+    <div style="font-size:26px;font-weight:900;color:white;font-family:'Space Grotesk',sans-serif;letter-spacing:-0.5px">Portal Equipo</div>
+    <div style="font-size:14px;color:rgba(82,183,136,0.65);margin-top:4px;font-weight:600">Club Sugar</div>
+  </div>
+
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.5);font-weight:700;margin-bottom:14px">¿Quién sos?</div>
+
+  <div id="login-list" style="display:flex;flex-direction:column;gap:10px"></div>
+
+  <div style="margin-top:auto;padding-top:28px;text-align:center">
+    <div style="font-size:11px;color:rgba(255,255,255,0.15)">Sugar · Club Sugar · v1.0</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const USERS = [
+    { id:'tomas',   name:'Tomás García',      role:'Admin · acceso completo', initials:'TG', color:'gold',   perms:['admision','armado','entrega','medico','fichaje'] },
+    { id:'camila',  name:'Camila Torres',     role:'Admisión',                initials:'CT', color:'mint',   perms:['admision'] },
+    { id:'rodrigo', name:'Rodrigo Vega',      role:'Armado + Entregas',       initials:'RV', color:'sky',    perms:['armado','entrega','fichaje'] },
+    { id:'sofia',   name:'Sofía Mendoza',     role:'Admisión',                initials:'SM', color:'purple', perms:['admision','fichaje'] },
+    { id:'marcos',  name:'Marcos Reyes',      role:'Armado',                  initials:'MR', color:'green',  perms:['armado','fichaje'] },
+    { id:'dra',     name:'Dra. Andrea Pérez', role:'Médico del club',         initials:'AP', color:'purple', perms:['medico'] },
+  ];
+  const list = document.getElementById('login-list');
+  list.innerHTML = USERS.map(u => `
+    <div class="equipo-role-card" data-uid="${u.id}" style="cursor:pointer">
+      <div class="p-avatar ${u.color} sm" style="flex-shrink:0;font-size:13px">${u.initials}</div>
+      <div class="equipo-role-main">
+        <div class="equipo-role-title">${u.name}</div>
+        <div class="equipo-role-sub">${u.role}</div>
+      </div>
+      <div style="color:rgba(82,183,136,0.4);font-size:20px;line-height:1">›</div>
+    </div>`).join('');
+  list.querySelectorAll('[data-uid]').forEach(el => {
+    el.addEventListener('click', () => {
+      const u = USERS.find(x => x.id === el.dataset.uid);
+      sessionStorage.setItem('eq_user', JSON.stringify(u));
+      if(window.__portalGoTo) window.__portalGoTo('equipo-hub');
+    });
+  });
+})();
+</script>

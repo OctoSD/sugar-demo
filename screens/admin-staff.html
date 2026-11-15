@@ -1,0 +1,831 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link active"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">👷 Staff · Gestión de personas</div>
+        <div class="d-page-sub">Roles, turnos y tareas del equipo interno · Club Sugar</div>
+      </div>
+      <button class="p-btn small primary" onclick="staffShowAdd()">+ Agregar persona</button>
+    </div>
+
+    <!-- Form nueva persona -->
+    <div id="form-staff" style="display:none;background:var(--bg-tint);border:1.5px solid var(--accent);border-radius:14px;padding:20px;margin-bottom:16px">
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px">Nueva persona del club</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Nombre *</div>
+          <input type="text" placeholder="Nombre completo" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Email</div>
+          <input type="email" placeholder="nombre@sugar.club" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Rol operativo *</div>
+          <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            <option value="">Seleccionar…</option>
+            <option>Admin</option>
+            <option>Admisión</option>
+            <option>Armado de pedidos</option>
+            <option>Entregas</option>
+            <option>Director Médico ★</option>
+            <option>Resp. Técnico Cultivo ★</option>
+            <option>Contador / Administrativo</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Rol formal</div>
+          <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            <option value="">Sin rol formal</option>
+            <option>Cultivador ★</option>
+            <option>Distribuidor ★</option>
+            <option>Tesorero</option>
+            <option>Fiscal</option>
+            <option>Encargado</option>
+            <option>Administrador</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Modalidad *</div>
+          <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            <option value="">Seleccionar…</option>
+            <option>Socio activo</option>
+            <option>Monotributista</option>
+            <option>Rel. de dependencia (CCT UTEDYC)</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Fecha de alta *</div>
+          <input type="date" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Horario</div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <input type="time" style="flex:1;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            <span style="color:var(--text-muted);font-size:12px">a</span>
+            <input type="time" style="flex:1;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">Días</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox" checked> L</label>
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox" checked> M</label>
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox" checked> X</label>
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox" checked> J</label>
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox" checked> V</label>
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox"> S</label>
+            <label style="display:flex;align-items:center;gap:3px;font-size:11px;cursor:pointer"><input type="checkbox"> D</label>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button onclick="staffShowAdd()" class="p-btn small ghost">Cancelar</button>
+        <button class="p-btn small primary" onclick="this.textContent='✓ Persona agregada';this.disabled=true;setTimeout(()=>{staffShowAdd()},800)">Agregar →</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:20px">
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Total personas</div>
+        <div class="kpi-value">6</div>
+        <div class="kpi-sub">en el club</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">En turno hoy</div>
+        <div class="kpi-value" style="color:var(--success)">3</div>
+        <div class="kpi-sub">fichados activos</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--warning)">
+        <div class="kpi-label">Credenciales a vencer</div>
+        <div class="kpi-value" style="color:var(--warning)">1</div>
+        <div class="kpi-sub">en los próximos 60 días</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid #EF4444">
+        <div class="kpi-label">Tareas urgentes</div>
+        <div class="kpi-value" style="color:#EF4444">2</div>
+        <div class="kpi-sub">pendientes</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid var(--border)">
+      <button id="tab-btn-personas" onclick="staffTab('personas')" style="padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:none;color:var(--accent);border-bottom:2px solid var(--accent);margin-bottom:-2px;font-family:'Inter',sans-serif;transition:.15s">Personas</button>
+      <button id="tab-btn-turnos" onclick="staffTab('turnos')" style="padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-2px;font-family:'Inter',sans-serif;transition:.15s">Turnos</button>
+      <button id="tab-btn-tareas" onclick="staffTab('tareas')" style="padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-2px;font-family:'Inter',sans-serif;transition:.15s">Tareas <span id="tab-badge-tareas" style="display:inline-block;background:#EF4444;color:white;font-size:9px;font-weight:800;padding:1px 5px;border-radius:100px;vertical-align:middle;margin-left:3px">2</span></button>
+    </div>
+
+    <!-- ===================== TAB: PERSONAS ===================== -->
+    <div id="tab-personas">
+
+      <!-- Alerta info REPROCANN -->
+      <div class="p-alert info" style="border-radius:12px;margin-bottom:20px;font-size:13px">
+        📋 <strong>Estructura típica de un club REPROCANN:</strong> La regulación exige un <strong>Director Médico</strong> (REFEPS) y un <strong>Responsable Técnico de Cultivo</strong>. También deben identificarse los roles formales de <strong>Cultivador</strong> y <strong>Distribuidor</strong> en el estatuto.
+      </div>
+
+      <!-- Roles obligatorios REPROCANN -->
+      <div style="margin-bottom:20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);margin-bottom:10px">Roles obligatorios REPROCANN</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px">
+          <div style="background:var(--bg-tint);border:1.5px solid rgba(82,183,136,0.4);border-radius:12px;padding:12px 14px">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:4px">🌱 Cultivador</div>
+            <div style="font-size:14px;font-weight:700">Miguel Rodríguez</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Credencial vence jun 2027</div>
+            <span class="p-chip ok" style="font-size:10px;margin-top:6px;display:inline-block">Vigente ✓</span>
+          </div>
+          <div style="background:var(--bg-tint);border:1.5px solid rgba(82,183,136,0.4);border-radius:12px;padding:12px 14px">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:4px">🚚 Distribuidor</div>
+            <div style="font-size:14px;font-weight:700">Rodrigo Vega</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Credencial vence sep 2027</div>
+            <span class="p-chip ok" style="font-size:10px;margin-top:6px;display:inline-block">Vigente ✓</span>
+          </div>
+          <div style="background:var(--bg-tint);border:1.5px solid rgba(82,183,136,0.4);border-radius:12px;padding:12px 14px">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:4px">🩺 Director Médico</div>
+            <div style="font-size:14px;font-weight:700">Dra. Andrea Pérez</div>
+            <div style="font-size:11px;color:var(--warning);margin-top:2px">Diplomatura vence ene 2027</div>
+            <span class="p-chip warn" style="font-size:10px;margin-top:6px;display:inline-block">⚠️ Vence pronto</span>
+          </div>
+          <div style="background:var(--bg-tint);border:1.5px solid rgba(82,183,136,0.4);border-radius:12px;padding:12px 14px">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:4px">🌿 Resp. Técnico Cultivo</div>
+            <div style="font-size:14px;font-weight:700">Miguel Rodríguez</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Plan cultivo actualizado</div>
+            <span class="p-chip ok" style="font-size:10px;margin-top:6px;display:inline-block">Vigente ✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de personas -->
+      <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+        <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+          <div class="d-section-title" style="margin:0">Equipo completo (6)</div>
+          <span style="font-size:12px;color:var(--text-muted)">Click en una persona para ver detalles y permisos</span>
+        </div>
+        <div class="d-table">
+          <table>
+            <thead>
+              <tr><th>Persona</th><th>Rol operativo</th><th>Rol formal</th><th>Modalidad</th><th>Horario</th><th>Estado</th><th></th></tr>
+            </thead>
+            <tbody>
+
+              <!-- Tomás García -->
+              <tr style="cursor:pointer" data-goto="admin-staff-detalle">
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="p-avatar gold sm">TG</div>
+                    <div>
+                      <div style="font-weight:600">Tomás García</div>
+                      <div style="font-size:11px;color:var(--text-muted)">tomas.g@sugar.club</div>
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:12px">Admin · Armado</td>
+                <td><span class="p-chip info" style="font-size:10px">Administrador</span></td>
+                <td><span class="p-chip info" style="font-size:10px">Socio activo</span></td>
+                <td style="font-size:12px;color:var(--text-muted)">L–V 09–17</td>
+                <td><span class="p-chip ok">Activo</span></td>
+                <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff-detalle">Ver detalle</button></td>
+              </tr>
+
+              <!-- Dra. Andrea Pérez -->
+              <tr style="cursor:pointer" data-goto="admin-staff-detalle">
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="p-avatar purple sm">AP</div>
+                    <div>
+                      <div style="font-weight:600">Dra. Andrea Pérez</div>
+                      <div style="font-size:11px;color:var(--text-muted)">dra.perez@gmail.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:12px">Director Médico <span style="font-size:10px;color:#EF4444">★</span></td>
+                <td><span style="font-size:10px;color:var(--text-muted)">—</span></td>
+                <td><span class="p-chip warn" style="font-size:10px">Monotributista</span></td>
+                <td style="font-size:12px;color:var(--text-muted)">Variable</td>
+                <td><span class="p-chip ok">Activa</span></td>
+                <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff-detalle">Ver detalle</button></td>
+              </tr>
+
+              <!-- Miguel Rodríguez -->
+              <tr style="cursor:pointer" data-goto="admin-staff-detalle">
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="p-avatar success sm">MR</div>
+                    <div>
+                      <div style="font-weight:600">Miguel Rodríguez</div>
+                      <div style="font-size:11px;color:var(--text-muted)">miguel.r@sugar.club</div>
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:12px">Resp. Técnico Cultivo <span style="font-size:10px;color:#EF4444">★</span></td>
+                <td><span class="p-chip ok" style="font-size:10px">Cultivador ★</span></td>
+                <td><span class="p-chip warn" style="font-size:10px">Monotributista</span></td>
+                <td style="font-size:12px;color:var(--text-muted)">L–V 08–14</td>
+                <td><span class="p-chip ok">Activo</span></td>
+                <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff-detalle">Ver detalle</button></td>
+              </tr>
+
+              <!-- Camila Torres -->
+              <tr style="cursor:pointer" data-goto="admin-staff-detalle">
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="p-avatar mint sm">CT</div>
+                    <div>
+                      <div style="font-weight:600">Camila Torres</div>
+                      <div style="font-size:11px;color:var(--text-muted)">camila.t@sugar.club</div>
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:12px">Admisión</td>
+                <td><span class="p-chip info" style="font-size:10px">Encargada</span></td>
+                <td><span class="p-chip ok" style="font-size:10px">Rel. dependencia</span></td>
+                <td style="font-size:12px;color:var(--text-muted)">L–V 10–18</td>
+                <td><span class="p-chip ok">Activa</span></td>
+                <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff-detalle">Ver detalle</button></td>
+              </tr>
+
+              <!-- Sofía Mendoza -->
+              <tr style="cursor:pointer" data-goto="admin-staff-detalle">
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="p-avatar purple sm">SM</div>
+                    <div>
+                      <div style="font-weight:600">Sofía Mendoza</div>
+                      <div style="font-size:11px;color:var(--text-muted)">sofia.m@sugar.club</div>
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:12px">Admisión</td>
+                <td><span style="font-size:10px;color:var(--text-muted)">—</span></td>
+                <td><span class="p-chip ok" style="font-size:10px">Rel. dependencia</span></td>
+                <td style="font-size:12px;color:var(--text-muted)">L–V 09–17</td>
+                <td><span class="p-chip warn" style="font-size:10px">Sin fichar hoy</span></td>
+                <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff-detalle">Ver detalle</button></td>
+              </tr>
+
+              <!-- Rodrigo Vega -->
+              <tr style="cursor:pointer" data-goto="admin-staff-detalle">
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="p-avatar sky sm">RV</div>
+                    <div>
+                      <div style="font-weight:600">Rodrigo Vega</div>
+                      <div style="font-size:11px;color:var(--text-muted)">rodrigo.v@sugar.club</div>
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:12px">Armado · Entregas</td>
+                <td><span class="p-chip ok" style="font-size:10px">Distribuidor ★</span></td>
+                <td><span class="p-chip info" style="font-size:10px">Socio activo</span></td>
+                <td style="font-size:12px;color:var(--text-muted)">L–S 09–15</td>
+                <td><span class="p-chip ok">Activo</span></td>
+                <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff-detalle">Ver detalle</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:10px 18px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted)">
+          CCT UTEDYC 804/23 aplica a empleados en rel. de dependencia · ★ = rol obligatorio REPROCANN
+        </div>
+      </div>
+
+      <!-- Modalidades -->
+      <div class="d-section" style="padding:16px 18px">
+        <div class="d-section-title">📖 Modalidades de contratación</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;font-size:13px">
+          <div style="background:var(--bg-tint);border-radius:10px;padding:12px">
+            <div style="font-weight:700;margin-bottom:4px">🤝 Socio activo</div>
+            <div style="color:var(--text-muted);font-size:12px">Participa como miembro de la asociación civil. No cobra sueldo. Modalidad más común en clubs pequeños.</div>
+          </div>
+          <div style="background:var(--bg-tint);border-radius:10px;padding:12px">
+            <div style="font-weight:700;margin-bottom:4px">🧾 Monotributista</div>
+            <div style="color:var(--text-muted);font-size:12px">Presta servicio externo (médico, técnico, contador). Emite factura. Habitual para los dos roles obligatorios REPROCANN.</div>
+          </div>
+          <div style="background:var(--bg-tint);border-radius:10px;padding:12px">
+            <div style="font-weight:700;margin-bottom:4px">📋 Rel. de dependencia</div>
+            <div style="color:var(--text-muted);font-size:12px">Empleado formal bajo <strong>CCT UTEDYC 804/23</strong> (asociaciones civiles). Para personal administrativo estable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== TAB: TURNOS ===================== -->
+    <div id="tab-turnos" style="display:none">
+
+      <!-- Sub-tabs internos -->
+      <div style="display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid var(--border)">
+        <button id="subtab-btn-programados" onclick="staffTurnosTab('programados')" style="padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:none;color:var(--accent);border-bottom:2px solid var(--accent);margin-bottom:-1px;font-family:'Inter',sans-serif;transition:.15s">Turnos programados</button>
+        <button id="subtab-btn-registro" onclick="staffTurnosTab('registro')" style="padding:8px 18px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Inter',sans-serif;transition:.15s">Registro de horas</button>
+      </div>
+
+      <!-- SUB-TAB: TURNOS PROGRAMADOS -->
+      <div id="turnos-programados">
+
+        <!-- Hoy -->
+        <div class="d-section" style="margin-bottom:16px">
+          <div class="d-section-title">🟢 Activos ahora — Jueves 12 nov</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:rgba(82,183,136,0.07);border:1.5px solid rgba(82,183,136,0.3);border-radius:12px">
+              <div class="p-avatar gold sm">TG</div>
+              <div>
+                <div style="font-size:13px;font-weight:700">Tomás García</div>
+                <div style="font-size:11px;color:var(--accent)">🟢 Desde 09:00</div>
+                <div style="font-size:10px;color:var(--text-muted)">Admin · Armado</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:rgba(82,183,136,0.07);border:1.5px solid rgba(82,183,136,0.3);border-radius:12px">
+              <div class="p-avatar sky sm">RV</div>
+              <div>
+                <div style="font-size:13px;font-weight:700">Rodrigo Vega</div>
+                <div style="font-size:11px;color:var(--accent)">🟢 Desde 09:30</div>
+                <div style="font-size:10px;color:var(--text-muted)">Entregas</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:rgba(82,183,136,0.07);border:1.5px solid rgba(82,183,136,0.3);border-radius:12px">
+              <div class="p-avatar mint sm">CT</div>
+              <div>
+                <div style="font-size:13px;font-weight:700">Camila Torres</div>
+                <div style="font-size:11px;color:var(--accent)">🟢 Desde 10:00</div>
+                <div style="font-size:10px;color:var(--text-muted)">Admisión</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:10px 12px;background:var(--bg-tint);border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;gap:8px">
+            <div class="p-avatar purple sm">SM</div>
+            <div style="flex:1">
+              <span style="font-size:13px;font-weight:600">Sofía Mendoza</span>
+              <span style="font-size:11px;color:var(--text-muted);margin-left:8px">⚫ Sin fichar — esperada desde las 09:00</span>
+            </div>
+            <button class="p-btn small warn" style="font-size:11px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">Contactar</button>
+          </div>
+        </div>
+
+        <!-- Turnos últimos 7 días -->
+        <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border)">
+            <div class="d-section-title" style="margin:0">Turnos — últimos 7 días</div>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr><th>Persona</th><th>Fecha</th><th>Entrada</th><th>Salida</th><th>Horas</th><th>Actividad</th><th>Estado</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar gold sm">TG</div><span>Tomás García</span></div></td>
+                  <td style="font-size:12px">12 nov</td><td style="font-size:12px">09:00</td><td style="font-size:12px;color:var(--text-muted)">—</td><td style="font-size:12px;color:var(--accent)">+8h</td><td style="font-size:12px">14 pedidos armados</td><td><span class="p-chip ok" style="font-size:10px">🟢 Activo</span></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar sky sm">RV</div><span>Rodrigo Vega</span></div></td>
+                  <td style="font-size:12px">12 nov</td><td style="font-size:12px">09:30</td><td style="font-size:12px;color:var(--text-muted)">—</td><td style="font-size:12px;color:var(--accent)">+6.5h</td><td style="font-size:12px">8 entregas</td><td><span class="p-chip ok" style="font-size:10px">🟢 Activo</span></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar mint sm">CT</div><span>Camila Torres</span></div></td>
+                  <td style="font-size:12px">12 nov</td><td style="font-size:12px">10:00</td><td style="font-size:12px;color:var(--text-muted)">—</td><td style="font-size:12px;color:var(--accent)">+6h</td><td style="font-size:12px">11 admisiones</td><td><span class="p-chip ok" style="font-size:10px">🟢 Activo</span></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar gold sm">TG</div><span>Tomás García</span></div></td>
+                  <td style="font-size:12px">11 nov</td><td style="font-size:12px">09:00</td><td style="font-size:12px">17:30</td><td style="font-size:12px">8.5h</td><td style="font-size:12px">22 pedidos armados</td><td><span class="p-chip info" style="font-size:10px">Completo</span></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar sky sm">RV</div><span>Rodrigo Vega</span></div></td>
+                  <td style="font-size:12px">11 nov</td><td style="font-size:12px">09:30</td><td style="font-size:12px">15:00</td><td style="font-size:12px">5.5h</td><td style="font-size:12px">12 entregas</td><td><span class="p-chip info" style="font-size:10px">Completo</span></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar mint sm">CT</div><span>Camila Torres</span></div></td>
+                  <td style="font-size:12px">11 nov</td><td style="font-size:12px">10:00</td><td style="font-size:12px">18:00</td><td style="font-size:12px">8h</td><td style="font-size:12px">18 admisiones</td><td><span class="p-chip info" style="font-size:10px">Completo</span></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:6px"><div class="p-avatar purple sm">SM</div><span>Sofía Mendoza</span></div></td>
+                  <td style="font-size:12px">11 nov</td><td style="font-size:12px">09:00</td><td style="font-size:12px">17:00</td><td style="font-size:12px">8h</td><td style="font-size:12px">14 admisiones</td><td><span class="p-chip info" style="font-size:10px">Completo</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--bg-tint);border:1px solid var(--border);border-radius:12px">
+          <div>
+            <div style="font-size:14px;font-weight:700;margin-bottom:2px">🌿 Portal Equipo</div>
+            <div style="font-size:12px;color:var(--text-muted)">El equipo gestiona sus fichajes desde su propio portal</div>
+          </div>
+          <a href="../equipo.html" target="_blank" class="p-btn small accent" style="text-decoration:none;flex-shrink:0">Ir al Portal Equipo →</a>
+        </div>
+
+      </div><!-- /turnos-programados -->
+
+      <!-- SUB-TAB: REGISTRO DE HORAS -->
+      <div id="turnos-registro" style="display:none">
+
+        <!-- KPIs -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px">
+          <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:10px;padding:11px 14px">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:3px">Horas este mes</div>
+            <div style="font-size:20px;font-weight:800;color:var(--success)">342h</div>
+          </div>
+          <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:10px;padding:11px 14px">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:3px">Prom. diario</div>
+            <div style="font-size:20px;font-weight:800;color:var(--text)">15.5h</div>
+          </div>
+          <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:10px;padding:11px 14px">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:3px">Más horas</div>
+            <div style="font-size:14px;font-weight:800;color:var(--success);line-height:1.4">Miguel R.</div>
+            <div style="font-size:11px;color:var(--text-muted)">89h este mes</div>
+          </div>
+          <div style="background:var(--bg-tint);border:1.5px solid rgba(230,181,74,0.3);border-radius:10px;padding:11px 14px">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);font-weight:700;margin-bottom:3px">Sin fichar hoy</div>
+            <div style="font-size:20px;font-weight:800;color:var(--warning)">1</div>
+          </div>
+        </div>
+
+        <!-- Selector de semana -->
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <button class="p-btn small ghost" style="font-size:12px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">← Semana ant.</button>
+          <span style="font-size:13px;font-weight:700;color:var(--text)">Semana del 11 al 16 nov 2026</span>
+          <button class="p-btn small ghost" style="font-size:12px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Semana actual →</button>
+        </div>
+
+        <!-- Tabla de registro semanal -->
+        <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+          <div style="padding:12px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div class="d-section-title" style="margin:0">Horas registradas — semana 11–16 nov</div>
+          </div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;min-width:680px">
+              <thead>
+                <tr>
+                  <th style="text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 14px;border-bottom:1px solid var(--border)">Persona</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 10px;border-bottom:1px solid var(--border)">Lun 11</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 10px;border-bottom:1px solid var(--border)">Mar 12</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 10px;border-bottom:1px solid var(--border)">Mié 13</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 10px;border-bottom:1px solid var(--border)">Jue 14</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 10px;border-bottom:1px solid var(--border)">Vie 15</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 10px;border-bottom:1px solid var(--border)">Sáb 16</th>
+                  <th style="text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.08)">Total sem.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:9px 14px;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><div class="p-avatar gold sm">TG</div><span style="font-size:13px;font-weight:600">Tomás García</span></div></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">7.5h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.08)"><span style="font-size:13px;font-weight:800;color:white">31.5h</span></td>
+                </tr>
+                <tr>
+                  <td style="padding:9px 14px;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><div class="p-avatar purple sm">AP</div><span style="font-size:13px;font-weight:600">Dra. Andrea Pérez</span></div></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">4h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">3h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.08)"><span style="font-size:13px;font-weight:800;color:white">7h</span></td>
+                </tr>
+                <tr>
+                  <td style="padding:9px 14px;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><div class="p-avatar success sm">MR</div><span style="font-size:13px;font-weight:600">Miguel Rodríguez</span></div></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">4h</span></td>
+                  <td style="text-align:center;padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.08)"><span style="font-size:13px;font-weight:800;color:white">44h</span></td>
+                </tr>
+                <tr>
+                  <td style="padding:9px 14px;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><div class="p-avatar mint sm">CT</div><span style="font-size:13px;font-weight:600">Camila Torres</span></div></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.08)"><span style="font-size:13px;font-weight:800;color:white">32h</span></td>
+                </tr>
+                <tr>
+                  <td style="padding:9px 14px;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><div class="p-avatar purple sm">SM</div><span style="font-size:13px;font-weight:600">Sofía Mendoza</span></div></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">6h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">6h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">6h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">6h</span></td>
+                  <td style="text-align:center;padding:9px 10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(82,183,136,0.08)"><span style="font-size:13px;font-weight:800;color:white">24h</span></td>
+                </tr>
+                <tr>
+                  <td style="padding:9px 14px"><div style="display:flex;align-items:center;gap:7px"><div class="p-avatar sky sm">RV</div><span style="font-size:13px;font-weight:600">Rodrigo Vega</span></div></td>
+                  <td style="text-align:center;padding:9px 10px;background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;background:rgba(255,255,255,0.15)"><span style="font-size:12px;color:rgba(255,255,255,0.3)">—</span></td>
+                  <td style="text-align:center;padding:9px 10px;background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 10px;background:rgba(82,183,136,0.12)"><span style="font-size:12px;font-weight:600;color:#52B788">8h</span></td>
+                  <td style="text-align:center;padding:9px 14px;background:rgba(82,183,136,0.08)"><span style="font-size:13px;font-weight:800;color:white">16h</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding:12px 18px;border-top:1px solid var(--border)">
+            <button class="p-btn small ghost" style="font-size:12px" onclick="this.textContent='+ Agregar entrada manual'">+ Agregar entrada manual</button>
+          </div>
+        </div>
+
+        <!-- Detalle del día -->
+        <div class="d-section" style="padding:0;overflow:hidden">
+          <div style="padding:12px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div class="d-section-title" style="margin:0">🕐 Detalle del día — hoy lunes 11 nov</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0">
+
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border)">
+              <div class="p-avatar gold sm">TG</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700">Tomás García</div>
+                <div style="font-size:12px;color:var(--text-muted)">Entrada 09:03 · Salida 17:12 · <strong style="color:var(--text)">8h 09min</strong></div>
+              </div>
+              <span class="p-chip ok" style="font-size:11px">✓ Completo</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border)">
+              <div class="p-avatar success sm">MR</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700">Miguel Rodríguez</div>
+                <div style="font-size:12px;color:var(--text-muted)">Entrada 09:15 · Salida 18:00 · <strong style="color:var(--text)">8h 45min</strong></div>
+              </div>
+              <span class="p-chip ok" style="font-size:11px">✓ Completo</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border)">
+              <div class="p-avatar mint sm">CT</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700">Camila Torres</div>
+                <div style="font-size:12px;color:var(--accent)">Entrada 11:00 · aún en turno</div>
+              </div>
+              <span style="font-size:11px;background:rgba(82,183,136,0.15);color:#52B788;padding:3px 10px;border-radius:100px;font-weight:700">🟢 En turno</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border)">
+              <div class="p-avatar purple sm">SM</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700">Sofía Mendoza</div>
+                <div style="font-size:12px;color:var(--text-muted)">Entrada 10:30 · Salida 16:35 · <strong style="color:var(--text)">6h 05min</strong></div>
+              </div>
+              <span class="p-chip ok" style="font-size:11px">✓ Completo</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 18px">
+              <div class="p-avatar sky sm">RV</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700">Rodrigo Vega</div>
+                <div style="font-size:12px;color:var(--text-muted)">no fichó hoy</div>
+              </div>
+              <span style="font-size:11px;background:rgba(230,181,74,0.15);color:var(--warning);padding:3px 10px;border-radius:100px;font-weight:700">⚠️ Sin registro</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /turnos-registro -->
+
+    </div>
+
+    <!-- ===================== TAB: TAREAS ===================== -->
+    <div id="tab-tareas" style="display:none">
+
+      <!-- Nueva tarea form toggle -->
+      <div style="margin-bottom:16px">
+        <button class="p-btn small primary" onclick="staffToggleNuevaTarea()">+ Nueva tarea</button>
+      </div>
+      <div id="form-nueva-tarea" style="display:none;background:var(--bg-tint);border:1.5px solid var(--accent);border-radius:14px;padding:18px;margin-bottom:16px">
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Tarea *</div>
+            <input type="text" placeholder="Descripción de la tarea" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Asignado a</div>
+            <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+              <option>Sin asignar</option>
+              <option>Tomás García</option>
+              <option>Dra. Andrea Pérez</option>
+              <option>Miguel Rodríguez</option>
+              <option>Camila Torres</option>
+              <option>Sofía Mendoza</option>
+              <option>Rodrigo Vega</option>
+            </select>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Prioridad</div>
+            <select style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+              <option>Normal</option>
+              <option>Urgente</option>
+              <option>Baja</option>
+            </select>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Vence</div>
+            <input type="date" style="width:100%;box-sizing:border-box;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button onclick="staffToggleNuevaTarea()" class="p-btn small ghost">Cancelar</button>
+          <button class="p-btn small primary" onclick="this.textContent='✓ Tarea creada';this.disabled=true;setTimeout(()=>{staffToggleNuevaTarea()},800)">Crear tarea →</button>
+        </div>
+      </div>
+
+      <!-- Urgentes -->
+      <div style="margin-bottom:20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#EF4444;margin-bottom:10px">🔴 Urgentes (2)</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:var(--bg-panel);border:1.5px solid rgba(239,68,68,0.3);border-radius:12px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:700;margin-bottom:4px">Renovar diplomatura cannábica · Dra. Pérez</div>
+                <div style="font-size:12px;color:var(--text-muted)">Dra. Andrea Pérez · Vence 20 ene 2027 · <strong style="color:#EF4444">en 70 días</strong></div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+                <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#EF4444;padding:3px 8px;border-radius:100px;font-weight:700">Urgente</span>
+                <button class="p-btn small ghost" style="font-size:11px" onclick="staffMarkDone(this)">Marcar hecha ✓</button>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--bg-panel);border:1.5px solid rgba(239,68,68,0.3);border-radius:12px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:700;margin-bottom:4px">Informe semestral REPROCANN — cierre nov 2026</div>
+                <div style="font-size:12px;color:var(--text-muted)">Tomás García · Vence 30 nov 2026 · <strong style="color:#EF4444">en 18 días</strong></div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+                <span style="font-size:10px;background:rgba(239,68,68,0.15);color:#EF4444;padding:3px 8px;border-radius:100px;font-weight:700">Urgente</span>
+                <button class="p-btn small ghost" style="font-size:11px" onclick="staffMarkDone(this)">Marcar hecha ✓</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- En curso -->
+      <div style="margin-bottom:20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--warning);margin-bottom:10px">🟡 En curso (2)</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:700;margin-bottom:4px">Inventario mensual cepa #12 — Amnesia Haze</div>
+                <div style="font-size:12px;color:var(--text-muted)">Miguel Rodríguez · Sin vencimiento</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+                <span style="font-size:10px;background:rgba(230,181,74,0.15);color:var(--warning);padding:3px 8px;border-radius:100px;font-weight:700">En curso</span>
+                <button class="p-btn small ghost" style="font-size:11px" onclick="staffMarkDone(this)">Marcar hecha ✓</button>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:700;margin-bottom:4px">Revisión estatuto para actualización de roles formales</div>
+                <div style="font-size:12px;color:var(--text-muted)">Tomás García · Sin vencimiento</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+                <span style="font-size:10px;background:rgba(230,181,74,0.15);color:var(--warning);padding:3px 8px;border-radius:100px;font-weight:700">En curso</span>
+                <button class="p-btn small ghost" style="font-size:11px" onclick="staffMarkDone(this)">Marcar hecha ✓</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listas -->
+      <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--success);margin-bottom:10px">✅ Completadas (3)</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;opacity:0.7">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:600;margin-bottom:4px;text-decoration:line-through;color:var(--text-muted)">Capacitación nuevos admisionistas</div>
+                <div style="font-size:12px;color:var(--text-muted)">Camila Torres · Completada 08 nov 2026</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px;flex-shrink:0">Hecha ✓</span>
+            </div>
+          </div>
+          <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;opacity:0.7">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:600;margin-bottom:4px;text-decoration:line-through;color:var(--text-muted)">Alta de Rodrigo Vega en padrón REPROCANN</div>
+                <div style="font-size:12px;color:var(--text-muted)">Tomás García · Completada 02 nov 2026</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px;flex-shrink:0">Hecha ✓</span>
+            </div>
+          </div>
+          <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;opacity:0.7">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div>
+                <div style="font-size:14px;font-weight:600;margin-bottom:4px;text-decoration:line-through;color:var(--text-muted)">Renovar contrato CCT UTEDYC — Sofía Mendoza</div>
+                <div style="font-size:12px;color:var(--text-muted)">Tomás García · Completada 28 oct 2026</div>
+              </div>
+              <span class="p-chip ok" style="font-size:10px;flex-shrink:0">Hecha ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<style>
+.perm-chip { display:inline-block; padding:4px 10px; border-radius:100px; font-size:11px; font-weight:600; cursor:pointer; border:1.5px solid var(--border); color:var(--text-muted); background:var(--bg-tint); transition:.15s; user-select:none; }
+.perm-chip.active { background:rgba(82,183,136,0.1); border-color:rgba(82,183,136,0.4); color:var(--accent-dark); }
+.perm-chip:hover { opacity:0.8; }
+</style>
+
+<script>
+function staffTurnosTab(tab) {
+  ['programados','registro'].forEach(t => {
+    document.getElementById('turnos-' + t).style.display = t === tab ? '' : 'none';
+    const btn = document.getElementById('subtab-btn-' + t);
+    btn.style.color = t === tab ? 'var(--accent)' : 'var(--text-muted)';
+    btn.style.borderBottomColor = t === tab ? 'var(--accent)' : 'transparent';
+    btn.style.fontWeight = t === tab ? '700' : '600';
+  });
+}
+function staffTab(tab) {
+  ['personas','turnos','tareas'].forEach(t => {
+    document.getElementById('tab-' + t).style.display = t === tab ? '' : 'none';
+    const btn = document.getElementById('tab-btn-' + t);
+    btn.style.color = t === tab ? 'var(--accent)' : 'var(--text-muted)';
+    btn.style.borderBottomColor = t === tab ? 'var(--accent)' : 'transparent';
+    btn.style.fontWeight = t === tab ? '700' : '600';
+  });
+}
+function staffShowAdd() {
+  const f = document.getElementById('form-staff');
+  f.style.display = f.style.display === 'none' ? '' : 'none';
+}
+function staffToggleNuevaTarea() {
+  const f = document.getElementById('form-nueva-tarea');
+  f.style.display = f.style.display === 'none' ? '' : 'none';
+}
+function staffToggleDetalle(id) {
+  const ids = ['tomas','andrea','miguel','camila','sofia','rodrigo'];
+  const row = document.getElementById('staff-detalle-' + id);
+  const isOpen = row.style.display !== 'none';
+  ids.forEach(p => { const el = document.getElementById('staff-detalle-' + p); if(el) el.style.display = 'none'; });
+  if(!isOpen) row.style.display = '';
+}
+function staffMarkDone(btn) {
+  const card = btn.closest('div[style*="border-radius:12px"]');
+  btn.textContent = '✓ Hecha';
+  btn.disabled = true;
+  card.style.opacity = '0.5';
+}
+function togglePerm(chip) {
+  chip.classList.toggle('active');
+}
+</script>

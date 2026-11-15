@@ -1,0 +1,331 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link active"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="p-btn small ghost" data-goto="admin-catalogo">← Catálogo</button>
+        <div>
+          <div class="d-page-title">🌿 OG Kush</div>
+          <div class="d-page-sub">Indica · ChemDawg × Hindu Kush · Lote oct 2026</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" onclick="this.textContent='✓ Bajado';this.disabled=true">⬇ Bajar del catálogo</button>
+        <button class="p-btn small gold" onclick="this.textContent='✅ Guardado';this.disabled=true">💾 Guardar cambios</button>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi">
+        <div class="kpi-label">Stock actual</div>
+        <div class="kpi-value">8g</div>
+        <div class="kpi-sub" style="color:var(--warning)">umbral bajo: 10g</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Consumido (nov)</div>
+        <div class="kpi-value">9g</div>
+        <div class="kpi-sub">en 4 pedidos</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Precio</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 20/g</div>
+        <div class="kpi-sub">$20.000 ARS/g</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Ranking demanda</div>
+        <div class="kpi-value" style="color:var(--accent)">#1</div>
+        <div class="kpi-sub">cepa más pedida este mes</div>
+      </div>
+    </div>
+
+    <!-- 2-column layout -->
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start">
+
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <!-- Perfil de la cepa -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Perfil de la cepa</div>
+            <span class="p-chip green" style="font-size:11px">Indica</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+            <div>
+              <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:4px">Nombre</label>
+              <input type="text" value="OG Kush" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:4px">Tipo</label>
+              <select style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700;box-sizing:border-box">
+                <option selected>Indica</option>
+                <option>Sativa</option>
+                <option>Híbrida</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:4px">Genética</label>
+              <input type="text" value="ChemDawg × Hindu Kush" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div>
+                <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:4px">THC %</label>
+                <input type="number" value="22" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700;box-sizing:border-box">
+              </div>
+              <div>
+                <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:4px">CBD %</label>
+                <input type="number" value="0.3" step="0.1" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700;box-sizing:border-box">
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:4px">Descripción</label>
+            <textarea rows="3" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;line-height:1.5;box-sizing:border-box;resize:vertical">Clásica indica de alta potencia con notas a tierra, madera y pino. Muy demandada por socios con dolor crónico y dificultades para dormir.</textarea>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:8px">Efectos</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span class="p-chip green" style="font-size:12px;cursor:pointer">Relajante ✓</span>
+              <span class="p-chip green" style="font-size:12px;cursor:pointer">Analgésico ✓</span>
+              <span class="p-chip green" style="font-size:12px;cursor:pointer">Sedante ✓</span>
+              <span class="p-chip muted" style="font-size:12px;cursor:pointer">Energizante</span>
+              <span class="p-chip muted" style="font-size:12px;cursor:pointer">Creativo</span>
+              <span class="p-chip muted" style="font-size:12px;cursor:pointer">Eufórico</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:8px">Terpenos</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span class="p-chip blue" style="font-size:12px;cursor:pointer">Mirceno ✓</span>
+              <span class="p-chip blue" style="font-size:12px;cursor:pointer">Limoneno ✓</span>
+              <span class="p-chip blue" style="font-size:12px;cursor:pointer">Cariofileno ✓</span>
+              <span class="p-chip muted" style="font-size:12px;cursor:pointer">Pineno</span>
+              <span class="p-chip muted" style="font-size:12px;cursor:pointer">Linalol</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pedidos activos con esta cepa -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Pedidos activos con esta cepa</div>
+            <span style="font-size:12px;color:var(--text-muted)">6g consumidos esta semana</span>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pedido</th>
+                  <th>Socio</th>
+                  <th>Cantidad</th>
+                  <th>Estado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-goto="admin-pedido-detalle" style="cursor:pointer">
+                  <td><strong>P-243</strong></td>
+                  <td>Valentina R.</td>
+                  <td>2g</td>
+                  <td><span class="p-chip ok" style="font-size:11px">Listo ✓</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+                </tr>
+                <tr data-goto="admin-pedido-detalle" style="cursor:pointer">
+                  <td><strong>P-248</strong></td>
+                  <td>Martín Ramos</td>
+                  <td>1g</td>
+                  <td><span class="p-chip warn" style="font-size:11px">Pendiente</span></td>
+                  <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-pedido-detalle">Ver →</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:12px;padding:10px 12px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--text-muted)">
+            <strong style="color:var(--text)">Desglose semanal:</strong> P-243: 2g · P-248: 1g · P-242: 3g
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <!-- Stock -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Stock</div>
+          </div>
+
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+              <span style="font-size:13px;font-weight:700">Stock actual</span>
+              <span style="font-size:22px;font-weight:800">8g</span>
+            </div>
+            <div class="pbar" style="margin-bottom:4px">
+              <div class="pbar-fill" style="width:27%;background:var(--warning)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted)">
+              <span>0g</span>
+              <span>máx. 30g</span>
+            </div>
+          </div>
+
+          <div class="p-alert warn" style="margin-bottom:14px;font-size:12px">
+            ⚠️ <strong>Stock bajo</strong> — umbral configurado: 10g
+          </div>
+
+          <div style="margin-bottom:14px">
+            <label style="font-size:11px;color:var(--text-muted);font-weight:600;display:block;margin-bottom:6px">Ajustar stock</label>
+            <div style="display:flex;gap:8px">
+              <input type="number" placeholder="ej: +5 o -2" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px">
+              <button class="p-btn small primary" onclick="this.textContent='✓';this.disabled=true">Aplicar</button>
+            </div>
+          </div>
+
+          <button class="p-btn primary" style="width:100%;margin-bottom:16px" data-goto="admin-cultivo">📦 Solicitar restock →</button>
+
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px">Historial de movimientos</div>
+            <div class="activity-feed">
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--danger)"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>−2g</strong> · Pedido P-243 (Valentina R.)</div>
+                  <div class="activity-time">Hoy</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--danger)"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>−1g</strong> · Pedido P-248 (Martín R.)</div>
+                  <div class="activity-time">Hoy</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--warning)"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>−3g</strong> · Pedido P-242 (Valentina R.)</div>
+                  <div class="activity-time">Lun 10 Nov</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--accent)"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>+20g</strong> · Restock lote oct 2026</div>
+                  <div class="activity-time">01 Nov</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--warning)"></div>
+                <div class="activity-main">
+                  <div class="activity-text"><strong>−4g</strong> · 2 pedidos (Laura G. + Diego F.)</div>
+                  <div class="activity-time">28 Oct</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demanda -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Demanda</div>
+            <span class="p-chip gold" style="font-size:11px">#1 este mes</span>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-bottom:16px">
+            <div style="flex:1;text-align:center;padding:10px 6px;background:var(--surface);border-radius:8px">
+              <div style="font-size:18px;font-weight:800">9g</div>
+              <div style="font-size:10px;color:var(--text-muted)">consumidos (nov)</div>
+            </div>
+            <div style="flex:1;text-align:center;padding:10px 6px;background:var(--surface);border-radius:8px">
+              <div style="font-size:18px;font-weight:800">4</div>
+              <div style="font-size:10px;color:var(--text-muted)">pedidos (nov)</div>
+            </div>
+            <div style="flex:1;text-align:center;padding:10px 6px;background:var(--surface);border-radius:8px">
+              <div style="font-size:18px;font-weight:800">3</div>
+              <div style="font-size:10px;color:var(--text-muted)">socios activos</div>
+            </div>
+          </div>
+
+          <div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px">Socios más frecuentes</div>
+
+          <div class="list-item" style="border:none;padding:8px 0">
+            <div class="p-avatar mint sm">VR</div>
+            <div class="list-item-main">
+              <div class="list-item-title">Valentina R.</div>
+              <div class="list-item-sub">5g consumidos (nov)</div>
+            </div>
+            <div class="pbar" style="width:80px;margin:0">
+              <div class="pbar-fill" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="list-item" style="border:none;padding:8px 0">
+            <div class="p-avatar sm" style="background:var(--gold);color:var(--gold-dark)">DF</div>
+            <div class="list-item-main">
+              <div class="list-item-title">Diego F.</div>
+              <div class="list-item-sub">3g consumidos (nov)</div>
+            </div>
+            <div class="pbar" style="width:80px;margin:0">
+              <div class="pbar-fill" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="list-item" style="border:none;padding:8px 0">
+            <div class="p-avatar sm" style="background:var(--blue-light,#dbeafe);color:#1d4ed8">MR</div>
+            <div class="list-item-main">
+              <div class="list-item-title">Martín R.</div>
+              <div class="list-item-sub">1g consumidos (nov)</div>
+            </div>
+            <div class="pbar" style="width:80px;margin:0">
+              <div class="pbar-fill" style="width:20%"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar · Configurar club — Paso 3 de 8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:#1B4332; --primary-dark:#0D2318; --primary-light:#D1FAE5;
+      --accent:#52B788; --accent-dark:#2D6A4F; --accent-light:#B7E4C7;
+      --gold:#C9A227; --gold-dark:#7D5F0B; --gold-light:#FEF9C3;
+      --surface:#111C15; --surface-2:#182519;
+      --border:#1E3328; --border-light:#2A4535;
+      --text:#F0FAF4; --text-muted:#7A9E8A; --text-micro:#4A7A5B;
+      --bg:#060E0A; --input-bg:#0E1A12; --input-border:#223A2C;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:32px 16px 60px; -webkit-font-smoothing:antialiased; }
+    .stepper { display:flex; align-items:center; gap:0; margin-bottom:40px; width:100%; max-width:640px; }
+    .step-node { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+    .step-node.done   { background:var(--accent); color:white; }
+    .step-node.active { background:var(--accent); color:white; box-shadow:0 0 0 4px rgba(82,183,136,0.2); }
+    .step-node.todo   { background:var(--surface-2); color:var(--text-micro); border:1.5px solid var(--border-light); }
+    .step-line { flex:1; height:2px; background:var(--border-light); }
+    .step-line.done { background:var(--accent); }
+    .wizard-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:40px 40px 36px; width:100%; max-width:640px; box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+    .step-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:10px; }
+    .step-title { font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:800; color:var(--text); line-height:1.15; letter-spacing:-0.5px; margin-bottom:8px; }
+    .step-sub { font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:28px; }
+    .tiers-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:20px; }
+    .tier-card {
+      background:var(--surface-2);
+      border:1.5px solid var(--border-light);
+      border-radius:14px;
+      padding:20px 16px;
+      cursor:pointer;
+      transition:all 0.15s;
+    }
+    .tier-card:hover { border-color:var(--accent); }
+    .tier-card.semilla { border-color:rgba(82,183,136,0.5); background:rgba(82,183,136,0.06); }
+    .tier-card.brote   { border-color:rgba(201,162,39,0.5); background:rgba(201,162,39,0.06); }
+    .tier-card.planta  { border-color:rgba(109,40,217,0.5); background:rgba(109,40,217,0.06); }
+    .tier-emoji { font-size:28px; margin-bottom:10px; }
+    .tier-name { font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:800; margin-bottom:4px; }
+    .tier-name.semilla { color:var(--accent); }
+    .tier-name.brote   { color:var(--gold); }
+    .tier-name.planta  { color:#9B72D4; }
+    .tier-desc { font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:14px; }
+    .tier-fields { display:flex; flex-direction:column; gap:9px; }
+    .tier-field-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-micro); margin-bottom:4px; }
+    .tier-input {
+      width:100%; padding:9px 12px; border:1.5px solid var(--input-border);
+      border-radius:9px; font-size:13px; font-weight:500;
+      background:var(--input-bg); color:var(--text); outline:none;
+      font-family:'Inter',sans-serif; transition:border-color 0.15s;
+    }
+    .tier-input:focus { border-color:var(--accent); }
+    .info-box { background:rgba(82,183,136,0.07); border:1px solid rgba(82,183,136,0.18); border-radius:10px; padding:12px 14px; margin-bottom:20px; font-size:13px; color:var(--text-muted); line-height:1.5; }
+    .info-box strong { color:var(--accent); }
+    .wizard-actions { display:flex; align-items:center; justify-content:space-between; margin-top:28px; padding-top:22px; border-top:1px solid var(--border); }
+    .btn-back { font-size:13px; font-weight:600; color:var(--text-micro); background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; padding:0; text-decoration:none; }
+    .btn-back:hover { color:var(--text-muted); }
+    .btn-next { display:inline-flex; align-items:center; gap:8px; padding:0 24px; height:46px; border-radius:12px; background:var(--accent); color:white; font-size:15px; font-weight:700; border:none; cursor:pointer; font-family:'Inter',sans-serif; text-decoration:none; transition:background 0.12s; }
+    .btn-next:hover { background:var(--accent-dark); }
+    .progress-label { text-align:center; font-size:12px; color:var(--text-micro); margin-top:20px; }
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node done">✓</div>
+    <div class="step-line done"></div>
+    <div class="step-node active">3</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">4</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">5</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">6</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">7</div>
+    <div class="step-line"></div>
+    <div class="step-node todo">8</div>
+  </div>
+
+  <div class="wizard-card">
+    <div class="step-label">Paso 3 de 8 · Membresías</div>
+    <h1 class="step-title">Configurá los tiers de membresía</h1>
+    <p class="step-sub">Los tiers definen qué puede consumir cada socio por mes. Podés ajustar los nombres, límites y precios ahora o más tarde desde el panel de Membresías.</p>
+
+    <div class="info-box">
+      <strong>¿Qué son los tiers?</strong> Cada tier tiene un límite de gramos mensuales y un precio de membresía. Los socios eligen su tier cuando se dan de alta y pueden subir de nivel después.
+    </div>
+
+    <div class="tiers-grid">
+
+      <div class="tier-card semilla">
+        <div class="tier-emoji">🌱</div>
+        <div class="tier-name semilla">Semilla</div>
+        <div class="tier-desc">Nivel básico de acceso al club. Ideal para quienes empiezan.</div>
+        <div class="tier-fields">
+          <div>
+            <div class="tier-field-label">Gramos / mes</div>
+            <input class="tier-input" type="number" value="10" />
+          </div>
+          <div>
+            <div class="tier-field-label">Precio mensual (ARS)</div>
+            <input class="tier-input" type="number" value="12000" />
+          </div>
+          <div>
+            <div class="tier-field-label">Tokens incluidos</div>
+            <input class="tier-input" type="number" value="10" />
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-card brote">
+        <div class="tier-emoji">🌿</div>
+        <div class="tier-name brote">Brote</div>
+        <div class="tier-desc">Acceso intermedio con beneficios adicionales y más variedad.</div>
+        <div class="tier-fields">
+          <div>
+            <div class="tier-field-label">Gramos / mes</div>
+            <input class="tier-input" type="number" value="20" />
+          </div>
+          <div>
+            <div class="tier-field-label">Precio mensual (ARS)</div>
+            <input class="tier-input" type="number" value="22000" />
+          </div>
+          <div>
+            <div class="tier-field-label">Tokens incluidos</div>
+            <input class="tier-input" type="number" value="22" />
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-card planta">
+        <div class="tier-emoji">🪴</div>
+        <div class="tier-name planta">Planta</div>
+        <div class="tier-desc">Acceso premium con máxima cuota y acceso prioritario.</div>
+        <div class="tier-fields">
+          <div>
+            <div class="tier-field-label">Gramos / mes</div>
+            <input class="tier-input" type="number" value="40" />
+          </div>
+          <div>
+            <div class="tier-field-label">Precio mensual (ARS)</div>
+            <input class="tier-input" type="number" value="38000" />
+          </div>
+          <div>
+            <div class="tier-field-label">Tokens incluidos</div>
+            <input class="tier-input" type="number" value="40" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="wizard-actions">
+      <a class="btn-back" href="sugar-onboarding-02.html">← Volver</a>
+      <a class="btn-next" href="sugar-onboarding-04.html">Continuar →</a>
+    </div>
+  </div>
+
+  <div class="progress-label">Paso 3 de 8</div>
+
+</body>
+</html>

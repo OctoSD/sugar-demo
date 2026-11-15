@@ -1,0 +1,574 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link active"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span class="p-btn small ghost" data-goto="admin-reportes" style="cursor:pointer">← Reportes</span>
+        <div>
+          <div class="d-page-title">Reporte mensual · Noviembre 2026</div>
+          <div class="d-page-sub">Club Sugar · 1–11 nov (parcial) · generado Lun 11 nov 10:00hs</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="p-btn small ghost" data-goto="admin-reporte-detalle">‹ Octubre</button>
+        <button class="p-btn small ghost" style="color:var(--text-muted);cursor:default" onclick="void 0">Noviembre ▾</button>
+        <button class="p-btn small primary" onclick="var b=this;b.disabled=true;b.textContent='⏳ Exportando…';setTimeout(function(){b.textContent='✓ Exportado';b.style.opacity='0.7';},1200)">📥 Exportar PDF</button>
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">📧 Enviar por email</button>
+      </div>
+    </div>
+
+    <!-- KPIs principales -->
+    <div class="d-kpi-grid cols5" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Tokens circulados</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">🪙 2.841</div>
+        <div class="kpi-sub">≈ $2.841.000 ARS</div>
+        <div class="kpi-delta up">↑ 14% vs oct</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Socios activos</div>
+        <div class="kpi-value" style="color:var(--accent)">38</div>
+        <div class="kpi-sub">de 42 inscriptos</div>
+        <div class="kpi-delta up">↑ 3 socios nuevos</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Pedidos del mes</div>
+        <div class="kpi-value" style="color:var(--info)">194</div>
+        <div class="kpi-sub">11 días del mes</div>
+        <div class="kpi-delta up">↑ 8% vs oct</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--primary)">
+        <div class="kpi-label">Ingresos mensual</div>
+        <div class="kpi-value" style="color:var(--primary)">$2.28M</div>
+        <div class="kpi-sub">membresías solamente</div>
+        <div class="kpi-delta up">↑ 12% vs oct</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Tok prom/pedido</div>
+        <div class="kpi-value" style="color:var(--success)">14.6</div>
+        <div class="kpi-sub">tokens</div>
+        <div class="kpi-delta up">↑ 1.2 vs oct</div>
+      </div>
+    </div>
+
+    <!-- Movimiento de tokens por día -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Movimiento de tokens por día</div>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Tokens circulados por día hábil — 1 al 11 de noviembre</div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Día</th>
+              <th class="right">Pedidos</th>
+              <th class="right">Tokens circulados</th>
+              <th class="right">Tok prom/pedido</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600">1 nov</td>
+              <td style="color:var(--text-muted)">Sáb</td>
+              <td class="right num">24</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 358</td>
+              <td class="right num">14.9</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">2 nov</td>
+              <td style="color:var(--text-muted)">Dom</td>
+              <td class="right num">18</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 261</td>
+              <td class="right num">14.5</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">3 nov</td>
+              <td style="color:var(--text-muted)">Lun</td>
+              <td class="right num">15</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 219</td>
+              <td class="right num">14.6</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">4 nov</td>
+              <td style="color:var(--text-muted)">Mar</td>
+              <td class="right num">17</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 248</td>
+              <td class="right num">14.6</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">5 nov</td>
+              <td style="color:var(--text-muted)">Mié</td>
+              <td class="right num">14</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 204</td>
+              <td class="right num">14.6</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">6 nov</td>
+              <td style="color:var(--text-muted)">Jue</td>
+              <td class="right num">19</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 277</td>
+              <td class="right num">14.6</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">7 nov</td>
+              <td style="color:var(--text-muted)">Vie</td>
+              <td class="right num">22</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 324</td>
+              <td class="right num">14.7</td>
+              <td><span class="p-chip info" style="font-size:11px">🎵 Evento</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">8 nov</td>
+              <td style="color:var(--text-muted)">Sáb</td>
+              <td class="right num">26</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 388</td>
+              <td class="right num">14.9</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">9 nov</td>
+              <td style="color:var(--text-muted)">Dom</td>
+              <td class="right num">20</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 290</td>
+              <td class="right num">14.5</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">10 nov</td>
+              <td style="color:var(--text-muted)">Lun</td>
+              <td class="right num">16</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 228</td>
+              <td class="right num">14.3</td>
+              <td style="color:var(--text-muted)">—</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">11 nov</td>
+              <td style="color:var(--text-muted)">Mar</td>
+              <td class="right num">3</td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 44</td>
+              <td class="right num">14.7</td>
+              <td><span class="p-chip warn" style="font-size:11px">Parcial</span></td>
+            </tr>
+            <tr style="font-weight:700;border-top:2px solid var(--border)">
+              <td><strong>Total</strong></td>
+              <td></td>
+              <td class="right num"><strong>194</strong></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800"><strong>🪙 2.841</strong></td>
+              <td class="right num"><strong>14.6</strong></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cepas — desglose completo -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Cepas — desglose completo</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+
+        <!-- Columna izq: tabla tokens por cepa -->
+        <div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--text-muted)">Tokens por cepa</div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cepa</th>
+                  <th class="right">Tok totales</th>
+                  <th class="right">%</th>
+                  <th class="right">Pedidos</th>
+                  <th class="right">Tok prom/pedido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:600">🌿 OG Kush</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 712</td>
+                  <td class="right num">25%</td>
+                  <td class="right num">87</td>
+                  <td class="right num">8.2</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600">🦍 Gorilla Glue #4</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 541</td>
+                  <td class="right num">19%</td>
+                  <td class="right num">52</td>
+                  <td class="right num">10.4</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600">💙 Blue Dream</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 334</td>
+                  <td class="right num">12%</td>
+                  <td class="right num">64</td>
+                  <td class="right num">5.2</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600">🌟 Super Lemon Haze</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 198</td>
+                  <td class="right num">7%</td>
+                  <td class="right num">38</td>
+                  <td class="right num">5.2</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600">🎂 Wedding Cake</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 56</td>
+                  <td class="right num">2%</td>
+                  <td class="right num">11</td>
+                  <td class="right num">5.1</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:var(--text-muted)">Otros (mix)</td>
+                  <td class="right num" style="color:var(--gold-dark);font-weight:700">🪙 1.000</td>
+                  <td class="right num">35%</td>
+                  <td class="right num" style="color:var(--text-muted)">—</td>
+                  <td class="right num" style="color:var(--text-muted)">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Columna der: barras visuales top 5 -->
+        <div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--text-muted)">Top 5 cepas — barras visuales</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+                <span>🌿 OG Kush</span><span style="color:var(--gold-dark)">🪙 712 tok · 25%</span>
+              </div>
+              <div class="pbar"><div class="pbar-fill gold" style="width:71%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+                <span>🦍 Gorilla Glue #4</span><span style="color:var(--gold-dark)">🪙 541 tok · 19%</span>
+              </div>
+              <div class="pbar"><div class="pbar-fill" style="width:54%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+                <span>💙 Blue Dream</span><span style="color:var(--gold-dark)">🪙 334 tok · 12%</span>
+              </div>
+              <div class="pbar"><div class="pbar-fill success" style="width:33%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+                <span>🌟 Super Lemon Haze</span><span style="color:var(--gold-dark)">🪙 198 tok · 7%</span>
+              </div>
+              <div class="pbar"><div class="pbar-fill primary" style="width:20%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px">
+                <span>🎂 Wedding Cake</span><span style="color:var(--gold-dark)">🪙 56 tok · 2%</span>
+              </div>
+              <div class="pbar"><div class="pbar-fill warn" style="width:6%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Membresías — ingresos y distribución -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Membresías — ingresos y distribución</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px">
+
+        <!-- Semilla -->
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:15px;font-weight:800;margin-bottom:4px">🌱 Semilla</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">12 socios · $20.000/mes</div>
+          <div class="pbar" style="margin-bottom:12px"><div class="pbar-fill accent" style="width:32%"></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px">
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Ingresos</span>
+              <strong>$240.000</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Prom tok/socio</span>
+              <strong>22 tok/mes</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Renovaciones</span>
+              <span><strong>12/12</strong> <span class="p-chip ok" style="font-size:10px">✓</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brote -->
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:15px;font-weight:800;margin-bottom:4px">⭐ Brote</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">18 socios · $60.000/mes</div>
+          <div class="pbar" style="margin-bottom:12px"><div class="pbar-fill gold" style="width:48%"></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px">
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Ingresos</span>
+              <strong>$1.080.000</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Prom tok/socio</span>
+              <strong>48 tok/mes</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Renovaciones</span>
+              <span><strong>17/18</strong> <span class="p-chip warn" style="font-size:10px">1 pendiente</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Planta Full -->
+        <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:15px;font-weight:800;margin-bottom:4px">🌿 Planta Full</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">8 socios · $120.000/mes</div>
+          <div class="pbar" style="margin-bottom:12px"><div class="pbar-fill primary" style="width:21%"></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px">
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Ingresos</span>
+              <strong>$960.000</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Prom tok/socio</span>
+              <strong>92 tok/mes</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="color:var(--text-muted)">Renovaciones</span>
+              <span><strong>8/8</strong> <span class="p-chip ok" style="font-size:10px">✓</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-divider"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div style="font-size:14px;font-weight:700">Total ingresos por membresías</div>
+        <div style="font-size:24px;font-weight:900;color:var(--primary)">$2.280.000/mes</div>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:8px">1 renovación pendiente: ⭐ Brote · Ana Bello #1035</div>
+    </div>
+
+    <!-- Top 10 socios por consumo -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Top 10 socios por consumo</div>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Socio</th>
+              <th>Membresía</th>
+              <th class="right">Tok usados</th>
+              <th class="right">Pedidos</th>
+              <th class="right">Tok prom</th>
+              <th class="right">Recargas</th>
+              <th class="right">Saldo actual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">1</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">MS</div><strong>Matías Suárez</strong></div></td>
+              <td><span class="p-chip ok" style="background:var(--primary-light)">🌿 Planta Full</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 198</td>
+              <td class="right num">14</td>
+              <td class="right num">14.1</td>
+              <td class="right num" style="color:var(--success)">+120</td>
+              <td class="right num">70</td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">DF</div><strong>Diego F.</strong></div></td>
+              <td><span class="p-chip gold">⭐ Brote</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 161</td>
+              <td class="right num">11</td>
+              <td class="right num">14.6</td>
+              <td class="right num" style="color:var(--success)">+100</td>
+              <td class="right num">45</td>
+            </tr>
+            <tr>
+              <td class="num">3</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">VR</div><strong>Valentina R.</strong></div></td>
+              <td><span class="p-chip gold">⭐ Brote</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 143</td>
+              <td class="right num">9</td>
+              <td class="right num">15.9</td>
+              <td class="right num" style="color:var(--success)">+250</td>
+              <td class="right num">23</td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar green sm">LT</div><strong>Lucía Torres</strong></div></td>
+              <td><span class="p-chip gold">⭐ Brote</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 128</td>
+              <td class="right num">8</td>
+              <td class="right num">16.0</td>
+              <td class="right num" style="color:var(--success)">+50</td>
+              <td class="right num">12</td>
+            </tr>
+            <tr>
+              <td class="num">5</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">AB</div><strong>Ana Bello</strong></div></td>
+              <td><span class="p-chip ok">🌱 Semilla</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 97</td>
+              <td class="right num">7</td>
+              <td class="right num">13.9</td>
+              <td class="right num" style="color:var(--success)">+100</td>
+              <td class="right num">0</td>
+            </tr>
+            <tr>
+              <td class="num">6</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">NH</div><strong>Nadia H.</strong></div></td>
+              <td><span class="p-chip ok" style="background:var(--primary-light)">🌿 Planta Full</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 94</td>
+              <td class="right num">7</td>
+              <td class="right num">13.4</td>
+              <td class="right num" style="color:var(--success)">+120</td>
+              <td class="right num">60</td>
+            </tr>
+            <tr>
+              <td class="num">7</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar accent sm">SC</div><strong>Sofía C.</strong></div></td>
+              <td><span class="p-chip gold">⭐ Brote</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 88</td>
+              <td class="right num">6</td>
+              <td class="right num">14.7</td>
+              <td class="right num" style="color:var(--success)">+50</td>
+              <td class="right num">35</td>
+            </tr>
+            <tr>
+              <td class="num">8</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">MR</div><strong>Martín R.</strong></div></td>
+              <td><span class="p-chip ok">🌱 Semilla</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 71</td>
+              <td class="right num">5</td>
+              <td class="right num">14.2</td>
+              <td class="right num" style="color:var(--success)">+20</td>
+              <td class="right num">20</td>
+            </tr>
+            <tr>
+              <td class="num">9</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar mint sm">LG</div><strong>Laura G.</strong></div></td>
+              <td><span class="p-chip ok">🌱 Semilla</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 68</td>
+              <td class="right num">5</td>
+              <td class="right num">13.6</td>
+              <td class="right num" style="color:var(--success)">+20</td>
+              <td class="right num">5</td>
+            </tr>
+            <tr>
+              <td class="num">10</td>
+              <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">FA</div><strong>Federico A.</strong></div></td>
+              <td><span class="p-chip ok">🌱 Semilla</span></td>
+              <td class="right num" style="color:var(--gold-dark);font-weight:800">🪙 61</td>
+              <td class="right num">4</td>
+              <td class="right num">15.3</td>
+              <td class="right num" style="color:var(--success)">+20</td>
+              <td class="right num">15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:10px">+ 28 socios más debajo</div>
+    </div>
+
+    <!-- Alertas y recomendaciones -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Alertas y recomendaciones</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div style="background:var(--warning-light);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:14px">
+          <div style="font-size:14px;font-weight:700;color:#92400E;margin-bottom:6px">⚠️ Churn riesgo</div>
+          <div style="font-size:13px;color:#92400E;margin-bottom:10px">4 socios sin pedido en +15 días. Valentina R. (8 días), Diego F. (11 días), y 2 más.</div>
+          <span class="p-chip warn" style="font-size:11px">Acción recomendada</span>
+        </div>
+        <div style="background:var(--info-light);border:1px solid rgba(14,165,233,0.3);border-radius:12px;padding:14px">
+          <div style="font-size:14px;font-weight:700;color:#0369A1;margin-bottom:6px">📋 REPROCANN vence</div>
+          <div style="font-size:13px;color:#0369A1;margin-bottom:10px">3 socios con credencial que vence en diciembre: Ana Bello (1 dic), Sofía C. (15 dic), Laura G. (20 dic).</div>
+          <span class="p-chip info" style="font-size:11px">Coordinar</span>
+        </div>
+        <div style="background:var(--success-light);border:1px solid rgba(34,197,94,0.3);border-radius:12px;padding:14px">
+          <div style="font-size:14px;font-weight:700;color:#15803D;margin-bottom:6px">🌿 Upgrade potencial</div>
+          <div style="font-size:13px;color:#15803D;margin-bottom:10px">6 socios Brote candidatos a Planta Full: MS, DF, VR, LT, NH, SC. Superaron 60 tok/mes 2 meses seguidos.</div>
+          <span class="p-chip ok" style="font-size:11px">Oportunidad</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen ejecutivo del mes -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">Resumen ejecutivo del mes</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="padding:14px 0">
+          <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em">Operación</div>
+          <div style="font-size:14px;line-height:1.6;color:var(--text)">194 pedidos en 11 días hábiles (parcial). Ritmo proyectado: ~530 pedidos/mes. OG Kush sigue siendo la cepa más demandada (25% del volumen). Stock crítico en Wedding Cake (3g) y OG Kush (8g) — requiere reabastecimiento urgente.</div>
+        </div>
+        <div class="p-divider"></div>
+        <div style="padding:14px 0">
+          <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em">Socios</div>
+          <div style="font-size:14px;line-height:1.6;color:var(--text)">38 socios activos de 42 inscriptos. 3 altas este mes (Federico Álvarez, Nadia Herrera, Sofía Mendoza). 1 baja pendiente de confirmar. Pipeline de admisión con 7 postulantes activos.</div>
+        </div>
+        <div class="p-divider"></div>
+        <div style="padding:14px 0">
+          <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em">Finanzas</div>
+          <div style="font-size:14px;line-height:1.6;color:var(--text)">$2.28M en membresías mensuales. Tokens: 2.841 circulados ≈ $2.841.000 ARS. Total estimado noviembre: ~$3.1M. Crecimiento del 14% respecto a octubre.</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

@@ -1,0 +1,376 @@
+<style>
+.f-shell { display:flex; height:100vh; overflow:hidden; background:#060A06; }
+.f-sidebar { width:220px; min-width:220px; background:#0C1008; border-right:1px solid rgba(245,158,11,0.15); display:flex; flex-direction:column; overflow-y:auto; }
+.f-sidebar-brand { padding:20px 16px 16px; border-bottom:1px solid rgba(245,158,11,0.12); }
+.f-sidebar-logo { font-size:28px; margin-bottom:6px; }
+.f-sidebar-title { font-size:16px; font-weight:800; color:#F59E0B; }
+.f-sidebar-sub { font-size:11px; color:rgba(245,158,11,0.5); margin-top:1px; }
+.f-sidebar-sec { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(245,158,11,0.35); padding:14px 16px 4px; }
+.f-sidebar-link { display:flex; align-items:center; gap:10px; padding:9px 16px; font-size:13px; font-weight:500; color:rgba(245,158,11,0.6); cursor:pointer; transition:.15s; border-left:3px solid transparent; }
+.f-sidebar-link:hover { background:rgba(245,158,11,0.06); color:#F59E0B; }
+.f-sidebar-link.active { background:rgba(245,158,11,0.1); color:#F59E0B; border-left-color:#F59E0B; font-weight:700; }
+.f-sidebar-link span:first-child { font-size:16px; }
+.f-main { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
+.f-topbar { display:flex; justify-content:space-between; align-items:center; padding:18px 28px; border-bottom:1px solid rgba(245,158,11,0.1); background:#0C1008; position:sticky; top:0; z-index:10; }
+.f-page-title { font-size:20px; font-weight:800; color:white; }
+.f-page-sub { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+.f-content { padding:24px 28px; flex:1; }
+.f-section { background:#0F1A0C; border:1px solid rgba(245,158,11,0.12); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.f-section-title { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin-bottom:14px; }
+.f-chip-green { display:inline-flex; align-items:center; padding:3px 8px; border-radius:100px; font-size:10px; font-weight:700; background:rgba(82,183,136,0.15); color:#52B788; }
+.f-chip-gold { display:inline-flex; align-items:center; padding:3px 8px; border-radius:100px; font-size:10px; font-weight:700; background:rgba(245,158,11,0.15); color:#F59E0B; }
+.f-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:none; font-family:'Inter',sans-serif; transition:.15s; }
+.f-btn-ghost { background:transparent; color:rgba(245,158,11,0.7); border:1px solid rgba(245,158,11,0.25); }
+.f-btn-ghost:hover { background:rgba(245,158,11,0.08); color:#F59E0B; }
+.f-sidebar-footer { margin-top:auto; padding:16px; border-top:1px solid rgba(245,158,11,0.1); font-size:11px; color:rgba(245,158,11,0.3); }
+</style>
+
+<div class="f-shell">
+  <aside class="f-sidebar">
+    <div class="f-sidebar-brand">
+      <div class="f-sidebar-logo">⬡</div>
+      <div class="f-sidebar-title">FECCA</div>
+      <div class="f-sidebar-sub">Panel de la federación</div>
+    </div>
+    <div class="f-sidebar-sec">Red</div>
+    <div class="f-sidebar-link" data-goto="fecca-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="f-sidebar-link active" data-goto="fecca-clubes"><span>🌐</span><span>Clubes</span></div>
+    <div class="f-sidebar-sec">Gestión</div>
+    <div class="f-sidebar-link" data-goto="fecca-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="f-sidebar-link" data-goto="fecca-eventos"><span>🎪</span><span>Eventos</span></div>
+    <div class="f-sidebar-footer">fecca.com.ar</div>
+  </aside>
+
+  <main class="f-main">
+    <div class="f-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="f-btn f-btn-ghost" style="font-size:12px" data-goto="fecca-clubes">← Clubes</button>
+        <div>
+          <div class="f-page-title"><span id="cd-emoji">🌿</span> <span id="cd-nombre">Club Sugar</span> · <span id="cd-ciudad">Palermo, CABA</span> · <span style="color:#F59E0B" id="cd-id">#0047</span></div>
+          <div class="f-page-sub" id="cd-sub">143 socios activos · Sugar · Verificado oct 2026</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <span id="cd-sugar-badge" class="f-chip-green" style="font-size:11px;padding:5px 10px">Sugar ✓</span>
+        <span id="cd-no-sugar-badge" class="f-chip-gold" style="display:none;font-size:11px;padding:5px 10px;background:rgba(239,68,68,0.15);color:#ef4444">Sin Sugar</span>
+        <span class="f-chip-gold" style="font-size:11px;padding:5px 10px">⬡ Verificado</span>
+      </div>
+    </div>
+
+    <div class="f-content">
+
+      <!-- KPIs agregados -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:14px 16px;text-align:center">
+          <div id="cd-socios" style="font-size:24px;font-weight:800;color:white">143</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Socios activos</div>
+        </div>
+        <div style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:14px 16px;text-align:center">
+          <div id="cd-suspendidos" style="font-size:24px;font-weight:800;color:rgba(255,255,255,0.4)">2</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Suspendidos</div>
+        </div>
+        <div style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:14px 16px;text-align:center">
+          <div id="cd-tokens" style="font-size:24px;font-weight:800;color:#F59E0B">8.740</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Tokens/mes</div>
+        </div>
+        <div style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:14px 16px;text-align:center">
+          <div id="cd-portal-pct" style="font-size:24px;font-weight:800;color:#52B788">94%</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Portal activo</div>
+        </div>
+        <div style="background:#0F1A0C;border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:14px 16px;text-align:center">
+          <div id="cd-ranking" style="font-size:24px;font-weight:800;color:#F59E0B">#3<span style="font-size:14px;color:rgba(255,255,255,0.4)">/47</span></div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">En la red</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:16px">
+
+        <!-- Actividad 30 días -->
+        <div class="f-section" style="margin-bottom:0">
+          <div class="f-section-title">📈 Actividad últimos 30 días</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:12px;color:rgba(255,255,255,0.6)">Socios que usaron el portal</span>
+                <span id="cd-portal-label" style="font-size:12px;font-weight:700;color:#52B788">134/143 · 94%</span>
+              </div>
+              <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden"><div id="cd-portal-bar" style="height:100%;width:94%;background:#52B788;border-radius:100px"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:12px;color:rgba(255,255,255,0.6)">Pedidos realizados</span>
+                <span id="cd-pedidos" style="font-size:12px;font-weight:700;color:#F59E0B">312</span>
+              </div>
+              <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden"><div style="height:100%;width:78%;background:#F59E0B;border-radius:100px"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:12px;color:rgba(255,255,255,0.6)">Eventos con RSVP</span>
+                <span id="cd-eventos-count" style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">3 eventos · 89 RSVPs</span>
+              </div>
+              <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden"><div style="height:100%;width:62%;background:rgba(245,158,11,0.5);border-radius:100px"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:12px;color:rgba(255,255,255,0.6)">Beneficios FECCA usados</span>
+                <span id="cd-beneficios" style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)">67 canjes</span>
+              </div>
+              <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden"><div style="height:100%;width:47%;background:rgba(245,158,11,0.4);border-radius:100px"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info + Uso de Sugar -->
+        <div>
+          <div class="f-section" style="margin-bottom:12px">
+            <div class="f-section-title">📋 Distribución de membresías</div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;justify-content:space-between;font-size:13px">
+                <span style="color:rgba(255,255,255,0.6)">🌱 Semilla (free)</span>
+                <span id="cd-mem-semilla" style="font-weight:700;color:white">41 socios</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:13px">
+                <span style="color:rgba(255,255,255,0.6)">⭐ Brote (USD 25)</span>
+                <span id="cd-mem-brote" style="font-weight:700;color:white">67 socios</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:13px">
+                <span style="color:rgba(255,255,255,0.6)">🌿 Planta Full (USD 60)</span>
+                <span id="cd-mem-planta" style="font-weight:700;color:white">35 socios</span>
+              </div>
+            </div>
+          </div>
+          <div class="f-section" style="margin-bottom:0;padding:14px 16px">
+            <div class="f-section-title" style="margin-bottom:10px">⚡ Uso de Sugar activo</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:rgba(255,255,255,0.5)">Portal socio</span><span class="f-chip-green" style="font-size:9px">Activo</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:rgba(255,255,255,0.5)">Sistema de tokens</span><span class="f-chip-green" style="font-size:9px">Activo</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:rgba(255,255,255,0.5)">Eventos</span><span class="f-chip-green" style="font-size:9px">Activo</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:rgba(255,255,255,0.5)">Beneficios FECCA</span><span class="f-chip-green" style="font-size:9px">Activo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eventos del club -->
+      <div class="f-section">
+        <div class="f-section-title">🎪 Eventos del club</div>
+        <div id="cd-eventos-list"></div>
+      </div>
+
+      <!-- Catálogo activo -->
+      <div class="f-section">
+        <div class="f-section-title">🌿 Catálogo activo</div>
+        <div id="cd-catalogo" style="display:flex;flex-wrap:wrap;gap:6px;padding-top:4px"></div>
+      </div>
+
+      <!-- Nota especial -->
+      <div id="cd-nota"></div>
+
+      <!-- Nota privacidad -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;font-size:11px;color:rgba(255,255,255,0.3)">
+        🔒 Este panel muestra solo estadísticas agregadas del club. No incluye datos personales de socios (nombre, DNI, dirección, prescripción). Los datos individuales son privados del club.
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const CLUBS_DATA = {
+  sugar: {
+    id: '#0047', nombre: 'Club Sugar', emoji: '🌿', ciudad: 'Palermo, CABA',
+    socios: 143, suspendidos: 2, tokensMes: 8740, portalPct: 94, ranking: 3, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'oct 2026',
+    membresias: { semilla: 41, brote: 67, plantaFull: 35 },
+    actividad: { portalUso: 94, pedidos: 312, eventos: 3, rsvps: 89, beneficios: 67 },
+    eventos: [
+      { nombre: '🎵 El Patio Sounds', fecha: 'Sáb 16 nov 2026', tipo: 'presencial', asistentes: 23, estado: 'próximo' },
+      { nombre: '🎶 La Grande', fecha: 'Vie 22 nov 2026', tipo: 'presencial', asistentes: 12, estado: 'próximo' },
+      { nombre: '🥁 Bomba de Tiempo', fecha: 'Dom 30 nov 2026', tipo: 'presencial', asistentes: 18, estado: 'próximo' },
+      { nombre: '🍃 Taller de cultivo indoor', fecha: 'Oct 2026', tipo: 'taller', asistentes: 31, estado: 'realizado' },
+      { nombre: '🎪 Expo Cannabis 2026', fecha: 'Oct 2026', tipo: 'externo', asistentes: 55, estado: 'realizado' },
+    ],
+    catalogo: ['OG Kush', 'Gorilla Glue #4', 'Wedding Cake', 'Super Lemon Haze', 'Amnesia Haze'],
+    staff: 6, turnosHoy: 3,
+    nota: ''
+  },
+  verde: {
+    id: '#0003', nombre: 'Club Verde', emoji: '🌱', ciudad: 'Almagro, CABA',
+    socios: 198, suspendidos: 1, tokensMes: 12400, portalPct: 97, ranking: 1, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'mar 2024',
+    membresias: { semilla: 55, brote: 89, plantaFull: 54 },
+    actividad: { portalUso: 97, pedidos: 487, eventos: 5, rsvps: 203, beneficios: 118 },
+    eventos: [
+      { nombre: '🎵 Verde Sound System', fecha: 'Jue 14 nov 2026', tipo: 'presencial', asistentes: 67, estado: 'próximo' },
+      { nombre: '🧪 Laboratorio abierto', fecha: '5 nov 2026', tipo: 'taller', asistentes: 22, estado: 'realizado' },
+      { nombre: '🌿 Cosecha comunitaria', fecha: 'Oct 2026', tipo: 'taller', asistentes: 45, estado: 'realizado' },
+      { nombre: '🎪 Expo Cannabis 2026', fecha: 'Oct 2026', tipo: 'externo', asistentes: 89, estado: 'realizado' },
+      { nombre: '🤝 Visita guiada al club', fecha: 'Sep 2026', tipo: 'taller', asistentes: 18, estado: 'realizado' },
+    ],
+    catalogo: ['Blue Dream', 'Gelato', 'Jack Herer', 'AK-47', 'Trainwreck', 'Purple Kush'],
+    staff: 9, turnosHoy: 4,
+    nota: ''
+  },
+  palermo: {
+    id: '#0012', nombre: 'Palermo Roots', emoji: '🌳', ciudad: 'Palermo, CABA',
+    socios: 112, suspendidos: 3, tokensMes: 6890, portalPct: 88, ranking: 5, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'ago 2024',
+    membresias: { semilla: 38, brote: 52, plantaFull: 22 },
+    actividad: { portalUso: 88, pedidos: 198, eventos: 2, rsvps: 54, beneficios: 42 },
+    eventos: [
+      { nombre: '🎶 Roots & Reggae Night', fecha: 'Vie 15 nov 2026', tipo: 'presencial', asistentes: 35, estado: 'próximo' },
+      { nombre: '🌱 Charla REPROCANN', fecha: 'Oct 2026', tipo: 'online', asistentes: 61, estado: 'realizado' },
+    ],
+    catalogo: ['Northern Lights', 'White Widow', 'Blueberry', 'Pineapple Express'],
+    staff: 5, turnosHoy: 2,
+    nota: ''
+  },
+  cordoba: {
+    id: '#0021', nombre: 'Club Córdoba Sur', emoji: '🏔️', ciudad: 'Nueva Córdoba, Córdoba',
+    socios: 87, suspendidos: 0, tokensMes: 4320, portalPct: 79, ranking: 8, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'ene 2026',
+    membresias: { semilla: 31, brote: 40, plantaFull: 16 },
+    actividad: { portalUso: 79, pedidos: 143, eventos: 2, rsvps: 37, beneficios: 29 },
+    eventos: [
+      { nombre: '🎵 Noche de Folclore Verde', fecha: 'Sáb 23 nov 2026', tipo: 'presencial', asistentes: 28, estado: 'próximo' },
+      { nombre: '📋 Jornada REPROCANN Córdoba', fecha: 'Oct 2026', tipo: 'online', asistentes: 44, estado: 'realizado' },
+    ],
+    catalogo: ['Amnesia Haze', 'OG Kush', 'Cheese', 'Super Silver Haze'],
+    staff: 4, turnosHoy: 2,
+    nota: ''
+  },
+  mendoza: {
+    id: '#0039', nombre: 'Club Mendoza Norte', emoji: '🍇', ciudad: 'Ciudad de Mendoza',
+    socios: 84, suspendidos: 2, tokensMes: 3980, portalPct: 0, ranking: 22, totalClubs: 47,
+    sugar: false, verificado: true, fechaAfil: 'mar 2026',
+    membresias: { semilla: 40, brote: 30, plantaFull: 14 },
+    actividad: { portalUso: 0, pedidos: 0, eventos: 1, rsvps: 18, beneficios: 11 },
+    eventos: [
+      { nombre: '🎵 Noche Cuyana', fecha: 'Oct 2026', tipo: 'presencial', asistentes: 44, estado: 'realizado' },
+    ],
+    catalogo: [],
+    staff: 3, turnosHoy: 0,
+    nota: 'Sin sistema Sugar — oportunidad de onboarding'
+  },
+  rosario: {
+    id: '#0033', nombre: 'Rosario Centro', emoji: '🌸', ciudad: 'Centro, Rosario',
+    socios: 95, suspendidos: 1, tokensMes: 5540, portalPct: 83, ranking: 6, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'jun 2026',
+    membresias: { semilla: 35, brote: 44, plantaFull: 16 },
+    actividad: { portalUso: 83, pedidos: 167, eventos: 3, rsvps: 72, beneficios: 38 },
+    eventos: [
+      { nombre: '🎵 Santa Fe Sounds', fecha: 'Sáb 16 nov 2026', tipo: 'presencial', asistentes: 42, estado: 'próximo' },
+      { nombre: '🧪 Workshop aceites', fecha: '8 nov 2026', tipo: 'taller', asistentes: 15, estado: 'realizado' },
+      { nombre: '🌿 Noche cannábica', fecha: 'Oct 2026', tipo: 'presencial', asistentes: 38, estado: 'realizado' },
+    ],
+    catalogo: ['Strawberry Cough', 'OG Kush', 'Lemon Skunk', 'Hash Plant'],
+    staff: 4, turnosHoy: 2,
+    nota: ''
+  },
+  mardelplata: {
+    id: '#0028', nombre: 'Club Mar del Plata', emoji: '🌊', ciudad: 'Mar del Plata, BsAs',
+    socios: 91, suspendidos: 2, tokensMes: 71000, portalPct: 68, ranking: 7, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'may 2026',
+    membresias: { semilla: 44, brote: 32, plantaFull: 15 },
+    actividad: { portalUso: 68, pedidos: 23, eventos: 1, rsvps: 45, beneficios: 11 },
+    eventos: [
+      { nombre: '🌊 Noche de Mar del Plata', fecha: 'Sáb 7 Dic', tipo: 'presencial', asistentes: 45, estado: 'próximo' }
+    ],
+    catalogo: ['OG Kush', 'Blue Dream', 'Amnesia Haze', 'Skunk #1'],
+    staff: 4, turnosHoy: 2,
+    nota: 'Club costero con fuerte comunidad local. Próxima habilitación de espacio de autocultivo grupal.'
+  },
+  laplata: {
+    id: '#0051', nombre: 'Club La Plata Cannábica', emoji: '🎓', ciudad: 'La Plata, BsAs',
+    socios: 76, suspendidos: 5, tokensMes: 0, portalPct: 0, ranking: 11, totalClubs: 47,
+    sugar: false, verificado: true, fechaAfil: 'feb 2026',
+    membresias: { semilla: 40, brote: 24, plantaFull: 12 },
+    actividad: { portalUso: 0, pedidos: 0, eventos: 0, rsvps: 0, beneficios: 0 },
+    eventos: [],
+    catalogo: [],
+    staff: 2, turnosHoy: 0,
+    nota: 'Club universitario con alta rotación de socios. Sin portal digital aún — contacto por WhatsApp.'
+  },
+  bariloche: {
+    id: '#0044', nombre: 'Club Bariloche', emoji: '🏔️', ciudad: 'Bariloche, Río Negro',
+    socios: 61, suspendidos: 1, tokensMes: 39000, portalPct: 55, ranking: 14, totalClubs: 47,
+    sugar: true, verificado: true, fechaAfil: 'sep 2026',
+    membresias: { semilla: 32, brote: 20, plantaFull: 9 },
+    actividad: { portalUso: 55, pedidos: 14, eventos: 1, rsvps: 12, beneficios: 8 },
+    eventos: [
+      { nombre: '🏔️ Encuentro Patagónico Cannábico', fecha: 'Dom 22 Dic', tipo: 'presencial', asistentes: 12, estado: 'próximo' }
+    ],
+    catalogo: ['Northern Lights', 'Afghan Kush', 'Blue Dream'],
+    staff: 3, turnosHoy: 1,
+    nota: 'Club pionero en la Patagonia. Cultivo outdoor en zona de altura. Clima frío — cepas de floración rápida.'
+  }
+};
+
+function renderClub(c) {
+  document.getElementById('cd-emoji').textContent = c.emoji;
+  document.getElementById('cd-nombre').textContent = c.nombre;
+  document.getElementById('cd-ciudad').textContent = c.ciudad;
+  document.getElementById('cd-id').textContent = c.id;
+  document.getElementById('cd-sub').textContent = c.socios + ' socios activos · ' + (c.sugar ? 'Sugar' : 'Sin Sugar') + ' · Verificado ' + c.fechaAfil;
+  document.getElementById('cd-socios').textContent = c.socios;
+  document.getElementById('cd-suspendidos').textContent = c.suspendidos;
+  document.getElementById('cd-tokens').textContent = c.tokensMes.toLocaleString('es-AR');
+  document.getElementById('cd-portal-pct').textContent = c.portalPct + '%';
+  document.getElementById('cd-ranking').innerHTML = '#' + c.ranking + '<span style="font-size:14px;color:rgba(255,255,255,0.4)">/' + c.totalClubs + '</span>';
+
+  document.getElementById('cd-portal-label').textContent = Math.round(c.socios * c.portalPct / 100) + '/' + c.socios + ' · ' + c.portalPct + '%';
+  document.getElementById('cd-portal-bar').style.width = c.portalPct + '%';
+  document.getElementById('cd-pedidos').textContent = c.actividad.pedidos;
+  document.getElementById('cd-eventos-count').textContent = c.actividad.eventos + ' eventos · ' + c.actividad.rsvps + ' RSVPs';
+  document.getElementById('cd-beneficios').textContent = c.actividad.beneficios + ' canjes';
+
+  document.getElementById('cd-mem-semilla').textContent = c.membresias.semilla + ' socios';
+  document.getElementById('cd-mem-brote').textContent = c.membresias.brote + ' socios';
+  document.getElementById('cd-mem-planta').textContent = c.membresias.plantaFull + ' socios';
+
+  // Eventos
+  const evList = document.getElementById('cd-eventos-list');
+  if (evList) {
+    evList.innerHTML = c.eventos.map(ev => `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(245,158,11,0.08)">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:white">${ev.nombre}</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">${ev.fecha} · ${ev.tipo}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:12px;color:rgba(255,255,255,0.5)">👥 ${ev.asistentes}</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:100px;font-weight:700;${ev.estado==='próximo' ? 'background:rgba(82,183,136,0.15);color:#52B788' : 'background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.4)'}">${ev.estado === 'próximo' ? '📅 Próximo' : '✓ Realizado'}</span>
+        </div>
+      </div>
+    `).join('') || '<div style="color:rgba(255,255,255,0.3);font-size:13px;padding:10px 0">Sin eventos registrados</div>';
+  }
+
+  // Catálogo
+  const catEl = document.getElementById('cd-catalogo');
+  if (catEl) {
+    if (!c.sugar || c.catalogo.length === 0) {
+      catEl.innerHTML = '<div style="font-size:12px;color:rgba(255,255,255,0.3);font-style:italic">Sin sistema Sugar — no disponible</div>';
+    } else {
+      catEl.innerHTML = c.catalogo.map(s => `<span style="font-size:11px;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.2);color:#52B788;padding:3px 10px;border-radius:100px">${s}</span>`).join('');
+    }
+  }
+
+  // Nota
+  const notaEl = document.getElementById('cd-nota');
+  if (notaEl) {
+    if (c.nota) {
+      notaEl.innerHTML = `<div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:10px 14px;font-size:12px;color:#F59E0B;margin-bottom:16px">⚠️ ${c.nota}</div>`;
+    } else {
+      notaEl.innerHTML = '';
+    }
+  }
+
+  // Sugar badge
+  document.getElementById('cd-sugar-badge').style.display = c.sugar ? '' : 'none';
+  document.getElementById('cd-no-sugar-badge').style.display = c.sugar ? 'none' : '';
+}
+
+// Render dinámico
+const clubId = window.FECCA_CLUB || 'sugar';
+renderClub(CLUBS_DATA[clubId] || CLUBS_DATA.sugar);
+</script>

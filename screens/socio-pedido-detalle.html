@@ -1,0 +1,145 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="p-header compact">
+  <div class="p-header-row">
+    <div class="p-back" data-goto="socio-historial">←</div>
+    <h1>Pedido #P-243</h1>
+    <span class="p-chip ok">Listo ✓</span>
+  </div>
+</div>
+
+<div class="p-body">
+
+  <!-- Card de estado -->
+  <div class="p-card" style="border-color:var(--success)">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+      <div style="font-size:13px;color:var(--text-muted)">Mar 11 Nov · 10:32hs</div>
+      <span class="p-chip ok">Listo ✓</span>
+    </div>
+    <div style="font-size:12px;color:var(--text-muted)">Listo para retiro · esperando al socio</div>
+    <ul class="timeline" style="margin-top:12px">
+      <li class="done">Recibido · 10:32hs</li>
+      <li class="done">Armando · 10:35hs</li>
+      <li class="active">Listo · 10:58hs</li>
+      <li>Retirado</li>
+    </ul>
+    <div class="pbar" style="margin-top:12px"><div class="pbar-fill" style="width:75%;background:var(--success)"></div></div>
+  </div>
+
+  <!-- Card QR de retiro -->
+  <div class="p-card" style="background:rgba(27,67,50,0.15);border:1.5px solid rgba(82,183,136,0.4)">
+    <div style="font-weight:800;margin-bottom:4px">📱 Tu código de retiro</div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px">Mostrá este QR al equipo del club al llegar</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div style="width:120px;height:120px;background:rgba(255,255,255,0.08);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:48px">▦</div>
+      <div style="font-family:monospace;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--accent)">SGR-P243-2026</div>
+    </div>
+    <button class="p-btn gold block small" style="margin-top:14px" data-goto="socio-qr">📱 Ver QR completo</button>
+  </div>
+
+  <!-- Card de ítems -->
+  <div class="p-card">
+    <div style="font-weight:800;margin-bottom:12px">Ítems del pedido</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0">
+      <div>
+        <div style="font-size:14px;font-weight:600">OG Kush</div>
+        <div style="font-size:12px;color:var(--text-muted)">2g · 🪙 20 tok/g</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:13px;font-weight:700">🪙 40 tok</div>
+        <button class="p-btn small" data-goto="socio-strain">Ver</button>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0">
+      <div>
+        <div style="font-size:14px;font-weight:600">Gorilla Glue #4</div>
+        <div style="font-size:12px;color:var(--text-muted)">1g · 🪙 22 tok/g</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:13px;font-weight:700">🪙 22 tok</div>
+        <button class="p-btn small" data-goto="socio-strain">Ver</button>
+      </div>
+    </div>
+    <div class="p-divider"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0">
+      <div style="font-weight:600">Total</div>
+      <div style="font-weight:800;color:var(--gold,var(--accent))">🪙 62 tokens</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 0">
+      <div style="font-size:13px;color:var(--text-muted)">Pago</div>
+      <div style="font-size:13px;color:var(--text-muted)">$62.000 ARS · efectivo al retiro</div>
+    </div>
+  </div>
+
+  <!-- Card de información -->
+  <div class="p-card">
+    <div style="font-weight:800;margin-bottom:12px">Detalles</div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px">
+      <span style="color:var(--text-muted)">Número de pedido</span>
+      <span style="font-weight:600">#P-243</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px">
+      <span style="color:var(--text-muted)">Confirmado</span>
+      <span>Mar 11 Nov · 10:32hs</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px">
+      <span style="color:var(--text-muted)">Listo para retiro</span>
+      <span>Mar 11 Nov · 10:58hs</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px">
+      <span style="color:var(--text-muted)">Horario de retiro</span>
+      <span>Hoy hasta las 20:00hs</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px">
+      <span style="color:var(--text-muted)">Domicilio</span>
+      <span style="text-align:right;max-width:60%">Thames 1234, Palermo · Lun–Sáb 10–20hs</span>
+    </div>
+    <div class="p-divider"></div>
+    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px">
+      <span style="color:var(--text-muted)">Nota tuya</span>
+      <span style="color:var(--text-muted);font-style:italic">"Sin nota"</span>
+    </div>
+  </div>
+
+  <!-- Activity feed -->
+  <div class="p-card">
+    <div class="activity-feed">
+      <div class="activity-item">
+        <div class="activity-dot ok"></div>
+        <div class="activity-main">
+          <div class="activity-text">Pedido listo para retiro</div>
+          <div class="activity-time">10:58hs</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-dot ok"></div>
+        <div class="activity-main">
+          <div class="activity-text">Pedido en armado por el equipo</div>
+          <div class="activity-time">10:35hs</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-dot green"></div>
+        <div class="activity-main">
+          <div class="activity-text">Pedido confirmado por Valentina</div>
+          <div class="activity-time">10:32hs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acciones sticky -->
+  <div style="position:sticky;bottom:0;background:var(--bg);padding:10px 16px 0;border-top:1px solid var(--border)">
+    <button class="p-btn gold block" data-goto="socio-qr">📱 Mostrar QR de retiro</button>
+    <button class="p-btn block" style="margin-top:8px" data-goto="socio-historial">← Volver a mis pedidos</button>
+  </div>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="socio-home"><div class="p-nav-tab-icon">🏠</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="socio-catalogo"><div class="p-nav-tab-icon">🌿</div>Catálogo</div>
+  <div class="p-nav-tab active"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab" data-goto="socio-eventos"><div class="p-nav-tab-icon">🎵</div>Eventos</div>
+  <div class="p-nav-tab" data-goto="socio-perfil"><div class="p-nav-tab-icon">👤</div>Perfil</div>
+</div>

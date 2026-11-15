@@ -1,0 +1,314 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+        <div style="margin-top:5px"><span style="font-size:9px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:800">⬡ FECCA #0047</span></div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link active"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="p-btn small ghost" data-goto="admin-beneficios">← Beneficios</button>
+        <div>
+          <div class="d-page-title">GreenGrow Hidroponía</div>
+          <div class="d-page-sub">Beneficio del club · Suministros de cultivo</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;b.textContent='✓ Copiado!';setTimeout(function(){b.disabled=false;b.textContent='Copiar código';},1500)">📋 Copiar código</button>
+        <button class="p-btn small ghost" data-goto="admin-beneficio-detalle">✏️ Editar</button>
+        <button class="p-btn small ghost" style="color:var(--danger);border-color:rgba(239,68,68,0.3)" onclick="var b=this;b.disabled=true;b.textContent='⏳…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},700)">🚫 Desactivar</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:16px">
+      <div class="kpi" style="border-top:3px solid var(--ok)">
+        <div class="kpi-label">Usos este mes</div>
+        <div class="kpi-value" style="color:var(--ok)">14</div>
+        <div class="kpi-sub">socios utilizaron el beneficio</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Socios activos</div>
+        <div class="kpi-value" style="color:var(--info)">38</div>
+        <div class="kpi-sub">pueden usar el beneficio</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Código activo</div>
+        <div class="kpi-value" style="color:var(--gold-dark);font-family:monospace;font-size:20px">SUGAR15</div>
+        <div class="kpi-sub">&nbsp;</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--accent)">
+        <div class="kpi-label">Vence</div>
+        <div class="kpi-value" style="color:var(--accent);font-size:18px">31 dic 2026</div>
+        <div class="kpi-sub">49 días restantes</div>
+      </div>
+    </div>
+
+    <!-- 2-column layout -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start">
+
+      <!-- Left column -->
+      <div>
+
+        <!-- Información del beneficio -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Información del beneficio</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Nombre del aliado</label>
+              <input type="text" value="GreenGrow Hidroponía" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Categoría</label>
+              <select style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;background:white;box-sizing:border-box">
+                <option selected>Suministros</option>
+                <option>Salud</option>
+                <option>Legal</option>
+                <option>Educación</option>
+                <option>Otros</option>
+              </select>
+            </div>
+            <div style="grid-column:1/-1">
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Descripción</label>
+              <textarea style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;resize:vertical;min-height:70px;box-sizing:border-box">15% de descuento en toda la tienda online de GreenGrow. Incluye semillas, sustratos, fertilizantes, iluminación y accesorios de cultivo.</textarea>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Código de descuento</label>
+              <input type="text" value="SUGAR15" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box;font-family:monospace;font-weight:700">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Descuento (%)</label>
+              <input type="number" value="15" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">URL del aliado</label>
+              <input type="text" value="www.greengrow.com.ar" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px">Fecha de vencimiento</label>
+              <input type="date" value="2026-12-31" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;box-sizing:border-box">
+            </div>
+            <div style="grid-column:1/-1">
+              <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:8px">Aplica a membresías</label>
+              <div style="display:flex;gap:20px;align-items:center">
+                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
+                  <input type="checkbox" checked style="width:15px;height:15px"> 🌱 Semilla
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
+                  <input type="checkbox" checked style="width:15px;height:15px"> ⭐ Brote
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
+                  <input type="checkbox" checked style="width:15px;height:15px"> 🌿 Planta Full
+                </label>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:16px;display:flex;justify-content:flex-end">
+            <button class="p-btn gold" onclick="var b=this;b.disabled=true;b.textContent='⏳ Guardando…';setTimeout(function(){b.textContent='✓ Guardado';b.style.opacity='0.7';},900)">Guardar cambios</button>
+          </div>
+        </div>
+
+        <!-- Uso del beneficio -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Uso del beneficio — Noviembre</div>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px">Socios que usaron SUGAR15 este mes</div>
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead>
+              <tr style="border-bottom:2px solid var(--border)">
+                <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Socio</th>
+                <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Plan</th>
+                <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Fecha de uso</th>
+                <th style="text-align:right;padding:6px 8px;font-size:11px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Compra aprox.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:9px 8px">Valentina R. <span style="color:var(--text-muted)">#1042</span></td>
+                <td style="padding:9px 8px"><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></td>
+                <td style="padding:9px 8px;color:var(--text-muted);font-size:12px">Lun 11 Nov</td>
+                <td style="padding:9px 8px;text-align:right;font-weight:600">~$8.500</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:9px 8px">Diego F. <span style="color:var(--text-muted)">#1023</span></td>
+                <td style="padding:9px 8px"><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></td>
+                <td style="padding:9px 8px;color:var(--text-muted);font-size:12px">Dom 10 Nov</td>
+                <td style="padding:9px 8px;text-align:right;font-weight:600">~$12.000</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:9px 8px">Sofía C. <span style="color:var(--text-muted)">#1089</span></td>
+                <td style="padding:9px 8px"><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></td>
+                <td style="padding:9px 8px;color:var(--text-muted);font-size:12px">Sáb 9 Nov</td>
+                <td style="padding:9px 8px;text-align:right;font-weight:600">~$5.200</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:9px 8px">Laura G. <span style="color:var(--text-muted)">#1067</span></td>
+                <td style="padding:9px 8px"><span class="p-chip ok" style="font-size:11px">🌱 Semilla</span></td>
+                <td style="padding:9px 8px;color:var(--text-muted);font-size:12px">Vie 8 Nov</td>
+                <td style="padding:9px 8px;text-align:right;font-weight:600">~$3.100</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:9px 8px">Matías S. <span style="color:var(--text-muted)">#1051</span></td>
+                <td style="padding:9px 8px"><span class="p-chip mint" style="font-size:11px">🌿 Planta</span></td>
+                <td style="padding:9px 8px;color:var(--text-muted);font-size:12px">Jue 7 Nov</td>
+                <td style="padding:9px 8px;text-align:right;font-weight:600">~$9.800</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="padding:10px 8px;text-align:center;font-size:12px;color:var(--text-muted)">+ 9 más</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:12px;font-size:11px;color:var(--text-muted)">* Datos estimados por código. Integración directa con GreenGrow pendiente.</div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div>
+
+        <!-- Estado -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Estado</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Estado</span>
+            <span class="p-chip ok">✓ Activo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Código</span>
+            <code style="background:rgba(82,183,136,0.1);padding:3px 8px;border-radius:6px;color:var(--accent);font-weight:700;font-size:13px">SUGAR15</code>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Descuento</span>
+            <span style="font-size:13px;font-weight:700">15%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Categoría</span>
+            <span style="font-size:13px">Suministros</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Vencimiento</span>
+            <span style="font-size:13px">31 dic 2026</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0">
+            <span style="font-size:13px;color:var(--text-muted)">Visibilidad</span>
+            <span style="font-size:12px;text-align:right">Todos los socios activos</span>
+          </div>
+          <div class="p-divider"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Usos totales</span>
+            <span style="font-size:13px;font-weight:700">87</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-muted)">Usos este mes</span>
+            <span style="font-size:13px;font-weight:700">14</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0">
+            <span style="font-size:13px;color:var(--text-muted)">Usos mes pasado</span>
+            <span style="font-size:13px;font-weight:700">11</span>
+          </div>
+        </div>
+
+        <!-- Acciones rápidas -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Acciones rápidas</div>
+          </div>
+          <button class="p-btn gold" style="width:100%;display:block;margin-bottom:8px" onclick="var b=this;b.disabled=true;b.textContent='✓ Copiado!';setTimeout(function(){b.disabled=false;b.textContent='Copiar código';},1500)">📋 Copiar código SUGAR15</button>
+          <div>
+            <button class="p-btn ghost" style="width:100%;display:block;margin-bottom:4px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado a socios';b.style.opacity='0.7';},1000)">📢 Difundir a socios</button>
+            <div style="font-size:11px;color:var(--text-muted);text-align:center;margin-bottom:8px">Enviar WhatsApp con el beneficio</div>
+          </div>
+          <button class="p-btn ghost" style="width:100%;display:block;margin-bottom:8px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Renovando…';setTimeout(function(){b.textContent='✓ Renovado';b.style.opacity='0.7';},900)">🔄 Renovar vencimiento</button>
+          <div class="p-divider"></div>
+          <button class="p-btn ghost" style="width:100%;display:block;color:var(--danger);border-color:rgba(239,68,68,0.3)" onclick="var b=this;b.disabled=true;b.textContent='⏳…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},700)">🚫 Desactivar beneficio</button>
+        </div>
+
+        <!-- Actividad -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad</div>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">14 socios usaron el código este mes</div>
+                <div class="activity-time">Nov 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-main">
+                <div class="activity-text"><strong>Valentina R.</strong> usó SUGAR15 · ~$8.500</div>
+                <div class="activity-time">hace 2 días</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot gold"></div>
+              <div class="activity-main">
+                <div class="activity-text">Código renovado hasta 31 dic 2026</div>
+                <div class="activity-time">1 oct 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot info"></div>
+              <div class="activity-main">
+                <div class="activity-text">GreenGrow actualizó condiciones del beneficio</div>
+                <div class="activity-time">15 sep 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot ok"></div>
+              <div class="activity-main">
+                <div class="activity-text">Beneficio creado y publicado a socios</div>
+                <div class="activity-time">1 ago 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>

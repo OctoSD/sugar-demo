@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">👷</div>
       <div>
         <div class="d-sidebar-brand-text">Equipo</div>
-        <div class="d-sidebar-brand-sub">Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación diaria</div>
@@ -12,8 +12,10 @@
     <div class="d-sidebar-link" data-goto="equipo-d-armado"><span>📦</span><span>Armado de pedidos</span></div>
     <div class="d-sidebar-link active" data-goto="equipo-d-admision"><span>🚪</span><span>Admisión</span></div>
     <div class="d-sidebar-link" data-goto="equipo-d-entrega"><span>🤝</span><span>Entregas y retiros</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-medico"><span>🩺</span><span>Sesiones médicas</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-fichaje"><span>🕐</span><span>Fichaje</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Rainbow · Lun 11 Nov</div>
+    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Sugar · Lun 11 Nov</div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
@@ -30,24 +32,66 @@
         <div class="d-page-title">🚪 Pipeline de admisión · 7 candidatos activos</div>
         <div class="d-page-sub">Seguimiento del equipo · acciones directas</div>
       </div>
-      <button class="p-btn small primary">+ Nuevo candidato</button>
+      <div style="display:flex;gap:10px;align-items:center">
+        <!-- Buscador -->
+        <div style="position:relative">
+          <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none">🔍</span>
+          <input id="search-adm-d" type="text" placeholder="Buscar por nombre o teléfono…" oninput="filtrarAdmD()"
+            style="background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 12px 7px 32px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:220px">
+        </div>
+        <button onclick="toggleProspectoD()" id="btn-nuevo-d" class="p-btn small primary">+ Nuevo prospecto</button>
+      </div>
     </div>
 
-    <!-- 5-column kanban -->
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px">
+    <!-- Panel ingreso rápido (oculto por defecto) -->
+    <div id="panel-nuevo-d" style="display:none;background:white;border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px">
+      <div style="font-size:15px;font-weight:700;margin-bottom:14px">📱 Nuevo prospecto — ingreso rápido</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Teléfono (obligatorio)</div>
+          <input id="d-tel" type="tel" placeholder="Ej: 11 5566-7788"
+            style="width:100%;box-sizing:border-box;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:14px;color:var(--text);font-family:'Inter',sans-serif;outline:none"
+            oninput="checkProspectoD()">
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Nombre (opcional)</div>
+          <input id="d-nombre" type="text" placeholder="Ej: Juan Pérez"
+            style="width:100%;box-sizing:border-box;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:14px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Tipo de consulta</div>
+          <select id="d-tipo" style="width:100%;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:14px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+            <option value="">Sin especificar</option>
+            <option value="cannabis">🌿 Cannabis medicinal</option>
+            <option value="reprocann">📋 REPROCANN</option>
+            <option value="general">❓ Consulta general</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button onclick="toggleProspectoD()" class="p-btn small ghost">Cancelar</button>
+          <button id="btn-add-d" onclick="agregarProspectoD()" disabled class="p-btn small primary" style="opacity:0.4;cursor:not-allowed">Agregar →</button>
+        </div>
+      </div>
+      <div class="p-alert info" style="margin-top:12px;border-radius:8px;font-size:12px">
+        💡 <strong>Proceso de intake:</strong> Al agregar el teléfono, el sistema puede enviarle al prospecto un link de pre-registro para que complete sus datos antes de la consulta médica.
+      </div>
+    </div>
+
+    <!-- 6-column kanban -->
+    <div id="kanban-adm" style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px">
 
       <!-- E1 Contacto -->
-      <div style="background:white;border:1px solid var(--border);border-radius:14px;min-height:360px">
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;min-height:360px" data-col="contacto">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);border-top:3px solid var(--text-muted);border-radius:14px 14px 0 0">
-          1 · Contacto <span style="background:var(--bg-tint);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
+          1 · Contacto <span id="cnt-contacto" style="background:var(--bg-tint);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
         </div>
-        <div style="padding:8px">
-          <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
+        <div id="col-contacto" style="padding:8px">
+          <div class="adm-d-card" data-search="Rodrigo Paz 11 5588-1234" style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
             <div style="font-size:14px;font-weight:700">Rodrigo Paz</div>
             <div style="font-size:11px;color:var(--text-muted);margin-top:2px">📱 11 5588-1234</div>
             <div style="font-size:11px;color:var(--text-muted)">Ingresó: 08 nov</div>
             <div style="margin-top:6px;font-size:11px;color:var(--accent-dark)">👉 Ayudar con REPROCANN</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Enviar info REPROCANN</button>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">Enviar link →</button>
           </div>
         </div>
       </div>
@@ -58,82 +102,146 @@
           2 · REPROCANN <span style="background:rgba(14,165,233,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
         </div>
         <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
-          <div style="background:var(--info-light);border:1px solid rgba(14,165,233,0.3);border-radius:10px;padding:12px">
+          <div class="adm-d-card" data-search="Camila López camila.lop@gmail.com" style="background:var(--info-light);border:1px solid rgba(14,165,233,0.3);border-radius:10px;padding:12px">
             <div style="font-size:14px;font-weight:700">Camila López</div>
             <div style="font-size:11px;color:var(--text-muted)">📧 camila.lop@gmail.com</div>
             <div style="font-size:11px;color:var(--text-muted)">12 días esperando</div>
-            <div style="font-size:11px;color:var(--info);margin-top:4px">⏳ Esperando tramitación</div>
-            <button class="p-btn small ghost" style="margin-top:8px;font-size:11px;width:100%">💬 WhatsApp</button>
+            <button class="p-btn small ghost" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">💬 WhatsApp</button>
           </div>
-          <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
+          <div class="adm-d-card" data-search="Jorge Villena 11 7788-9900" style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
             <div style="font-size:14px;font-weight:700">Jorge Villena</div>
             <div style="font-size:11px;color:var(--text-muted)">📱 11 7788-9900</div>
             <div style="font-size:11px;color:var(--text-muted)">8 días esperando</div>
-            <div style="font-size:11px;color:var(--info);margin-top:4px">⏳ Esperando tramitación</div>
-            <button class="p-btn small ghost" style="margin-top:8px;font-size:11px;width:100%">💬 WhatsApp</button>
+            <button class="p-btn small ghost" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">💬 WhatsApp</button>
           </div>
         </div>
       </div>
 
-      <!-- E3 Consulta agendada -->
+      <!-- E3 Repro OK → Esperando médico -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;min-height:360px">
-        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--warning);border-top:3px solid var(--warning);border-radius:14px 14px 0 0">
-          3 · Consulta agendada <span style="background:var(--warning-light);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
+        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--info);border-top:3px solid #0EA5E9;border-radius:14px 14px 0 0">
+          3 · Repro OK · Esperando médico <span style="background:rgba(14,165,233,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
         </div>
         <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
-          <div style="background:var(--warning-light);border:1px solid rgba(245,158,11,0.3);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">Laura Gómez</div>
-            <div style="font-size:11px;color:var(--text-muted)">📅 Jue 14 nov · 15hs</div>
-            <div style="font-size:11px;color:var(--text-muted)">Dra. Pérez</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Confirmar Zoom</button>
+          <div class="adm-d-card" data-search="Camila López camila" style="background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.3);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">Camila López</div>
+            <div style="font-size:11px;color:var(--text-muted)">📋 Repro aprobado ayer</div>
+            <div style="font-size:11px;color:#0369A1;font-weight:600;margin-top:4px">⏳ Dra. Pérez asignando fecha</div>
           </div>
-          <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
-            <div style="font-size:14px;font-weight:700">Sebastián Ríos</div>
-            <div style="font-size:11px;color:var(--text-muted)">📅 Vie 15 nov · 11hs</div>
-            <div style="font-size:11px;color:var(--text-muted)">Dr. Molina</div>
-            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%">Confirmar Zoom</button>
+          <div class="adm-d-card" data-search="Jorge Villena jorge" style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">Jorge Villena</div>
+            <div style="font-size:11px;color:var(--text-muted)">📋 Repro aprobado hoy</div>
+            <div style="font-size:11px;color:#0369A1;font-weight:600;margin-top:4px">⏳ Pendiente de agendamiento</div>
           </div>
         </div>
       </div>
 
-      <!-- E4 Aprobado -->
+      <!-- E4 Sesión agendada (antes E3) -->
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;min-height:360px">
+        <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--warning);border-top:3px solid var(--warning);border-radius:14px 14px 0 0">
+          4 · Sesión agendada <span style="background:var(--warning-light);padding:2px 7px;border-radius:100px;margin-left:4px">2</span>
+        </div>
+        <div style="padding:8px;display:flex;flex-direction:column;gap:8px">
+          <div class="adm-d-card" data-search="Laura Gómez laura" style="background:var(--warning-light);border:1px solid rgba(245,158,11,0.3);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">Laura Gómez</div>
+            <div style="font-size:11px;color:var(--text-muted)">📅 Jue 14 nov · 15hs · Dra. Pérez</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Avanzado';b.style.opacity='0.7';},800)">Confirmar Zoom</button>
+          </div>
+          <div class="adm-d-card" data-search="Sebastián Ríos sebastian" style="background:white;border:1px solid var(--border);border-radius:10px;padding:12px">
+            <div style="font-size:14px;font-weight:700">Sebastián Ríos</div>
+            <div style="font-size:11px;color:var(--text-muted)">📅 Vie 15 nov · 11hs · Dr. Molina</div>
+            <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Avanzado';b.style.opacity='0.7';},800)">Confirmar Zoom</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- E5 Alta médica -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;min-height:360px">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent);border-top:3px solid var(--accent);border-radius:14px 14px 0 0">
-          4 · Aprobado <span style="background:rgba(82,183,136,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
+          5 · Alta médica <span style="background:rgba(82,183,136,0.1);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
         </div>
         <div style="padding:8px">
-          <div style="background:var(--success-light);border:1px solid rgba(34,197,94,0.3);border-radius:10px;padding:12px">
+          <div class="adm-d-card" data-search="Nadia Herrera nadia" style="background:var(--success-light);border:1px solid rgba(34,197,94,0.3);border-radius:10px;padding:12px">
             <div style="font-size:14px;font-weight:700">Nadia Herrera</div>
             <div style="font-size:11px;color:var(--text-muted)">R-2024-00502 · OK</div>
-            <div style="font-size:11px;color:var(--text-muted)">Consulta: Dra. Pérez ✓</div>
-            <div style="margin-top:6px;font-size:11px;color:var(--accent-dark);font-weight:600">🟢 Lista para habilitar</div>
-            <button class="p-btn gold block" style="margin-top:8px;font-size:11px">🎉 Habilitar socio ✓</button>
+            <div style="font-size:11px;color:var(--accent-dark);font-weight:600;margin-top:4px">🟢 Lista para habilitar</div>
+            <button class="p-btn gold block" style="margin-top:8px;font-size:11px" onclick="this.textContent='🎉 Nadia habilitada';this.disabled=true">🎉 Habilitar socio ✓</button>
           </div>
         </div>
       </div>
 
-      <!-- E5 Habilitado -->
+      <!-- E6 Habilitado -->
       <div style="background:white;border:1px solid var(--border);border-radius:14px;min-height:360px">
         <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--success);border-top:3px solid var(--success);border-radius:14px 14px 0 0">
-          5 · Habilitado <span style="background:var(--success-light);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
+          6 · Habilitado <span style="background:var(--success-light);padding:2px 7px;border-radius:100px;margin-left:4px">1</span>
         </div>
         <div style="padding:8px">
-          <div style="background:var(--success-light);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:12px;opacity:0.8">
+          <div class="adm-d-card" data-search="Federico Álvarez federico" style="background:var(--success-light);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:12px;opacity:0.8">
             <div style="font-size:14px;font-weight:700">Federico Álvarez</div>
             <div style="font-size:11px;color:var(--text-muted)">Hoy 09:00 · #1078</div>
-            <div style="font-size:11px;color:var(--success);font-weight:700;margin-top:4px">✓ Habilitado para comprar</div>
+            <div style="font-size:11px;color:var(--success);font-weight:700;margin-top:4px">✓ Habilitado</div>
           </div>
         </div>
       </div>
 
-    </div>
+    </div><!-- /kanban -->
 
-    <!-- Monthly stats -->
+    <!-- Stat -->
     <div class="p-alert ok" style="border-radius:12px">
-      <div>
-        <strong>Noviembre: 3 habilitados · 4 en proceso · avg 12 días</strong>
-        Próximos pasos: Nadia lista para habilitar · 2 consultas agendadas esta semana
-      </div>
+      <strong>Noviembre: 3 habilitados · 4 en proceso · avg 12 días</strong> —
+      Próximos pasos: Nadia lista para habilitar · 2 consultas agendadas esta semana
     </div>
   </main>
 </div>
+
+<script>
+var tipoD = '';
+
+function toggleProspectoD() {
+  const p = document.getElementById('panel-nuevo-d');
+  const show = p.style.display === 'none';
+  p.style.display = show ? '' : 'none';
+  document.getElementById('btn-nuevo-d').textContent = show ? '✕ Cancelar' : '+ Nuevo prospecto';
+  if(show) document.getElementById('d-tel').focus();
+}
+
+function checkProspectoD() {
+  const ok = document.getElementById('d-tel').value.trim().length >= 8;
+  const btn = document.getElementById('btn-add-d');
+  btn.disabled = !ok;
+  btn.style.opacity = ok ? '1' : '0.4';
+  btn.style.cursor = ok ? 'pointer' : 'not-allowed';
+}
+
+function agregarProspectoD() {
+  const tel = document.getElementById('d-tel').value.trim();
+  const nombre = document.getElementById('d-nombre').value.trim() || tel;
+  const tipo = document.getElementById('d-tipo').value;
+  const tipos = { cannabis:'🌿 Cannabis medicinal', reprocann:'📋 REPROCANN', general:'❓ General', '':'' };
+  const col = document.getElementById('col-contacto');
+  const card = document.createElement('div');
+  card.className = 'adm-d-card';
+  card.dataset.search = nombre.toLowerCase() + ' ' + tel;
+  card.style.cssText = 'background:white;border:2px solid var(--accent);border-radius:10px;padding:12px;margin-top:8px';
+  card.innerHTML = `
+    <div style="font-size:14px;font-weight:700">${nombre}</div>
+    <div style="font-size:11px;color:var(--text-muted);margin-top:2px">📱 ${tel}${tipo ? ' · ' + tipos[tipo] : ''}</div>
+    <div style="font-size:11px;color:var(--accent);font-weight:600;margin-top:2px">✓ Nuevo · hoy</div>
+    <button class="p-btn small primary" style="margin-top:8px;font-size:11px;width:100%" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Enviado';b.style.opacity='0.7';},900)">Enviar link de intake →</button>`;
+  col.appendChild(card);
+  const cnt = document.getElementById('cnt-contacto');
+  cnt.textContent = parseInt(cnt.textContent) + 1;
+  document.getElementById('d-tel').value = '';
+  document.getElementById('d-nombre').value = '';
+  document.getElementById('d-tipo').value = '';
+  checkProspectoD();
+  toggleProspectoD();
+}
+
+function filtrarAdmD() {
+  const q = document.getElementById('search-adm-d').value.toLowerCase().trim();
+  document.querySelectorAll('.adm-d-card').forEach(c => {
+    c.style.display = (!q || c.dataset.search.toLowerCase().includes(q)) ? '' : 'none';
+  });
+}
+</script>

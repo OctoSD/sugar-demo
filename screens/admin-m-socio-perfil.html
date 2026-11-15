@@ -1,0 +1,252 @@
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="p-header compact">
+  <div class="p-header-row">
+    <div class="p-back" data-goto="admin-m-socios">←</div>
+    <div>
+      <h1 style="font-size:16px">Valentina Rodríguez</h1>
+      <div class="p-subtitle" style="font-size:11px">#1042 · ⭐ Brote · Activa</div>
+    </div>
+    <div class="p-avatar mint sm">VR</div>
+  </div>
+</div>
+
+<div class="p-body tight">
+
+  <!-- Tabs: Resumen / Pedidos / Docs -->
+  <div class="p-tabs" style="margin-top:4px">
+    <div class="p-tab active-tab" data-tab-group="sperfil" data-tab-target="resumen">Resumen</div>
+    <div class="p-tab" data-tab-group="sperfil" data-tab-target="pedidos">Pedidos</div>
+    <div class="p-tab" data-tab-group="sperfil" data-tab-target="docs">Docs</div>
+  </div>
+
+  <!-- Pane: Resumen -->
+  <div data-tab-pane="sperfil" data-tab-id="resumen">
+
+    <!-- Chips de estado -->
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+      <span class="p-chip ok">✓ Activa</span>
+      <span class="p-chip ok">REPROCANN ✓</span>
+      <span class="p-chip gold">⭐ Brote</span>
+    </div>
+
+    <!-- Token KPIs strip -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;text-align:center">
+        <div style="padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:20px;font-weight:800;color:var(--gold-dark)">🪙 23</div>
+          <div style="font-size:11px;color:var(--text-muted)">saldo</div>
+        </div>
+        <div style="padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:20px;font-weight:800;color:var(--accent)">37</div>
+          <div style="font-size:11px;color:var(--text-muted)">usados (nov)</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:20px;font-weight:800">1 dic</div>
+          <div style="font-size:11px;color:var(--text-muted)">próxima carga</div>
+        </div>
+      </div>
+      <div style="padding:0 14px 12px;margin-top:4px">
+        <div class="pbar">
+          <div class="pbar-fill gold" style="width:62%"></div>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px;text-align:right">37 / 60 tokens del plan</div>
+      </div>
+    </div>
+
+    <!-- Pedido activo -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="font-weight:700;font-size:14px">📦 Pedido #P-243</div>
+        <span class="p-chip ok">Listo ✓</span>
+      </div>
+      <div style="font-size:13px;color:var(--text-muted)">OG Kush 2g + GG#4 1g · 🪙 62 tok</div>
+      <ul class="timeline" style="margin-top:10px">
+        <li class="done">Recibido</li>
+        <li class="done">Armando</li>
+        <li class="active">Listo</li>
+        <li>Retirado</li>
+      </ul>
+    </div>
+
+    <!-- Datos personales -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div class="list-item">
+        <span style="font-size:16px">📧</span>
+        <div class="list-item-main">
+          <div class="list-item-sub">valentina.r@gmail.com</div>
+        </div>
+      </div>
+      <div class="list-item">
+        <span style="font-size:16px">📱</span>
+        <div class="list-item-main">
+          <div class="list-item-sub">+54 11 4455-6677</div>
+        </div>
+      </div>
+      <div class="list-item">
+        <span style="font-size:16px">📍</span>
+        <div class="list-item-main">
+          <div class="list-item-sub">Palermo, CABA</div>
+        </div>
+      </div>
+      <div class="list-item" style="border-bottom:none">
+        <span style="font-size:16px">📅</span>
+        <div class="list-item-main">
+          <div class="list-item-sub">Alta: 12 ago 2024 · 34 años</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nota interna -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div class="p-card-title" style="margin-bottom:8px">Nota interna</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.5">Prefiere OG Kush o híbridas sedantes para el dolor. Sensible a sativas puras.</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:6px">Tomás · 15 oct</div>
+    </div>
+
+    <!-- Acciones rápidas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <button class="p-btn gold block small" onclick="var b=this;b.disabled=true;b.textContent='⏳ Acreditando…';setTimeout(function(){b.textContent='✓ Tokens acreditados';b.style.opacity='0.7';},900)">🪙 Cargar tokens</button>
+      <button class="p-btn block small" onclick="var b=this;b.disabled=true;b.textContent='⏳ Actualizando…';setTimeout(function(){b.textContent='✓ Actualizado';b.style.opacity='0.7';},900)">⭐ Cambiar plan</button>
+    </div>
+    <button class="p-btn block small" style="color:var(--warning);border-color:var(--warning);margin-bottom:4px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">⏸ Suspender cuenta</button>
+
+  </div>
+
+  <!-- Pane: Pedidos -->
+  <div data-tab-pane="sperfil" data-tab-id="pedidos" style="display:none">
+
+    <div class="p-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div style="font-weight:700;font-size:13px">📦 P-243 · Hoy 10:32</div>
+        <span class="p-chip ok">Listo ✓</span>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">OG Kush 2g + GG#4 1g · 🪙 62 tok</div>
+      <div class="p-divider"></div>
+
+      <div class="list-item" style="margin-top:4px">
+        <div class="p-avatar mint sm">📦</div>
+        <div class="list-item-main">
+          <div class="list-item-title">#P-242 · Lun 10 Nov</div>
+          <div class="list-item-sub">OG Kush 3g · 🪙 60 tok</div>
+        </div>
+        <span class="p-chip muted">Retirado</span>
+      </div>
+      <div class="list-item">
+        <div class="p-avatar mint sm">📦</div>
+        <div class="list-item-main">
+          <div class="list-item-title">#P-241 · Mié 5 Nov</div>
+          <div class="list-item-sub">Blue Dream 2g · 🪙 40 tok</div>
+        </div>
+        <span class="p-chip muted">Retirado</span>
+      </div>
+      <div class="list-item">
+        <div class="p-avatar mint sm">📦</div>
+        <div class="list-item-main">
+          <div class="list-item-title">#P-240 · Vie 1 Nov</div>
+          <div class="list-item-sub">Wedding Cake 1g + SLH 2g · 🪙 61 tok</div>
+        </div>
+        <span class="p-chip muted">Retirado</span>
+      </div>
+      <div class="list-item" style="border-bottom:none">
+        <div class="p-avatar mint sm">📦</div>
+        <div class="list-item-main">
+          <div class="list-item-title">#P-237 · Dom 27 Oct</div>
+          <div class="list-item-sub">Blue Dream 2g · 🪙 40 tok</div>
+        </div>
+        <span class="p-chip muted">Retirado</span>
+      </div>
+    </div>
+
+    <div class="p-alert green" style="margin-top:10px">
+      <span>📊</span>
+      <div>
+        <strong>Noviembre</strong>
+        161 tokens en 3 retiros · $161.000 ARS
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pane: Docs -->
+  <div data-tab-pane="sperfil" data-tab-id="docs" style="display:none">
+
+    <!-- REPROCANN -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div class="p-card-title">REPROCANN</div>
+        <span class="p-chip ok">✓ Vigente</span>
+      </div>
+      <div class="list-item" style="padding:4px 0">
+        <span style="font-size:14px">📋</span>
+        <div class="list-item-main">
+          <div class="list-item-title">R-2024-00478</div>
+          <div class="list-item-sub">Vence 15 ago 2027 · 9 meses restantes</div>
+        </div>
+      </div>
+      <div class="list-item" style="padding:4px 0;border-bottom:none">
+        <span style="font-size:14px">🏥</span>
+        <div class="list-item-main">
+          <div class="list-item-title">Dolor crónico · Ansiedad</div>
+          <div class="list-item-sub">Patología registrada</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consulta médica -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div class="p-card-title">Consulta médica</div>
+        <span class="p-chip ok">✓ OK</span>
+      </div>
+      <div style="font-size:13px;color:var(--text);font-weight:600">Dra. Andrea Pérez</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Sep 2026 · anual · próxima Sep 2027</div>
+    </div>
+
+    <!-- Documentos -->
+    <div class="p-card" style="margin-bottom:10px">
+      <div class="p-card-title" style="margin-bottom:10px">Archivos</div>
+      <div class="list-item">
+        <span style="font-size:16px">🪪</span>
+        <div class="list-item-main">
+          <div class="list-item-title">DNI</div>
+          <div class="list-item-sub">Frente y dorso</div>
+        </div>
+        <span class="p-chip ok" style="font-size:11px">✓</span>
+      </div>
+      <div class="list-item">
+        <span style="font-size:16px">📋</span>
+        <div class="list-item-main">
+          <div class="list-item-title">REPROCANN PDF</div>
+          <div class="list-item-sub">R-2024-00478</div>
+        </div>
+        <span class="p-chip ok" style="font-size:11px">✓</span>
+      </div>
+      <div class="list-item">
+        <span style="font-size:16px">💊</span>
+        <div class="list-item-main">
+          <div class="list-item-title">Prescripción médica</div>
+          <div class="list-item-sub">Dra. Pérez · Sep 2026</div>
+        </div>
+        <span class="p-chip ok" style="font-size:11px">✓</span>
+      </div>
+      <div class="list-item" style="border-bottom:none">
+        <span style="font-size:16px">📄</span>
+        <div class="list-item-main">
+          <div class="list-item-title">Contrato membresía</div>
+          <div class="list-item-sub" style="color:var(--warning)">Pendiente de firma</div>
+        </div>
+        <button class="p-btn small warn" style="font-size:10px" onclick="var b=this;b.disabled=true;b.textContent='⏳ Cargando…';setTimeout(function(){b.textContent='✓ Cargado';b.style.opacity='0.7';},800)">Cargar</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="p-bottom-nav">
+  <div class="p-nav-tab" data-goto="admin-m-home"><div class="p-nav-tab-icon">📊</div>Inicio</div>
+  <div class="p-nav-tab" data-goto="admin-m-pedidos"><div class="p-nav-tab-icon">📦</div>Pedidos</div>
+  <div class="p-nav-tab active" data-goto="admin-m-socios"><div class="p-nav-tab-icon">👥</div>Socios</div>
+  <div class="p-nav-tab" data-goto="admin-m-tokens"><div class="p-nav-tab-icon">🪙</div>Tokens</div>
+</div>

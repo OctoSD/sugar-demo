@@ -1,0 +1,380 @@
+<style>
+.sched-chip { padding:5px 13px; border-radius:20px; border:1.5px solid var(--border); background:white; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text); line-height:1.5; }
+.sched-chip:hover { border-color:#52B788; color:#166634; }
+.sched-chip.sel { background:#D1FAE5; border-color:#52B788; color:#166634; }
+.desk-drum-wrap { position:relative; display:flex; border-radius:12px; overflow:hidden; height:132px; background:white; border:1.5px solid var(--border); }
+.desk-drum-col { flex:1; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.desk-drum-col::-webkit-scrollbar { display:none; }
+.desk-drum-item { height:44px; scroll-snap-align:center; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; color:rgba(15,23,42,0.4); white-space:nowrap; }
+.desk-drum-sel { position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); height:44px; border-top:1.5px solid rgba(82,183,136,0.5); border-bottom:1.5px solid rgba(82,183,136,0.5); background:rgba(82,183,136,0.07); pointer-events:none; z-index:3; }
+.desk-drum-fade-top { position:absolute; top:0; left:0; right:0; height:44px; background:linear-gradient(to bottom,white 25%,transparent); pointer-events:none; z-index:2; }
+.desk-drum-fade-bot { position:absolute; bottom:0; left:0; right:0; height:44px; background:linear-gradient(to top,white 25%,transparent); pointer-events:none; z-index:2; }
+</style>
+
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #152B1E;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo">👷</div>
+      <div>
+        <div class="d-sidebar-brand-text">Equipo</div>
+        <div class="d-sidebar-brand-sub">Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación diaria</div>
+    <div class="d-sidebar-link" data-goto="equipo-d-hub"><span>🏠</span><span>Panel del día</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-armado"><span>📦</span><span>Armado de pedidos</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-entrega"><span>🤝</span><span>Entregas y retiros</span></div>
+    <div class="d-sidebar-link active" data-goto="equipo-d-medico"><span>🩺</span><span>Sesiones médicas</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-fichaje"><span>🕐</span><span>Fichaje</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Sugar · Lun 11 Nov</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar purple sm">AP</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Dra. Andrea Pérez</div>
+        <div style="font-size:11px;color:#4A7A5B">Médico del club</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">🩺 Sesiones médicas · Semana 11–15 Nov</div>
+        <div class="d-page-sub">Dra. Andrea Pérez · Consultas Zoom</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="p-chip" style="background:rgba(14,165,233,0.12);color:#0369A1;font-size:12px;padding:5px 12px">📥 2 derivaciones nuevas</span>
+        <span class="p-chip" style="background:rgba(139,92,246,0.15);color:#A78BFA;font-size:12px;padding:5px 12px">3 sesiones agendadas</span>
+      </div>
+    </div>
+
+    <!-- ── INBOX DE DERIVACIONES ─────────────────────── -->
+    <div class="d-section" style="margin-bottom:16px;border-left:4px solid #0EA5E9;padding:0;overflow:visible">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div class="d-section-title" style="margin:0">📥 Derivaciones de admisión — pendientes de agendar</div>
+        <span class="live-pulse" style="font-size:11px">Requieren fecha y hora</span>
+      </div>
+
+      <!-- Camila López -->
+      <div id="deriv-camila" style="padding:16px 18px;border-bottom:1px solid var(--border)">
+        <div style="display:flex;align-items:flex-start;gap:16px">
+          <div class="p-avatar sky lg">CL</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+              <div style="font-size:15px;font-weight:700">Camila López</div>
+              <span style="background:rgba(14,165,233,0.1);color:#0369A1;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">REPRO OK · SIN FECHA</span>
+            </div>
+            <div style="font-size:13px;color:var(--text-muted)">📋 REPROCANN aprobado ayer · Cannabis medicinal · Derivada por admisión</div>
+          </div>
+          <button class="p-btn small primary" onclick="toggleAgendarForm('camila')">📅 Agendar sesión</button>
+        </div>
+        <div id="form-camila" style="display:none;margin-top:12px;background:var(--bg-tint);border-radius:12px;padding:16px" data-fecha="" data-hora="" data-modal="zoom" data-label="">
+          <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Agendar sesión — Camila López</div>
+
+          <div style="margin-bottom:14px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">Fecha · Horario</div>
+            <div class="desk-drum-wrap">
+              <div class="desk-drum-fade-top"></div>
+              <div class="desk-drum-sel"></div>
+              <div class="desk-drum-fade-bot"></div>
+              <div class="desk-drum-col" id="drum-f-camila"></div>
+              <div style="width:1px;background:var(--border);flex-shrink:0;position:relative;z-index:4"></div>
+              <div class="desk-drum-col" id="drum-h-camila"></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">Modalidad</div>
+            <div style="display:flex;gap:8px">
+              <button id="modal-zoom-camila" class="sched-chip sel" onclick="selModal('camila','zoom')">📹 Zoom</button>
+              <button id="modal-pres-camila" class="sched-chip" onclick="selModal('camila','presencial')">🏠 Presencial</button>
+            </div>
+          </div>
+
+          <div id="zoom-box-camila" style="margin-bottom:14px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">Link Zoom</div>
+            <input type="url" id="zoom-url-camila" placeholder="https://zoom.us/j/…" style="width:100%;background:white;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:inherit;outline:none;box-sizing:border-box">
+          </div>
+
+          <button class="p-btn small accent" onclick="confirmarAgendar('camila','Camila López')">Confirmar →</button>
+        </div>
+      </div>
+
+      <!-- Jorge Villena -->
+      <div id="deriv-jorge" style="padding:16px 18px">
+        <div style="display:flex;align-items:flex-start;gap:16px">
+          <div class="p-avatar gold lg">JV</div>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+              <div style="font-size:15px;font-weight:700">Jorge Villena</div>
+              <span style="background:rgba(14,165,233,0.1);color:#0369A1;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">REPRO OK · SIN FECHA</span>
+            </div>
+            <div style="font-size:13px;color:var(--text-muted)">📋 REPROCANN aprobado hoy · Dolor crónico · Derivado por admisión</div>
+          </div>
+          <button class="p-btn small primary" onclick="toggleAgendarForm('jorge')">📅 Agendar sesión</button>
+        </div>
+        <div id="form-jorge" style="display:none;margin-top:12px;background:var(--bg-tint);border-radius:12px;padding:16px" data-fecha="" data-hora="" data-modal="zoom" data-label="">
+          <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Agendar sesión — Jorge Villena</div>
+
+          <div style="margin-bottom:14px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">Fecha · Horario</div>
+            <div class="desk-drum-wrap">
+              <div class="desk-drum-fade-top"></div>
+              <div class="desk-drum-sel"></div>
+              <div class="desk-drum-fade-bot"></div>
+              <div class="desk-drum-col" id="drum-f-jorge"></div>
+              <div style="width:1px;background:var(--border);flex-shrink:0;position:relative;z-index:4"></div>
+              <div class="desk-drum-col" id="drum-h-jorge"></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">Modalidad</div>
+            <div style="display:flex;gap:8px">
+              <button id="modal-zoom-jorge" class="sched-chip sel" onclick="selModal('jorge','zoom')">📹 Zoom</button>
+              <button id="modal-pres-jorge" class="sched-chip" onclick="selModal('jorge','presencial')">🏠 Presencial</button>
+            </div>
+          </div>
+
+          <div id="zoom-box-jorge" style="margin-bottom:14px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">Link Zoom</div>
+            <input type="url" id="zoom-url-jorge" placeholder="https://zoom.us/j/…" style="width:100%;background:white;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:inherit;outline:none;box-sizing:border-box">
+          </div>
+
+          <button class="p-btn small accent" onclick="confirmarAgendar('jorge','Jorge Villena')">Confirmar →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:20px">
+      <div class="kpi" style="border-top:3px solid #A78BFA">
+        <div class="kpi-label">Pendientes</div>
+        <div class="kpi-value" style="color:#A78BFA">3</div>
+        <div class="kpi-sub">a resolver esta semana</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">Aprobadas en nov</div>
+        <div class="kpi-value" style="color:var(--success)">5</div>
+        <div class="kpi-sub">socios habilitados</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--warning)">
+        <div class="kpi-label">Próxima sesión</div>
+        <div class="kpi-value" style="color:var(--warning);font-size:18px">Jue 14</div>
+        <div class="kpi-sub">15:00 · Laura Gómez</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--text-muted)">
+        <div class="kpi-label">Total en mes</div>
+        <div class="kpi-value">6</div>
+        <div class="kpi-sub">sesiones realizadas</div>
+      </div>
+    </div>
+
+    <!-- Pendientes -->
+    <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div class="d-section-title" style="margin:0">📋 Pendientes de aprobación</div>
+        <span class="live-pulse" style="font-size:11px">Requieren acción</span>
+      </div>
+      <div style="padding:0">
+
+        <!-- Row 1 — Laura -->
+        <div id="row-laura" style="padding:16px 18px;border-bottom:1px solid var(--border)">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div class="p-avatar sky lg">LG</div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+                <div style="font-size:15px;font-weight:700">Laura Gómez</div>
+                <span style="background:rgba(139,92,246,0.1);color:#A78BFA;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">PENDIENTE</span>
+              </div>
+              <div style="font-size:13px;color:var(--text-muted)">📅 Jue 14 nov · 15:00 · Zoom  ·  Cannabis medicinal  ·  REPROCANN en trámite</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <a href="https://zoom.us/j/83456789012" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.2);color:#A78BFA;border-color:rgba(139,92,246,0.5);font-size:11px;text-decoration:none">🎥 Unirse a Zoom</a>
+              <button class="p-btn small accent" onclick="aprobarDesk('laura','Laura Gómez')">✓ Aprobar</button>
+              <button class="p-btn small" style="background:rgba(239,68,68,0.1);color:#EF4444;border-color:rgba(239,68,68,0.3);font-size:11px" onclick="rechazarDesk('laura','Laura Gómez')">✗ Rechazar</button>
+            </div>
+          </div>
+          <div id="nota-row-laura" style="margin-top:10px;display:flex;gap:8px">
+            <input type="text" placeholder="Notas de la consulta (opcional)…" id="nota-laura-d"
+              style="flex:1;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+          </div>
+        </div>
+
+        <!-- Row 2 — Sebastián -->
+        <div id="row-sebastian" style="padding:16px 18px;border-bottom:1px solid var(--border)">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div class="p-avatar gold lg">SR</div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+                <div style="font-size:15px;font-weight:700">Sebastián Ríos</div>
+                <span style="background:rgba(139,92,246,0.1);color:#A78BFA;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">PENDIENTE</span>
+              </div>
+              <div style="font-size:13px;color:var(--text-muted)">📅 Vie 15 nov · 11:00 · Zoom  ·  Dolor crónico  ·  REPROCANN listo ✓</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <a href="https://zoom.us/j/83456789012" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.2);color:#A78BFA;border-color:rgba(139,92,246,0.5);font-size:11px;text-decoration:none">🎥 Unirse a Zoom</a>
+              <button class="p-btn small accent" onclick="aprobarDesk('sebastian','Sebastián Ríos')">✓ Aprobar</button>
+              <button class="p-btn small" style="background:rgba(239,68,68,0.1);color:#EF4444;border-color:rgba(239,68,68,0.3);font-size:11px" onclick="rechazarDesk('sebastian','Sebastián Ríos')">✗ Rechazar</button>
+            </div>
+          </div>
+          <div id="nota-row-sebastian" style="margin-top:10px;display:flex;gap:8px">
+            <input type="text" placeholder="Notas de la consulta (opcional)…" id="nota-sebastian-d"
+              style="flex:1;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+          </div>
+        </div>
+
+        <!-- Row 3 — Carla -->
+        <div id="row-carla" style="padding:16px 18px">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div class="p-avatar sky lg">CM</div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+                <div style="font-size:15px;font-weight:700">Carla Méndez</div>
+                <span style="background:rgba(139,92,246,0.1);color:#A78BFA;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px">PENDIENTE</span>
+              </div>
+              <div style="font-size:13px;color:var(--text-muted)">📅 Mié 20 nov · 11:00 · Zoom  ·  Dolor neuropático  ·  REPROCANN en trámite</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <a href="https://zoom.us/j/83456789012" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.2);color:#A78BFA;border-color:rgba(139,92,246,0.5);font-size:11px;text-decoration:none">🎥 Unirse a Zoom</a>
+              <button class="p-btn small accent" onclick="aprobarDesk('carla','Carla Méndez')">✓ Aprobar</button>
+              <button class="p-btn small" style="background:rgba(239,68,68,0.1);color:#EF4444;border-color:rgba(239,68,68,0.3);font-size:11px" onclick="rechazarDesk('carla','Carla Méndez')">✗ Rechazar</button>
+            </div>
+          </div>
+          <div id="nota-row-carla" style="margin-top:10px;display:flex;gap:8px">
+            <input type="text" placeholder="Notas de la consulta (opcional)…" id="nota-carla-d"
+              style="flex:1;background:var(--bg-tint);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Historial -->
+    <div class="d-section" style="padding:0;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border)">
+        <div class="d-section-title" style="margin:0">✅ Historial de consultas (últimas 6)</div>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr><th>Candidato</th><th>Fecha</th><th>Diagnóstico / Indicación</th><th>Resultado</th><th>Notas</th></tr>
+          </thead>
+          <tbody>
+            <tr style="opacity:0.7">
+              <td><div style="font-weight:600">Nadia Herrera</div><div style="font-size:11px;color:var(--text-muted)">R-2024-00502</div></td>
+              <td style="font-size:12px">Lun 11 nov · 10:00</td>
+              <td style="font-size:12px">Cannabis medicinal · ansiedad crónica</td>
+              <td><span class="p-chip ok">APROBADA ✓</span></td>
+              <td style="font-size:12px;color:var(--text-muted)">Paciente apta, REPROCANN en regla</td>
+            </tr>
+            <tr style="opacity:0.7">
+              <td><div style="font-weight:600">Federico Álvarez</div><div style="font-size:11px;color:var(--text-muted)">#1078</div></td>
+              <td style="font-size:12px">Vie 08 nov · 14:00</td>
+              <td style="font-size:12px">Dolor crónico · uso medicinal</td>
+              <td><span class="p-chip ok">APROBADO ✓</span></td>
+              <td style="font-size:12px;color:var(--text-muted)">Prescripción médica válida</td>
+            </tr>
+            <tr style="opacity:0.7">
+              <td><div style="font-weight:600">Marcos Villanueva</div><div style="font-size:11px;color:var(--text-muted)">Sin REPROCANN</div></td>
+              <td style="font-size:12px">Mié 06 nov · 16:00</td>
+              <td style="font-size:12px">Insomnio · exploración inicial</td>
+              <td><span class="p-chip" style="background:rgba(239,68,68,0.15);color:#ef4444">RECHAZADO ✗</span></td>
+              <td style="font-size:12px;color:var(--text-muted)">Sin REPROCANN vigente — derivado a tramitación</td>
+            </tr>
+            <tr style="opacity:0.7">
+              <td><div style="font-weight:600">Elena Castro</div><div style="font-size:11px;color:var(--text-muted)">R-2025-00117</div></td>
+              <td style="font-size:12px">Lun 04 nov · 11:00</td>
+              <td style="font-size:12px">Esclerosis múltiple · espasticidad</td>
+              <td><span class="p-chip ok">APROBADA ✓</span></td>
+              <td style="font-size:12px;color:var(--text-muted)">Caso complejo — seguimiento mensual</td>
+            </tr>
+            <tr style="opacity:0.7">
+              <td><div style="font-weight:600">Rodrigo Paz</div><div style="font-size:11px;color:var(--text-muted)">R-2025-00203</div></td>
+              <td style="font-size:12px">Jue 31 oct · 15:00</td>
+              <td style="font-size:12px">Dolor neuropático · fibromialgia</td>
+              <td><span class="p-chip ok">APROBADO ✓</span></td>
+              <td style="font-size:12px;color:var(--text-muted)">Alta médica otorgada · REPROCANN válido</td>
+            </tr>
+            <tr style="opacity:0.7">
+              <td><div style="font-weight:600">Valentina Rodríguez</div><div style="font-size:11px;color:var(--text-muted)">#1042</div></td>
+              <td style="font-size:12px">Mié 25 sep · 10:00</td>
+              <td style="font-size:12px">Seguimiento anual · renovación</td>
+              <td><span class="p-chip ok">RENOVADA ✓</span></td>
+              <td style="font-size:12px;color:var(--text-muted)">Renovación habitual · REPROCANN vigente hasta ago 2027</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+var _deskDrumInited = {};
+function buildDeskDrum(fId, hId) {
+  var DAYS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], MONS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var fechas=[], d=new Date('2026-11-13'), end=new Date('2027-03-31');
+  while(d<=end){var w=d.getDay();if(w>=1&&w<=5){fechas.push({value:d.toISOString().slice(0,10),label:DAYS[w]+' '+d.getDate()+' '+MONS[d.getMonth()]});}d.setDate(d.getDate()+1);}
+  var horas=[];for(var h=8;h<=18;h++){var hh=h<10?'0'+h:''+h;horas.push({value:hh+':00',label:hh+':00'});if(h<18)horas.push({value:hh+':30',label:hh+':30'});}
+  function fill(colId,items){var col=document.getElementById(colId);col.innerHTML='';for(var i=0;i<1;i++){var p=document.createElement('div');p.className='desk-drum-item';col.appendChild(p);}items.forEach(function(it){var el=document.createElement('div');el.className='desk-drum-item';el.setAttribute('data-value',it.value);el.textContent=it.label;col.appendChild(el);});for(var i=0;i<1;i++){var p=document.createElement('div');p.className='desk-drum-item';col.appendChild(p);}col.scrollTop=0;}
+  fill(fId,fechas);fill(hId,horas);
+}
+function getDeskDrumVal(colId){
+  var col=document.getElementById(colId), items=col.querySelectorAll('[data-value]');
+  if(!items.length)return null;
+  var idx=Math.max(0,Math.min(Math.round(col.scrollTop/44),items.length-1));
+  return{value:items[idx].getAttribute('data-value'),label:items[idx].textContent};
+}
+function toggleAgendarForm(id) {
+  var f = document.getElementById('form-' + id);
+  var open = f.style.display !== 'none';
+  if (!open && !_deskDrumInited[id]) { buildDeskDrum('drum-f-'+id,'drum-h-'+id); _deskDrumInited[id]=true; }
+  f.style.display = open ? 'none' : '';
+}
+function selModal(id, modal) {
+  var form = document.getElementById('form-' + id);
+  form.setAttribute('data-modal', modal);
+  document.getElementById('modal-zoom-' + id).classList.toggle('sel', modal === 'zoom');
+  document.getElementById('modal-pres-' + id).classList.toggle('sel', modal === 'presencial');
+  document.getElementById('zoom-box-' + id).style.display = modal === 'zoom' ? '' : 'none';
+}
+function confirmarAgendar(id, nombre) {
+  var form = document.getElementById('form-' + id);
+  var fv   = getDeskDrumVal('drum-f-' + id);
+  var hv   = getDeskDrumVal('drum-h-' + id);
+  var modal = form.getAttribute('data-modal') || 'zoom';
+  if (!fv || !hv) { alert('Seleccioná fecha y horario'); return; }
+  var mt = modal === 'zoom' ? '📹 Zoom' : '🏠 Presencial';
+  document.getElementById('deriv-' + id).innerHTML =
+    '<div style="display:flex;align-items:center;gap:14px;padding:4px 0">' +
+    '<div style="width:40px;height:40px;border-radius:50%;background:rgba(245,158,11,0.12);display:flex;align-items:center;justify-content:center;font-size:20px">📅</div>' +
+    '<div><div style="font-size:15px;font-weight:700;color:var(--warning)">'+nombre+' — SESIÓN AGENDADA</div>' +
+    '<div style="font-size:13px;color:var(--text-muted)">'+fv.label+' · '+hv.value+' · '+mt+' · Admisión notificada ✓</div></div></div>';
+}
+
+function aprobarDesk(id, nombre) {
+  const nota = document.getElementById('nota-' + id + '-d').value.trim();
+  document.getElementById('row-' + id).innerHTML = `
+    <div style="display:flex;align-items:center;gap:14px;padding:4px 0">
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;font-size:20px">✅</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--success)">${nombre} — APROBADA</div>
+        <div style="font-size:13px;color:var(--text-muted)">${nota || 'Sin notas adicionales'} · Admisión notificada</div>
+      </div>
+    </div>`;
+}
+function rechazarDesk(id, nombre) {
+  const nota = document.getElementById('nota-' + id + '-d').value.trim();
+  document.getElementById('row-' + id).innerHTML = `
+    <div style="display:flex;align-items:center;gap:14px;padding:4px 0">
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;font-size:20px">❌</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#EF4444">${nombre} — NO APROBADA</div>
+        <div style="font-size:13px;color:var(--text-muted)">${nota || 'Sin notas — completar antes de notificar'} · Admisión notificada</div>
+      </div>
+    </div>`;
+}
+</script>

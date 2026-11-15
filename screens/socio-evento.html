@@ -5,7 +5,7 @@
   <div style="text-align:center">
     <div style="font-size:48px;margin-bottom:12px">🎵</div>
     <div style="font-size:24px;font-weight:900;letter-spacing:-0.5px;font-family:'Space Grotesk',sans-serif">El Patio Sounds</div>
-    <div style="font-size:13px;opacity:0.75;margin-top:6px">Evento del club · entrada libre para socios</div>
+    <div style="font-size:13px;opacity:0.75;margin-top:6px">Evento del club · entrada libre para socios activos</div>
     <div style="margin-top:12px"><span class="p-chip ok">Del club</span></div>
   </div>
 </div>
@@ -17,15 +17,15 @@
     <div class="list-item">
       <span style="font-size:18px">📅</span>
       <div class="list-item-main">
-        <div class="list-item-title">Sábado 16 de noviembre</div>
-        <div class="list-item-sub">Doors: 20:00hs · Show: 21:00hs</div>
+        <div class="list-item-title">Sábado 16 de noviembre 2026</div>
+        <div class="list-item-sub">Doors: 20:00hs · Show: 20:00hs</div>
       </div>
     </div>
     <div class="list-item" style="border-bottom:none">
       <span style="font-size:18px">📍</span>
       <div class="list-item-main">
-        <div class="list-item-title">En el club</div>
-        <div class="list-item-sub">Palermo, CABA · ver dirección en app</div>
+        <div class="list-item-title">En el club · Thames 1234, Palermo</div>
+        <div class="list-item-sub">CABA · entre Honduras y Gorriti</div>
       </div>
     </div>
   </div>
@@ -34,7 +34,29 @@
   <div class="p-card" style="margin-top:10px">
     <div class="p-card-title" style="margin-bottom:8px">Sobre el evento</div>
     <div style="font-size:13px;line-height:1.6;color:var(--text)">
-      Una noche de música en vivo para los socios del club. Tres artistas locales de la escena underground porteña se presentan en el espacio del club. Entrada completamente libre para todos los socios activos del club. Traé a tu acompañante — el evento es abierto para socios.
+      Una noche de música en vivo para los socios del club. Tres artistas locales de la escena underground porteña se presentan en el espacio del patio de Sugar. La entrada es completamente libre para todos los socios activos del club.
+    </div>
+    <div style="font-size:13px;line-height:1.6;color:var(--text);margin-top:8px">
+      Podés traer a un acompañante — el evento está abierto para socios con un invitado. Habrá bebidas disponibles y el espacio estará habilitado para consumo. Capacidad máxima: 80 personas.
+    </div>
+  </div>
+
+  <!-- Contador de asistentes -->
+  <div class="p-card" style="margin-top:10px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div class="p-card-title">Asistentes confirmados</div>
+        <div class="p-card-sub">23 socios anotados · cap. 80</div>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:var(--accent-dark)">23</div>
+    </div>
+    <div class="pbar" style="height:8px">
+      <div class="pbar-fill" style="width:29%;background:var(--accent)"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px">
+      <span>0</span>
+      <span style="color:var(--accent-dark);font-weight:600">29% ocupado</span>
+      <span>80</span>
     </div>
   </div>
 
@@ -46,28 +68,115 @@
     <div class="list-item">
       <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1B4332,#52B788);display:flex;align-items:center;justify-content:center;font-size:20px">🎸</div>
       <div class="list-item-main">
-        <div class="list-item-title">Los Cipreses</div>
-        <div class="list-item-sub">Folk electrónico · 21:00hs</div>
+        <div class="list-item-title">Nono Suárez Paz Trío</div>
+        <div class="list-item-sub">Jazz contemporáneo · 20:00hs</div>
       </div>
     </div>
     <div class="list-item">
       <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7D5F0B,#C9A227);display:flex;align-items:center;justify-content:center;font-size:20px">🎹</div>
       <div class="list-item-main">
-        <div class="list-item-title">Mara & La Banda</div>
-        <div class="list-item-sub">Jazz tropical · 22:00hs</div>
+        <div class="list-item-title">La Voz del Sur</div>
+        <div class="list-item-sub">Folk electrónico · 21:30hs</div>
       </div>
     </div>
     <div class="list-item" style="border-bottom:none">
-      <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1E3A5F,#2563EB);display:flex;align-items:center;justify-content:center;font-size:20px">🎷</div>
+      <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1E3A5F,#2563EB);display:flex;align-items:center;justify-content:center;font-size:20px">🎧</div>
       <div class="list-item-main">
-        <div class="list-item-title">DJ Pampero</div>
+        <div class="list-item-title">Electro Raíz</div>
         <div class="list-item-sub">Cierre electrónico · 23:00hs</div>
       </div>
     </div>
   </div>
 
-  <button class="p-btn accent block" style="margin-top:14px" id="rsvp-btn" onclick="document.getElementById('rsvp-btn').innerHTML='✅ ¡Anotado! Te vemos el sábado';document.getElementById('rsvp-btn').disabled=true;document.getElementById('rsvp-btn').className='p-btn block'">✅ Confirmar asistencia</button>
+  <!-- Mapa / Ubicación -->
+  <div class="p-card" style="margin-top:10px">
+    <div class="p-card-title" style="margin-bottom:10px">Cómo llegar</div>
+    <div style="background:var(--bg-tint);border-radius:12px;height:100px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;border:1px dashed var(--border)">
+      <div style="text-align:center;color:var(--text-muted)">
+        <div style="font-size:28px;margin-bottom:4px">🗺️</div>
+        <div style="font-size:12px">Thames 1234, Palermo CABA</div>
+      </div>
+    </div>
+    <div class="list-item" style="border-bottom:none;padding:0">
+      <span style="font-size:16px">📍</span>
+      <div class="list-item-main">
+        <div class="list-item-title">Thames 1234, Palermo</div>
+        <div class="list-item-sub">Entre Honduras y Gorriti · CABA · a 5 min de Subte D (Palermo)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Qué llevar -->
+  <div class="p-card" style="margin-top:10px">
+    <div class="p-card-title" style="margin-bottom:10px">Info práctica</div>
+    <div class="list-item">
+      <span style="font-size:16px">✅</span>
+      <div class="list-item-main">
+        <div class="list-item-sub">DNI para acreditar membresía activa</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <span style="font-size:16px">🚬</span>
+      <div class="list-item-main">
+        <div class="list-item-sub">Consumo habilitado en el espacio del patio</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <span style="font-size:16px">🧑‍🤝‍🧑</span>
+      <div class="list-item-main">
+        <div class="list-item-sub">Podés traer 1 acompañante (no socio)</div>
+      </div>
+    </div>
+    <div class="list-item" style="border-bottom:none">
+      <span style="font-size:16px">🚫</span>
+      <div class="list-item-main">
+        <div class="list-item-sub">Sin ingreso de bebidas externas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estado de asistencia confirmada -->
+  <div class="p-card" style="margin-top:14px;background:rgba(27,67,50,0.2);border:1.5px solid rgba(82,183,136,0.4)">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="p-avatar mint sm">VR</div>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:700">¡Valentina, estás anotada! ✅</div>
+        <div style="font-size:11px;color:var(--text-muted)">Confirmaste el Lun 11 Nov · 09:30hs</div>
+      </div>
+      <span class="p-chip ok">1 pase</span>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:var(--text-muted)">Mostrá tu QR del evento en la puerta para ingresar.</div>
+    <button class="p-btn gold block small" style="margin-top:10px" data-goto="socio-qr">📱 Ver mi QR del evento</button>
+  </div>
   <button class="p-btn block" style="margin-top:8px" data-goto="socio-eventos">← Volver a Eventos</button>
+
+  <!-- Otros eventos -->
+  <div class="p-section-h" style="margin-top:16px">
+    <h2>Otros eventos próximos</h2>
+    <span class="p-see-all" data-goto="socio-eventos">Ver todos</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+    <div class="p-card" style="padding:12px 14px;cursor:pointer" data-goto="socio-evento">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:24px">🎶</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700">La Grande</div>
+          <div style="font-size:11px;color:var(--text-muted)">Vie 22 Nov · Dumont 40 · Partner</div>
+        </div>
+        <span class="p-chip blue" style="font-size:10px">Pase</span>
+      </div>
+    </div>
+    <div class="p-card" style="padding:12px 14px;cursor:pointer" data-goto="socio-evento">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:24px">🥁</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700">Bomba de Tiempo</div>
+          <div style="font-size:11px;color:var(--text-muted)">Dom 30 Nov · C.C. Konex · 2×1</div>
+        </div>
+        <span class="p-chip gold" style="font-size:10px">2×1</span>
+      </div>
+    </div>
+  </div>
 
 </div>
 

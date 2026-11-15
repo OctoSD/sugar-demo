@@ -1,0 +1,291 @@
+<style>
+.d-shell { background: #070C07; }
+.d-sidebar { background: #0A1208; border-right: 1px solid #1A2E1A; }
+.d-sidebar-brand-text { color: white; }
+.d-sidebar-brand-sub { color: #3A6B4A; font-size: 11px; }
+.d-sidebar-link { color: #7AAE8F; }
+.d-sidebar-link:hover { background: #152B1E; color: #A8D5B8; }
+.d-sidebar-link.active { background: #1B4332; color: white; }
+.d-sidebar-sec { color: #3A6B4A; }
+.d-sidebar-user { border-top-color: #1A2E1A; }
+.d-main { background: #F3F7F4; }
+.c-form-card {
+  background: white;
+  border: 1px solid #E2E8E2;
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+.c-form-title {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #64748B;
+  margin-bottom: 16px;
+}
+.c-field { margin-bottom: 16px; }
+.c-field:last-child { margin-bottom: 0; }
+.c-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 5px;
+}
+.c-label span { font-weight: 400; color: #94A3B8; }
+.c-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0A0F0A;
+  background: white;
+  font-family: Inter, sans-serif;
+  outline: none;
+  transition: border-color .15s;
+}
+.c-input:focus { border-color: #52B788; }
+select.c-input { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+.c-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.c-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.c-chip-select { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px; }
+.c-chip-sel {
+  display: inline-block;
+  padding: 4px 13px;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  user-select: none;
+  transition: all .15s;
+}
+.c-chip-sel:hover { border-color: #52B788; color: #2D6A4F; }
+.c-chip-sel.selected { background: #D1FAE5; border-color: #52B788; color: #166534; }
+.c-shared-note {
+  background: rgba(82,183,136,0.08);
+  border: 1.5px solid rgba(82,183,136,0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #2D6A4F;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+</style>
+
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #1A2E1A;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo" style="font-size:18px;background:linear-gradient(135deg,#1B4332,#2D6A4F)">🌱</div>
+      <div>
+        <div class="d-sidebar-brand-text">Cultivo</div>
+        <div class="d-sidebar-brand-sub">Portal de cultivo</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Producción</div>
+    <div class="d-sidebar-link" data-goto="cultivo-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-cultivos"><span>🌱</span><span>Cultivos</span></div>
+    <div class="d-sidebar-link active"><span>🌿</span><span>Plantas & Cepas</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-solicitudes"><span>📦</span><span>Despachos</span></div>
+    <div class="d-sidebar-sec">Sistema</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">RM</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Rodrigo M.</div>
+        <div style="font-size:11px;color:#3A6B4A">Cultivador</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Nueva cepa</div>
+        <div class="d-page-sub">Registrar nueva cepa en producción</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="p-btn small ghost" data-goto="cultivo-plantas">← Cancelar</button>
+      </div>
+    </div>
+
+    <!-- Nota compartida -->
+    <div class="c-shared-note">
+      <span style="font-size:16px;flex-shrink:0">🔗</span>
+      <div>Esta cepa también será visible desde el <strong>panel de administración</strong>. Ambos portales comparten el mismo registro — no hay duplicados.
+      </div>
+    </div>
+
+    <!-- Identidad -->
+    <div class="c-form-card">
+      <div class="c-form-title">Identidad de la cepa</div>
+
+      <div class="c-row-2">
+        <div class="c-field">
+          <label class="c-label">Nombre comercial</label>
+          <input class="c-input" type="text" id="cepa-nombre" placeholder="ej. OG Kush">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Genética <span>(linaje)</span></label>
+          <input class="c-input" type="text" id="cepa-genetica" placeholder="ej. ChemDawg × Hindu Kush">
+        </div>
+      </div>
+
+      <div class="c-row-3">
+        <div class="c-field">
+          <label class="c-label">Tipo</label>
+          <select class="c-input" id="cepa-tipo">
+            <option value="">Seleccionar…</option>
+            <option>Indica</option>
+            <option>Sativa</option>
+            <option>Híbrida</option>
+            <option>Autoflower</option>
+          </select>
+        </div>
+        <div class="c-field">
+          <label class="c-label">THC estimado <span>(%)</span></label>
+          <input class="c-input" type="number" id="cepa-thc" placeholder="ej. 22" min="0" max="40">
+        </div>
+        <div class="c-field">
+          <label class="c-label">CBD estimado <span>(%)</span></label>
+          <input class="c-input" type="number" id="cepa-cbd" placeholder="ej. 0.5" min="0" max="40" step="0.1">
+        </div>
+      </div>
+
+      <div class="c-field">
+        <label class="c-label">Efectos</label>
+        <div class="c-chip-select" id="cepa-efectos">
+          <span class="c-chip-sel">Relajante</span>
+          <span class="c-chip-sel">Eufórico</span>
+          <span class="c-chip-sel">Creativo</span>
+          <span class="c-chip-sel">Energético</span>
+          <span class="c-chip-sel">Feliz</span>
+          <span class="c-chip-sel">Somnífero</span>
+          <span class="c-chip-sel">Hambriento</span>
+          <span class="c-chip-sel">Sociable</span>
+          <span class="c-chip-sel">Enfocado</span>
+          <span class="c-chip-sel">Calmante</span>
+          <span class="c-chip-sel">Analgésico</span>
+        </div>
+      </div>
+
+      <div class="c-field">
+        <label class="c-label">Terpenos principales</label>
+        <div class="c-chip-select" id="cepa-terpenos">
+          <span class="c-chip-sel">Mirceno</span>
+          <span class="c-chip-sel">Limoneno</span>
+          <span class="c-chip-sel">Cariofileno</span>
+          <span class="c-chip-sel">Pineno</span>
+          <span class="c-chip-sel">Linalool</span>
+          <span class="c-chip-sel">Humuleno</span>
+          <span class="c-chip-sel">Terpinoleno</span>
+          <span class="c-chip-sel">Ocimeno</span>
+          <span class="c-chip-sel">Bisabolol</span>
+          <span class="c-chip-sel">Nerolidol</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producción -->
+    <div class="c-form-card">
+      <div class="c-form-title">Datos de producción</div>
+
+      <div class="c-row-3">
+        <div class="c-field">
+          <label class="c-label">Cantidad de plantas</label>
+          <input class="c-input" type="number" id="cepa-plantas" placeholder="ej. 10" min="1">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Fecha de inicio</label>
+          <input class="c-input" type="date" id="cepa-inicio">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Etapa inicial</label>
+          <select class="c-input" id="cepa-etapa">
+            <option value="">Seleccionar…</option>
+            <option>🌱 Seedling</option>
+            <option>🌿 Vegetativo</option>
+            <option>🌸 Floración</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="c-row-3">
+        <div class="c-field">
+          <label class="c-label">Semanas de vegetativo</label>
+          <input class="c-input" type="number" id="cepa-sem-veg" placeholder="ej. 6" min="1">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Semanas de floración</label>
+          <input class="c-input" type="number" id="cepa-sem-flor" placeholder="ej. 8" min="1">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Rendimiento estimado <span>(g/planta)</span></label>
+          <input class="c-input" type="number" id="cepa-rend" placeholder="ej. 40" min="1">
+        </div>
+      </div>
+
+      <div class="c-row-2">
+        <div class="c-field">
+          <label class="c-label">Temperatura objetivo <span>(°C)</span></label>
+          <input class="c-input" type="number" id="cepa-temp" placeholder="ej. 24" min="15" max="35">
+        </div>
+        <div class="c-field">
+          <label class="c-label">Humedad objetivo <span>(%)</span></label>
+          <input class="c-input" type="number" id="cepa-hum" placeholder="ej. 55" min="30" max="80">
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock y alertas -->
+    <div class="c-form-card">
+      <div class="c-form-title">Stock y alertas</div>
+
+      <div class="c-row-2">
+        <div class="c-field">
+          <label class="c-label">Umbral mínimo de stock <span>(g)</span></label>
+          <input class="c-input" type="number" id="cepa-umbral" placeholder="ej. 50" min="0">
+          <div style="font-size:11px;color:#94A3B8;margin-top:4px">Cuando el stock baje de este valor se activa la alerta en el dashboard</div>
+        </div>
+        <div class="c-field">
+          <label class="c-label">Notas <span>(opcional)</span></label>
+          <textarea class="c-input" id="cepa-notas" rows="3" placeholder="Observaciones, condiciones especiales, proveedor de semillas…" style="resize:vertical"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acciones -->
+    <div style="display:flex;justify-content:flex-end;gap:10px;padding-bottom:24px">
+      <button class="p-btn ghost" data-goto="cultivo-plantas">Cancelar</button>
+      <button class="p-btn primary" id="btn-guardar-cepa" onclick="
+        var nombre = document.getElementById('cepa-nombre').value.trim();
+        if (!nombre) { alert('Ingresá el nombre de la cepa'); return; }
+        var plantas = document.getElementById('cepa-plantas').value;
+        if (!plantas) { alert('Ingresá la cantidad de plantas'); return; }
+        var b = this;
+        b.disabled = true;
+        b.textContent = '⏳ Guardando…';
+        setTimeout(function() {
+          b.textContent = '✓ Cepa registrada';
+          b.style.background = '#22C55E';
+          b.style.border = 'none';
+          setTimeout(function() {
+            document.querySelectorAll('[data-goto=cultivo-plantas]')[0].click();
+          }, 1200);
+        }, 900);
+      ">💾 Guardar cepa</button>
+    </div>
+
+  </main>
+</div>
+<script>
+document.querySelectorAll('.c-chip-sel').forEach(function(chip) {
+  chip.addEventListener('click', function() { chip.classList.toggle('selected'); });
+});
+</script>

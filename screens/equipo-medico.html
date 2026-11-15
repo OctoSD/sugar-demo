@@ -1,0 +1,365 @@
+<style>
+.mob-chip { padding:6px 13px; border-radius:20px; border:1.5px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:rgba(255,255,255,0.6); line-height:1.5; }
+.mob-chip:active { opacity:0.7; }
+.mob-chip.sel { background:rgba(14,165,233,0.2); border-color:#0EA5E9; color:#38BDF8; }
+.mob-drum-wrap { position:relative; display:flex; border-radius:14px; overflow:hidden; height:132px; background:#0D1E14; border:1px solid rgba(14,165,233,0.2); }
+.mob-drum-col { flex:1; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.mob-drum-col::-webkit-scrollbar { display:none; }
+.mob-drum-item { height:44px; scroll-snap-align:center; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; color:rgba(255,255,255,0.45); white-space:nowrap; }
+.mob-drum-sel { position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); height:44px; border-top:1.5px solid rgba(14,165,233,0.5); border-bottom:1.5px solid rgba(14,165,233,0.5); background:rgba(14,165,233,0.08); pointer-events:none; z-index:3; }
+.mob-drum-fade-top { position:absolute; top:0; left:0; right:0; height:44px; background:linear-gradient(to bottom,#0D1E14 25%,transparent); pointer-events:none; z-index:2; }
+.mob-drum-fade-bot { position:absolute; bottom:0; left:0; right:0; height:44px; background:linear-gradient(to top,#0D1E14 25%,transparent); pointer-events:none; z-index:2; }
+</style>
+
+<div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+
+<div class="equipo-header">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div data-goto="equipo-hub" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;cursor:pointer">←</div>
+      <div>
+        <h1 style="font-size:20px;font-weight:800;margin:0">Sesiones médicas 🩺</h1>
+        <div style="font-size:12px;opacity:0.75">Consultas Zoom · Dra. Andrea Pérez</div>
+      </div>
+    </div>
+    <span style="background:rgba(14,165,233,0.2);color:#38BDF8;font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;flex-shrink:0">📥 2 sin fecha</span>
+  </div>
+</div>
+
+<div style="padding:16px;flex:1;background:#060E0A">
+
+  <!-- KPI strip -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+    <div style="background:#0D1E14;border:1px solid rgba(139,92,246,0.25);border-radius:12px;padding:12px;text-align:center">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(139,92,246,0.6);font-weight:700;margin-bottom:4px">Pendientes</div>
+      <div style="font-size:22px;font-weight:900;color:#A78BFA">3</div>
+    </div>
+    <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.2);border-radius:12px;padding:12px;text-align:center">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.6);font-weight:700;margin-bottom:4px">Semana</div>
+      <div style="font-size:22px;font-weight:900;color:#52B788">6</div>
+    </div>
+    <div style="background:#0D1E14;border:1px solid rgba(201,162,39,0.2);border-radius:12px;padding:12px;text-align:center">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(201,162,39,0.6);font-weight:700;margin-bottom:4px">Mes</div>
+      <div style="font-size:22px;font-weight:900;color:#C9A227">14</div>
+    </div>
+    <div style="background:#0D1E14;border:1px solid rgba(14,165,233,0.2);border-radius:12px;padding:12px;text-align:center">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(14,165,233,0.6);font-weight:700;margin-bottom:4px">Próxima</div>
+      <div style="font-size:11px;font-weight:800;color:#38BDF8;line-height:1.3;margin-top:2px">Jue 14 nov<br>15:00</div>
+    </div>
+  </div>
+
+  <!-- Derivaciones sin fecha -->
+  <div style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;margin-bottom:12px" onclick="toggleSec('deriv')">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#38BDF8;font-weight:700">📥 DERIVACIONES SIN FECHA (2)</div>
+    <span id="arr-deriv" style="color:#38BDF8;font-size:13px">▼</span>
+  </div>
+  <div id="sec-deriv">
+
+  <!-- Camila López -->
+  <div id="mob-card-camila" style="background:#0D1E14;border:1.5px solid rgba(14,165,233,0.35);border-radius:16px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px">
+      <div>
+        <div style="font-size:16px;font-weight:800;color:white">Camila López</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px">📋 REPROCANN aprobado ayer · Cannabis medicinal</div>
+      </div>
+      <span style="background:rgba(14,165,233,0.15);color:#38BDF8;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;margin-left:8px">SIN FECHA</span>
+    </div>
+    <button id="mob-btn-camila" class="p-btn" style="width:100%;background:rgba(14,165,233,0.1);color:#38BDF8;border-color:rgba(14,165,233,0.3);font-size:14px;padding:11px" onclick="toggleMobForm('camila')">📅 Agendar sesión</button>
+    <div id="mob-form-camila" style="display:none;margin-top:14px" data-fecha="" data-hora="" data-modal="zoom" data-label="">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(14,165,233,0.65);font-weight:700;margin-bottom:8px">Fecha · Horario</div>
+      <div class="mob-drum-wrap" style="margin-bottom:14px">
+        <div class="mob-drum-fade-top"></div>
+        <div class="mob-drum-sel"></div>
+        <div class="mob-drum-fade-bot"></div>
+        <div class="mob-drum-col" id="drum-f-camila"></div>
+        <div style="width:1px;background:rgba(255,255,255,0.08);flex-shrink:0;position:relative;z-index:4"></div>
+        <div class="mob-drum-col" id="drum-h-camila"></div>
+      </div>
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(14,165,233,0.65);font-weight:700;margin-bottom:8px">Modalidad</div>
+      <div style="display:flex;gap:8px;margin-bottom:14px">
+        <button id="mob-modal-zoom-camila" class="mob-chip sel" onclick="selMobModal('camila','zoom')">📹 Zoom</button>
+        <button id="mob-modal-pres-camila" class="mob-chip" onclick="selMobModal('camila','presencial')">🏠 Presencial</button>
+      </div>
+      <div id="mob-zoom-box-camila" style="margin-bottom:14px">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(14,165,233,0.65);font-weight:700;margin-bottom:8px">Link Zoom</div>
+        <input type="url" id="mob-zoom-url-camila" placeholder="https://zoom.us/j/…" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(14,165,233,0.3);border-radius:10px;padding:10px 12px;font-size:13px;color:white;font-family:inherit;outline:none;box-sizing:border-box">
+      </div>
+      <button class="p-btn" style="width:100%;background:rgba(14,165,233,0.15);color:#38BDF8;border-color:rgba(14,165,233,0.4);font-size:14px;padding:12px" onclick="confirmarMobAgendar('camila','Camila López')">Confirmar →</button>
+    </div>
+  </div>
+
+  <!-- Jorge Villena -->
+  <div id="mob-card-jorge" style="background:#0D1E14;border:1.5px solid rgba(14,165,233,0.35);border-radius:16px;padding:16px;margin-bottom:20px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px">
+      <div>
+        <div style="font-size:16px;font-weight:800;color:white">Jorge Villena</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px">📋 REPROCANN aprobado hoy · Dolor crónico</div>
+      </div>
+      <span style="background:rgba(14,165,233,0.15);color:#38BDF8;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;margin-left:8px">SIN FECHA</span>
+    </div>
+    <button id="mob-btn-jorge" class="p-btn" style="width:100%;background:rgba(14,165,233,0.1);color:#38BDF8;border-color:rgba(14,165,233,0.3);font-size:14px;padding:11px" onclick="toggleMobForm('jorge')">📅 Agendar sesión</button>
+    <div id="mob-form-jorge" style="display:none;margin-top:14px" data-fecha="" data-hora="" data-modal="zoom" data-label="">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(14,165,233,0.65);font-weight:700;margin-bottom:8px">Fecha · Horario</div>
+      <div class="mob-drum-wrap" style="margin-bottom:14px">
+        <div class="mob-drum-fade-top"></div>
+        <div class="mob-drum-sel"></div>
+        <div class="mob-drum-fade-bot"></div>
+        <div class="mob-drum-col" id="drum-f-jorge"></div>
+        <div style="width:1px;background:rgba(255,255,255,0.08);flex-shrink:0;position:relative;z-index:4"></div>
+        <div class="mob-drum-col" id="drum-h-jorge"></div>
+      </div>
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(14,165,233,0.65);font-weight:700;margin-bottom:8px">Modalidad</div>
+      <div style="display:flex;gap:8px;margin-bottom:14px">
+        <button id="mob-modal-zoom-jorge" class="mob-chip sel" onclick="selMobModal('jorge','zoom')">📹 Zoom</button>
+        <button id="mob-modal-pres-jorge" class="mob-chip" onclick="selMobModal('jorge','presencial')">🏠 Presencial</button>
+      </div>
+      <div id="mob-zoom-box-jorge" style="margin-bottom:14px">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(14,165,233,0.65);font-weight:700;margin-bottom:8px">Link Zoom</div>
+        <input type="url" id="mob-zoom-url-jorge" placeholder="https://zoom.us/j/…" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(14,165,233,0.3);border-radius:10px;padding:10px 12px;font-size:13px;color:white;font-family:inherit;outline:none;box-sizing:border-box">
+      </div>
+      <button class="p-btn" style="width:100%;background:rgba(14,165,233,0.15);color:#38BDF8;border-color:rgba(14,165,233,0.4);font-size:14px;padding:12px" onclick="confirmarMobAgendar('jorge','Jorge Villena')">Confirmar →</button>
+    </div>
+  </div>
+  </div><!-- /sec-deriv -->
+
+  <div style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;margin-bottom:12px" onclick="toggleSec('pend')">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#A78BFA;font-weight:700">📋 PENDIENTES DE APROBACIÓN (3)</div>
+    <span id="arr-pend" style="color:#A78BFA;font-size:13px">▼</span>
+  </div>
+  <div id="sec-pend">
+
+  <!-- Consulta 1 — Laura Gómez -->
+  <div id="card-laura" style="background:#0D1E14;border:1.5px solid rgba(139,92,246,0.3);border-radius:16px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:16px;font-weight:800;color:white">Laura Gómez</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📅 Jue 14 nov · 15:00 · Zoom</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:1px">Cannabis medicinal · REPROCANN pendiente</div>
+      </div>
+      <span style="background:rgba(139,92,246,0.15);color:#A78BFA;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">PENDIENTE</span>
+    </div>
+
+    <!-- Zoom info -->
+    <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:12px;color:#A78BFA;font-weight:600">📹 Zoom · Jue 14 nov 15:00</div>
+      <a href="https://zoom.us/j/83456789012" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.25);color:#A78BFA;border-color:rgba(139,92,246,0.5);font-size:11px;text-decoration:none">🎥 Unirse a Zoom →</a>
+    </div>
+
+    <!-- Notas -->
+    <textarea id="nota-laura" placeholder="Notas de la consulta…" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px;font-size:13px;resize:none;height:56px;font-family:'Inter',sans-serif;margin-bottom:10px;outline:none"></textarea>
+
+    <!-- Acciones -->
+    <div id="actions-laura" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="p-btn" style="background:rgba(34,197,94,0.12);color:#22C55E;border-color:rgba(34,197,94,0.3);font-size:14px;padding:12px" onclick="aprobar('laura','Laura Gómez')">✓ Aprobar</button>
+      <button class="p-btn" style="background:rgba(239,68,68,0.12);color:#EF4444;border-color:rgba(239,68,68,0.3);font-size:14px;padding:12px" onclick="rechazar('laura','Laura Gómez')">✗ Rechazar</button>
+    </div>
+  </div>
+
+  <!-- Consulta 2 — Sebastián Ríos -->
+  <div id="card-sebastian" style="background:#0D1E14;border:1.5px solid rgba(139,92,246,0.3);border-radius:16px;padding:16px;margin-bottom:20px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:16px;font-weight:800;color:white">Sebastián Ríos</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📅 Vie 15 nov · 11:00 · Zoom</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:1px">Dolor crónico · REPROCANN listo</div>
+      </div>
+      <span style="background:rgba(139,92,246,0.15);color:#A78BFA;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">PENDIENTE</span>
+    </div>
+
+    <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:12px;color:#A78BFA;font-weight:600">📹 Zoom · Vie 15 nov 11:00</div>
+      <a href="https://zoom.us/j/84567890123" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.25);color:#A78BFA;border-color:rgba(139,92,246,0.5);font-size:11px;text-decoration:none">🎥 Unirse a Zoom →</a>
+    </div>
+
+    <textarea id="nota-sebastian" placeholder="Notas de la consulta…" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px;font-size:13px;resize:none;height:56px;font-family:'Inter',sans-serif;margin-bottom:10px;outline:none"></textarea>
+
+    <div id="actions-sebastian" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="p-btn" style="background:rgba(34,197,94,0.12);color:#22C55E;border-color:rgba(34,197,94,0.3);font-size:14px;padding:12px" onclick="aprobar('sebastian','Sebastián Ríos')">✓ Aprobar</button>
+      <button class="p-btn" style="background:rgba(239,68,68,0.12);color:#EF4444;border-color:rgba(239,68,68,0.3);font-size:14px;padding:12px" onclick="rechazar('sebastian','Sebastián Ríos')">✗ Rechazar</button>
+    </div>
+  </div>
+
+  <!-- Consulta 3 — Carla Méndez -->
+  <div id="card-carla" style="background:#0D1E14;border:1.5px solid rgba(139,92,246,0.3);border-radius:16px;padding:16px;margin-bottom:20px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
+      <div>
+        <div style="font-size:16px;font-weight:800;color:white">Carla Méndez</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">📅 Mié 20 nov · 14:00 · Zoom</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:1px">Dolor neuropático</div>
+      </div>
+      <span style="background:rgba(139,92,246,0.15);color:#A78BFA;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">PENDIENTE</span>
+    </div>
+
+    <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:12px;color:#A78BFA;font-weight:600">📹 Zoom · Mié 20 nov 14:00</div>
+      <a href="https://zoom.us/j/85678901234" target="_blank" class="p-btn small" style="background:rgba(139,92,246,0.25);color:#A78BFA;border-color:rgba(139,92,246,0.5);font-size:11px;text-decoration:none">🎥 Unirse a Zoom →</a>
+    </div>
+
+    <textarea id="nota-carla" placeholder="Notas de la consulta…" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:white;padding:10px;font-size:13px;resize:none;height:56px;font-family:'Inter',sans-serif;margin-bottom:10px;outline:none"></textarea>
+
+    <div id="actions-carla" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="p-btn" style="background:rgba(34,197,94,0.12);color:#22C55E;border-color:rgba(34,197,94,0.3);font-size:14px;padding:12px" onclick="aprobar('carla','Carla Méndez')">✓ Aprobar</button>
+      <button class="p-btn" style="background:rgba(239,68,68,0.12);color:#EF4444;border-color:rgba(239,68,68,0.3);font-size:14px;padding:12px" onclick="rechazar('carla','Carla Méndez')">✗ Rechazar</button>
+    </div>
+  </div>
+
+  </div><!-- /sec-pend -->
+
+  <div style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;margin-bottom:12px" onclick="toggleSec('real')">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(82,183,136,0.6);font-weight:700">✅ REALIZADAS ESTA SEMANA (6)</div>
+    <span id="arr-real" style="color:rgba(82,183,136,0.6);font-size:13px">▶</span>
+  </div>
+  <div id="sec-real" style="display:none">
+
+  <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px;opacity:0.6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white">Nadia Herrera</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">Lun 11 nov · 10:00 · Zoom</div>
+      </div>
+      <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">APROBADA ✓</span>
+    </div>
+    <div style="font-size:12px;color:rgba(82,183,136,0.6);margin-top:6px;font-style:italic">"Paciente apta, REPROCANN en regla. Autorizo incorporación."</div>
+  </div>
+
+  <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px;opacity:0.6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white">Valentina Rodríguez</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">Lun 4 nov · 11:30 · Zoom</div>
+      </div>
+      <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">APROBADA ✓</span>
+    </div>
+    <div style="font-size:12px;color:rgba(82,183,136,0.6);margin-top:6px;font-style:italic">"Renovación anual. Continúa tratamiento sin cambios."</div>
+  </div>
+
+  <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px;opacity:0.6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white">Pedro Alonso</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">Mar 5 nov · 10:00 · Zoom</div>
+      </div>
+      <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">APROBADO ✓</span>
+    </div>
+    <div style="font-size:12px;color:rgba(82,183,136,0.6);margin-top:6px;font-style:italic">"Dolor lumbar crónico. Iniciar con dosis bajas, Semilla."</div>
+  </div>
+
+  <div style="background:#0D1E14;border:1px solid rgba(239,68,68,0.15);border-radius:14px;padding:14px;margin-bottom:10px;opacity:0.6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white">Marcos Villanueva</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">Mié 6 nov · 15:00 · Zoom</div>
+      </div>
+      <span style="background:rgba(239,68,68,0.15);color:#EF4444;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">RECHAZADA ✗</span>
+    </div>
+    <div style="font-size:12px;color:rgba(239,68,68,0.5);margin-top:6px;font-style:italic">"Documentación REPROCANN incompleta. Reagendar cuando tenga el certificado."</div>
+  </div>
+
+  <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;margin-bottom:10px;opacity:0.6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white">Elena Castro</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">Vie 8 nov · 09:30 · Zoom</div>
+      </div>
+      <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">APROBADA ✓</span>
+    </div>
+    <div style="font-size:12px;color:rgba(82,183,136,0.6);margin-top:6px;font-style:italic">"Insomnio crónico. Recomiendo Indica, noche. Autorizo membresía Brote."</div>
+  </div>
+
+  <div style="background:#0D1E14;border:1px solid rgba(82,183,136,0.15);border-radius:14px;padding:14px;opacity:0.6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:white">Rodrigo Paz</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">Vie 8 nov · 11:00 · Zoom</div>
+      </div>
+      <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px">APROBADO ✓</span>
+    </div>
+    <div style="font-size:12px;color:rgba(82,183,136,0.6);margin-top:6px;font-style:italic">"Ansiedad generalizada. CBD predominante. Autorizo Semilla."</div>
+  </div>
+  </div><!-- /sec-real -->
+
+</div>
+
+<script>
+function toggleSec(id) {
+  var c=document.getElementById('sec-'+id), a=document.getElementById('arr-'+id);
+  var open=c.style.display!=='none';
+  c.style.display=open?'none':'';
+  a.textContent=open?'▶':'▼';
+}
+var _drumInited = {};
+function buildDrum(fId, hId, cls) {
+  var DAYS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], MONS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var fechas=[], d=new Date('2026-11-13'), end=new Date('2027-03-31');
+  while(d<=end){var w=d.getDay();if(w>=1&&w<=5){fechas.push({value:d.toISOString().slice(0,10),label:DAYS[w]+' '+d.getDate()+' '+MONS[d.getMonth()]});}d.setDate(d.getDate()+1);}
+  var horas=[];for(var h=8;h<=18;h++){var hh=h<10?'0'+h:''+h;horas.push({value:hh+':00',label:hh+':00'});if(h<18)horas.push({value:hh+':30',label:hh+':30'});}
+  function fill(colId,items){var col=document.getElementById(colId);col.innerHTML='';for(var i=0;i<1;i++){var p=document.createElement('div');p.className=cls;col.appendChild(p);}items.forEach(function(it){var el=document.createElement('div');el.className=cls;el.setAttribute('data-value',it.value);el.textContent=it.label;col.appendChild(el);});for(var i=0;i<1;i++){var p=document.createElement('div');p.className=cls;col.appendChild(p);}col.scrollTop=0;}
+  fill(fId,fechas);fill(hId,horas);
+}
+function getDrumVal(colId){
+  var col=document.getElementById(colId), items=col.querySelectorAll('[data-value]');
+  if(!items.length)return null;
+  var idx=Math.max(0,Math.min(Math.round(col.scrollTop/44),items.length-1));
+  return{value:items[idx].getAttribute('data-value'),label:items[idx].textContent};
+}
+function toggleMobForm(id) {
+  var f=document.getElementById('mob-form-'+id), b=document.getElementById('mob-btn-'+id);
+  var open=f.style.display!=='none';
+  if(!open&&!_drumInited[id]){buildDrum('drum-f-'+id,'drum-h-'+id,'mob-drum-item');_drumInited[id]=true;}
+  f.style.display=open?'none':'';
+  b.textContent=open?'📅 Agendar sesión':'▲ Cerrar';
+}
+function selMobModal(id, modal) {
+  var f = document.getElementById('mob-form-' + id);
+  f.setAttribute('data-modal', modal);
+  document.getElementById('mob-modal-zoom-' + id).classList.toggle('sel', modal === 'zoom');
+  document.getElementById('mob-modal-pres-' + id).classList.toggle('sel', modal === 'presencial');
+  document.getElementById('mob-zoom-box-' + id).style.display = modal === 'zoom' ? '' : 'none';
+}
+function confirmarMobAgendar(id, nombre) {
+  var f=document.getElementById('mob-form-'+id);
+  var fv=getDrumVal('drum-f-'+id), hv=getDrumVal('drum-h-'+id);
+  var modal=f.getAttribute('data-modal')||'zoom';
+  if(!fv||!hv){alert('Seleccioná fecha y horario');return;}
+  var mt=modal==='zoom'?'📹 Zoom':'🏠 Presencial';
+  document.getElementById('mob-card-'+id).innerHTML=
+    '<div style="display:flex;align-items:center;gap:12px">'+
+    '<div style="width:44px;height:44px;border-radius:50%;background:rgba(14,165,233,0.15);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">📅</div>'+
+    '<div><div style="font-size:15px;font-weight:800;color:#38BDF8">'+nombre+' — SESIÓN AGENDADA</div>'+
+    '<div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px">'+fv.label+' · '+hv.value+' · '+mt+'</div>'+
+    '<div style="font-size:11px;color:rgba(14,165,233,0.5);margin-top:3px">Admisión notificada ✓</div></div></div>';
+  document.getElementById('mob-card-'+id).style.borderColor='rgba(14,165,233,0.5)';
+}
+
+function aprobar(id, nombre) {
+  const card = document.getElementById('card-' + id);
+  const nota = document.getElementById('nota-' + id).value.trim();
+  document.getElementById('actions-' + id).innerHTML = `
+    <div style="background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);border-radius:12px;padding:12px;width:100%;box-sizing:border-box;text-align:center">
+      <div style="font-size:22px;margin-bottom:4px">✅</div>
+      <div style="font-size:14px;font-weight:800;color:#22C55E">${nombre} — APROBADA</div>
+      ${nota ? `<div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-style:italic">"${nota}"</div>` : ''}
+      <div style="font-size:11px;color:rgba(34,197,94,0.6);margin-top:6px">Admisión será notificada automáticamente</div>
+    </div>`;
+  card.style.borderColor = 'rgba(34,197,94,0.4)';
+}
+function rechazar(id, nombre) {
+  const card = document.getElementById('card-' + id);
+  const nota = document.getElementById('nota-' + id).value.trim();
+  if (!nota) {
+    const ta = document.getElementById('nota-' + id);
+    ta.style.borderColor = 'rgba(239,68,68,0.6)';
+    ta.placeholder = '⚠️ Nota obligatoria al rechazar — explicá el motivo al candidato';
+    ta.focus();
+    return;
+  }
+  document.getElementById('actions-' + id).innerHTML = `
+    <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:12px;width:100%;box-sizing:border-box;text-align:center">
+      <div style="font-size:22px;margin-bottom:4px">❌</div>
+      <div style="font-size:14px;font-weight:800;color:#EF4444">${nombre} — NO APROBADA</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-style:italic">"${nota}"</div>
+      <div style="font-size:11px;color:rgba(239,68,68,0.5);margin-top:6px">Nota guardada · Admisión será notificada automáticamente</div>
+    </div>`;
+  card.style.borderColor = 'rgba(239,68,68,0.3)';
+}
+</script>

@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link active"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -39,7 +44,7 @@
         <div class="d-page-title">Planes de membresía</div>
         <div class="d-page-sub">38 socios activos · ingresos recurrentes del club</div>
       </div>
-      <button class="p-btn small ghost">✏️ Editar planes</button>
+      <button class="p-btn small ghost" data-goto="admin-membresia-detalle">✏️ Editar planes</button>
     </div>
 
     <!-- Revenue summary -->
@@ -54,7 +59,7 @@
 
     <!-- Tier cards -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
-      <div class="d-section" style="margin-bottom:0;border-top:3px solid var(--accent)">
+      <div class="d-section" style="margin-bottom:0;border-top:3px solid var(--accent);cursor:pointer" data-goto="admin-membresia-detalle">
         <div style="text-align:center;margin-bottom:14px">
           <div style="font-size:28px;margin-bottom:4px">🌱</div>
           <div style="font-size:17px;font-weight:800">Semilla</div>
@@ -66,7 +71,8 @@
           <div style="font-size:14px;font-weight:700;color:var(--text);margin-top:6px">$240.000/mes</div>
         </div>
       </div>
-      <div class="d-section" style="margin-bottom:0;border-top:3px solid var(--gold)">
+      <div class="d-section" style="margin-bottom:0;border-top:3px solid var(--gold);position:relative;cursor:pointer" data-goto="admin-membresia-detalle">
+        <div style="position:absolute;top:10px;right:10px;background:rgba(245,158,11,0.9);color:#0C1008;font-size:9px;font-weight:900;padding:2px 7px;border-radius:100px;letter-spacing:.05em">🚀 30% OFF</div>
         <div style="text-align:center;margin-bottom:14px">
           <div style="font-size:28px;margin-bottom:4px">⭐</div>
           <div style="font-size:17px;font-weight:800">Brote</div>
@@ -78,7 +84,8 @@
           <div style="font-size:14px;font-weight:700;color:var(--text);margin-top:6px">$1.080.000/mes</div>
         </div>
       </div>
-      <div class="d-section" style="margin-bottom:0;border-top:3px solid var(--primary)">
+      <div class="d-section" style="margin-bottom:0;border-top:3px solid var(--primary);position:relative;cursor:pointer" data-goto="admin-membresia-detalle">
+        <div style="position:absolute;top:10px;right:10px;background:rgba(82,183,136,0.9);color:#060A06;font-size:9px;font-weight:900;padding:2px 7px;border-radius:100px;letter-spacing:.05em">🚀 30% OFF</div>
         <div style="text-align:center;margin-bottom:14px">
           <div style="font-size:28px;margin-bottom:4px">🌿</div>
           <div style="font-size:17px;font-weight:800">Planta Full</div>
@@ -117,7 +124,7 @@
               <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
               <td><span class="p-chip ok">✓ Pagado</span></td>
               <td class="num" style="color:var(--gold-dark)">🪙 60 — 1 nov</td>
-              <td><button class="p-btn small ghost" style="font-size:11px">Cambiar plan</button></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresia-detalle">Cambiar plan</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar green sm">MS</div><strong>Matías Suárez</strong></div></td>
@@ -125,7 +132,7 @@
               <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
               <td><span class="p-chip ok">✓ Pagado</span></td>
               <td class="num" style="color:var(--gold-dark)">🪙 120 — 1 nov</td>
-              <td><button class="p-btn small ghost" style="font-size:11px">Cambiar plan</button></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresia-detalle">Cambiar plan</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar gold sm">DF</div><strong>Diego Fernández</strong></div></td>
@@ -133,7 +140,7 @@
               <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
               <td><span class="p-chip ok">✓ Pagado</span></td>
               <td class="num" style="color:var(--gold-dark)">🪙 60 — 1 nov</td>
-              <td><button class="p-btn small ghost" style="font-size:11px">Cambiar plan</button></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresia-detalle">Cambiar plan</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar purple sm">AB</div><strong>Ana Benítez</strong></div></td>
@@ -141,7 +148,7 @@
               <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
               <td><span class="p-chip ok">✓ Pagado</span></td>
               <td class="num" style="color:var(--gold-dark)">🪙 20 — 1 nov</td>
-              <td><button class="p-btn small ghost" style="font-size:11px">Cambiar plan</button></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresia-detalle">Cambiar plan</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar sky sm">LG</div><strong>Laura Gómez</strong></div></td>
@@ -149,7 +156,7 @@
               <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
               <td><span class="p-chip warn">⚠️ Pendiente</span></td>
               <td class="num" style="color:var(--text-muted)">— pendiente</td>
-              <td><button class="p-btn small ghost" style="font-size:11px;color:var(--warning);border-color:var(--warning)">Registrar pago</button></td>
+              <td><button class="p-btn small ghost" style="font-size:11px;color:var(--warning);border-color:var(--warning)" data-goto="admin-membresia-detalle">Registrar pago</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><div class="p-avatar success sm">FÁ</div><strong>Federico Álvarez</strong></div></td>
@@ -157,7 +164,7 @@
               <td style="font-size:12px;color:var(--text-muted)">1 dic 2026</td>
               <td><span class="p-chip info">Habilitado hoy</span></td>
               <td class="num" style="color:var(--text-muted)">— primer mes</td>
-              <td><button class="p-btn small ghost" style="font-size:11px">Acreditar tokens</button></td>
+              <td><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-membresia-detalle">Acreditar tokens</button></td>
             </tr>
           </tbody>
         </table>

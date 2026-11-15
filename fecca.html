@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel FECCA · Red de Clubes Cannábicos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { margin: 0; padding: 0; background: #060A06; height: 100vh; overflow: hidden; position: relative; }
+    #screen-root { height: 100vh; overflow: hidden; }
+    .back-to-portals {
+      position: fixed; top: 14px; right: 20px;
+      background: rgba(0,0,0,0.5); color: #F59E0B;
+      border: 1px solid rgba(245,158,11,0.3); border-radius: 20px;
+      padding: 6px 14px; font-size: 12px; text-decoration: none;
+      z-index: 9999; backdrop-filter: blur(8px); font-weight: 600;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+    .back-to-portals:hover { background: rgba(245,158,11,0.1); }
+    /* FECCA amber overrides */
+    :root {
+      --fecca-gold: #F59E0B;
+      --fecca-gold-dark: #B45309;
+      --fecca-gold-light: rgba(245,158,11,0.12);
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-to-portals">← Portales</a>
+  <div id="screen-root"></div>
+  <script src="js/fecca.js"></script>
+</body>
+</html>

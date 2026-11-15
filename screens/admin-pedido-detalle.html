@@ -1,0 +1,249 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link active" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <!-- Topbar con back button, título y acciones -->
+    <div class="d-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="p-btn small ghost" data-goto="admin-pedidos">← Pedidos</button>
+        <div>
+          <div class="d-page-title">Pedido #P-243</div>
+          <div class="d-page-sub">Valentina Rodríguez · hoy 10:32 · <span style="color:var(--success);font-weight:700">Listo para retiro</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="p-btn small ghost" data-goto="admin-pedido-detalle" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Notificado';b.style.opacity='0.7';},900)">📱 Notificar socio</button>
+        <button class="p-btn small primary" onclick="var b=this;b.disabled=true;b.textContent='⏳ Confirmando…';setTimeout(function(){b.textContent='✓ Retirado';b.style.opacity='0.7';},800)">✅ Marcar retirado</button>
+      </div>
+    </div>
+
+    <!-- Layout 2 columnas: detalle pedido + info socio -->
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start">
+
+      <!-- IZQUIERDA: detalle del pedido -->
+      <div>
+
+        <!-- Estado chips + timeline -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Estado del pedido</div>
+            <span class="p-chip ok">✅ Listo para retiro</span>
+          </div>
+          <div style="padding:0 16px 16px">
+            <!-- Timeline horizontal -->
+            <ul class="timeline" style="display:flex;gap:0;list-style:none;padding:0;margin:0 0 16px">
+              <li class="done" style="flex:1;text-align:center;font-size:12px">Recibido<br><span style="font-size:11px;color:var(--text-muted)">10:32</span></li>
+              <li class="done" style="flex:1;text-align:center;font-size:12px">Armando<br><span style="font-size:11px;color:var(--text-muted)">10:35</span></li>
+              <li class="active" style="flex:1;text-align:center;font-size:12px">Listo<br><span style="font-size:11px;color:var(--text-muted)">10:58</span></li>
+              <li style="flex:1;text-align:center;font-size:12px">Retirado<br><span style="font-size:11px;color:var(--text-muted)">—</span></li>
+            </ul>
+            <div style="display:flex;gap:24px;font-size:13px">
+              <div><span style="color:var(--text-muted)">Recibido: </span><strong>10:32</strong></div>
+              <div><span style="color:var(--text-muted)">Armado por: </span><strong>Tomás García</strong></div>
+              <div><span style="color:var(--text-muted)">Tiempo armado: </span><strong>23 min</strong></div>
+              <div><span style="color:var(--text-muted)">Esperando retiro: </span><strong>desde 10:58</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ítems del pedido -->
+        <div class="d-section" style="margin-bottom:12px;padding:0;overflow:hidden">
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <div class="d-section-title" style="margin:0">Ítems</div>
+            <span class="p-chip gold">🪙 62 tokens · $62.000 ARS</span>
+          </div>
+          <div class="d-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cepa</th>
+                  <th>Tipo</th>
+                  <th class="right">Cant.</th>
+                  <th class="right">Precio</th>
+                  <th class="right">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>OG Kush</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">Indica · Stock: 8g</td>
+                  <td class="right">2g</td>
+                  <td class="right num">🪙 20/g</td>
+                  <td class="right num" style="font-weight:700;color:var(--gold-dark)">🪙 40</td>
+                </tr>
+                <tr>
+                  <td><strong>Gorilla Glue #4</strong></td>
+                  <td style="font-size:12px;color:var(--text-muted)">Híbrida · Stock: 15g</td>
+                  <td class="right">1g</td>
+                  <td class="right num">🪙 22/g</td>
+                  <td class="right num" style="font-weight:700;color:var(--gold-dark)">🪙 22</td>
+                </tr>
+                <tr style="background:var(--bg-tint)">
+                  <td colspan="4" style="font-weight:700;text-align:right">Total</td>
+                  <td class="right num" style="font-weight:800;color:var(--gold-dark);font-size:16px">🪙 62</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Nota del socio -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Nota del socio</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div style="background:var(--bg-tint);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text);font-style:italic">"retiro entre 17 y 19hs, llamo antes de ir"</div>
+          </div>
+        </div>
+
+        <!-- Log de actividad -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Actividad</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div class="activity-feed">
+              <div class="activity-item">
+                <div class="activity-dot ok"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Pedido marcado como <strong>Listo</strong> por Tomás García</div>
+                  <div class="activity-time">10:58</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot gold"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Armado iniciado por <strong>Tomás García</strong></div>
+                  <div class="activity-time">10:35</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot info"></div>
+                <div class="activity-main">
+                  <div class="activity-text">Pedido recibido de <strong>Valentina Rodríguez</strong> — OG Kush 2g + GG#4 1g</div>
+                  <div class="activity-time">10:32</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DERECHA: info del socio + acciones -->
+      <div>
+
+        <!-- Socio card -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Socio</div>
+            <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-socio-perfil">Ver perfil →</button>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+              <div class="p-avatar mint" style="width:48px;height:48px;font-size:16px;font-weight:800">VR</div>
+              <div>
+                <div style="font-size:15px;font-weight:800;color:var(--text)">Valentina Rodríguez</div>
+                <div style="font-size:12px;color:var(--text-muted)">#1042 · valentina.r@gmail.com</div>
+                <div style="margin-top:4px;display:flex;gap:4px"><span class="p-chip ok" style="font-size:11px">Activa</span><span class="p-chip gold" style="font-size:11px">⭐ Brote</span></div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:4px 0">
+              <span style="font-size:14px">🪙</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Saldo actual</div>
+                <div class="list-item-title" style="font-size:13px;color:var(--gold-dark)">23 tokens disponibles</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:4px 0">
+              <span style="font-size:14px">📋</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">REPROCANN</div>
+                <div class="list-item-title" style="font-size:13px">R-2024-00478 · Vigente</div>
+              </div>
+            </div>
+            <div class="list-item" style="padding:4px 0;border-bottom:none">
+              <span style="font-size:14px">📱</span>
+              <div class="list-item-main">
+                <div class="list-item-sub">Contacto</div>
+                <div class="list-item-title" style="font-size:13px">+54 11 4455-6677</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div class="d-section" style="margin-bottom:12px">
+          <div class="d-section-h">
+            <div class="d-section-title">Acciones</div>
+          </div>
+          <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:6px">
+            <button class="p-btn primary block" style="font-size:13px" data-goto="admin-qr-scanner">📷 Escanear QR · confirmar retiro</button>
+            <button class="p-btn ghost block" style="font-size:12px" data-goto="admin-pedido-detalle" onclick="var b=this;b.disabled=true;b.textContent='⏳ Enviando…';setTimeout(function(){b.textContent='✓ Notificado';b.style.opacity='0.7';},900)">📱 Notificar al socio</button>
+            <button class="p-btn ghost block" style="font-size:12px;color:var(--warning)" onclick="var b=this;b.disabled=true;b.textContent='⏳ Cancelando…';setTimeout(function(){b.textContent='✓ Cancelado';b.style.opacity='0.7';},700)">⚠️ Cancelar pedido</button>
+          </div>
+        </div>
+
+        <!-- Pago -->
+        <div class="d-section">
+          <div class="d-section-h">
+            <div class="d-section-title">Pago al retirar</div>
+          </div>
+          <div style="padding:0 16px 14px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <span style="font-size:13px;color:var(--text-muted)">Total a cobrar</span>
+              <span style="font-size:18px;font-weight:800;color:var(--gold-dark)">$62.000</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <span style="font-size:13px;color:var(--text-muted)">Tokens descontados</span>
+              <span style="font-size:14px;font-weight:700">🪙 62 tokens</span>
+            </div>
+            <div class="p-alert info" style="border-radius:8px;padding:8px 10px;font-size:12px;margin-top:8px">
+              <span>💰</span>
+              <div>Cobrar en efectivo al momento del retiro. Descontar tokens del saldo del socio.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

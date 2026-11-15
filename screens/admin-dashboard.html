@@ -4,7 +4,8 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+        <div style="margin-top:5px"><span style="font-size:9px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:800">⬡ FECCA #0047</span></div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +18,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -40,17 +46,41 @@
         <div class="d-page-sub">Lunes 11 nov 2026 · <span class="live-pulse">En vivo</span></div>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
-        <button class="p-btn small ghost">📅 Semana</button>
-        <button class="p-btn small primary">📥 Exportar</button>
+        <button class="p-btn small ghost" data-goto="admin-reportes">📅 Semana</button>
+        <button class="p-btn small primary" onclick="var b=this;b.disabled=true;b.textContent='⏳ Exportando…';setTimeout(function(){b.textContent='✓ Exportado';b.style.opacity='0.7';},1200)">📥 Exportar</button>
       </div>
+    </div>
+
+    <!-- Stock crítico alert -->
+    <div style="background:rgba(239,68,68,0.06);border:1.5px solid rgba(239,68,68,0.3);border-radius:12px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:22px">🔴</span>
+        <div>
+          <div style="font-size:13px;font-weight:800;color:#EF4444">Stock crítico — acción requerida</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:2px">OG Kush: 8g (mín. 10g) · GG#4: 6g (mín. 10g) · Solicitud enviada · <strong style="color:#F59E0B">🚚 En preparación</strong></div>
+        </div>
+      </div>
+      <button class="p-btn small warn" data-goto="admin-cultivo" style="flex-shrink:0">Ver abastecimiento →</button>
+    </div>
+
+    <!-- FECCA Status Strip -->
+    <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:18px">⬡</span>
+        <div>
+          <span style="font-size:12px;font-weight:700;color:#F59E0B">Red FECCA · #3 de 47 en CABA</span>
+          <span style="font-size:12px;color:rgba(255,255,255,0.4);margin-left:8px">· 19 beneficios activos · 3 eventos próximos</span>
+        </div>
+      </div>
+      <button class="p-btn small ghost" style="border-color:rgba(245,158,11,0.3);color:#F59E0B;font-size:11px" data-goto="admin-fecca">Ver panel →</button>
     </div>
 
     <!-- KPIs -->
     <div class="d-kpi-grid cols5" style="margin-bottom:16px">
       <div class="kpi">
         <div class="kpi-label">Pedidos activos</div>
-        <div class="kpi-value">12</div>
-        <div class="kpi-sub">3 en curso · 9 entregados</div>
+        <div class="kpi-value">7</div>
+        <div class="kpi-sub">2 listos · 2 armando · 3 nuevos</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">Tokens hoy</div>
@@ -64,13 +94,53 @@
       </div>
       <div class="kpi">
         <div class="kpi-label">En admisión</div>
-        <div class="kpi-value" style="color:var(--warning)">4</div>
-        <div class="kpi-sub">2 con acción pendiente</div>
+        <div class="kpi-value" style="color:var(--warning)">7</div>
+        <div class="kpi-sub">3 con acción pendiente</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">Eventos próximos</div>
         <div class="kpi-value" style="color:var(--purple)">2</div>
         <div class="kpi-sub">El Patio · La Grande</div>
+      </div>
+    </div>
+
+    <!-- Pipeline de onboarding -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">🚪 Pipeline de onboarding · 9 candidatos activos</div>
+        <button class="p-btn small ghost" data-goto="admin-admision" style="font-size:11px">Ver admisión →</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;text-align:center">
+        <div style="padding:10px 8px;border-right:1px solid var(--border)">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:6px">1 · Contacto</div>
+          <div style="font-size:22px;font-weight:700;color:var(--text)">1</div>
+          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">Rodrigo Paz</div>
+        </div>
+        <div style="padding:10px 8px;border-right:1px solid var(--border)">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--info);margin-bottom:6px">2 · Repro en trámite</div>
+          <div style="font-size:22px;font-weight:700;color:var(--info)">2</div>
+          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">López · Villena</div>
+        </div>
+        <div style="padding:10px 8px;border-right:1px solid var(--border);background:rgba(14,165,233,0.04)">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0369A1;margin-bottom:6px">3 · Esperando médico</div>
+          <div style="font-size:22px;font-weight:700;color:#0EA5E9">2</div>
+          <div style="font-size:10px;color:#0369A1;font-weight:600;margin-top:2px">⏳ Sin fecha aún</div>
+        </div>
+        <div style="padding:10px 8px;border-right:1px solid var(--border)">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--warning);margin-bottom:6px">4 · Sesión agendada</div>
+          <div style="font-size:22px;font-weight:700;color:var(--warning)">2</div>
+          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">Gómez · Ríos</div>
+        </div>
+        <div style="padding:10px 8px;border-right:1px solid var(--border)">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px">5 · Alta médica</div>
+          <div style="font-size:22px;font-weight:700;color:var(--accent)">1</div>
+          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">Nadia H. · lista</div>
+        </div>
+        <div style="padding:10px 8px">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:6px">6 · Habilitado</div>
+          <div style="font-size:22px;font-weight:700;color:var(--success)">1</div>
+          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">Federico A.</div>
+        </div>
       </div>
     </div>
 
@@ -85,25 +155,25 @@
           <div class="p-avatar mint sm">VR</div>
           <div class="list-item-main">
             <div class="list-item-title">#P-243 · Valentina R.</div>
-            <div class="list-item-sub">OG Kush 2g · GG4 1g · 🪙 62</div>
+            <div class="list-item-sub">OG Kush 2g + GG#4 1g · 🪙 62</div>
+          </div>
+          <span class="p-chip ok">Listo ✓</span>
+        </div>
+        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer">
+          <div class="p-avatar gold sm">DF</div>
+          <div class="list-item-main">
+            <div class="list-item-title">#P-244 · Diego F.</div>
+            <div class="list-item-sub">Blue Dream 3g · 🪙 60</div>
           </div>
           <span class="p-chip warn">Armando</span>
         </div>
-        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer">
-          <div class="p-avatar green sm">MS</div>
+        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer;border-bottom:none">
+          <div class="p-avatar sky sm">AB</div>
           <div class="list-item-main">
-            <div class="list-item-title">#P-244 · Matías S.</div>
-            <div class="list-item-sub">Wedding Cake 2g · 🪙 50</div>
+            <div class="list-item-title">#P-247 · Lucía Torres</div>
+            <div class="list-item-sub">GG#4 2g · 🪙 44</div>
           </div>
           <span class="p-chip info">Nuevo</span>
-        </div>
-        <div class="list-item" data-goto="admin-pedidos" style="cursor:pointer;border-bottom:none">
-          <div class="p-avatar gold sm">DF</div>
-          <div class="list-item-main">
-            <div class="list-item-title">#P-245 · Diego F.</div>
-            <div class="list-item-sub">SLH 3g · 🪙 54</div>
-          </div>
-          <span class="p-chip ok">Listo ✓</span>
         </div>
       </div>
 
@@ -214,6 +284,27 @@
           <div class="activity-main">
             <div class="activity-text">Wedding Cake quedó con <strong>3g</strong> disponibles (stock crítico)</div>
             <div class="activity-time">hace 2h</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot green"></div>
+          <div class="activity-main">
+            <div class="activity-text"><strong>Lucía Torres</strong> confirmó pedido #P-247 — GG#4 2g</div>
+            <div class="activity-time">hace 31 min</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot info"></div>
+          <div class="activity-main">
+            <div class="activity-text">Sesión médica aprobada para <strong>Federico Álvarez</strong> (Dra. Pérez)</div>
+            <div class="activity-time">hace 3h</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot ok"></div>
+          <div class="activity-main">
+            <div class="activity-text"><strong>El Patio Sounds</strong> tiene 23 confirmados — faltan 7 días</div>
+            <div class="activity-time">ayer</div>
           </div>
         </div>
       </div>

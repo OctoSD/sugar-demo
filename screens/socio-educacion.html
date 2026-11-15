@@ -6,12 +6,183 @@
     <h1>Aprende</h1>
     <div style="width:36px"></div>
   </div>
-  <div class="p-subtitle" style="margin-top:4px">Cannabis medicinal · guías y cepas</div>
+  <div class="p-subtitle" style="margin-top:4px">Cannabis medicinal · guías y artículos</div>
 </div>
 
 <div class="p-body">
 
-  <div class="p-section-h">
+  <!-- Tu avance -->
+  <div class="p-card" style="margin-bottom:16px;background:rgba(27,67,50,0.08);border-color:var(--accent)">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div class="p-card-title">Tu avance</div>
+      <span class="p-chip mint" style="font-size:11px">📚 Valentina</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+      <div style="text-align:center;padding:10px 6px;background:var(--bg-tint);border-radius:10px">
+        <div style="font-size:20px;font-weight:900;color:var(--accent)">3</div>
+        <div style="font-size:10px;color:var(--text-muted)">artículos leídos</div>
+      </div>
+      <div style="text-align:center;padding:10px 6px;background:var(--bg-tint);border-radius:10px">
+        <div style="font-size:20px;font-weight:900;color:var(--gold-dark)">2</div>
+        <div style="font-size:10px;color:var(--text-muted)">cepas exploradas</div>
+      </div>
+      <div style="text-align:center;padding:10px 6px;background:var(--bg-tint);border-radius:10px">
+        <div style="font-size:20px;font-weight:900;color:var(--text)">1</div>
+        <div style="font-size:10px;color:var(--text-muted)">charla asistida</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">Progreso noviembre</div>
+    <div class="pbar">
+      <div class="pbar-fill" style="width:50%"></div>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted);margin-top:5px;text-align:right">3 de 6 contenidos · seguí leyendo 🌿</div>
+  </div>
+
+  <!-- Banner artículo destacado -->
+  <div style="background:linear-gradient(135deg,var(--primary-dark),var(--primary));border-radius:16px;padding:20px;margin-bottom:16px;cursor:pointer;position:relative;overflow:hidden" data-goto="socio-edu-article">
+    <div style="font-size:36px;margin-bottom:10px">🧬</div>
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-dark);font-weight:700;margin-bottom:4px">Artículo destacado</div>
+    <div style="font-size:18px;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:6px">Cannabinoides: qué son y cómo actúan</div>
+    <div style="font-size:12px;color:var(--text-muted);line-height:1.5">Sistema endocannabinoide, THC, CBD y más · 8 min lectura</div>
+    <div style="margin-top:12px;display:flex;gap:8px">
+      <span class="p-chip info" style="font-size:11px">Ciencia</span>
+      <span class="p-chip muted" style="font-size:11px">📖 8 min</span>
+    </div>
+  </div>
+
+  <!-- Filter chips -->
+  <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none">
+    <button class="filter-chip active" data-filter="all" style="white-space:nowrap">Todos</button>
+    <button class="filter-chip" data-filter="genetica" style="white-space:nowrap">Genética</button>
+    <button class="filter-chip" data-filter="medico" style="white-space:nowrap">Uso médico</button>
+    <button class="filter-chip" data-filter="legal" style="white-space:nowrap">Legal</button>
+    <button class="filter-chip" data-filter="bienestar" style="white-space:nowrap">Bienestar</button>
+  </div>
+
+  <!-- Grid artículos -->
+  <div id="edu-cards-grid" style="display:flex;flex-direction:column;gap:10px">
+
+    <!-- Card 1: Cannabinoides -->
+    <div class="p-card edu-article-card" style="cursor:pointer" data-category="medico" data-goto="socio-edu-article">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="font-size:36px;width:52px;height:52px;border-radius:12px;background:rgba(27,67,50,0.2);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">🧬</div>
+        <div style="flex:1">
+          <div class="p-card-title" style="margin-bottom:3px">Cannabinoides: qué son y cómo actúan</div>
+          <div class="p-card-sub" style="margin-bottom:6px">Sistema endocannabinoide, THC, CBD y más · 8 min</div>
+          <span class="p-chip info" style="font-size:10px">Uso médico</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: OG Kush -->
+    <div class="p-card edu-article-card" style="cursor:pointer" data-category="genetica" data-goto="socio-edu-strain">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="font-size:36px;width:52px;height:52px;border-radius:12px;background:rgba(27,67,50,0.2);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">🌿</div>
+        <div style="flex:1">
+          <div class="p-card-title" style="margin-bottom:3px">Guía de OG Kush</div>
+          <div class="p-card-sub" style="margin-bottom:6px">Historia, efectos, cultivo y precauciones · 6 min</div>
+          <span class="p-chip green" style="font-size:10px">Genética</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: REPROCANN -->
+    <div class="p-card edu-article-card" style="cursor:pointer" data-category="legal" data-goto="socio-edu-article">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="font-size:36px;width:52px;height:52px;border-radius:12px;background:rgba(37,99,235,0.1);border:1px solid #2563eb;display:flex;align-items:center;justify-content:center;flex-shrink:0">📋</div>
+        <div style="flex:1">
+          <div class="p-card-title" style="margin-bottom:3px">REPROCANN: todo lo que necesitás saber</div>
+          <div class="p-card-sub" style="margin-bottom:6px">Cómo tramitar tu inscripción paso a paso · 7 min</div>
+          <span class="p-chip blue" style="font-size:10px">Legal</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Insomnio -->
+    <div class="p-card edu-article-card" style="cursor:pointer" data-category="bienestar" data-goto="socio-edu-article">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="font-size:36px;width:52px;height:52px;border-radius:12px;background:rgba(99,102,241,0.1);border:1px solid #6366f1;display:flex;align-items:center;justify-content:center;flex-shrink:0">😴</div>
+        <div style="flex:1">
+          <div class="p-card-title" style="margin-bottom:3px">Cómo usar cannabis para el insomnio</div>
+          <div class="p-card-sub" style="margin-bottom:6px">Cepas, dosis y rutinas para dormir mejor · 5 min</div>
+          <span class="p-chip purple" style="font-size:10px">Bienestar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Terpenos -->
+    <div class="p-card edu-article-card" style="cursor:pointer" data-category="genetica" data-goto="socio-edu-article">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="font-size:36px;width:52px;height:52px;border-radius:12px;background:rgba(201,162,39,0.1);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0">🌸</div>
+        <div style="flex:1">
+          <div class="p-card-title" style="margin-bottom:3px">Terpenos: el aroma que cura</div>
+          <div class="p-card-sub" style="margin-bottom:6px">Mirceno, limoneno, cariofileno y sus efectos · 5 min</div>
+          <span class="p-chip gold" style="font-size:10px">Genética</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Ansiedad -->
+    <div class="p-card edu-article-card" style="cursor:pointer" data-category="medico" data-goto="socio-edu-article">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="font-size:36px;width:52px;height:52px;border-radius:12px;background:rgba(27,67,50,0.2);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">🧘</div>
+        <div style="flex:1">
+          <div class="p-card-title" style="margin-bottom:3px">Cannabis y ansiedad: lo que dice la ciencia</div>
+          <div class="p-card-sub" style="margin-bottom:6px">Evidencia, dosis y qué cepas funcionan mejor · 6 min</div>
+          <span class="p-chip info" style="font-size:10px">Uso médico</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Próxima charla -->
+  <div class="p-section-h" style="margin-top:8px">
+    <h2>Charlas del club</h2>
+  </div>
+  <div class="event-card" style="margin-bottom:4px;cursor:pointer" data-goto="socio-evento">
+    <div class="event-card-top">
+      <div>
+        <div class="event-card-name">🎙️ Dosis y vías de administración</div>
+        <div class="event-card-meta">🏠 En el club · Mié 20 Nov · 19:00hs</div>
+      </div>
+      <span class="p-chip ok" style="flex-shrink:0">Del club</span>
+    </div>
+    <div class="event-card-desc">La Dra. Andrea Pérez explica cómo elegir la dosis correcta según tu patología y tolerancia. Abierto a todos los socios.</div>
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span class="p-chip mint">🎟️ Entrada libre para socios</span>
+      <button class="p-btn small primary" data-goto="socio-evento">Inscribirme →</button>
+    </div>
+  </div>
+  <div class="event-card" style="margin-bottom:16px;cursor:pointer" data-goto="socio-evento">
+    <div class="event-card-top">
+      <div>
+        <div class="event-card-name">📋 Jornada REPROCANN</div>
+        <div class="event-card-meta">💻 Online · Jue 28 Nov · 18:00hs</div>
+      </div>
+      <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">⬡ FECCA</span>
+    </div>
+    <div class="event-card-desc">Compliance y novedades normativas REPROCANN. Acceso libre por Zoom para todos los socios de clubes afiliados.</div>
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span class="p-chip muted">💻 Online · 1.145 inscriptos</span>
+      <button class="p-btn small accent" data-goto="socio-evento">Ver evento →</button>
+    </div>
+  </div>
+
+  <!-- Consultá con la médica -->
+  <div class="p-card" style="background:rgba(37,99,235,0.06);border-color:rgba(37,99,235,0.3);margin-bottom:4px">
+    <div style="display:flex;gap:12px;align-items:center">
+      <div style="font-size:36px;flex-shrink:0">👩‍⚕️</div>
+      <div style="flex:1">
+        <div class="p-card-title" style="margin-bottom:3px">Dra. Andrea Pérez</div>
+        <div class="list-item-sub" style="margin-bottom:8px">Médica del club · Cannabis medicinal · Próxima consulta disponible esta semana</div>
+        <button class="p-btn small accent" data-goto="socio-perfil">💬 Pedir turno →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guía de cepas -->
+  <div class="p-section-h" style="margin-top:16px">
     <h2>Guía de cepas</h2>
   </div>
 
@@ -54,42 +225,8 @@
     </div>
   </div>
 
-  <!-- Artículos -->
-  <div class="p-section-h">
-    <h2>Artículos</h2>
-  </div>
-
-  <div class="p-card" style="cursor:pointer" data-goto="socio-edu-article">
-    <div style="display:flex;gap:14px;align-items:center">
-      <div style="font-size:32px">🧬</div>
-      <div>
-        <div class="p-card-title">El sistema endocannabinoide</div>
-        <div class="p-card-sub">Cómo el cuerpo interactúa con los cannabinoides · 5 min lectura</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="p-card" style="cursor:pointer" data-goto="socio-edu-article">
-    <div style="display:flex;gap:14px;align-items:center">
-      <div style="font-size:32px">⚗️</div>
-      <div>
-        <div class="p-card-title">CBD vs THC: diferencias clave</div>
-        <div class="p-card-sub">Propiedades, efectos y usos terapéuticos · 4 min lectura</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="p-card" style="cursor:pointer" data-goto="socio-edu-article">
-    <div style="display:flex;gap:14px;align-items:center">
-      <div style="font-size:32px">📋</div>
-      <div>
-        <div class="p-card-title">Guía completa REPROCANN</div>
-        <div class="p-card-sub">Cómo tramitar tu inscripción paso a paso · 7 min lectura</div>
-      </div>
-    </div>
-  </div>
-
 </div>
+
 
 <div class="p-bottom-nav">
   <div class="p-nav-tab" data-goto="socio-home"><div class="p-nav-tab-icon">🏠</div>Inicio</div>

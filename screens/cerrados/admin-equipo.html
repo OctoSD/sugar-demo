@@ -1,0 +1,296 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand">
+      <div class="d-sidebar-brand-logo">🌿</div>
+      <div>
+        <div class="d-sidebar-brand-text">Sugar</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación</div>
+    <div class="d-sidebar-link" data-goto="admin-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="admin-catalogo"><span>🌿</span><span>Catálogo del día</span></div>
+    <div class="d-sidebar-link" data-goto="admin-pedidos"><span>📦</span><span>Pedidos</span></div>
+    <div class="d-sidebar-sec">Socios</div>
+    <div class="d-sidebar-link" data-goto="admin-socios"><span>👥</span><span>Socios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
+    <div class="d-sidebar-sec">Comunidad</div>
+    <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Finanzas</div>
+    <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
+    <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-sec">Club</div>
+    <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Equipo del club</div>
+        <div class="d-page-sub">7 miembros activos · Club Sugar</div>
+      </div>
+      <button class="p-btn small primary" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">+ Invitar miembro</button>
+    </div>
+
+    <!-- Admisión -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">🚪 Admisión (2)</div>
+        <span style="font-size:12px;color:var(--text-muted)">Ayudan candidatos con REPROCANN y consulta médica</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px">
+          <div class="p-avatar mint lg">CT</div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:700">Camila Torres</div>
+            <div style="font-size:12px;color:var(--text-muted)">Admisión · camila.t@rainbow.club</div>
+            <div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+              <span class="p-chip ok">Activa</span>
+              <span style="font-size:11px;color:var(--text-muted)">Última actividad: hace 2h</span>
+            </div>
+          </div>
+          <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff">Ver →</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px">
+          <div class="p-avatar purple lg">SM</div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:700">Sofía Mendoza</div>
+            <div style="font-size:12px;color:var(--text-muted)">Admisión · sofia.m@rainbow.club</div>
+            <div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+              <span class="p-chip ok">Activa</span>
+              <span style="font-size:11px;color:var(--text-muted)">Última actividad: hace 30 min</span>
+            </div>
+          </div>
+          <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff">Ver →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Armado -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">📦 Armado de pedidos (2)</div>
+        <span style="font-size:12px;color:var(--text-muted)">Prepara los pedidos en el club</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px">
+          <div class="p-avatar gold lg">TG</div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:700">Tomás García</div>
+            <div style="font-size:12px;color:var(--text-muted)">Armado + Admin · tomas.g@sugar.club</div>
+            <div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+              <span class="p-chip ok">Activo</span>
+              <span class="p-chip gold">Admin</span>
+              <span style="font-size:11px;color:var(--text-muted)">Ahora mismo</span>
+            </div>
+          </div>
+          <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff">Ver →</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px">
+          <div class="p-avatar green lg">MR</div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:700">Marcos Reyes</div>
+            <div style="font-size:12px;color:var(--text-muted)">Armado · marcos.r@sugar.club</div>
+            <div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+              <span class="p-chip ok">Activo</span>
+              <span style="font-size:11px;color:var(--text-muted)">Hace 20 min</span>
+            </div>
+          </div>
+          <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff">Ver →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entregas -->
+    <div class="d-section" style="margin-bottom:16px">
+      <div class="d-section-h">
+        <div class="d-section-title">🤝 Entregas y retiros (2)</div>
+        <span style="font-size:12px;color:var(--text-muted)">Gestionan los retiros en el club</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px">
+          <div class="p-avatar sky lg">RV</div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:700">Rodrigo Vega</div>
+            <div style="font-size:12px;color:var(--text-muted)">Entregas · rodrigo.v@rainbow.club</div>
+            <div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+              <span class="p-chip ok">Activo</span>
+              <span style="font-size:11px;color:var(--text-muted)">Última actividad: hace 1h</span>
+            </div>
+          </div>
+          <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff">Ver →</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px">
+          <div class="p-avatar success lg">NR</div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:700">Nicolás Ruiz</div>
+            <div style="font-size:12px;color:var(--text-muted)">Entregas · nicolas.r@rainbow.club</div>
+            <div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+              <span class="p-chip ok">Activo</span>
+              <span style="font-size:11px;color:var(--text-muted)">Última actividad: hace 45 min</span>
+            </div>
+          </div>
+          <button class="p-btn small ghost" style="font-size:11px" data-goto="admin-staff">Ver →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portal equipo link -->
+    <div class="d-section" style="background:linear-gradient(135deg,rgba(27,67,50,0.08),rgba(82,183,136,0.05));border-color:rgba(82,183,136,0.3);margin-bottom:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:15px;font-weight:700;margin-bottom:4px">🌿 Portal Equipo</div>
+          <div style="font-size:13px;color:var(--text-muted)">El equipo accede por su propio portal con sus herramientas específicas de trabajo</div>
+        </div>
+        <a href="../equipo.html" target="_blank" class="p-btn small accent" style="text-decoration:none;flex-shrink:0">Ir al Portal Equipo →</a>
+      </div>
+    </div>
+
+    <!-- Permisos de acceso -->
+    <div class="d-section" style="padding:0;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div class="d-section-title" style="margin:0">🔐 Permisos de acceso al portal equipo</div>
+        <span style="font-size:12px;color:var(--text-muted)">Click en un permiso para activar / desactivar</span>
+      </div>
+      <div style="padding:4px 0">
+
+        <!-- Tomás García — Admin -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)">
+          <div class="p-avatar gold sm">TG</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Tomás García</div>
+            <div style="font-size:11px;color:var(--text-muted)">Admin</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip active" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+        <!-- Camila Torres — Admisión -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)">
+          <div class="p-avatar mint sm">CT</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Camila Torres</div>
+            <div style="font-size:11px;color:var(--text-muted)">Admisión</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip active" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+        <!-- Sofía Mendoza — Admisión -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)">
+          <div class="p-avatar purple sm">SM</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Sofía Mendoza</div>
+            <div style="font-size:11px;color:var(--text-muted)">Admisión</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip active" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+        <!-- Marcos Reyes — Armado -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)">
+          <div class="p-avatar green sm">MR</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Marcos Reyes</div>
+            <div style="font-size:11px;color:var(--text-muted)">Armado</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+        <!-- Rodrigo Vega — Entregas -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)">
+          <div class="p-avatar sky sm">RV</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Rodrigo Vega</div>
+            <div style="font-size:11px;color:var(--text-muted)">Entregas</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+        <!-- Nicolás Ruiz — Entregas -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)">
+          <div class="p-avatar success sm">NR</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Nicolás Ruiz</div>
+            <div style="font-size:11px;color:var(--text-muted)">Entregas</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+        <!-- Dra. Andrea Pérez — Médico -->
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 18px">
+          <div class="p-avatar purple sm">AP</div>
+          <div style="min-width:160px">
+            <div style="font-size:14px;font-weight:700">Dra. Andrea Pérez</div>
+            <div style="font-size:11px;color:var(--text-muted)">Médico</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="perm-chip" onclick="togglePerm(this)">🚪 Admisión</span>
+            <span class="perm-chip" onclick="togglePerm(this)">📦 Armado</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🤝 Entregas</span>
+            <span class="perm-chip active" onclick="togglePerm(this)">🩺 Sesiones médicas</span>
+            <span class="perm-chip" onclick="togglePerm(this)">🕐 Fichaje</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+<style>
+.perm-chip { display:inline-block; padding:4px 10px; border-radius:100px; font-size:11px; font-weight:600; cursor:pointer; border:1.5px solid var(--border); color:var(--text-muted); background:var(--bg-tint); transition:.15s; user-select:none; }
+.perm-chip.active { background:rgba(82,183,136,0.1); border-color:rgba(82,183,136,0.4); color:var(--accent-dark); }
+.perm-chip:hover { opacity:0.8; }
+</style>
+<script>
+function togglePerm(chip) {
+  chip.classList.toggle('active');
+}
+</script>
+</div>

@@ -20,7 +20,7 @@
       <div style="font-weight:800;font-size:16px">Pedido #P-243</div>
       <span class="p-chip ok">✓ Confirmado</span>
     </div>
-    <div style="font-size:13px;color:var(--text-muted)">OG Kush 2g + Gorilla Glue #4 1g</div>
+    <div style="font-size:13px;color:var(--text-muted)">OG Kush 2g + GG#4 1g</div>
     <div style="font-size:13px;color:var(--gold-dark);font-weight:700;margin-top:4px">🪙 62 tokens</div>
     <div class="p-divider"></div>
     <div style="display:flex;align-items:center;gap:8px;font-size:13px">
@@ -29,18 +29,44 @@
     </div>
   </div>
 
-  <!-- Timeline -->
+  <!-- Timeline animado -->
   <div class="p-card" style="margin-top:10px">
     <div class="p-card-title" style="margin-bottom:14px">Estado del pedido</div>
     <ul class="timeline">
-      <li class="done">Recibido</li>
+      <li class="done">Recibido ✓</li>
       <li class="active">Armando</li>
       <li>Listo</li>
       <li>Retirado</li>
     </ul>
+    <!-- Estimado por cola -->
+    <div style="margin-top:14px;display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg-tint);border-radius:10px">
+      <span style="font-size:22px">⏱️</span>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:800">Tiempo estimado: ~35–40 minutos</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:3px">Hay 7 pedidos antes que el tuyo</div>
+      </div>
+    </div>
   </div>
 
-  <div class="p-alert gold" style="margin-top:12px">
+  <!-- Banner de demora del supervisor -->
+  <div class="p-alert warn" style="margin-top:10px">
+    <span>⚠️</span>
+    <div>
+      <strong>Estamos con más demora de lo habitual</strong>
+      <div style="font-size:12px;margin-top:3px">Al tiempo de arriba sumale +30 min más. Gracias por tu paciencia.</div>
+    </div>
+  </div>
+
+  <!-- Aviso WhatsApp -->
+  <div class="p-alert green" style="margin-top:10px">
+    <span>💬</span>
+    <div>
+      <strong>Te avisamos por WhatsApp</strong>
+      <div style="font-size:12px;margin-top:3px">El equipo te avisará por WhatsApp cuando tu pedido esté listo para retirar. Chequeá tu celular.</div>
+    </div>
+  </div>
+
+  <div class="p-alert gold" style="margin-top:10px">
     <span>💰</span>
     <div>
       <strong>Saldo pendiente de cobro al retirar</strong>
@@ -49,7 +75,7 @@
   </div>
 
   <button class="p-btn gold block" style="margin-top:14px" data-goto="socio-qr">📱 Ver QR de retiro</button>
-  <button class="p-btn primary block" style="margin-top:8px" data-goto="socio-historial">📡 Seguir mi pedido</button>
+  <button class="p-btn primary block" style="margin-top:8px" data-goto="socio-historial">Ver estado →</button>
   <button class="p-btn block" style="margin-top:8px" data-goto="socio-home">Volver al inicio</button>
 
 </div>

@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">👷</div>
       <div>
         <div class="d-sidebar-brand-text">Equipo</div>
-        <div class="d-sidebar-brand-sub">Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación diaria</div>
@@ -12,8 +12,10 @@
     <div class="d-sidebar-link" data-goto="equipo-d-armado"><span>📦</span><span>Armado de pedidos</span></div>
     <div class="d-sidebar-link" data-goto="equipo-d-admision"><span>🚪</span><span>Admisión</span></div>
     <div class="d-sidebar-link" data-goto="equipo-d-entrega"><span>🤝</span><span>Entregas y retiros</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-medico"><span>🩺</span><span>Sesiones médicas</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-fichaje"><span>🕐</span><span>Fichaje</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Rainbow · Lun 11 Nov</div>
+    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Sugar · Lun 11 Nov</div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
@@ -21,17 +23,20 @@
         <div style="font-size:11px;color:#4A7A5B">Supervisor</div>
       </div>
     </div>
+    <div class="d-sidebar-link" data-goto="equipo-login" style="border-top:1px solid #152B1E;color:rgba(82,183,136,0.5);font-size:12px"><span>🚪</span><span>Cerrar sesión</span></div>
   </aside>
 
   <main class="d-main">
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Panel del día · Lunes 11 Nov 2026</div>
-        <div class="d-page-sub">Club Rainbow · <span class="live-pulse" style="font-size:11px">Club abierto</span></div>
+        <div class="d-page-sub">Club Sugar · <span class="live-pulse" style="font-size:11px">Club abierto</span></div>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
-        <button class="p-btn small ghost">🔄 Actualizar</button>
+        <button class="p-btn small ghost" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent=t;b.disabled=false;b.style.opacity='1';},800)">🔄 Actualizar</button>
+        <button class="p-btn small warn" onclick="var b=this;var steps=['⚠️ Activar demora','⚠️ +15 min activo','⚠️ +30 min activo','⚠️ +45 min activo'];var i=(parseInt(b.dataset.i||0)+1)%steps.length;b.dataset.i=i;b.textContent=steps[i];b.style.opacity=i===0?'1':'0.85';b.style.background=i===0?'':'rgba(245,158,11,0.3)'">⚠️ Activar demora</button>
         <span class="p-chip ok" style="font-size:12px">Turno mañana · 10:00–14:00</span>
+        <button class="p-btn small warn" data-goto="equipo-fin-turno">🔒 Cerrar turno</button>
       </div>
     </div>
 
@@ -39,7 +44,7 @@
     <div class="d-kpi-grid" style="margin-bottom:20px">
       <div class="kpi" style="border-top:3px solid var(--warning);cursor:pointer" data-goto="equipo-d-armado">
         <div class="kpi-label">📦 Pedidos pendientes</div>
-        <div class="kpi-value" style="color:var(--warning)">3</div>
+        <div class="kpi-value" style="color:var(--warning)">7</div>
         <div class="kpi-sub">esperando armado</div>
         <div style="margin-top:8px"><button class="p-btn small warn" data-goto="equipo-d-armado" style="font-size:11px;width:100%">Ir a armar →</button></div>
       </div>
@@ -58,8 +63,8 @@
       <div class="kpi" style="border-top:3px solid var(--text-muted)">
         <div class="kpi-label">✅ Retirados hoy</div>
         <div class="kpi-value">2</div>
-        <div class="kpi-sub">de 12 pedidos activos</div>
-        <div style="margin-top:8px"><span class="p-chip ok" style="font-size:11px">🪙 107 tok cobrados</span></div>
+        <div class="kpi-sub">de 7 pedidos activos</div>
+        <div style="margin-top:8px"><span class="p-chip ok" style="font-size:11px">🪙 107 tok cobrados hoy</span></div>
       </div>
     </div>
 
@@ -87,7 +92,7 @@
           </div>
           <span class="p-chip info">En cola</span>
         </div>
-        <div class="list-item" data-goto="equipo-d-armado" style="cursor:pointer;border-bottom:none">
+        <div class="list-item" data-goto="equipo-d-armado" style="cursor:pointer">
           <div class="p-avatar green sm">MS</div>
           <div class="list-item-main">
             <div class="list-item-title">P-245 · Matías S.</div>
@@ -95,6 +100,23 @@
           </div>
           <span class="p-chip info">En cola</span>
         </div>
+        <div class="list-item" data-goto="equipo-d-armado" style="cursor:pointer">
+          <div class="p-avatar sky sm">AB</div>
+          <div class="list-item-main">
+            <div class="list-item-title">P-246 · Ana Bello</div>
+            <div class="list-item-sub">SLH 2g · 🪙 36</div>
+          </div>
+          <span class="p-chip info">En cola</span>
+        </div>
+        <div class="list-item" data-goto="equipo-d-armado" style="cursor:pointer;border-bottom:none">
+          <div class="p-avatar purple sm">LT</div>
+          <div class="list-item-main">
+            <div class="list-item-title">P-247 · Lucía Torres</div>
+            <div class="list-item-sub">GG#4 2g · 🪙 44</div>
+          </div>
+          <span class="p-chip info">En cola</span>
+        </div>
+        <div style="padding:8px 14px;text-align:center;font-size:12px;color:rgba(82,183,136,0.5);border-top:1px solid var(--border)">+2 más en cola · <span style="cursor:pointer;color:var(--accent)" data-goto="equipo-d-armado">Ver todos →</span></div>
       </div>
 
       <!-- Listos para entregar + Admisión urgente -->

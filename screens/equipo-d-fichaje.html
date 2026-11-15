@@ -1,0 +1,178 @@
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #152B1E;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo">👷</div>
+      <div>
+        <div class="d-sidebar-brand-text">Equipo</div>
+        <div class="d-sidebar-brand-sub">Club Sugar</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Operación diaria</div>
+    <div class="d-sidebar-link" data-goto="equipo-d-hub"><span>🏠</span><span>Panel del día</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-armado"><span>📦</span><span>Armado de pedidos</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-admision"><span>🚪</span><span>Admisión</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-entrega"><span>🤝</span><span>Entregas y retiros</span></div>
+    <div class="d-sidebar-link" data-goto="equipo-d-medico"><span>🩺</span><span>Sesiones médicas</span></div>
+    <div class="d-sidebar-link active" data-goto="equipo-d-fichaje"><span>🕐</span><span>Fichaje</span></div>
+    <div class="d-sidebar-sec">Equipo</div>
+    <div style="padding:10px;font-size:12px;color:rgba(82,183,136,0.5)">Club Sugar · Lun 11 Nov</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar gold sm">TG</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Supervisor</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">🕐 Fichaje del día · Lunes 11 Nov 2026</div>
+        <div class="d-page-sub">Control de asistencia del equipo · Club Sugar</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <span class="p-chip ok">4 en turno</span>
+        <span class="p-chip ok">6 en planilla</span>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="d-kpi-grid" style="margin-bottom:20px">
+      <div class="kpi" style="border-top:3px solid var(--success)">
+        <div class="kpi-label">En turno ahora</div>
+        <div class="kpi-value" style="color:var(--success)">4</div>
+        <div class="kpi-sub">de 6 en planilla</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--text-muted)">
+        <div class="kpi-label">Horas promedio</div>
+        <div class="kpi-value">2h 55m</div>
+        <div class="kpi-sub">por persona hoy</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--info)">
+        <div class="kpi-label">Total personal</div>
+        <div class="kpi-value" style="color:var(--info)">6</div>
+        <div class="kpi-sub">en planilla hoy</div>
+      </div>
+      <div class="kpi" style="border-top:3px solid var(--gold)">
+        <div class="kpi-label">Total horas hoy</div>
+        <div class="kpi-value" style="color:var(--gold-dark)">17h</div>
+        <div class="kpi-sub">acumuladas</div>
+      </div>
+    </div>
+
+    <!-- Tabla de fichaje -->
+    <div class="d-section" style="margin-bottom:16px;padding:0;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div class="d-section-title" style="margin:0">Registro del día</div>
+        <button class="p-btn small primary" onclick="var b=this;b.disabled=true;b.textContent='⏳ Registrando…';setTimeout(function(){b.textContent='✓ Fichado';b.style.opacity='0.7';},900)">+ Registrar manual</button>
+      </div>
+      <div class="d-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Persona</th>
+              <th>Rol</th>
+              <th>Entrada</th>
+              <th>Salida</th>
+              <th>Horas</th>
+              <th>Estado</th>
+              <th>Método</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar gold sm">TG</div>
+                  <div style="font-weight:600">Tomás García</div>
+                </div>
+              </td>
+              <td style="font-size:12px">Admin</td>
+              <td class="num">09:00</td>
+              <td style="color:var(--text-muted);font-size:12px">— en turno</td>
+              <td class="num" style="color:var(--success);font-weight:700">2h 41m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+              <td style="font-size:12px">PIN</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar green sm">MR</div>
+                  <div style="font-weight:600">Marcos Reyes</div>
+                </div>
+              </td>
+              <td style="font-size:12px">Armado</td>
+              <td class="num">09:15</td>
+              <td style="color:var(--text-muted);font-size:12px">— en turno</td>
+              <td class="num" style="color:var(--success);font-weight:700">2h 26m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+              <td style="font-size:12px">QR</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar sky sm">RV</div>
+                  <div style="font-weight:600">Rodrigo Vega</div>
+                </div>
+              </td>
+              <td style="font-size:12px">Entregas</td>
+              <td class="num">09:30</td>
+              <td style="color:var(--text-muted);font-size:12px">— en turno</td>
+              <td class="num" style="color:var(--success);font-weight:700">2h 11m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+              <td style="font-size:12px">PIN</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar mint sm">CT</div>
+                  <div style="font-weight:600">Camila Torres</div>
+                </div>
+              </td>
+              <td style="font-size:12px">Admisión</td>
+              <td class="num">10:00</td>
+              <td style="color:var(--text-muted);font-size:12px">— en turno</td>
+              <td class="num" style="color:var(--success);font-weight:700">1h 41m</td>
+              <td><span class="p-chip ok">🟢 En turno</span></td>
+              <td style="font-size:12px">QR</td>
+            </tr>
+            <tr style="opacity:0.8">
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar purple sm">SM</div>
+                  <div style="font-weight:600">Sofía Mendoza</div>
+                </div>
+              </td>
+              <td style="font-size:12px">Admisión</td>
+              <td class="num">14:00</td>
+              <td class="num">18:30</td>
+              <td class="num" style="font-weight:700">4h 30m</td>
+              <td><span class="p-chip ok">✅ Completó turno</span></td>
+              <td style="font-size:12px">QR</td>
+            </tr>
+            <tr style="opacity:0.8">
+              <td>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="p-avatar purple sm">AP</div>
+                  <div style="font-weight:600">Dra. Andrea Pérez</div>
+                </div>
+              </td>
+              <td style="font-size:12px">Médico</td>
+              <td class="num">11:00</td>
+              <td class="num">15:00</td>
+              <td class="num" style="font-weight:700">4h 00m</td>
+              <td><span class="p-chip ok">✅ Completó turno</span></td>
+              <td style="font-size:12px">PIN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Resumen positivo -->
+    <div class="p-alert ok" style="border-radius:12px">
+      ✅ <strong>Todo el equipo registrado hoy.</strong> Sofía Mendoza y Dra. Pérez completaron su turno y se retiraron. 4 personas aún en el club.
+    </div>
+  </main>
+</div>

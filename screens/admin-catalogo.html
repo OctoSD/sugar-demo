@@ -4,7 +4,7 @@
       <div class="d-sidebar-brand-logo">🌿</div>
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
-        <div class="d-sidebar-brand-sub">Admin · Club Rainbow</div>
+        <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -17,18 +17,23 @@
     <div class="d-sidebar-link" data-goto="admin-membresias"><span>⭐</span><span>Membresías</span></div>
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
+    <div class="d-sidebar-link" data-goto="admin-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-sec">Supply Chain</div>
+    <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
     <div class="d-sidebar-link" data-goto="admin-tokens"><span>🪙</span><span>Tokens</span></div>
     <div class="d-sidebar-link" data-goto="admin-reportes"><span>📈</span><span>Reportes</span></div>
     <div class="d-sidebar-sec">Equipo</div>
-    <div class="d-sidebar-link" data-goto="admin-equipo"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-staff"><span>👷</span><span>Staff</span></div>
+    <div class="d-sidebar-link" data-goto="admin-rrhh"><span>👥</span><span>RRHH · Personas</span></div>
     <div class="d-sidebar-sec">Club</div>
     <div class="d-sidebar-link" data-goto="admin-config"><span>⚙️</span><span>Configuración</span></div>
     <div class="d-sidebar-user">
       <div class="p-avatar mint sm">TG</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:white">Tomás García</div>
-        <div style="font-size:11px;color:#4A7A5B">Admin · Club Rainbow</div>
+        <div style="font-size:11px;color:#4A7A5B">Admin · Club Sugar</div>
       </div>
     </div>
   </aside>
@@ -37,11 +42,11 @@
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Catálogo del día</div>
-        <div class="d-page-sub">Lun 11 nov · 5 cepas publicadas · editá precios y stock en línea</div>
+        <div class="d-page-sub">Lun 11 nov · 10 cepas publicadas · editá precios y stock en línea</div>
       </div>
       <div style="display:flex;gap:8px">
-        <button class="p-btn small ghost">+ Nueva cepa</button>
-        <button class="p-btn small gold">✅ Publicar cambios</button>
+        <button class="p-btn small ghost" data-goto="admin-catalogo">+ Nueva cepa</button>
+        <button class="p-btn small gold" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">✅ Publicar cambios</button>
       </div>
     </div>
 
@@ -49,11 +54,11 @@
     <div class="d-kpi-grid" style="margin-bottom:16px">
       <div class="kpi">
         <div class="kpi-label">Cepas activas</div>
-        <div class="kpi-value">5</div>
+        <div class="kpi-value">10</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">Stock total</div>
-        <div class="kpi-value">38g</div>
+        <div class="kpi-value">99g</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">Precio promedio</div>
@@ -65,10 +70,245 @@
       </div>
     </div>
 
+    <!-- Cards de cepas -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:20px">
+
+      <!-- OG Kush -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🌿</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">OG Kush</div>
+            <div style="font-size:11px;color:var(--text-muted)">ChemDawg × Hindu Kush</div>
+          </div>
+          <span class="p-chip green" style="font-size:11px">Indica</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 22%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.3%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 20 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 8g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Efecto: relajante, analgésico · Lote oct 2026</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Super Lemon Haze -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🌟</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Super Lemon Haze</div>
+            <div style="font-size:11px;color:var(--text-muted)">SSH × Lemon Skunk</div>
+          </div>
+          <span class="p-chip gold" style="font-size:11px">Sativa</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 20%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.1%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 18 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 12g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Efecto: energizante, creativo · Lote oct 2026</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Gorilla Glue #4 -->
+      <div class="d-section" style="margin-bottom:0;border-left:3px solid var(--warning)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🦍</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Gorilla Glue #4</div>
+            <div style="font-size:11px;color:var(--text-muted)">Chem Sis × Sour Dubb × Choc Diesel</div>
+          </div>
+          <span class="p-chip blue" style="font-size:11px">Híbrida</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 25%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.2%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 22 tok/g</span>
+          <span class="p-chip warn" style="font-size:11px">⚠️ Stock bajo: 5g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Alta potencia · Lote oct 2026</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Blue Dream -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">💙</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Blue Dream</div>
+            <div style="font-size:11px;color:var(--text-muted)">Blueberry × Haze</div>
+          </div>
+          <span class="p-chip blue" style="font-size:11px">Híbrida</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 19%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.5%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 20 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 10g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Equilibrada · muy popular entre socios</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Wedding Cake -->
+      <div class="d-section" style="margin-bottom:0;border-left:3px solid var(--danger)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🎂</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Wedding Cake</div>
+            <div style="font-size:11px;color:var(--text-muted)">Triangle Kush × Animal Mints</div>
+          </div>
+          <span class="p-chip green" style="font-size:11px">Indica</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 24%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.1%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 25 tok/g</span>
+          <span class="p-chip danger" style="font-size:11px">⚠️ Stock crítico: 3g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Premium · alta demanda · sabor dulce</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Amnesia Haze (NUEVA) -->
+      <div class="d-section" style="margin-bottom:0;border-left:3px solid var(--accent)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🌀</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Amnesia Haze <span class="p-chip ok" style="font-size:10px;vertical-align:middle">🆕 Nuevo lote</span></div>
+            <div style="font-size:11px;color:var(--text-muted)">Haze × Skunk</div>
+          </div>
+          <span class="p-chip gold" style="font-size:11px">Sativa</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 21%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.1%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 20 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 15g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Eufórica, creativa · Lote nov 2026</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Northern Lights (NUEVA) -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🌌</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Northern Lights</div>
+            <div style="font-size:11px;color:var(--text-muted)">Afghani indica</div>
+          </div>
+          <span class="p-chip green" style="font-size:11px">Indica</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 18%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.4%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 18 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 20g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Efecto: sedante, dolor crónico · Lote nov 2026</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Gelato (NUEVA) -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🍦</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Gelato <span class="p-chip gold" style="font-size:10px;vertical-align:middle">Premium</span></div>
+            <div style="font-size:11px;color:var(--text-muted)">Sunset Sherbet × Thin Mint GSC</div>
+          </div>
+          <span class="p-chip blue" style="font-size:11px">Híbrida</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 23%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.3%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 24 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 8g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Sabor dulce frutal · muy aromática</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Jack Herer (NUEVA) -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">⚡</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Jack Herer</div>
+            <div style="font-size:11px;color:var(--text-muted)">NL #5 × Shiva Skunk × Haze</div>
+          </div>
+          <span class="p-chip gold" style="font-size:11px">Sativa</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 18%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.4%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 19 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 11g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Clásica · efecto cerebral y relajante</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+      <!-- Purple Kush (NUEVA) -->
+      <div class="d-section" style="margin-bottom:0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:28px">🍇</span>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:800">Purple Kush <span class="p-chip muted" style="font-size:10px;vertical-align:middle">Alta demanda</span></div>
+            <div style="font-size:11px;color:var(--text-muted)">Hindu Kush × Purple Afghani</div>
+          </div>
+          <span class="p-chip green" style="font-size:11px">Indica</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="p-chip muted" style="font-size:11px">THC 20%</span>
+          <span class="p-chip muted" style="font-size:11px">CBD 0.1%</span>
+          <span class="p-chip gold" style="font-size:11px">🪙 22 tok/g</span>
+          <span class="p-chip ok" style="font-size:11px">Stock: 7g</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Aroma a uva · muy relajante · alta demanda</div>
+        <div style="display:flex;gap:8px">
+          <button class="p-btn small ghost" style="font-size:11px;flex:1" data-goto="admin-catalogo-detalle">✏️ Editar</button>
+          <button class="p-btn small primary" style="font-size:11px;flex:1" onclick="this.textContent='✓ Solicitado';this.disabled=true">📦 Restock</button>
+        </div>
+      </div>
+
+    </div>
+
     <!-- Tabla editable -->
     <div class="d-section">
       <div class="d-section-h">
-        <div class="d-section-title">Cepas de hoy</div>
+        <div class="d-section-title">Edición rápida de precios y stock</div>
         <span style="font-size:12px;color:var(--text-muted)">Editá directo en la tabla → Publicar cambios</span>
       </div>
       <div class="d-table">
@@ -92,7 +332,7 @@
               <td><input type="number" value="20" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
               <td class="num" style="color:var(--text-muted)">$20.000</td>
               <td><span class="p-chip ok">● Publicado</span></td>
-              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🌟</span><strong>Super Lemon Haze</strong></div></td>
@@ -101,7 +341,7 @@
               <td><input type="number" value="18" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
               <td class="num" style="color:var(--text-muted)">$18.000</td>
               <td><span class="p-chip ok">● Publicado</span></td>
-              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🦍</span><strong>Gorilla Glue #4</strong></div></td>
@@ -109,8 +349,8 @@
               <td><input type="number" value="5" style="width:60px;padding:5px 8px;border:1.5px solid var(--danger);border-radius:8px;font-size:13px;font-weight:700"></td>
               <td><input type="number" value="22" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
               <td class="num" style="color:var(--text-muted)">$22.000</td>
-              <td><span class="p-chip ok">● Publicado</span></td>
-              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+              <td><span class="p-chip warn">⚠️ Stock bajo</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">💙</span><strong>Blue Dream</strong></div></td>
@@ -119,7 +359,7 @@
               <td><input type="number" value="20" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
               <td class="num" style="color:var(--text-muted)">$20.000</td>
               <td><span class="p-chip ok">● Publicado</span></td>
-              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
             </tr>
             <tr>
               <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🎂</span><strong>Wedding Cake</strong></div></td>
@@ -127,8 +367,53 @@
               <td><input type="number" value="3" style="width:60px;padding:5px 8px;border:1.5px solid var(--danger);border-radius:8px;font-size:13px;font-weight:700"></td>
               <td><input type="number" value="25" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
               <td class="num" style="color:var(--text-muted)">$25.000</td>
-              <td><span class="p-chip warn">⚠️ Stock bajo</span></td>
-              <td><button class="p-btn small danger" style="font-size:11px">Bajar</button></td>
+              <td><span class="p-chip danger">⚠️ Stock crítico</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🌀</span><strong>Amnesia Haze</strong></div></td>
+              <td><span class="p-chip gold">Sativa</span></td>
+              <td><input type="number" value="15" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="20" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$20.000</td>
+              <td><span class="p-chip ok">🆕 Nuevo lote</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🌌</span><strong>Northern Lights</strong></div></td>
+              <td><span class="p-chip green">Indica</span></td>
+              <td><input type="number" value="20" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="18" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$18.000</td>
+              <td><span class="p-chip ok">● Publicado</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🍦</span><strong>Gelato</strong></div></td>
+              <td><span class="p-chip blue">Híbrida</span></td>
+              <td><input type="number" value="8" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="24" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$24.000</td>
+              <td><span class="p-chip gold">Premium</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">⚡</span><strong>Jack Herer</strong></div></td>
+              <td><span class="p-chip gold">Sativa</span></td>
+              <td><input type="number" value="11" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="19" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$19.000</td>
+              <td><span class="p-chip ok">● Publicado</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🍇</span><strong>Purple Kush</strong></div></td>
+              <td><span class="p-chip green">Indica</span></td>
+              <td><input type="number" value="7" style="width:60px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:700"></td>
+              <td><input type="number" value="22" style="width:60px;padding:5px 8px;border:1.5px solid var(--gold);border-radius:8px;font-size:13px;font-weight:700;color:var(--gold-dark)"></td>
+              <td class="num" style="color:var(--text-muted)">$22.000</td>
+              <td><span class="p-chip ok">Alta demanda</span></td>
+              <td style="display:flex;gap:4px"><button class="p-btn small ghost" style="font-size:11px" data-goto="admin-catalogo-detalle">Ver →</button><button class="p-btn small danger" style="font-size:11px" onclick="var b=this;b.disabled=true;var t=b.textContent;b.textContent='⏳ Procesando…';setTimeout(function(){b.textContent='✓ Listo';b.style.opacity='0.7';},800)">Bajar</button></td>
             </tr>
           </tbody>
         </table>

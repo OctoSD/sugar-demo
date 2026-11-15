@@ -1,0 +1,207 @@
+<style>
+.d-shell { background: #070C07; }
+.d-sidebar { background: #0A1208; border-right: 1px solid #1A2E1A; }
+.d-sidebar-brand-text { color: white; }
+.d-sidebar-brand-sub { color: #3A6B4A; font-size: 11px; }
+.d-sidebar-link { color: #7AAE8F; }
+.d-sidebar-link:hover { background: #152B1E; color: #A8D5B8; }
+.d-sidebar-link.active { background: #1B4332; color: white; }
+.d-sidebar-sec { color: #3A6B4A; }
+.d-sidebar-user { border-top-color: #1A2E1A; }
+.d-main { background: #F3F7F4; }
+.c-cepa-row {
+  background: white;
+  border: 1px solid #E2E8E2;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.c-cepa-row:hover { border-color: #52B788; }
+.c-cepa-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+}
+.c-cepa-name { font-size: 14px; font-weight: 800; color: #0A0F0A; }
+.c-cepa-meta { font-size: 12px; color: #64748B; margin-top: 1px; }
+.c-cepa-arrow { font-size: 11px; color: #94A3B8; margin-left: auto; transition: transform .2s; }
+.c-cepa-row.open .c-cepa-arrow { transform: rotate(90deg); }
+.c-cepa-body { display: none; padding: 0 18px 18px; border-top: 1px solid #F1F5F1; }
+.c-cepa-row.open .c-cepa-body { display: block; }
+.c-detail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding-top: 14px; margin-bottom: 14px; }
+.c-dg-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #94A3B8; }
+.c-dg-val { font-size: 13px; font-weight: 700; color: #0A0F0A; margin-top: 3px; }
+.c-tag-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.c-tag { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 11px; font-weight: 600; padding: 2px 10px; }
+</style>
+
+<div class="d-shell">
+  <aside class="d-sidebar">
+    <div class="d-sidebar-brand" style="display:flex;align-items:center;gap:8px;padding:0 8px 20px;border-bottom:1px solid #1A2E1A;margin-bottom:10px">
+      <div class="d-sidebar-brand-logo" style="font-size:18px;background:linear-gradient(135deg,#1B4332,#2D6A4F)">🌱</div>
+      <div>
+        <div class="d-sidebar-brand-text">Cultivo</div>
+        <div class="d-sidebar-brand-sub">Portal de cultivo</div>
+      </div>
+    </div>
+    <div class="d-sidebar-sec">Producción</div>
+    <div class="d-sidebar-link" data-goto="cultivo-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-cultivos"><span>🌱</span><span>Cultivos</span></div>
+    <div class="d-sidebar-link active"><span>🌿</span><span>Plantas & Cepas</span></div>
+    <div class="d-sidebar-link" data-goto="cultivo-solicitudes"><span>📦</span><span>Despachos</span></div>
+    <div class="d-sidebar-sec">Sistema</div>
+    <div class="d-sidebar-user">
+      <div class="p-avatar mint sm">RM</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:white">Rodrigo M.</div>
+        <div style="font-size:11px;color:#3A6B4A">Cultivador</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="d-main">
+    <div class="d-topbar">
+      <div>
+        <div class="d-page-title">Plantas & Cepas</div>
+        <div class="d-page-sub">4 cepas registradas · catálogo genético</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="p-btn small primary" data-goto="cultivo-cepa-nueva">+ Nueva cepa</button>
+      </div>
+    </div>
+
+    <!-- OG Kush -->
+    <div class="c-cepa-row" id="cp-1">
+      <div class="c-cepa-header" onclick="document.getElementById('cp-1').classList.toggle('open')">
+        <span class="p-chip gold" style="flex-shrink:0;font-size:11px">Indica</span>
+        <div>
+          <div class="c-cepa-name">OG Kush</div>
+          <div class="c-cepa-meta">3 cultivos históricos · 1 activo ahora</div>
+        </div>
+        <span class="c-cepa-arrow">▶</span>
+      </div>
+      <div class="c-cepa-body">
+        <div class="c-detail-grid">
+          <div><div class="c-dg-label">Genética</div><div class="c-dg-val">ChemDawg × Hindu Kush</div></div>
+          <div><div class="c-dg-label">THC estimado</div><div class="c-dg-val">~22%</div></div>
+          <div><div class="c-dg-label">CBD estimado</div><div class="c-dg-val">~0.3%</div></div>
+          <div><div class="c-dg-label">Ciclo flor.</div><div class="c-dg-val">8 semanas</div></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em">Efectos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Relajante</span><span class="c-tag">Eufórico</span><span class="c-tag">Somnífero</span>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-top:10px">Terpenos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Mirceno</span><span class="c-tag">Limoneno</span><span class="c-tag">Cariofileno</span>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="p-btn small ghost" data-goto="cultivo-cultivos">Ver cultivos →</button>
+          <button class="p-btn small primary" data-goto="cultivo-cultivo-nuevo">+ Nuevo cultivo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gorilla Glue #4 -->
+    <div class="c-cepa-row" id="cp-2">
+      <div class="c-cepa-header" onclick="document.getElementById('cp-2').classList.toggle('open')">
+        <span class="p-chip info" style="flex-shrink:0;font-size:11px">Híbrida</span>
+        <div>
+          <div class="c-cepa-name">Gorilla Glue #4</div>
+          <div class="c-cepa-meta">1 cultivo histórico · 1 activo ahora</div>
+        </div>
+        <span class="c-cepa-arrow">▶</span>
+      </div>
+      <div class="c-cepa-body">
+        <div class="c-detail-grid">
+          <div><div class="c-dg-label">Genética</div><div class="c-dg-val">Chem Sister × Chocolate Diesel</div></div>
+          <div><div class="c-dg-label">THC estimado</div><div class="c-dg-val">~26%</div></div>
+          <div><div class="c-dg-label">CBD estimado</div><div class="c-dg-val">~0.1%</div></div>
+          <div><div class="c-dg-label">Ciclo flor.</div><div class="c-dg-val">9 semanas</div></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em">Efectos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Pegador</span><span class="c-tag">Feliz</span><span class="c-tag">Hambriento</span>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-top:10px">Terpenos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Cariofileno</span><span class="c-tag">Mirceno</span><span class="c-tag">Humuleno</span>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="p-btn small ghost" data-goto="cultivo-cultivos">Ver cultivos →</button>
+          <button class="p-btn small primary" data-goto="cultivo-cultivo-nuevo">+ Nuevo cultivo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blue Dream -->
+    <div class="c-cepa-row" id="cp-3">
+      <div class="c-cepa-header" onclick="document.getElementById('cp-3').classList.toggle('open')">
+        <span class="p-chip ok" style="flex-shrink:0;font-size:11px">Sativa</span>
+        <div>
+          <div class="c-cepa-name">Blue Dream</div>
+          <div class="c-cepa-meta">2 cultivos históricos · 1 activo ahora (lista)</div>
+        </div>
+        <span class="c-cepa-arrow">▶</span>
+      </div>
+      <div class="c-cepa-body">
+        <div class="c-detail-grid">
+          <div><div class="c-dg-label">Genética</div><div class="c-dg-val">Blueberry × Haze</div></div>
+          <div><div class="c-dg-label">THC estimado</div><div class="c-dg-val">~20%</div></div>
+          <div><div class="c-dg-label">CBD estimado</div><div class="c-dg-val">~0.5%</div></div>
+          <div><div class="c-dg-label">Ciclo flor.</div><div class="c-dg-val">9 semanas</div></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em">Efectos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Creativo</span><span class="c-tag">Energético</span><span class="c-tag">Eufórico</span>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-top:10px">Terpenos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Mirceno</span><span class="c-tag">Pineno</span><span class="c-tag">Cariofileno</span>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="p-btn small ghost" data-goto="cultivo-cultivos">Ver cultivos →</button>
+          <button class="p-btn small primary" data-goto="cultivo-cultivo-nuevo">+ Nuevo cultivo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wedding Cake -->
+    <div class="c-cepa-row" id="cp-4" style="margin-bottom:0">
+      <div class="c-cepa-header" onclick="document.getElementById('cp-4').classList.toggle('open')">
+        <span class="p-chip muted" style="flex-shrink:0;font-size:11px">Híbrida</span>
+        <div>
+          <div class="c-cepa-name">Wedding Cake</div>
+          <div class="c-cepa-meta">1 cultivo activo · seedling sem 2</div>
+        </div>
+        <span class="c-cepa-arrow">▶</span>
+      </div>
+      <div class="c-cepa-body">
+        <div class="c-detail-grid">
+          <div><div class="c-dg-label">Genética</div><div class="c-dg-val">GSC × Cherry Pie</div></div>
+          <div><div class="c-dg-label">THC estimado</div><div class="c-dg-val">~24%</div></div>
+          <div><div class="c-dg-label">CBD estimado</div><div class="c-dg-val">~0.2%</div></div>
+          <div><div class="c-dg-label">Ciclo flor.</div><div class="c-dg-val">8 semanas</div></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em">Efectos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Relajante</span><span class="c-tag">Feliz</span><span class="c-tag">Eufórico</span>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-top:10px">Terpenos</div>
+        <div class="c-tag-list">
+          <span class="c-tag">Limoneno</span><span class="c-tag">Cariofileno</span><span class="c-tag">Linalool</span>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="p-btn small ghost" data-goto="cultivo-cultivos">Ver cultivos →</button>
+          <button class="p-btn small primary" data-goto="cultivo-cultivo-nuevo">+ Nuevo cultivo</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-bottom:24px"></div>
+  </main>
+</div>
