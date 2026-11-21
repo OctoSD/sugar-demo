@@ -35,16 +35,16 @@
   <aside class="f-sidebar">
     <div class="f-sidebar-brand">
       <div class="f-sidebar-logo">⬡</div>
-      <div class="f-sidebar-title">FECCA</div>
+      <div class="f-sidebar-title">Federación</div>
       <div class="f-sidebar-sub">Panel de la federación</div>
     </div>
     <div class="f-sidebar-sec">Red</div>
-    <div class="f-sidebar-link" data-goto="fecca-dashboard"><span>📊</span><span>Dashboard</span></div>
-    <div class="f-sidebar-link active" data-goto="fecca-clubes"><span>🌐</span><span>Clubes</span></div>
+    <div class="f-sidebar-link" data-goto="red-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="f-sidebar-link active" data-goto="red-clubes"><span>🌐</span><span>Clubes</span></div>
     <div class="f-sidebar-sec">Gestión</div>
-    <div class="f-sidebar-link" data-goto="fecca-beneficios"><span>🎁</span><span>Beneficios</span></div>
-    <div class="f-sidebar-link" data-goto="fecca-eventos"><span>🎪</span><span>Eventos</span></div>
-    <div class="f-sidebar-footer">fecca.com.ar</div>
+    <div class="f-sidebar-link" data-goto="red-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="f-sidebar-link" data-goto="red-eventos"><span>🎪</span><span>Eventos</span></div>
+    <div class="f-sidebar-footer">redclubes.ar</div>
   </aside>
 
   <main class="f-main">
@@ -151,7 +151,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr style="cursor:pointer" onclick="verClub('sugar')" data-goto="fecca-club-detalle">
+            <tr style="cursor:pointer" onclick="verClub('sugar')" data-goto="red-club-detalle">
               <td style="padding:11px 16px;font-size:12px;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(245,158,11,0.06)">#0047</td>
               <td style="padding:11px 16px;border-bottom:1px solid rgba(245,158,11,0.06)"><span style="font-size:13px;font-weight:700;color:white">Club Sugar</span> <span style="font-size:10px;color:#F59E0B">★ Demo</span></td>
               <td style="padding:11px 16px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(245,158,11,0.06)">CABA</td>
@@ -160,7 +160,7 @@
               <td style="padding:11px 16px;border-bottom:1px solid rgba(245,158,11,0.06)"><span class="f-chip-green">Sugar ✓</span></td>
               <td style="padding:11px 16px;border-bottom:1px solid rgba(245,158,11,0.06)"><span class="f-chip-gold">Verificado ✓</span></td>
               <td style="padding:11px 16px;font-size:12px;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(245,158,11,0.06)">oct 2026</td>
-              <td style="padding:11px 16px;border-bottom:1px solid rgba(245,158,11,0.06)"><button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px" data-goto="fecca-club-detalle" onclick="event.stopPropagation(); verClub('sugar')">Ver →</button></td>
+              <td style="padding:11px 16px;border-bottom:1px solid rgba(245,158,11,0.06)"><button class="f-btn f-btn-ghost" style="font-size:11px;padding:5px 10px" data-goto="red-club-detalle" onclick="event.stopPropagation(); verClub('sugar')">Ver →</button></td>
             </tr>
             <tr style="cursor:pointer" onclick="verClub('verde')">
               <td style="padding:11px 16px;font-size:12px;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(245,158,11,0.06)">#0003</td>
@@ -296,7 +296,7 @@
       <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
         <div>
           <div style="font-size:14px;font-weight:700;color:#F59E0B;margin-bottom:4px">🚀 13 clubes sin sistema de gestión</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5)">Son candidatos ideales para Sugar. Enviá una invitación directamente desde FECCA.</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5)">Son candidatos ideales para Sugar. Enviá una invitación directamente desde Federación.</div>
         </div>
         <button class="f-btn f-btn-primary" style="flex-shrink:0;margin-left:20px" onclick="this.textContent='✓ Invitaciones enviadas';this.disabled=true">📧 Invitar a Sugar →</button>
       </div>
@@ -495,8 +495,8 @@
 
 <script>
 function verClub(id) {
-  window.FECCA_CLUB = id;
-  goTo('fecca-club-detalle');
+  window.RED_CLUB = id;
+  goTo('red-club-detalle');
 }
 function switchClubTab(tab) {
   ['clubes','eventos'].forEach(t => {

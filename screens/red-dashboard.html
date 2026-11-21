@@ -1,5 +1,5 @@
 <style>
-/* FECCA portal amber overrides on top of main style.css */
+/* Federación portal amber overrides on top of main style.css */
 .f-shell { display:flex; height:100vh; overflow:hidden; background:#060A06; }
 .f-sidebar { width:220px; min-width:220px; background:#0C1008; border-right:1px solid rgba(245,158,11,0.15); display:flex; flex-direction:column; overflow-y:auto; }
 .f-sidebar-brand { padding:20px 16px 16px; border-bottom:1px solid rgba(245,158,11,0.12); }
@@ -46,22 +46,22 @@
   <aside class="f-sidebar">
     <div class="f-sidebar-brand">
       <div class="f-sidebar-logo">⬡</div>
-      <div class="f-sidebar-title">FECCA</div>
+      <div class="f-sidebar-title">Federación</div>
       <div class="f-sidebar-sub">Panel de la federación</div>
     </div>
     <div class="f-sidebar-sec">Red</div>
-    <div class="f-sidebar-link active" data-goto="fecca-dashboard"><span>📊</span><span>Dashboard</span></div>
-    <div class="f-sidebar-link" data-goto="fecca-clubes"><span>🌐</span><span>Clubes</span></div>
+    <div class="f-sidebar-link active" data-goto="red-dashboard"><span>📊</span><span>Dashboard</span></div>
+    <div class="f-sidebar-link" data-goto="red-clubes"><span>🌐</span><span>Clubes</span></div>
     <div class="f-sidebar-sec">Gestión</div>
-    <div class="f-sidebar-link" data-goto="fecca-beneficios"><span>🎁</span><span>Beneficios</span></div>
-    <div class="f-sidebar-link" data-goto="fecca-eventos"><span>🎪</span><span>Eventos</span></div>
-    <div class="f-sidebar-footer">Federación de Clubes Cannábicos de Argentina · fecca.com.ar</div>
+    <div class="f-sidebar-link" data-goto="red-beneficios"><span>🎁</span><span>Beneficios</span></div>
+    <div class="f-sidebar-link" data-goto="red-eventos"><span>🎪</span><span>Eventos</span></div>
+    <div class="f-sidebar-footer">Federación de Clubes · redclubes.ar</div>
   </aside>
 
   <main class="f-main">
     <div class="f-topbar">
       <div>
-        <div class="f-page-title">⬡ Panel FECCA — Red de Clubes</div>
+        <div class="f-page-title">⬡ Panel Federación — Red de Clubes</div>
         <div class="f-page-sub">Métricas de noviembre 2026 · 47 clubes afiliados</div>
       </div>
       <div style="display:flex;gap:10px;align-items:center">
@@ -218,9 +218,9 @@
           <div class="f-section" style="margin-bottom:0;padding:14px 16px">
             <div class="f-section-title" style="margin-bottom:10px">Gestión rápida</div>
             <div style="display:flex;flex-direction:column;gap:7px">
-              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="fecca-clubes">🌐 Ver todos los clubes</div>
-              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="fecca-beneficios">🎁 Gestionar alianzas</div>
-              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="fecca-eventos">🎪 Crear evento federado</div>
+              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="red-clubes">🌐 Ver todos los clubes</div>
+              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="red-beneficios">🎁 Gestionar alianzas</div>
+              <div class="f-sidebar-link" style="border-radius:8px;padding:8px 12px;border:1px solid rgba(245,158,11,0.15)" data-goto="red-eventos">🎪 Crear evento federado</div>
             </div>
           </div>
         </div>
@@ -298,7 +298,7 @@
 
       <!-- Footer -->
       <div style="text-align:center;padding:16px;font-size:11px;color:rgba(255,255,255,0.2)">
-        Powered by <strong style="color:rgba(245,158,11,0.5)">Sugar × FECCA</strong> · Datos de la red en tiempo real
+        Powered by <strong style="color:rgba(245,158,11,0.5)">Sugar × Federación</strong> · Datos de la red en tiempo real
       </div>
 
     </div>
@@ -307,7 +307,7 @@
 
 <script>
 function verClub(id) {
-  window.FECCA_CLUB = id;
-  goTo('fecca-club-detalle');
+  window.RED_CLUB = id;
+  goTo('red-club-detalle');
 }
 </script>

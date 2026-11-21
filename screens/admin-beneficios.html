@@ -5,7 +5,7 @@
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
         <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
-        <div style="margin-top:5px"><span style="font-size:9px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:800">⬡ FECCA #0047</span></div>
+        <div style="margin-top:5px"><span style="font-size:9px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:800">⬡ Federación #0047</span></div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -19,7 +19,7 @@
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
     <div class="d-sidebar-link active"><span>🎁</span><span>Beneficios</span></div>
-    <div class="d-sidebar-link" data-goto="admin-fecca"><span>⬡</span><span>FECCA</span></div>
+    <div class="d-sidebar-link" data-goto="admin-red"><span>⬡</span><span>Federación</span></div>
     <div class="d-sidebar-sec">Supply Chain</div>
     <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
@@ -43,7 +43,7 @@
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Beneficios del club</div>
-        <div class="d-page-sub">Club Sugar · beneficios propios + alianzas Red FECCA</div>
+        <div class="d-page-sub">Club Sugar · beneficios propios + alianzas Red de Clubes</div>
       </div>
       <button class="p-btn small primary" onclick="document.getElementById('modal-nuevo').style.display='flex'">+ Nuevo beneficio</button>
     </div>
@@ -51,7 +51,7 @@
     <!-- Tabs -->
     <div style="border-bottom:1px solid var(--border);display:flex;gap:0;margin-bottom:0">
       <div id="tab-btn-club" onclick="switchTab('club')" style="padding:12px 20px;font-size:13px;font-weight:700;color:var(--accent);border-bottom:2px solid var(--accent);cursor:pointer">Mi club <span style="font-size:11px;background:rgba(82,183,136,0.15);color:var(--accent);padding:1px 6px;border-radius:100px;margin-left:4px">2</span></div>
-      <div id="tab-btn-fecca" onclick="switchTab('fecca')" style="padding:12px 20px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.4);border-bottom:2px solid transparent;cursor:pointer;display:flex;align-items:center;gap:6px">Red FECCA <span style="font-size:11px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:1px 6px;border-radius:100px;font-weight:800">19</span></div>
+      <div id="tab-btn-red" onclick="switchTab('red')" style="padding:12px 20px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.4);border-bottom:2px solid transparent;cursor:pointer;display:flex;align-items:center;gap:6px">Red de Clubes <span style="font-size:11px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:1px 6px;border-radius:100px;font-weight:800">19</span></div>
     </div>
 
     <!-- Tab Mi club -->
@@ -107,7 +107,7 @@
               </td>
               <td style="padding:14px 12px;font-size:13px;color:var(--text-muted)">1ª consulta médica gratis</td>
               <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:var(--accent)">gratis</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(82,183,136,0.1);padding:3px 8px;border-radius:6px;color:var(--accent)">FECCAMED</code></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(82,183,136,0.1);padding:3px 8px;border-radius:6px;color:var(--accent)">REDMED</code></td>
               <td style="padding:14px 12px;text-align:center"><span class="p-chip ok">Activo</span></td>
               <td style="padding:14px 18px;text-align:right">
                 <div style="display:flex;gap:6px;justify-content:flex-end">
@@ -128,14 +128,14 @@
 
     </div>
 
-    <!-- Tab Red FECCA -->
-    <div id="tab-fecca" style="display:none;padding:20px 0">
+    <!-- Tab Red de Clubes -->
+    <div id="tab-red" style="display:none;padding:20px 0">
 
       <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
         <span style="font-size:22px">⬡</span>
         <div style="flex:1">
-          <div style="font-size:13px;font-weight:700;color:#F59E0B">19 alianzas comerciales activas · Red FECCA</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Beneficios negociados por FECCA para todos los socios de los 47 clubes afiliados. Solo lectura — gestionados desde el <button onclick="goTo('fecca-beneficios')" style="background:none;border:none;color:#F59E0B;font-size:12px;cursor:pointer;padding:0;font-weight:600">panel FECCA →</button></div>
+          <div style="font-size:13px;font-weight:700;color:#F59E0B">19 alianzas comerciales activas · Red de Clubes</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Beneficios negociados por Federación para todos los socios de los 47 clubes afiliados. Solo lectura — gestionados desde el <button onclick="goTo('red-beneficios')" style="background:none;border:none;color:#F59E0B;font-size:12px;cursor:pointer;padding:0;font-weight:600">panel Federación →</button></div>
         </div>
       </div>
 
@@ -171,7 +171,7 @@
               </td>
               <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">15% en insumos de cultivo</td>
               <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">15%</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA15</code></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED15</code></td>
               <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Suministros</span></td>
               <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">31 dic 2026</td>
             </tr>
@@ -184,7 +184,7 @@
               </td>
               <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">1ª consulta médica gratis</td>
               <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:#F59E0B">gratis</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA-MED</code></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED-MED</code></td>
               <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Salud</span></td>
               <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">28 feb 2027</td>
             </tr>
@@ -197,7 +197,7 @@
               </td>
               <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">20% en ropa y accesorios</td>
               <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">20%</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA20</code></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED20</code></td>
               <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Otros</span></td>
               <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">28 feb 2027</td>
             </tr>
@@ -210,7 +210,7 @@
               </td>
               <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">Consulta legal gratuita</td>
               <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:#F59E0B">gratis</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA-LEG</code></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED-LEG</code></td>
               <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Legal</span></td>
               <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">30 jun 2027</td>
             </tr>
@@ -223,13 +223,13 @@
               </td>
               <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">10% en suplementos naturales</td>
               <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">10%</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">FECCA10</code></td>
+              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED10</code></td>
               <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Salud</span></td>
               <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">31 mar 2027</td>
             </tr>
             <tr>
               <td colspan="6" style="padding:14px 18px;text-align:center;font-size:12px;color:rgba(255,255,255,0.3)">
-                + 14 alianzas más disponibles · <a onclick="goTo('fecca-beneficios')" style="color:#F59E0B;cursor:pointer;text-decoration:none;font-weight:600">Ver todas en el panel FECCA →</a>
+                + 14 alianzas más disponibles · <a onclick="goTo('red-beneficios')" style="color:#F59E0B;cursor:pointer;text-decoration:none;font-weight:600">Ver todas en el panel Federación →</a>
               </td>
             </tr>
           </tbody>
@@ -280,17 +280,17 @@
 function switchTab(tab) {
   const isClub = tab === 'club';
   document.getElementById('tab-club').style.display = isClub ? '' : 'none';
-  document.getElementById('tab-fecca').style.display = isClub ? 'none' : '';
+  document.getElementById('tab-red').style.display = isClub ? 'none' : '';
   const btnClub = document.getElementById('tab-btn-club');
-  const btnFecca = document.getElementById('tab-btn-fecca');
+  const btnFed = document.getElementById('tab-btn-red');
   if (isClub) {
     btnClub.style.color = 'var(--accent)';
     btnClub.style.borderBottomColor = 'var(--accent)';
-    btnFecca.style.color = 'rgba(255,255,255,0.4)';
-    btnFecca.style.borderBottomColor = 'transparent';
+    btnFed.style.color = 'rgba(255,255,255,0.4)';
+    btnFed.style.borderBottomColor = 'transparent';
   } else {
-    btnFecca.style.color = '#F59E0B';
-    btnFecca.style.borderBottomColor = '#F59E0B';
+    btnFed.style.color = '#F59E0B';
+    btnFed.style.borderBottomColor = '#F59E0B';
     btnClub.style.color = 'rgba(255,255,255,0.4)';
     btnClub.style.borderBottomColor = 'transparent';
   }

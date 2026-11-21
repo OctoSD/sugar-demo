@@ -1,7 +1,7 @@
 const SCREENS = [
   'admin-dashboard', 'admin-catalogo', 'admin-pedidos', 'admin-socios',
   'admin-admision', 'admin-tokens', 'admin-eventos', 'admin-membresias',
-  'admin-beneficios', 'admin-fecca', 'admin-staff', 'admin-rrhh', 'admin-cultivo',
+  'admin-beneficios', 'admin-red', 'admin-staff', 'admin-rrhh', 'admin-cultivo',
   'admin-reportes', 'admin-config', 'admin-socio-perfil', 'admin-qr-scanner'
 ];
 
