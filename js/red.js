@@ -57,7 +57,7 @@ function showLogin() {
   const err   = document.getElementById('red-err');
 
   function tryLogin() {
-    if (input.value === 'redclub26') {
+    if (input.value === 'redclub-2026-539ba') {
       sessionStorage.setItem('red-auth', '1');
       const hash = location.hash.replace('#', '');
       goTo(SCREENS.includes(hash) ? hash : 'red-dashboard');
