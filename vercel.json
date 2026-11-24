@@ -1,3 +1,7 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/$1" }]
+  "redirects": [
+    { "source": "/red.html", "destination": "/", "permanent": false },
+    { "source": "/screens/red-:rest*", "destination": "/", "permanent": false },
+    { "source": "/screens/admin-red-:rest*", "destination": "/admin.html", "permanent": false }
+  ]
 }
