@@ -10,7 +10,6 @@
   <div class="p-tabs">
     <div class="p-tab active-tab" data-tab-group="eventos" data-tab-target="proximos">Mi club</div>
     <div class="p-tab" data-tab-group="eventos" data-tab-target="pases">Mis pases</div>
-    <div class="p-tab" data-tab-group="eventos" data-tab-target="red" style="display:flex;align-items:center;gap:5px">Red de Clubes <span style="font-size:10px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:1px 5px;border-radius:100px;font-weight:800">⬡</span></div>
   </div>
 
   <!-- Tab Próximos -->
@@ -61,98 +60,6 @@
       </div>
     </div>
 
-  </div>
-
-  <!-- Tab Red de Clubes -->
-  <div data-tab-pane="eventos" data-tab-id="red" style="display:none">
-
-    <!-- Badge afiliado -->
-    <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:14px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
-      <span style="font-size:22px">⬡</span>
-      <div>
-        <div style="font-size:13px;font-weight:700;color:#F59E0B">Club Sugar · Afiliado Federación</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.5)">Accedés a eventos de toda la red cannábica de Argentina</div>
-      </div>
-    </div>
-
-    <!-- Expo Cannabis 2027 -->
-    <div class="event-card" style="border:1.5px solid rgba(245,158,11,0.3);background:rgba(245,158,11,0.04)">
-      <div class="event-card-top">
-        <div>
-          <div class="event-card-name">🎪 Expo Cannabis 2027</div>
-          <div class="event-card-meta">📍 La Rural · 15–17 mar 2027</div>
-        </div>
-        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">⬡ Federación</span>
-      </div>
-      <div class="event-card-desc">La feria más grande del sector en Argentina. Entrada libre para todos los socios activos de clubes Federación.</div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span class="p-chip mint">🎟️ Entrada libre para socios</span>
-        <button class="p-btn small primary" data-goto="socio-evento">Ver evento →</button>
-      </div>
-    </div>
-
-    <!-- Jornada REPROCANN -->
-    <div class="event-card" style="border:1px solid rgba(245,158,11,0.2)">
-      <div class="event-card-top">
-        <div>
-          <div class="event-card-name">📋 Jornada REPROCANN</div>
-          <div class="event-card-meta">💻 Online · Jue 28 nov · 18:00hs</div>
-        </div>
-        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">⬡ Federación</span>
-      </div>
-      <div class="event-card-desc">Compliance y novedades normativas REPROCANN. Acceso libre por Zoom para todos los socios de clubes afiliados.</div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span class="p-chip muted">💻 Online · 1.145 inscriptos</span>
-        <button class="p-btn small accent" data-goto="socio-evento">Ver evento →</button>
-      </div>
-    </div>
-
-    <!-- Encuentro de clubes -->
-    <div class="event-card" style="border:1px solid rgba(245,158,11,0.2)">
-      <div class="event-card-top">
-        <div>
-          <div class="event-card-name">🤝 Encuentro de Clubes</div>
-          <div class="event-card-meta">📍 Sede Federación · 14 feb 2027</div>
-        </div>
-        <span style="background:rgba(245,158,11,0.15);color:#F59E0B;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0">⬡ Federación</span>
-      </div>
-      <div class="event-card-desc">Networking entre admins y presidentes de clubes de toda la red. Exclusivo para miembros de clubes afiliados.</div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span class="p-chip muted">🏠 Solo para admins del club</span>
-        <button class="p-btn small ghost" style="opacity:0.5" onclick="var b=this;var t=b.textContent;b.textContent='🔒 Solo para admins';setTimeout(function(){b.textContent=t;},1800)">Solo admins</button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Tab Mis pases -->
-  <div data-tab-pane="eventos" data-tab-id="pases" style="display:none">
-    <div class="p-card" style="text-align:center">
-      <div style="font-size:14px;font-weight:700;margin-bottom:4px">🎶 La Grande</div>
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px">Vie 22 Nov · Dumont 40</div>
-      <span class="p-chip ok" style="margin-bottom:16px">Pase confirmado</span>
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Código: SGR-1042-X</div>
-      <div class="qr-box">
-        <div style="font-size:28px">▦</div>
-        <div>Código QR</div>
-      </div>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:12px">Mostrar en la puerta para ingresar</div>
-    </div>
-    <div class="p-card" style="margin-top:10px;text-align:center">
-      <div style="font-size:14px;font-weight:700;margin-bottom:4px">🥁 Bomba de Tiempo</div>
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px">Dom 30 Nov · C.C. Konex · 2×1</div>
-      <span class="p-chip ok" style="margin-bottom:16px">Pase 2×1 confirmado</span>
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Código: SGR-1042-Y</div>
-      <div class="qr-box">
-        <div style="font-size:28px">▦</div>
-        <div>Código QR</div>
-      </div>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:12px">Presentá para vos + 1 acompañante</div>
-    </div>
-    <div class="p-alert info" style="margin-top:14px">
-      <span>ℹ️</span>
-      <div>Presentá este código en la puerta del evento. Aplica para vos y acompañante (en caso de 2×1).</div>
-    </div>
   </div>
 
 </div>

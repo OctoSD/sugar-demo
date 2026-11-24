@@ -5,7 +5,6 @@
       <div>
         <div class="d-sidebar-brand-text">Sugar</div>
         <div class="d-sidebar-brand-sub">Admin · Club Sugar</div>
-        <div style="margin-top:5px"><span style="font-size:9px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:2px 6px;border-radius:100px;font-weight:800">⬡ Federación #0047</span></div>
       </div>
     </div>
     <div class="d-sidebar-sec">Operación</div>
@@ -19,7 +18,6 @@
     <div class="d-sidebar-sec">Comunidad</div>
     <div class="d-sidebar-link" data-goto="admin-eventos"><span>🎵</span><span>Eventos</span></div>
     <div class="d-sidebar-link active"><span>🎁</span><span>Beneficios</span></div>
-    <div class="d-sidebar-link" data-goto="admin-red"><span>⬡</span><span>Federación</span></div>
     <div class="d-sidebar-sec">Supply Chain</div>
     <div class="d-sidebar-link" data-goto="admin-cultivo"><span>🌱</span><span>Abastecimiento</span></div>
     <div class="d-sidebar-sec">Finanzas</div>
@@ -43,15 +41,14 @@
     <div class="d-topbar">
       <div>
         <div class="d-page-title">Beneficios del club</div>
-        <div class="d-page-sub">Club Sugar · beneficios propios + alianzas Red de Clubes</div>
+        <div class="d-page-sub">Club Sugar · alianzas comerciales del club</div>
       </div>
       <button class="p-btn small primary" onclick="document.getElementById('modal-nuevo').style.display='flex'">+ Nuevo beneficio</button>
     </div>
 
     <!-- Tabs -->
     <div style="border-bottom:1px solid var(--border);display:flex;gap:0;margin-bottom:0">
-      <div id="tab-btn-club" onclick="switchTab('club')" style="padding:12px 20px;font-size:13px;font-weight:700;color:var(--accent);border-bottom:2px solid var(--accent);cursor:pointer">Mi club <span style="font-size:11px;background:rgba(82,183,136,0.15);color:var(--accent);padding:1px 6px;border-radius:100px;margin-left:4px">2</span></div>
-      <div id="tab-btn-red" onclick="switchTab('red')" style="padding:12px 20px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.4);border-bottom:2px solid transparent;cursor:pointer;display:flex;align-items:center;gap:6px">Red de Clubes <span style="font-size:11px;background:rgba(245,158,11,0.2);color:#F59E0B;padding:1px 6px;border-radius:100px;font-weight:800">19</span></div>
+      <div id="tab-btn-club" style="padding:12px 20px;font-size:13px;font-weight:700;color:var(--accent);border-bottom:2px solid var(--accent)">Mi club <span style="font-size:11px;background:rgba(82,183,136,0.15);color:var(--accent);padding:1px 6px;border-radius:100px;margin-left:4px">2</span></div>
     </div>
 
     <!-- Tab Mi club -->
@@ -128,116 +125,6 @@
 
     </div>
 
-    <!-- Tab Red de Clubes -->
-    <div id="tab-red" style="display:none;padding:20px 0">
-
-      <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
-        <span style="font-size:22px">⬡</span>
-        <div style="flex:1">
-          <div style="font-size:13px;font-weight:700;color:#F59E0B">19 alianzas comerciales activas · Red de Clubes</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Beneficios negociados por Federación para todos los socios de los 47 clubes afiliados. Solo lectura — gestionados desde el <button onclick="goTo('red-beneficios')" style="background:none;border:none;color:#F59E0B;font-size:12px;cursor:pointer;padding:0;font-weight:600">panel Federación →</button></div>
-        </div>
-      </div>
-
-      <!-- Filter chips -->
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
-        <span class="filter-chip active" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(245,158,11,0.15);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);cursor:pointer;font-weight:600">Todas (19)</span>
-        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Suministros</span>
-        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Salud</span>
-        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Legal</span>
-        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Educación</span>
-        <span class="filter-chip" style="font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);cursor:pointer">Otros</span>
-      </div>
-
-      <div class="d-section">
-        <table style="width:100%;border-collapse:collapse">
-          <thead>
-            <tr style="border-bottom:1px solid rgba(245,158,11,0.1)">
-              <th style="padding:10px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Aliado</th>
-              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Beneficio</th>
-              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:center">Descuento</th>
-              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:center">Código</th>
-              <th style="padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Categoría</th>
-              <th style="padding:10px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,158,11,0.5);text-align:left">Vencimiento</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
-              <td style="padding:14px 18px">
-                <div style="display:flex;align-items:center;gap:10px">
-                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(34,197,94,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#22c55e;flex-shrink:0">GG</div>
-                  <div style="font-size:13px;font-weight:600;color:white">GreenGrow Hidroponía</div>
-                </div>
-              </td>
-              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">15% en insumos de cultivo</td>
-              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">15%</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED15</code></td>
-              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Suministros</span></td>
-              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">31 dic 2026</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
-              <td style="padding:14px 18px">
-                <div style="display:flex;align-items:center;gap:10px">
-                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#818cf8;flex-shrink:0">C4</div>
-                  <div style="font-size:13px;font-weight:600;color:white">Consultorio 420</div>
-                </div>
-              </td>
-              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">1ª consulta médica gratis</td>
-              <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:#F59E0B">gratis</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED-MED</code></td>
-              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Salud</span></td>
-              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">28 feb 2027</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
-              <td style="padding:14px 18px">
-                <div style="display:flex;align-items:center;gap:10px">
-                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(168,85,247,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#c084fc;flex-shrink:0">TM</div>
-                  <div style="font-size:13px;font-weight:600;color:white">TuMerch Cannabis</div>
-                </div>
-              </td>
-              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">20% en ropa y accesorios</td>
-              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">20%</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED20</code></td>
-              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Otros</span></td>
-              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">28 feb 2027</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
-              <td style="padding:14px 18px">
-                <div style="display:flex;align-items:center;gap:10px">
-                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(245,158,11,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#F59E0B;flex-shrink:0">VC</div>
-                  <div style="font-size:13px;font-weight:600;color:white">Verde Cannabis Legal</div>
-                </div>
-              </td>
-              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">Consulta legal gratuita</td>
-              <td style="padding:14px 12px;text-align:center"><span style="font-size:12px;font-weight:800;color:#F59E0B">gratis</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED-LEG</code></td>
-              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Legal</span></td>
-              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">30 jun 2027</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(245,158,11,0.07)">
-              <td style="padding:14px 18px">
-                <div style="display:flex;align-items:center;gap:10px">
-                  <div style="width:34px;height:34px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#86efac;flex-shrink:0">BH</div>
-                  <div style="font-size:13px;font-weight:600;color:white">BioHerbs Suplementos</div>
-                </div>
-              </td>
-              <td style="padding:14px 12px;font-size:13px;color:rgba(255,255,255,0.6)">10% en suplementos naturales</td>
-              <td style="padding:14px 12px;text-align:center"><span style="font-size:14px;font-weight:800;color:#F59E0B">10%</span></td>
-              <td style="padding:14px 12px;text-align:center"><code style="font-size:12px;font-weight:700;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;color:#F59E0B">RED10</code></td>
-              <td style="padding:14px 12px"><span style="font-size:11px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);padding:2px 8px;border-radius:100px">Salud</span></td>
-              <td style="padding:14px 18px;font-size:12px;color:rgba(255,255,255,0.4)">31 mar 2027</td>
-            </tr>
-            <tr>
-              <td colspan="6" style="padding:14px 18px;text-align:center;font-size:12px;color:rgba(255,255,255,0.3)">
-                + 14 alianzas más disponibles · <a onclick="goTo('red-beneficios')" style="color:#F59E0B;cursor:pointer;text-decoration:none;font-weight:600">Ver todas en el panel Federación →</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-
   </main>
 </div>
 
@@ -276,23 +163,6 @@
   </div>
 </div>
 
-<script>
-function switchTab(tab) {
-  const isClub = tab === 'club';
-  document.getElementById('tab-club').style.display = isClub ? '' : 'none';
-  document.getElementById('tab-red').style.display = isClub ? 'none' : '';
-  const btnClub = document.getElementById('tab-btn-club');
-  const btnFed = document.getElementById('tab-btn-red');
-  if (isClub) {
-    btnClub.style.color = 'var(--accent)';
-    btnClub.style.borderBottomColor = 'var(--accent)';
-    btnFed.style.color = 'rgba(255,255,255,0.4)';
-    btnFed.style.borderBottomColor = 'transparent';
-  } else {
-    btnFed.style.color = '#F59E0B';
-    btnFed.style.borderBottomColor = '#F59E0B';
-    btnClub.style.color = 'rgba(255,255,255,0.4)';
-    btnClub.style.borderBottomColor = 'transparent';
-  }
+
 }
 </script>
